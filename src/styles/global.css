@@ -1,0 +1,91 @@
+@font-face {
+  font-family: "Orator Std";
+  src: url("/assets/fonts/orator-std-medium.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Maax Mono";
+  src: url("/assets/fonts/MaaxMonoTrial-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Maax Mono";
+  src: url("/assets/fonts/MaaxMonoTrial-Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Maax Mono";
+  src: url("/assets/fonts/MaaxMonoTrial-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Maax Mono";
+  src: url("/assets/fonts/MaaxMonoTrial-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --jr-gron: rgb(80, 82, 40);
+  --jr-svart: rgb(0, 0, 0);
+  --jr-vit: rgb(255, 255, 255);
+  --jr-ljusgul: rgb(244, 213, 104);
+  --jr-ocra: rgb(211, 157, 28);
+  --jr-orostat: rgb(126, 151, 117);
+  --jr-brun: rgb(138, 92, 27);
+  --jr-morkrost: rgb(83, 48, 8);
+  --jr-franchese: rgb(43, 75, 88);
+  --jr-poabs-esp: rgb(255, 224, 18);
+  --jr-grande: rgb(58, 175, 156);
+  --jr-conejo: rgb(126, 151, 117);
+  --jr-poabs-bry: rgb(233, 89, 86);
+  --jr-mezzo: rgb(49, 145, 82);
+  --jr-gold: #f6d957;
+  --hr: #ffdd3d;
+  --font: "Maax Mono", "Courier New", monospace;
+  --font-display: "Orator Std", "Maax Mono", monospace;
+
+  --text-display: clamp(3rem, 11vw, 10rem);
+  --text-nav: 0.65rem;
+  --text-body: clamp(0.85rem, 1.2vw, 1rem);
+  --text-ui: 0.75rem;
+  --line-height: 1.5;
+
+  --weight-regular: 400;
+  --weight-bold: 700;
+  --letter-spacing-tight: -0.05em;
+
+  --space-sm: 0.5rem;
+  --space-lg: 2rem;
+
+  --opacity: 0.6;
+
+  --overlay-dark: rgba(0, 0, 0, 0.35);
+  --overlay-darker: rgba(0, 0, 0, 0.55);
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--jr-gron);
+  color: var(--jr-vit);
+}

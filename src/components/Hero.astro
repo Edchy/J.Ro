@@ -1,0 +1,73 @@
+---
+interface Props {
+  image: string;
+  title?: string;
+  titleColor?: string;
+  titleSize?: string;
+  bgPosition?: string;
+  overlay?: string;
+}
+
+const {
+  image,
+  title,
+  titleColor = "var(--jr-vit)",
+  titleSize = "var(--text-display)",
+  bgPosition = "center center",
+  overlay = "none",
+} = Astro.props;
+---
+
+<section class="hero">
+  <div class="bg"></div>
+  {
+    title && (
+      <div class="hero-content">
+        <h1>{title}</h1>
+      </div>
+    )
+  }
+</section>
+
+<style
+  define:vars={{ image: `url('${image}')`, titleColor, titleSize, bgPosition, overlay }}
+>
+  .hero {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bg {
+    position: absolute;
+    inset: 0;
+    background-image: var(--image);
+    background-size: cover;
+    background-position: var(--bgPosition);
+  }
+
+  .bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--overlay);
+  }
+
+  .hero-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: var(--titleSize);
+    color: var(--titleColor);
+    text-align: center;
+    white-space: nowrap;
+  }
+</style>

@@ -1,0 +1,105 @@
+---
+interface Props {
+  bg?: string;
+  textColor?: string;
+  accentColor?: string;
+}
+
+const {
+  bg = "var(--jr-ocra)",
+  textColor = "var(--jr-ljusgul)",
+  accentColor = "var(--jr-ljusgul)",
+} = Astro.props;
+---
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <span class="footer-logo">J.Ro</span>
+      <div class="footer-contact">
+        <p>info@jarnarosteri.se</p>
+        <p>070-840 13 65</p>
+        <p>Maskinvägen 5, 153 30 Järna</p>
+      </div>
+    </div>
+    <!-- <div class="footer-bottom">
+      <span>© 2026 Järna Røsteri</span>
+    </div> -->
+  </div>
+</footer>
+
+<style define:vars={{ bg, textColor, accentColor }}>
+  footer {
+    background: var(--bg);
+    color: var(--textColor);
+    width: 100%;
+    padding: var(--space-lg);
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 12rem;
+    padding-bottom: 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: var(--text-body);
+    font-size: var(--text-display);
+    color: var(--accentColor);
+    letter-spacing: var(--letter-spacing-tight);
+    letter-spacing: -1rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    transform: translateY(-0.1em);
+  }
+
+  .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    text-align: right;
+  }
+
+  .footer-contact p {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    line-height: var(--line-height);
+    color: var(--textColor);
+    text-transform: uppercase;
+  }
+  /*
+  .footer-bottom {
+    text-align: center;
+  }
+
+  .footer-bottom span {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--textColor);
+    opacity: 0.4;
+    text-transform: uppercase;
+  }*/
+
+  @media (max-width: 640px) {
+    .footer-top {
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    .footer-contact {
+      text-align: left;
+    }
+  }
+</style>

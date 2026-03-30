@@ -1,0 +1,86 @@
+---
+// V4 — franchese bg, logo stacked over horizontal contact row, tight and typographic
+---
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">J.Ro</span>
+    <div class="footer-contact">
+      <span>info@jarnarosteri.se</span>
+      <span class="sep">/</span>
+      <span>070-840 13 65</span>
+      <span class="sep">/</span>
+      <span>Maskinvägen 5, 153 30 Järna</span>
+    </div>
+    <span class="footer-copy">© 2026 Järna Røsteri</span>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: var(--jr-franchese);
+    color: var(--jr-vit);
+    width: 100%;
+    padding: var(--space-lg);
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8rem 0 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: var(--text-display);
+    color: var(--jr-vit);
+    letter-spacing: var(--letter-spacing-tight);
+    line-height: 1;
+  }
+
+  .footer-contact {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+    padding-top: var(--space-lg);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .footer-contact span {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-vit);
+    text-transform: uppercase;
+  }
+
+  .sep {
+    font-family: var(--font);
+    color: var(--jr-vit);
+    opacity: 0.3;
+  }
+
+  .footer-copy {
+    font-family: var(--font);
+    font-size: 8px;
+    color: var(--jr-vit);
+    opacity: 0.3;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 640px) {
+    .sep {
+      display: none;
+    }
+
+    .footer-contact {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+    }
+  }
+</style>

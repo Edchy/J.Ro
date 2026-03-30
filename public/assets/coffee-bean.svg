@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260">
+  <!-- Outer ellipse: rx=82 ry=118, centered at 100,130 -->
+  <!-- Inner ellipse: same center, uniform ~14px inset: rx=68 ry=104 -->
+  <path fill="black" fill-rule="evenodd" d="
+    M 100,12
+    A 82,118 0 1 0 100,248
+    A 82,118 0 1 0 100,12
+    Z
+    M 100,26
+    A 68,104 0 1 0 100,234
+    A 68,104 0 1 0 100,26
+    Z
+  "/>
+  <!-- Thin diagonal crease, ~8px wide, slight rightward tilt -->
+  <polygon points="93,26 101,26 107,234 99,234" fill="black"/>
+</svg>

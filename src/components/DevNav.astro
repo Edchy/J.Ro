@@ -1,0 +1,57 @@
+---
+interface Props {
+  active: string;
+}
+
+const { active } = Astro.props;
+
+const links = [
+  { href: '/', label: 'IDX' },
+  { href: '/v1', label: 'V1' },
+  { href: '/v2', label: 'V2' },
+  { href: '/v3', label: 'V3' },
+  { href: '/v4', label: 'V4' },
+  { href: '/v5', label: 'V5' },
+];
+---
+
+<nav class="dev-nav">
+  <span class="dev-nav-label">DEV</span>
+  {links.map(({ href, label }) => (
+    <a href={href} class={active === label ? 'active' : ''}>{label}</a>
+  ))}
+</nav>
+
+<style>
+  .dev-nav {
+    position: fixed;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background: var(--overlay-darker);
+    padding: 0.4rem 0.75rem;
+    font-family: var(--font);
+    font-size: var(--text-nav);
+  }
+
+  .dev-nav-label {
+    color: rgba(255, 255, 255, 0.35);
+    margin-right: 0.25rem;
+  }
+
+  .dev-nav a {
+    color: rgba(255, 255, 255, var(--opacity));
+    text-decoration: none;
+  }
+
+  .dev-nav a.active {
+    color: var(--jr-ljusgul);
+  }
+
+  .dev-nav a:hover {
+    color: var(--jr-vit);
+  }
+</style>

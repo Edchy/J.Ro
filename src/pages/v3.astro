@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import DevNav from '../components/DevNav.astro';
+import Hero from '../components/Hero.astro';
+import ColorGrid from '../components/ColorGrid.astro';
+import LoremSection from '../components/LoremSection.astro';
+import ImageSection from '../components/ImageSection.astro';
+import Footer from '../components/FooterV3.astro';
+---
+
+<Base title="Järna Rosteri — V3">
+  <DevNav active="V3" />
+
+  <Hero
+    image="/assets/images/hero-no-text.png"
+    title="Järna Rosteri"
+    titleColor="var(--jr-morkrost)"
+    titleSize="var(--text-display)"
+    bgPosition="center 20%"
+  />
+
+  <ColorGrid
+    colors={[
+      'var(--jr-ljusgul)',
+      'var(--jr-orostat)',
+      'var(--jr-morkrost)',
+      'var(--jr-gron)',
+    ]}
+    columns={2}
+    rows={2}
+  />
+
+  <ImageSection image="/assets/images/hero.png" bgPosition="center 30%" />
+
+  <ImageSection
+    image="/assets/images/green-bags.png"
+    bg="var(--jr-orostat)"
+    bgSize="cover"
+  />
+
+  <LoremSection
+    bg="var(--jr-vit)"
+    textColor="var(--jr-morkrost)"
+  />
+
+  <Footer />
+</Base>
