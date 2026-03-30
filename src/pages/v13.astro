@@ -1,0 +1,360 @@
+---
+import Base from "../layouts/Base.astro";
+import DevNav from "../components/DevNav.astro";
+---
+
+<Base title="Järna Rosteri">
+  <DevNav active="V13" />
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-img"></div>
+    <div class="hero-fade"></div>
+    <span class="hero-eyebrow">Järna Rosteri</span>
+    <span class="hero-year">Est. 2013</span>
+    <div class="hero-text">
+      <h1>JÄRNA<br />ROSTERI</h1>
+      <p>Specialkaffe från källa till kopp</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="text-section text-section--green">
+    <div class="prose">
+      <p class="prose-body">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </p>
+      <span class="prose-sig">— Lorem Ipsum</span>
+    </div>
+  </section>
+
+  <!-- LANDSCAPE IMAGE -->
+  <section class="img-section">
+    <div class="img-section-fill img-section-fill--landscape"></div>
+  </section>
+
+  <!-- CAPTION STRIP -->
+  <div class="caption-strip caption-strip--green">
+    <p>
+      Ekologiskt odlat &amp; KRAV-certifierat — Våra kaffebönor odlas utan
+      kemiska bekämpningsmedel och uppfyller Fairtrade-standarder för rättvis
+      handel.
+    </p>
+  </div>
+
+  <!-- PHILOSOPHY -->
+  <section class="text-section text-section--white">
+    <div class="prose">
+      <p class="prose-body">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </p>
+      <span class="prose-sig">— Lorem Ipsum</span>
+    </div>
+  </section>
+
+  <!-- PRODUCTS IMAGE -->
+  <section class="img-section img-section--products">
+    <div class="img-section-fill img-section-fill--bags"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-mark">J.R&#248;</div>
+
+    <div class="footer-grid">
+      <div class="footer-col">
+        <span class="footer-col-head">Kontakt</span>
+        <a href="mailto:info@jarnarosteri.se">info@jarnarosteri.se</a>
+        <a href="tel:+46708401365">070-840 13 65</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-head">Adress</span>
+        <p>Maskinvägen 5</p>
+        <p>153 30 Järna</p>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-head">Socialt</span>
+        <a
+          href="https://www.instagram.com/jarnarosteri"
+          target="_blank"
+          rel="noopener noreferrer">&#64;jarnarosteri</a
+        >
+      </div>
+    </div>
+
+    <div class="footer-base">
+      <span>© 2026 Järna Rosteri</span>
+      <span>Ekologiskt &amp; KRAV-certifierat</span>
+    </div>
+  </footer>
+</Base>
+
+<style>
+  /* HERO */
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: var(--jr-gron);
+  }
+
+  .hero-img {
+    display: none;
+  }
+
+  .hero-fade {
+    display: none;
+  }
+
+  .hero-eyebrow,
+  .hero-year {
+    position: absolute;
+    z-index: 2;
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--jr-ljusgul);
+  }
+
+  .hero-eyebrow {
+    top: var(--space-lg);
+    left: var(--space-lg);
+  }
+
+  .hero-year {
+    top: var(--space-lg);
+    right: var(--space-lg);
+  }
+
+  .hero-text {
+    position: relative;
+    z-index: 2;
+    padding: var(--space-lg);
+    padding-bottom: clamp(var(--space-lg), 4vw, 3rem);
+  }
+
+  .hero-text h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 10vw, 9rem);
+    color: var(--jr-ljusgul);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    margin-bottom: clamp(0.75rem, 1.5vw, 1.25rem);
+  }
+
+  .hero-text p {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--jr-ljusgul);
+    opacity: 0.7;
+    padding-left: 0;
+  }
+
+  /* TEXT SECTIONS */
+  .text-section {
+    width: 100%;
+    padding: clamp(5rem, 12vw, 10rem) var(--space-lg);
+  }
+
+  .text-section--green {
+    background: var(--jr-gron);
+  }
+
+  .text-section--white {
+    background: var(--jr-vit);
+  }
+
+  .prose {
+    max-width: 560px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .prose-body {
+    font-family: var(--font);
+    font-size: var(--text-body);
+    line-height: 1.75;
+    color: var(--jr-ljusgul);
+  }
+
+  .text-section--white .prose-body {
+    color: var(--jr-brun);
+  }
+
+  .prose-sig {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--jr-ljusgul);
+    opacity: 0.45;
+  }
+
+  .text-section--white .prose-sig {
+    color: var(--jr-brun);
+  }
+
+  /* IMAGE SECTIONS */
+  .img-section {
+    width: 100%;
+    height: 100svh;
+    overflow: hidden;
+  }
+
+  .img-section--products {
+    height: 80svh;
+    background: var(--jr-ocra);
+  }
+
+  .img-section-fill {
+    width: 100%;
+    height: 100%;
+  }
+
+  .img-section-fill--landscape {
+    background-image: url("/assets/images/view.png");
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .img-section-fill--bags {
+    background-image: url("/assets/images/coffee-packages.png");
+    background-size: 35%;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  /* CAPTION STRIP */
+  .caption-strip {
+    padding: var(--space-lg);
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-xl);
+  }
+
+  .caption-strip--green {
+    background: var(--jr-gron);
+  }
+
+  .caption-strip p {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    line-height: 1.7;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--jr-ljusgul);
+    opacity: 0.5;
+    max-width: 600px;
+  }
+
+  /* FOOTER */
+  .site-footer {
+    background: var(--jr-svart);
+    color: var(--jr-ljusgul);
+    padding: 0 var(--space-lg);
+    padding-bottom: var(--space-lg);
+  }
+
+  .footer-mark {
+    font-family: var(--font-display);
+    font-size: clamp(5rem, 16vw, 14rem);
+    color: var(--jr-ljusgul);
+    line-height: 0.88;
+    letter-spacing: -0.04em;
+    padding-top: clamp(4rem, 8vw, 7rem);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid rgba(244, 213, 104, 0.2);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 1px solid rgba(244, 213, 104, 0.2);
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: var(--space-xl) 0;
+    padding-right: var(--space-lg);
+  }
+
+  .footer-col + .footer-col {
+    border-left: 1px solid rgba(244, 213, 104, 0.2);
+    padding-left: var(--space-lg);
+    padding-right: 0;
+  }
+
+  .footer-col-head {
+    font-family: var(--font-display);
+    font-size: var(--text-ui);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--jr-ljusgul);
+    opacity: 0.35;
+    margin-bottom: var(--space-sm);
+    display: block;
+  }
+
+  .footer-col a,
+  .footer-col p {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    line-height: 1.7;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--jr-ljusgul);
+    text-decoration: none;
+    opacity: 0.65;
+  }
+
+  .footer-col a:hover {
+    opacity: 1;
+  }
+
+  .footer-base {
+    display: flex;
+    justify-content: space-between;
+    padding-top: var(--space-lg);
+  }
+
+  .footer-base span {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--jr-ljusgul);
+    opacity: 0.22;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .img-section-fill--bags {
+      background-size: 75%;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-col + .footer-col {
+      border-left: none;
+      border-top: 1px solid rgba(244, 213, 104, 0.2);
+      padding-left: 0;
+    }
+  }
+</style>

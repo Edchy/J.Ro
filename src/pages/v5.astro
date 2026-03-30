@@ -1,7 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
 import DevNav from "../components/DevNav.astro";
-import Hero from "../components/Hero.astro";
 import ColorGrid from "../components/ColorGrid.astro";
 import LoremSection from "../components/LoremSection.astro";
 import ImageSection from "../components/ImageSection.astro";
@@ -11,12 +10,26 @@ import Footer from "../components/FooterV5.astro";
 <Base title="Järna Rosteri — V5">
   <DevNav active="V5" />
 
-  <Hero
-    title="Järna Rosteri"
-    titleColor="var(--jr-ocra)"
-    titleSize="var(--text-display)"
-    bg="var(--jr-gron)"
-  />
+  <!-- HERO V5 — Golden ratio split -->
+  <section class="hero-v5">
+
+    <!-- Upper field: green (61.8%) -->
+    <div class="field-upper">
+      <span class="word word-top">JÄRNA</span>
+    </div>
+
+    <!-- Lower field: ocra (38.2%) -->
+    <div class="field-lower">
+      <span class="word word-bottom">ROSTERI</span>
+
+      <!-- Bottom-right metadata -->
+      <div class="meta">
+        <span>Järna, Sverige</span>
+        <span>Specialkaffe</span>
+      </div>
+    </div>
+
+  </section>
 
   <ColorGrid
     colors={[
@@ -31,12 +44,7 @@ import Footer from "../components/FooterV5.astro";
   />
 
   <LoremSection bg="var(--jr-ocra)" textColor="var(--jr-vit)" />
-  <!-- <ImageSection
-    image="/assets/images/hero-no-text.png"
-    bgPosition="center 35%"
-    caption="Ekologiskt odlat & KRAV-certifierat. Våra kaffebönor odlas utan kemiska bekämpningsmedel och uppfyller Fairtrade-standarder för rättvis handel."
-    captionPosition="bottom-left"
-  /> -->
+
   <ImageSection
     image="/assets/images/view.png"
     bgPosition="center 30%"
@@ -46,3 +54,101 @@ import Footer from "../components/FooterV5.astro";
 
   <Footer />
 </Base>
+
+<style>
+  .hero-v5 {
+    width: 100%;
+    height: 100svh;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .field-upper {
+    flex: 61.8;
+    background: var(--jr-gron);
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 var(--space-lg) 0 var(--space-lg);
+    overflow: hidden;
+  }
+
+  .field-lower {
+    flex: 38.2;
+    background: var(--jr-ocra);
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    padding: 0 var(--space-lg) var(--space-lg) var(--space-lg);
+    overflow: hidden;
+  }
+
+  .word {
+    font-family: var(--font-display);
+    font-size: clamp(4.5rem, 13vw, 12rem);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    white-space: nowrap;
+    display: block;
+  }
+
+  .word-top {
+    color: var(--jr-ocra);
+    transform: translateY(0.06em);
+    animation: fade-up-top 1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+  }
+
+  .word-bottom {
+    color: var(--jr-gron);
+    transform: translateY(-0.06em);
+    animation: fade-up-bottom 1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+  }
+
+  .meta {
+    position: absolute;
+    bottom: var(--space-lg);
+    right: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+    animation: fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+  }
+
+  .meta span {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--jr-gron);
+    opacity: 0.55;
+    line-height: var(--line-height);
+  }
+
+  @keyframes fade-up-top {
+    from { opacity: 0; transform: translateY(calc(0.06em + 1.5rem)); }
+    to   { opacity: 1; transform: translateY(0.06em); }
+  }
+
+  @keyframes fade-up-bottom {
+    from { opacity: 0; transform: translateY(calc(-0.06em + 1.5rem)); }
+    to   { opacity: 1; transform: translateY(-0.06em); }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .word, .meta { animation: none; }
+  }
+
+  @media (max-width: 640px) {
+    .word {
+      font-size: clamp(3rem, 16vw, 5rem);
+    }
+  }
+</style>

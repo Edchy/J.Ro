@@ -48,7 +48,7 @@ Brand colors are defined as CSS variables in `global.css`:
 | `--jr-poabs-bry` | Poabs Bry | Red |
 | `--jr-mezzo` | Mezzo | Green |
 
-Typography: **Orator Std** (headings/wordmark), **Maax Mono** (body), **Helvetica Neue Light** (tertiary). Font files live in `public/assets/fonts/`.
+Typography: **Orator Std** (wordmark only — use exclusively for "Järna Rosteri" and "J.Rø" logotype instances), **Maax Mono** (all other text: labels, UI, body, captions), **Helvetica Neue Light** (tertiary). Font files live in `public/assets/fonts/`.
 
 Logo: full wordmark **JÄRNA ROSTERI**, short mark **J.Rø** (`J.R&#248;`).
 

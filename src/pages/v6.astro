@@ -1,35 +1,44 @@
 ---
 import Base from "../layouts/Base.astro";
 import DevNav from "../components/DevNav.astro";
-import Hero from "../components/Hero.astro";
 import ColorGrid from "../components/ColorGrid.astro";
 import LoremSection from "../components/LoremSection.astro";
 import ImageSection from "../components/ImageSection.astro";
 import Footer from "../components/Footer.astro";
-import Hero2 from "../components/Hero2.astro";
 ---
 
 <Base title="Järna Rosteri — V6">
   <DevNav active="V6" />
 
-  <Hero2
-    image="/assets/images/view.png"
-    title="Järna Rosteri"
-    titleColor="var(--jr-gold)"
-    titleSize="var(--text-display)"
-    bgPosition="center 25%"
-    titleAlign="center"
-    titleOffsetY="-30vh"
-    subtitle="EKOLOGISKT & KRAV-CERTIFIERAT KAFFE"
-    subtitleSize="1rem"
-  />
+  <!-- HERO V6 — Full-bleed photo, anchored wordmark -->
+  <section class="hero-v6">
+
+    <!-- Photo layer -->
+    <div class="hero-photo" aria-hidden="true"></div>
+
+    <!-- Bottom vignette for legibility -->
+    <div class="hero-vignette" aria-hidden="true"></div>
+
+    <!-- Upper-right metadata -->
+    <div class="hero-meta">
+      <span>59°03′N 17°33′E</span>
+      <span>Ekologiskt &amp; KRAV-certifierat</span>
+    </div>
+
+    <!-- Bottom-left wordmark block -->
+    <div class="hero-anchor">
+      <div class="anchor-rule"></div>
+      <h1 class="wordmark">JÄRNA<br/>ROSTERI</h1>
+    </div>
+
+  </section>
 
   <LoremSection bg="var(--jr-gron)" textColor="var(--jr-ljusgul)" />
 
   <ImageSection
     image="/assets/images/view.png"
     bgSize="cover"
-    bg="var(--jr-franchese)"
+    bg="var(--jr-brun)"
     caption="Ekologiskt odlat & KRAV-certifierat. Våra kaffebönor odlas utan kemiska bekämpningsmedel och uppfyller Fairtrade-standarder för rättvis handel."
     captionPosition="center"
     captionColor="var(--jr-vit)"
@@ -48,3 +57,121 @@ import Hero2 from "../components/Hero2.astro";
     accentColor="var(--jr-ljusgul)"
   />
 </Base>
+
+<style>
+  .hero-v6 {
+    width: 100%;
+    height: 100svh;
+    min-height: 600px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--space-lg);
+    overflow: hidden;
+  }
+
+  /* ── Photo ── */
+  .hero-photo {
+    position: absolute;
+    inset: 0;
+    background-image: url('/assets/images/view.png');
+    background-size: cover;
+    background-position: center 25%;
+    animation: photo-in 1.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  /* ── Bottom vignette only — preserves sky ── */
+  .hero-vignette {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(20, 22, 14, 0.72) 0%,
+      rgba(20, 22, 14, 0.18) 40%,
+      transparent 65%
+    );
+    pointer-events: none;
+  }
+
+  /* ── Upper-right metadata ── */
+  .hero-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.3rem;
+    position: relative;
+    z-index: 1;
+    align-self: flex-start;
+    margin-left: auto;
+    animation: fade-in 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.6s;
+  }
+
+  .hero-meta span {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--jr-vit);
+    opacity: 0.55;
+    line-height: var(--line-height);
+  }
+
+  /* ── Bottom-left anchor ── */
+  .hero-anchor {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.3s;
+  }
+
+  .anchor-rule {
+    width: clamp(2rem, 4vw, 3.5rem);
+    height: 1px;
+    background: var(--jr-ljusgul);
+    opacity: 0.7;
+  }
+
+  .wordmark {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 11vw, 10rem);
+    line-height: 0.88;
+    letter-spacing: -0.02em;
+    color: var(--jr-ljusgul);
+    white-space: nowrap;
+  }
+
+  /* ── Animations ── */
+  @keyframes photo-in {
+    from { opacity: 0; transform: scale(1.04); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(1.2rem); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-photo,
+    .hero-anchor,
+    .hero-meta { animation: none; }
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 640px) {
+    .wordmark {
+      font-size: clamp(3rem, 14vw, 5rem);
+      white-space: normal;
+    }
+  }
+</style>

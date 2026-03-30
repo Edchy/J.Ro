@@ -1,7 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
 import DevNav from "../components/DevNav.astro";
-import Hero from "../components/Hero.astro";
 import ColorGrid from "../components/ColorGrid.astro";
 import LoremSection from "../components/LoremSection.astro";
 import ImageSection from "../components/ImageSection.astro";
@@ -11,14 +10,32 @@ import Footer from "../components/Footer.astro";
 <Base title="Järna Rosteri — V7">
   <DevNav active="V7" />
 
-  <Hero
-    title="Järna Rosteri"
-    titleColor="var(--jr-poabs-bry)"
-    titleSize="var(--text-display)"
-    bg="var(--jr-franchese)"
-    gradient="linear-gradient(to right, rgba(58, 175, 156, 0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(58, 175, 156, 0.08) 1px, transparent 1px), radial-gradient(circle 700px at 30% 50%, rgba(43, 75, 88, 0.6), transparent), radial-gradient(circle 500px at 80% 20%, rgba(58, 175, 156, 0.2), transparent)"
-    gradientSize="80px 80px, 80px 80px, 100% 100%, 100% 100%"
-  />
+  <!-- HERO V7 — Poster / graphic bean composition -->
+  <section class="hero-v7">
+
+    <!-- Giant bean silhouette, partially cropped bottom-right -->
+    <div class="bean-wrap" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 292 292" class="bean-svg">
+        <path d="M624.271 203.204C627.463 203.055 630.658 202.981 633.853 202.982C694.493 202.628 746.716 225.446 789.751 267.559C826.571 303.667 852.591 350.102 860.498 401.073C875.61 498.501 813.021 585.751 748.253 651.956C677.405 724.377 586.869 785.355 490.797 818.775C465.377 827.617 433.86 835.858 406.799 835.909C405.647 838.136 404.037 837.433 401.625 837.446C337.201 837.442 289.054 819.638 240.747 777.398C199.463 741.723 172.15 692.576 163.656 638.677C154.333 578.452 170.472 529.815 201.131 478.698C216.022 454.093 233.11 430.888 252.188 409.366C331.758 319.638 456.486 232.497 575.934 208.156C594.417 204.39 605.784 204.318 624.271 203.204ZM331.517 721.766C337.325 724.282 343.838 727.677 349.641 729.651C373.35 735.951 386.432 737.486 410.965 733.975C459.015 727.101 502.105 705.263 543.629 681.17C574.242 662.064 606.365 641.03 633.305 616.71C682.747 572.079 738.523 518.529 759.865 453.831C764.427 440.001 764.034 389.393 751.298 381.864C746.954 386.318 740.381 391.381 735.427 395.374L711.768 414.384L639.928 472.395L410.17 657.584L362.055 695.942C356.532 700.341 334.604 716.99 331.517 721.766ZM269.944 656.694C279.333 650.074 288.432 641.817 297.523 634.641L599.075 390.88C629.419 366.297 660.681 341.811 690.735 316.987C672.173 309.27 659.291 303.535 638.475 303.958C635.534 304.017 635.22 302.638 631.25 303.054C631.063 303.125 630.878 303.199 630.69 303.266C623.145 305.971 614.456 304.539 606.621 305.801C602.536 306.46 598.496 307.873 594.466 308.831C581.837 311.833 569.786 314.599 557.574 319.165C465.628 353.545 367.297 426.372 307.644 504.112C295.075 520.492 283.461 537.42 274.408 556.022C261.957 581.608 257.104 607.894 263.664 635.823C265.331 642.92 268.314 649.645 269.944 656.694Z" transform="scale(0.285156 0.285156)"/>
+      </svg>
+    </div>
+
+    <!-- Top: label row -->
+    <div class="hero-top">
+      <span class="label">Specialkaffe</span>
+      <span class="label">Järna, Sverige</span>
+    </div>
+
+    <!-- Bottom: wordmark + tagline -->
+    <div class="hero-bottom">
+      <div class="wordmark-block">
+        <div class="accent-rule"></div>
+        <h1 class="wordmark">JÄRNA<br/>ROSTERI</h1>
+      </div>
+      <p class="tagline">Ekologiskt odlat<br/>KRAV-certifierat</p>
+    </div>
+
+  </section>
 
   <ImageSection
     image="/assets/images/allbags.png"
@@ -41,7 +58,7 @@ import Footer from "../components/Footer.astro";
       "var(--jr-ocra)",
       "var(--jr-mezzo)",
       "var(--jr-poabs-bry)",
-      "var(--jr-morkrost)",
+      "var(--jr-ocra)",
     ]}
     columns={3}
     rows={2}
@@ -52,14 +69,148 @@ import Footer from "../components/Footer.astro";
     bgPosition="center 50%"
     caption="Ekologiskt odlat & KRAV-certifierat. Våra kaffebönor odlas utan kemiska bekämpningsmedel och uppfyller Fairtrade-standarder för rättvis handel."
     captionPosition="bottom-right"
-    captionColor="var(--jr-vit)"
+    captionColor="var(--jr-ocra)"
   />
 
   <LoremSection bg="var(--jr-mezzo)" textColor="var(--jr-gold)" />
 
   <Footer
     bg="var(--jr-franchese)"
-    textColor="var(--jr-vit)"
+    textColor="var(--jr-ocra)"
     accentColor="var(--jr-grande)"
   />
 </Base>
+
+<style>
+  .hero-v7 {
+    width: 100%;
+    height: 100svh;
+    min-height: 600px;
+    background-color: var(--jr-gron);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--space-lg);
+    overflow: hidden;
+  }
+
+  /* ── Bean silhouette ── */
+  .bean-wrap {
+    position: absolute;
+    right: -8%;
+    bottom: -10%;
+    width: clamp(380px, 65vw, 780px);
+    aspect-ratio: 1;
+    animation: bean-in 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.1s;
+  }
+
+  .bean-svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--jr-ocra);
+  }
+
+  /* ── Top label row ── */
+  .hero-top {
+    display: flex;
+    gap: var(--space-lg);
+    position: relative;
+    z-index: 1;
+    animation: fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.15s;
+  }
+
+  .label {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--jr-ocra);
+  }
+
+  /* ── Bottom block ── */
+  .hero-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+  }
+
+  .wordmark-block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.25s;
+  }
+
+  .accent-rule {
+    width: clamp(2.5rem, 5vw, 4rem);
+    height: 2px;
+    background: var(--jr-ocra);
+  }
+
+  .wordmark {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 11vw, 10rem);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    color: var(--jr-ocra);
+    white-space: nowrap;
+  }
+
+  .tagline {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: var(--line-height);
+    color: var(--jr-ocra);
+    text-align: right;
+    align-self: flex-end;
+    padding-bottom: 0.2em;
+    animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.4s;
+  }
+
+  /* ── Animations ── */
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(1rem); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes bean-in {
+    from { opacity: 0; transform: translateY(3rem) rotate(-6deg); }
+    to   { opacity: 1; transform: translateY(0) rotate(0deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bean-wrap,
+    .hero-top,
+    .wordmark-block,
+    .tagline { animation: none; }
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 640px) {
+    .hero-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-lg);
+    }
+
+    .tagline {
+      text-align: left;
+      align-self: auto;
+    }
+
+    .bean-wrap {
+      width: 90vw;
+      right: -15%;
+      bottom: -5%;
+    }
+  }
+</style>

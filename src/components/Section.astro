@@ -1,0 +1,275 @@
+---
+interface Props {
+  label: string;
+  body?: string;
+  bg: string;
+  color: string;
+  ruleOpacity?: number;
+  marker?: "bean" | "number" | "rotated-label";
+  num?: string;
+  image?: string;
+  imageFit?: string;
+  imagePosition?: string;
+}
+
+const {
+  label,
+  body,
+  bg,
+  color,
+  ruleOpacity = 0.15,
+  marker = "bean",
+  num,
+  image,
+  imageFit = "cover",
+  imagePosition = "center center",
+} = Astro.props;
+
+const mode = image ? "image" : "text";
+---
+
+{
+  mode === "image" ? (
+    <section
+      class="s-image"
+      style={`--bg: ${bg}; --color: ${color}; --rule-opacity: ${ruleOpacity}; --img: url('${image}'); --img-fit: ${imageFit}; --img-pos: ${imagePosition};`}
+    >
+      <div class="s-img-fill" />
+
+      <!-- top bar -->
+      <div class="s-img-top-bar">
+        <span class="s-img-top-label">{label}</span>
+        <span class="s-img-top-rule" aria-hidden="true" />
+        <svg class="top-bar-bean" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 292 292" aria-hidden="true"><path transform="scale(0.285156 0.285156)" d="M624.271 203.204C627.463 203.055 630.658 202.981 633.853 202.982C694.493 202.628 746.716 225.446 789.751 267.559C826.571 303.667 852.591 350.102 860.498 401.073C875.61 498.501 813.021 585.751 748.253 651.956C677.405 724.377 586.869 785.355 490.797 818.775C465.377 827.617 433.86 835.858 406.799 835.909C405.647 838.136 404.037 837.433 401.625 837.446C337.201 837.442 289.054 819.638 240.747 777.398C199.463 741.723 172.15 692.576 163.656 638.677C154.333 578.452 170.472 529.815 201.131 478.698C216.022 454.093 233.11 430.888 252.188 409.366C331.758 319.638 456.486 232.497 575.934 208.156C594.417 204.39 605.784 204.318 624.271 203.204ZM331.517 721.766C337.325 724.282 343.838 727.677 349.641 729.651C373.35 735.951 386.432 737.486 410.965 733.975C459.015 727.101 502.105 705.263 543.629 681.17C574.242 662.064 606.365 641.03 633.305 616.71C682.747 572.079 738.523 518.529 759.865 453.831C764.427 440.001 764.034 389.393 751.298 381.864C746.954 386.318 740.381 391.381 735.427 395.374L711.768 414.384L639.928 472.395L410.17 657.584L362.055 695.942C356.532 700.341 334.604 716.99 331.517 721.766ZM269.944 656.694C279.333 650.074 288.432 641.817 297.523 634.641L599.075 390.88C629.419 366.297 660.681 341.811 690.735 316.987C672.173 309.27 659.291 303.535 638.475 303.958C635.534 304.017 635.22 302.638 631.25 303.054C631.063 303.125 630.878 303.199 630.69 303.266C623.145 305.971 614.456 304.539 606.621 305.801C602.536 306.46 598.496 307.873 594.466 308.831C581.837 311.833 569.786 314.599 557.574 319.165C465.628 353.545 367.297 426.372 307.644 504.112C295.075 520.492 283.461 537.42 274.408 556.022C261.957 581.608 257.104 607.894 263.664 635.823C265.331 642.92 268.314 649.645 269.944 656.694Z"/></svg>
+      </div>
+
+      <!-- vertical rule spine -->
+      <span class="s-img-rule-v" aria-hidden="true" />
+    </section>
+  ) : (
+    <section
+      class="s-text"
+      style={`--bg: ${bg}; --color: ${color}; --rule-opacity: ${ruleOpacity};`}
+    >
+      <!-- top border mirrors hero header bottom border -->
+      <div class="ts-top-bar">
+        <span class="ts-top-label">{label}</span>
+        <span class="ts-top-rule" aria-hidden="true" />
+        <svg class="top-bar-bean" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 292 292" aria-hidden="true"><path transform="scale(0.285156 0.285156)" d="M624.271 203.204C627.463 203.055 630.658 202.981 633.853 202.982C694.493 202.628 746.716 225.446 789.751 267.559C826.571 303.667 852.591 350.102 860.498 401.073C875.61 498.501 813.021 585.751 748.253 651.956C677.405 724.377 586.869 785.355 490.797 818.775C465.377 827.617 433.86 835.858 406.799 835.909C405.647 838.136 404.037 837.433 401.625 837.446C337.201 837.442 289.054 819.638 240.747 777.398C199.463 741.723 172.15 692.576 163.656 638.677C154.333 578.452 170.472 529.815 201.131 478.698C216.022 454.093 233.11 430.888 252.188 409.366C331.758 319.638 456.486 232.497 575.934 208.156C594.417 204.39 605.784 204.318 624.271 203.204ZM331.517 721.766C337.325 724.282 343.838 727.677 349.641 729.651C373.35 735.951 386.432 737.486 410.965 733.975C459.015 727.101 502.105 705.263 543.629 681.17C574.242 662.064 606.365 641.03 633.305 616.71C682.747 572.079 738.523 518.529 759.865 453.831C764.427 440.001 764.034 389.393 751.298 381.864C746.954 386.318 740.381 391.381 735.427 395.374L711.768 414.384L639.928 472.395L410.17 657.584L362.055 695.942C356.532 700.341 334.604 716.99 331.517 721.766ZM269.944 656.694C279.333 650.074 288.432 641.817 297.523 634.641L599.075 390.88C629.419 366.297 660.681 341.811 690.735 316.987C672.173 309.27 659.291 303.535 638.475 303.958C635.534 304.017 635.22 302.638 631.25 303.054C631.063 303.125 630.878 303.199 630.69 303.266C623.145 305.971 614.456 304.539 606.621 305.801C602.536 306.46 598.496 307.873 594.466 308.831C581.837 311.833 569.786 314.599 557.574 319.165C465.628 353.545 367.297 426.372 307.644 504.112C295.075 520.492 283.461 537.42 274.408 556.022C261.957 581.608 257.104 607.894 263.664 635.823C265.331 642.92 268.314 649.645 269.944 656.694Z"/></svg>
+      </div>
+
+      <!-- vertical rule left gutter — mirrors hero's spine -->
+      <span class="ts-rule-v" aria-hidden="true" />
+
+      <!-- main content: number + body in golden-ratio columns -->
+      <div class="ts-body-wrap">
+        {num && (
+          <div class="ts-index">
+            <span class="ts-num">{num}</span>
+          </div>
+        )}
+        <div class="ts-content">
+          {body && <p class="ts-body">{body}</p>}
+        </div>
+      </div>
+
+    </section>
+  )
+}
+
+<style>
+  /* ── BEAN (shared top-bar decoration) ───────────────────── */
+  .top-bar-bean {
+    width: 1.1rem;
+    height: 1.1rem;
+    fill: var(--color);
+    opacity: var(--rule-opacity);
+    flex-shrink: 0;
+  }
+
+  /* ── IMAGE MODE ─────────────────────────────────────────── */
+  .s-image {
+    background: var(--bg);
+    width: 100%;
+    height: 100svh;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: var(--space-lg) 1fr;
+    position: relative;
+  }
+
+  .s-img-fill {
+    position: absolute;
+    inset: 0;
+    background-image: var(--img);
+    background-size: var(--img-fit);
+    background-position: var(--img-pos);
+    background-repeat: no-repeat;
+  }
+
+  /* top bar */
+  .s-img-top-bar {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+    border-bottom: 1px solid rgba(from var(--color) r g b / calc(var(--rule-opacity) * 1.2));
+  }
+
+  .s-img-top-label {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color);
+    opacity: var(--rule-opacity);
+    white-space: nowrap;
+  }
+
+  .s-img-top-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--color);
+    opacity: calc(var(--rule-opacity) * 0.8);
+  }
+
+  /* vertical rule spine */
+  .s-img-rule-v {
+    grid-column: 1;
+    grid-row: 2;
+    position: relative;
+    z-index: 2;
+    border-right: 1px solid rgba(from var(--color) r g b / var(--rule-opacity));
+  }
+
+  /* ── TEXT MODE: SHELL ────────────────────────────────────── */
+  /*
+   * 3-row layout:
+   *   row 1 — top bar (label + stretching rule)
+   *   row 2 — body area (grows to fill)
+   *   row 3 — bottom bar (rotated label)
+   *
+   * 2-col layout:
+   *   col 0 — left gutter with vertical rule spine (2rem wide)
+   *   col 1 — content
+   */
+  .s-text {
+    background: var(--bg);
+    color: var(--color);
+    min-height: 100svh;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: var(--space-lg) 1fr;
+  }
+
+  /* ── TOP BAR ─────────────────────────────────────────────── */
+  .ts-top-bar {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+    border-bottom: 1px solid rgba(from var(--color) r g b / calc(var(--rule-opacity) * 1.2));
+  }
+
+  .ts-top-label {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color);
+    opacity: var(--rule-opacity);
+    white-space: nowrap;
+  }
+
+  /* stretching hairline — mirrors hero-rule-h */
+  .ts-top-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--color);
+    opacity: calc(var(--rule-opacity) * 0.8);
+  }
+
+  /* ── VERTICAL RULE ───────────────────────────────────────── */
+  .ts-rule-v {
+    grid-column: 1;
+    grid-row: 2;
+    border-right: 1px solid rgba(from var(--color) r g b / calc(var(--rule-opacity) * 1));
+  }
+
+  /* ── BODY AREA ───────────────────────────────────────────── */
+  .ts-body-wrap {
+    grid-column: 2;
+    grid-row: 2;
+    display: grid;
+    /* golden ratio split: index col ≈ 38%, body ≈ 62% */
+    grid-template-columns: clamp(4rem, 6.18vw, 7rem) 1fr;
+    gap: var(--space-lg);
+    /* vertical padding: top larger than bottom (φ ratio ~1.618) */
+    padding: clamp(var(--space-xl), 9vw, 9rem) var(--space-lg);
+    padding-top: clamp(var(--space-xl), 9vw, 9rem);
+    padding-bottom: clamp(var(--space-lg), 5.56vw, 5.562rem);
+    align-items: start;
+    max-width: 72rem;
+  }
+
+  .ts-index {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.2em;
+  }
+
+  .ts-num {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    letter-spacing: 0.14em;
+    color: var(--color);
+    opacity: var(--rule-opacity);
+    line-height: 1;
+  }
+
+  .ts-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ts-body {
+    font-family: var(--font);
+    font-size: var(--text-body);
+    line-height: 1.85;
+    color: var(--color);
+    max-width: 52ch;
+    /* slight vertical optical correction */
+    margin-top: -0.15em;
+  }
+
+
+  /* ── MOBILE ─────────────────────────────────────────────── */
+  @media (max-width: 640px) {
+    .s-img-rule-v {
+      display: none;
+    }
+
+    .ts-rule-v {
+      display: none;
+    }
+
+    .ts-body-wrap {
+      grid-column: 1 / -1;
+      grid-template-columns: 1fr;
+      gap: var(--space-sm);
+    }
+
+    .ts-index {
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+  }
+</style>

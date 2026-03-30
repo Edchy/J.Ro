@@ -1,7 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
 import DevNav from "../components/DevNav.astro";
-import Hero from "../components/Hero.astro";
 import ColorGrid from "../components/ColorGrid.astro";
 import LoremSection from "../components/LoremSection.astro";
 import ImageSection from "../components/ImageSection.astro";
@@ -11,20 +10,73 @@ import Footer from "../components/Footer.astro";
 <Base title="Järna Rosteri — V9">
   <DevNav active="V9" />
 
-  <Hero
-    title="Järna Rosteri"
-    titleColor="var(--jr-gold)"
-    titleSize="var(--text-display)"
-    bg="var(--jr-gron)"
-  />
+  <!-- HERO V9 — Editorial split layout -->
+  <section class="hero-v9">
+    <!-- Background texture layer -->
+    <div class="hero-bg"></div>
+
+    <!-- Top rule + metadata bar -->
+    <header class="hero-meta">
+      <span class="meta-tag">Est. Järna, Sverige</span>
+      <span class="meta-divider">—</span>
+      <span class="meta-tag">59°N 17°E</span>
+      <span class="meta-divider">—</span>
+      <span class="meta-tag">Specialkaffe</span>
+    </header>
+
+    <!-- Main content: split wordmark / descriptor -->
+    <div class="hero-body">
+      <div class="hero-left">
+        <div class="wordmark-stack">
+          <span class="wordmark-line">JÄRNA</span>
+          <span class="wordmark-line">ROSTERI</span>
+        </div>
+        <div class="hero-sub">
+          <div class="sub-rule"></div>
+          <p class="sub-text">Ekologiskt odlat<br />KRAV-certifierat</p>
+        </div>
+      </div>
+
+      <div class="hero-rule-vert"></div>
+
+      <div class="hero-right">
+        <div class="provenance-block">
+          <span class="prov-label">Ursprung</span>
+          <ul class="prov-list">
+            <li>Honduras — Mesoamerica</li>
+            <li>Etiopien — Yirgacheffe</li>
+            <li>Colombia — Huila</li>
+          </ul>
+        </div>
+        <div class="provenance-block">
+          <span class="prov-label">Process</span>
+          <ul class="prov-list">
+            <li>Direkthandel</li>
+            <li>Lättrostat &amp; Mörkrostat</li>
+            <li>Fairtrade-standard</li>
+          </ul>
+        </div>
+        <div class="scroll-indicator">
+          <span class="scroll-line"></span>
+          <span class="scroll-label">Scrolla</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <footer class="hero-foot">
+      <span class="foot-mark">J.R&#248;</span>
+      <span class="foot-year">MMXXVI</span>
+    </footer>
+  </section>
 
   <ImageSection
     image="/assets/images/frontbag.png"
     bgSize="20%"
-    bg="var(--jr-ljusgul)"
+    bg="var(--jr-ocra)"
   />
 
-  <LoremSection bg="var(--jr-orostat)" textColor="var(--jr-vit)" />
+  <LoremSection bg="var(--jr-orostat)" textColor="var(--jr-ocra)" />
 
   <ColorGrid
     colors={[
@@ -36,7 +88,7 @@ import Footer from "../components/Footer.astro";
     iconColors={[
       "var(--jr-orostat)",
       "var(--jr-gron)",
-      "var(--jr-ljusgul)",
+      "var(--jr-ocra)",
       "var(--jr-brun)",
     ]}
     columns={2}
@@ -53,7 +105,296 @@ import Footer from "../components/Footer.astro";
 
   <Footer
     bg="var(--jr-gron)"
-    textColor="var(--jr-ljusgul)"
-    accentColor="var(--jr-ljusgul)"
+    textColor="var(--jr-ocra)"
+    accentColor="var(--jr-ocra)"
   />
 </Base>
+
+<style>
+  /* ── Hero V9 shell ── */
+  .hero-v9 {
+    width: 100%;
+    height: 100svh;
+    min-height: 600px;
+    background-color: var(--jr-gron);
+    position: relative;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    padding: var(--space-lg);
+    overflow: hidden;
+  }
+
+  /* Subtle grain texture via SVG filter */
+  .hero-v9::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(
+        ellipse 80% 60% at 70% 110%,
+        rgba(107, 80, 45, 0.18) 0%,
+        transparent 65%
+      ),
+      radial-gradient(
+        ellipse 40% 40% at 10% -10%,
+        rgba(239, 214, 120, 0.06) 0%,
+        transparent 60%
+      );
+    pointer-events: none;
+  }
+
+  /* ── Meta bar ── */
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    animation: fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.1s;
+  }
+
+  .meta-tag {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-ocra);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.7;
+  }
+
+  .meta-divider {
+    color: var(--jr-ocra);
+    opacity: 0.3;
+    font-family: var(--font);
+    font-size: var(--text-ui);
+  }
+
+  /* ── Body split ── */
+  .hero-body {
+    display: flex;
+    align-items: center;
+    gap: clamp(2rem, 5vw, 5rem);
+    padding: clamp(2rem, 5vh, 4rem) 0;
+  }
+
+  /* ── Left: wordmark ── */
+  .hero-left {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.2s;
+  }
+
+  .wordmark-stack {
+    display: flex;
+    flex-direction: column;
+    line-height: 0.88;
+  }
+
+  .wordmark-line {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 10.5vw, 9.5rem);
+    color: var(--jr-ocra);
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+
+  .hero-sub {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+  }
+
+  .sub-rule {
+    width: clamp(2rem, 6vw, 5rem);
+    height: 1px;
+    background: var(--jr-ocra);
+    opacity: 0.45;
+    flex-shrink: 0;
+  }
+
+  .sub-text {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--jr-ocra);
+    opacity: 0.6;
+    line-height: var(--line-height);
+  }
+
+  /* ── Vertical divider ── */
+  .hero-rule-vert {
+    width: 1px;
+    align-self: stretch;
+    background: var(--jr-ocra);
+    opacity: 0.15;
+    flex-shrink: 0;
+    animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.35s;
+  }
+
+  /* ── Right: provenance data ── */
+  .hero-right {
+    flex: 0 0 clamp(180px, 25vw, 280px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.5rem, 4vh, 2.5rem);
+    animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.45s;
+  }
+
+  .provenance-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .prov-label {
+    font-family: var(--font);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--jr-ocra);
+    opacity: 0.5;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(239, 214, 120, 0.15);
+  }
+
+  .prov-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .prov-list li {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-ocra);
+    opacity: 0.55;
+    letter-spacing: 0.04em;
+    line-height: var(--line-height);
+  }
+
+  /* ── Scroll indicator ── */
+  .scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 1rem;
+  }
+
+  .scroll-line {
+    display: block;
+    width: 1px;
+    height: 2.5rem;
+    background: var(--jr-ocra);
+    opacity: 0.3;
+    animation: scroll-pulse 2.5s ease-in-out infinite;
+  }
+
+  .scroll-label {
+    font-family: var(--font);
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--jr-ocra);
+    opacity: 0.35;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+  }
+
+  /* ── Footer bar ── */
+  .hero-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    animation: fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.6s;
+  }
+
+  .foot-mark {
+    font-family: var(--font-display);
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    color: var(--jr-ocra);
+    opacity: 0.4;
+    letter-spacing: -0.03em;
+  }
+
+  .foot-year {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-ocra);
+    opacity: 0.25;
+    letter-spacing: 0.15em;
+  }
+
+  /* ── Animations ── */
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(1.2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scroll-pulse {
+    0%, 100% { opacity: 0.15; transform: scaleY(0.7); transform-origin: top; }
+    50%       { opacity: 0.4;  transform: scaleY(1);   transform-origin: top; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-meta,
+    .hero-left,
+    .hero-rule-vert,
+    .hero-right,
+    .hero-foot {
+      animation: none;
+    }
+    .scroll-line {
+      animation: none;
+    }
+  }
+
+  /* ── Responsive: collapse right panel on small screens ── */
+  @media (max-width: 640px) {
+    .hero-v9 {
+      padding: var(--space-lg) var(--space-lg) var(--space-lg);
+    }
+
+    .hero-body {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-lg);
+    }
+
+    .hero-rule-vert {
+      display: none;
+    }
+
+    .hero-right {
+      flex: unset;
+      width: 100%;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--space-lg);
+    }
+
+    .scroll-indicator {
+      display: none;
+    }
+
+    .wordmark-line {
+      font-size: clamp(2.8rem, 14vw, 5rem);
+    }
+
+  }
+</style>
