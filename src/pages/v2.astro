@@ -20,26 +20,27 @@ import Footer from "../components/FooterV2.astro";
     overlay="var(--overlay-dark)"
   />
 
-  <ColorGrid
-    colors={[
-      "var(--jr-franchese)",
-      "var(--jr-grande)",
-      "var(--jr-gron)",
-      "var(--jr-orostat)",
-    ]}
-    columns={4}
-    rows={1}
-  />
-
   <ImageSection
     image="/assets/images/coffee-packages.png"
     bgSize="40%"
-    bg="var(--jr-gron)"
+    bg="var(--jr-ljusgul)"
+    caption="Ekologiskt odlat & KRAV-certifierat. Våra kaffebönor odlas utan kemiska bekämpningsmedel och uppfyller Fairtrade-standarder för rättvis handel."
+    captionPosition="bottom-left"
+    captionColor="var(--jr-morkrost)"
+    captionShadow={false}
   />
-
-  <ImageSection image="/assets/images/view.png" bgPosition="center 40%" />
-
   <LoremSection bg="var(--jr-vit)" textColor="var(--jr-franchese)" />
 
+  <ImageSection
+    image="/assets/images/view.png"
+    bgPosition="center 40%"
+    caption="Ekologiskt odlat & KRAV-certifierat. Våra kaffebönor odlas utan kemiska bekämpningsmedel och uppfyller Fairtrade-standarder för rättvis handel."
+    captionPosition="bottom-right"
+  />
+  <ImageSection
+    image="/assets/images/allbags.png"
+    bgSize="contain"
+    bg="var(--jr-gron)"
+  />
   <Footer />
 </Base>

@@ -1,47 +1,47 @@
 ---
-import Base from '../layouts/Base.astro';
-import DevNav from '../components/DevNav.astro';
-import Hero from '../components/Hero.astro';
-import ColorGrid from '../components/ColorGrid.astro';
-import LoremSection from '../components/LoremSection.astro';
-import ImageSection from '../components/ImageSection.astro';
-import Footer from '../components/FooterV5.astro';
+import Base from "../layouts/Base.astro";
+import DevNav from "../components/DevNav.astro";
+import Hero from "../components/Hero.astro";
+import ColorGrid from "../components/ColorGrid.astro";
+import LoremSection from "../components/LoremSection.astro";
+import ImageSection from "../components/ImageSection.astro";
+import Footer from "../components/FooterV5.astro";
 ---
 
 <Base title="Järna Rosteri — V5">
   <DevNav active="V5" />
 
   <Hero
-    image="/assets/images/green-bags.png"
     title="Järna Rosteri"
-    titleColor="var(--jr-vit)"
+    titleColor="var(--jr-ocra)"
     titleSize="var(--text-display)"
-    bgPosition="center center"
+    bg="var(--jr-gron)"
   />
 
   <ColorGrid
     colors={[
-      'var(--jr-morkrost)',
-      'var(--jr-gron)',
-      'var(--jr-orostat)',
-      'var(--jr-franchese)',
-      'var(--jr-grande)',
-      'var(--jr-ocra)',
-      'var(--jr-ljusgul)',
-      'var(--jr-brun)',
-      'var(--jr-svart)',
+      "var(--jr-gron)",
+      "var(--jr-ocra)",
+      "var(--jr-ocra)",
+      "var(--jr-gron)",
     ]}
-    columns={3}
-    rows={3}
+    columns={2}
+    rows={2}
+    image="/assets/images/frontbag.png"
   />
 
-  <ImageSection image="/assets/images/hero-no-text.png" bgPosition="center 35%" />
-
-  <ImageSection image="/assets/images/view.png" bgPosition="center 30%" />
-
-  <LoremSection
-    bg="var(--jr-vit)"
-    textColor="var(--jr-svart)"
+  <LoremSection bg="var(--jr-ocra)" textColor="var(--jr-vit)" />
+  <!-- <ImageSection
+    image="/assets/images/hero-no-text.png"
+    bgPosition="center 35%"
+    caption="Ekologiskt odlat & KRAV-certifierat. Våra kaffebönor odlas utan kemiska bekämpningsmedel och uppfyller Fairtrade-standarder för rättvis handel."
+    captionPosition="bottom-left"
+  /> -->
+  <ImageSection
+    image="/assets/images/view.png"
+    bgPosition="center 30%"
+    caption="Ekologiskt odlat & KRAV-certifierat. Våra kaffebönor odlas utan kemiska bekämpningsmedel och uppfyller Fairtrade-standarder för rättvis handel."
+    captionPosition="bottom-right"
   />
 
   <Footer />

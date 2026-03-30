@@ -1,0 +1,59 @@
+---
+import Base from "../layouts/Base.astro";
+import DevNav from "../components/DevNav.astro";
+import Hero from "../components/Hero.astro";
+import ColorGrid from "../components/ColorGrid.astro";
+import LoremSection from "../components/LoremSection.astro";
+import ImageSection from "../components/ImageSection.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Base title="Järna Rosteri — V9">
+  <DevNav active="V9" />
+
+  <Hero
+    title="Järna Rosteri"
+    titleColor="var(--jr-gold)"
+    titleSize="var(--text-display)"
+    bg="var(--jr-gron)"
+  />
+
+  <ImageSection
+    image="/assets/images/frontbag.png"
+    bgSize="20%"
+    bg="var(--jr-ljusgul)"
+  />
+
+  <LoremSection bg="var(--jr-orostat)" textColor="var(--jr-vit)" />
+
+  <ColorGrid
+    colors={[
+      "var(--jr-gron)",
+      "var(--jr-orostat)",
+      "var(--jr-brun)",
+      "var(--jr-morkrost)",
+    ]}
+    iconColors={[
+      "var(--jr-orostat)",
+      "var(--jr-gron)",
+      "var(--jr-ljusgul)",
+      "var(--jr-brun)",
+    ]}
+    columns={2}
+    rows={2}
+    image="/assets/images/frontbag.png"
+  />
+
+  <ImageSection
+    image="/assets/images/hero-no-text.png"
+    bgPosition="center 20%"
+    caption="Ekologiskt odlat & KRAV-certifierat. Våra kaffebönor odlas utan kemiska bekämpningsmedel och uppfyller Fairtrade-standarder för rättvis handel."
+    captionPosition="bottom-left"
+  />
+
+  <Footer
+    bg="var(--jr-gron)"
+    textColor="var(--jr-ljusgul)"
+    accentColor="var(--jr-ljusgul)"
+  />
+</Base>

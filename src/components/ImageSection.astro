@@ -5,6 +5,10 @@ interface Props {
   bgPosition?: string;
   bgSize?: string;
   caption?: string;
+  captionPosition?: "center" | "bottom-left" | "bottom-right" | "bottom-center" | "top-left" | "top-right";
+  captionColor?: string;
+  captionShadow?: boolean;
+  overlay?: string;
 }
 
 const {
@@ -13,15 +17,30 @@ const {
   bgPosition = "center center",
   bgSize = "cover",
   caption,
+  captionPosition = "center",
+  captionColor = "var(--jr-vit)",
+  captionShadow = true,
+  overlay = "none",
 } = Astro.props;
+
+const positionStyles: Record<string, string> = {
+  center:        "top: 50%; left: 50%; transform: translate(-50%, -50%);",
+  "bottom-left": "bottom: var(--space-xl); left: var(--space-xl); transform: none; text-align: left;",
+  "bottom-right":"bottom: var(--space-xl); right: var(--space-xl); transform: none; text-align: right;",
+  "bottom-center":"bottom: var(--space-xl); left: 50%; transform: translateX(-50%);",
+  "top-left":    "top: var(--space-lg); left: var(--space-lg); transform: none;",
+  "top-right":   "top: var(--space-lg); right: var(--space-lg); transform: none;",
+};
+
+const captionStyle = positionStyles[captionPosition];
 ---
 
 <section class="image-section">
   <div class="bg"></div>
-  {caption && <p class="caption">{caption}</p>}
+  {caption && <p class="caption" style={`${captionStyle} color: ${captionColor};${captionShadow ? "" : " text-shadow: none;"}`}>{caption}</p>}
 </section>
 
-<style define:vars={{ image: `url('${image}')`, bg, bgPosition, bgSize }}>
+<style define:vars={{ image: `url('${image}')`, bg, bgPosition, bgSize, overlay }}>
   .image-section {
     width: 100%;
     height: 100vh;
@@ -39,11 +58,15 @@ const {
     background-repeat: no-repeat;
   }
 
+  .bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--overlay);
+  }
+
   .caption {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     margin: 0;
     max-width: 360px;
     font-family: var(--font-mono);

@@ -1,47 +1,57 @@
 ---
-import Base from '../layouts/Base.astro';
-import DevNav from '../components/DevNav.astro';
-import Hero from '../components/Hero.astro';
-import ColorGrid from '../components/ColorGrid.astro';
-import LoremSection from '../components/LoremSection.astro';
-import ImageSection from '../components/ImageSection.astro';
-import Footer from '../components/FooterV3.astro';
+import Base from "../layouts/Base.astro";
+import DevNav from "../components/DevNav.astro";
+import Hero from "../components/Hero.astro";
+import ColorGrid from "../components/ColorGrid.astro";
+import LoremSection from "../components/LoremSection.astro";
+import ImageSection from "../components/ImageSection.astro";
+import Footer from "../components/FooterV3.astro";
 ---
 
 <Base title="Järna Rosteri — V3">
   <DevNav active="V3" />
 
   <Hero
-    image="/assets/images/hero-no-text.png"
     title="Järna Rosteri"
-    titleColor="var(--jr-morkrost)"
+    titleColor="var(--jr-ljusgul)"
     titleSize="var(--text-display)"
-    bgPosition="center 20%"
+    bg="var(--jr-ocra)"
+    gradient="radial-gradient(circle at 1px 1px, rgb(244, 213, 104) 1px, transparent 0)"
+    gradientSize="20px 20px"
   />
-
+  <ImageSection
+    image="/assets/images/view.png"
+    bgPosition="center 30%"
+    caption="Lorem ipsum"
+  />
   <ColorGrid
     colors={[
-      'var(--jr-ljusgul)',
-      'var(--jr-orostat)',
-      'var(--jr-morkrost)',
-      'var(--jr-gron)',
+      "var(--jr-poabs-bry)",
+      "var(--jr-mezzo)",
+      "var(--jr-conejo)",
+      "var(--jr-grande)",
+      "var(--jr-poabs-esp)",
+      "var(--jr-franchese)",
     ]}
-    columns={2}
+    iconColors={[
+      "var(--jr-mezzo)",
+      "var(--jr-conejo)",
+      "var(--jr-grande)",
+      "var(--jr-franchese)",
+      "var(--jr-grande)",
+      "var(--jr-mezzo)",
+    ]}
+    columns={3}
     rows={2}
   />
 
-  <ImageSection image="/assets/images/hero.png" bgPosition="center 30%" />
-
   <ImageSection
-    image="/assets/images/green-bags.png"
-    bg="var(--jr-orostat)"
-    bgSize="cover"
+    image="/assets/images/allbags.png"
+    bgSize="contain"
+    bg="var(--jr-franchese)"
   />
 
-  <LoremSection
-    bg="var(--jr-vit)"
-    textColor="var(--jr-morkrost)"
-  />
+  <LoremSection bg="var(--jr-vit)" textColor="var(--jr-morkrost)" />
 
   <Footer />
 </Base>

@@ -1,0 +1,50 @@
+---
+import Base from "../layouts/Base.astro";
+import DevNav from "../components/DevNav.astro";
+import Hero from "../components/Hero.astro";
+import ColorGrid from "../components/ColorGrid.astro";
+import LoremSection from "../components/LoremSection.astro";
+import ImageSection from "../components/ImageSection.astro";
+import Footer from "../components/Footer.astro";
+import Hero2 from "../components/Hero2.astro";
+---
+
+<Base title="Järna Rosteri — V6">
+  <DevNav active="V6" />
+
+  <Hero2
+    image="/assets/images/view.png"
+    title="Järna Rosteri"
+    titleColor="var(--jr-gold)"
+    titleSize="var(--text-display)"
+    bgPosition="center 25%"
+    titleAlign="center"
+    titleOffsetY="-30vh"
+    subtitle="EKOLOGISKT & KRAV-CERTIFIERAT KAFFE"
+    subtitleSize="1rem"
+  />
+
+  <LoremSection bg="var(--jr-gron)" textColor="var(--jr-ljusgul)" />
+
+  <ImageSection
+    image="/assets/images/view.png"
+    bgSize="cover"
+    bg="var(--jr-franchese)"
+    caption="Ekologiskt odlat & KRAV-certifierat. Våra kaffebönor odlas utan kemiska bekämpningsmedel och uppfyller Fairtrade-standarder för rättvis handel."
+    captionPosition="center"
+    captionColor="var(--jr-vit)"
+    captionShadow={false}
+    overlay="var(--overlay-dark)"
+  />
+  <ImageSection
+    image="/assets/images/allbags.png"
+    bg="var(--jr-ljusgul)"
+    bgSize="contain"
+  />
+
+  <Footer
+    bg="var(--jr-brun)"
+    textColor="var(--jr-ljusgul)"
+    accentColor="var(--jr-ljusgul)"
+  />
+</Base>
