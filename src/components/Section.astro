@@ -17,7 +17,7 @@ const {
   body,
   bg,
   color,
-  ruleOpacity = 0.15,
+  ruleOpacity = 0.07,
   marker = "bean",
   num,
   image,
@@ -45,6 +45,9 @@ const mode = image ? "image" : "text";
 
       <!-- vertical rule spine -->
       <span class="s-img-rule-v" aria-hidden="true" />
+
+      <!-- bottom bar -->
+      <div class="s-img-bottom-bar" aria-hidden="true" />
     </section>
   ) : (
     <section
@@ -73,6 +76,8 @@ const mode = image ? "image" : "text";
         </div>
       </div>
 
+      <!-- bottom bar mirrors hero footer border-top -->
+      <div class="ts-bottom-bar" aria-hidden="true" />
     </section>
   )
 }
@@ -83,7 +88,7 @@ const mode = image ? "image" : "text";
     width: 1.1rem;
     height: 1.1rem;
     fill: var(--color);
-    opacity: var(--rule-opacity);
+    opacity: 0.35;
     flex-shrink: 0;
   }
 
@@ -94,7 +99,7 @@ const mode = image ? "image" : "text";
     height: 100svh;
     overflow: hidden;
     display: grid;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto 1fr auto;
     grid-template-columns: var(--space-lg) 1fr;
     position: relative;
   }
@@ -127,7 +132,7 @@ const mode = image ? "image" : "text";
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--color);
-    opacity: var(--rule-opacity);
+    opacity: 0.35;
     white-space: nowrap;
   }
 
@@ -141,10 +146,20 @@ const mode = image ? "image" : "text";
   /* vertical rule spine */
   .s-img-rule-v {
     grid-column: 1;
-    grid-row: 2;
+    grid-row: 2 / 4;
     position: relative;
     z-index: 2;
     border-right: 1px solid rgba(from var(--color) r g b / var(--rule-opacity));
+  }
+
+  /* bottom bar */
+  .s-img-bottom-bar {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    position: relative;
+    z-index: 2;
+    padding: var(--space-lg);
+    border-top: 1px solid rgba(from var(--color) r g b / calc(var(--rule-opacity) * 0.8));
   }
 
   /* ── TEXT MODE: SHELL ────────────────────────────────────── */
@@ -163,7 +178,7 @@ const mode = image ? "image" : "text";
     color: var(--color);
     min-height: 100svh;
     display: grid;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto 1fr auto;
     grid-template-columns: var(--space-lg) 1fr;
   }
 
@@ -184,7 +199,7 @@ const mode = image ? "image" : "text";
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--color);
-    opacity: var(--rule-opacity);
+    opacity: 0.35;
     white-space: nowrap;
   }
 
@@ -199,7 +214,7 @@ const mode = image ? "image" : "text";
   /* ── VERTICAL RULE ───────────────────────────────────────── */
   .ts-rule-v {
     grid-column: 1;
-    grid-row: 2;
+    grid-row: 2 / 4;
     border-right: 1px solid rgba(from var(--color) r g b / calc(var(--rule-opacity) * 1));
   }
 
@@ -249,6 +264,13 @@ const mode = image ? "image" : "text";
     margin-top: -0.15em;
   }
 
+  /* ── BOTTOM BAR ──────────────────────────────────────────── */
+  .ts-bottom-bar {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    padding: var(--space-lg);
+    border-top: 1px solid rgba(from var(--color) r g b / calc(var(--rule-opacity) * 0.8));
+  }
 
   /* ── MOBILE ─────────────────────────────────────────────── */
   @media (max-width: 640px) {

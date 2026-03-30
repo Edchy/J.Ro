@@ -1,23 +1,100 @@
 ---
 import Base from "../layouts/Base.astro";
 import DevNav from "../components/DevNav.astro";
-import Hero from "../components/Hero.astro";
-import ColorGrid from "../components/ColorGrid.astro";
+import LogoMark from "../components/LogoMark.astro";
 import LoremSection from "../components/LoremSection.astro";
 import ImageSection from "../components/ImageSection.astro";
 import Footer from "../components/Footer.astro";
-import { tr } from "zod/v4/locales";
 ---
 
 <Base title="Järna Rosteri — V10">
   <DevNav active="V10" />
 
-  <Hero
-    title="J.Ro"
-    titleColor="var(--jr-brun)"
-    titleSize="clamp(6rem, 20vw, 20rem)"
-    bg="var(--jr-gron)"
-  />
+  <section class="hero">
+    <div class="hero-inner">
+      <LogoMark color="var(--jr-ljusgul)" width="clamp(14rem, 40vw, 32rem)" />
+      <div class="hero-rule"></div>
+      <p class="hero-tagline">
+        Järna Rosteri&ensp;—&ensp;Ekologiskt kaffe från utvalda gårdar
+      </p>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <span class="hero-scroll-line"></span>
+    </div>
+  </section>
+
+  <style>
+    .hero {
+      width: 100%;
+      height: 100vh;
+      background-color: var(--jr-gron);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      /* Golden ratio: logo center sits at ~61.8% from top — padding-top shifts centroid up */
+      padding-top: 0;
+    }
+
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-lg);
+      /* Offset upward slightly so visual center aligns with golden ratio point */
+      transform: translateY(-8vh);
+    }
+
+    .hero-rule {
+      width: clamp(14rem, 40vw, 32rem);
+      height: 1px;
+      background-color: var(--jr-ljusgul);
+      opacity: 0.4;
+    }
+
+    .hero-tagline {
+      font-family: var(--font);
+      font-size: var(--text-ui);
+      color: var(--jr-ljusgul);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: var(--space-xl);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-scroll-line {
+      display: block;
+      width: 1px;
+      height: 3rem;
+      background: var(--jr-ljusgul);
+      opacity: 0.35;
+      animation: scroll-pulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes scroll-pulse {
+      0%,
+      100% {
+        opacity: 0.35;
+        transform: scaleY(1);
+        transform-origin: top;
+      }
+      50% {
+        opacity: 0.7;
+        transform: scaleY(0.5);
+        transform-origin: top;
+      }
+    }
+  </style>
 
   <ImageSection
     image="/assets/images/view.png"

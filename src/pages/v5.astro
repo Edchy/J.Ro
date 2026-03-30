@@ -96,13 +96,13 @@ import Footer from "../components/FooterV5.astro";
 
   .word-top {
     color: var(--jr-ocra);
-    transform: translateY(0.06em);
+    transform: translateY(0.18em);
     animation: fade-up-top 1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
   }
 
   .word-bottom {
     color: var(--jr-gron);
-    transform: translateY(-0.06em);
+    transform: translateY(-0.18em);
     animation: fade-up-bottom 1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
   }
 
@@ -128,13 +128,13 @@ import Footer from "../components/FooterV5.astro";
   }
 
   @keyframes fade-up-top {
-    from { opacity: 0; transform: translateY(calc(0.06em + 1.5rem)); }
-    to   { opacity: 1; transform: translateY(0.06em); }
+    from { opacity: 0; transform: translateY(calc(0.18em + 1.5rem)); }
+    to   { opacity: 1; transform: translateY(0.18em); }
   }
 
   @keyframes fade-up-bottom {
-    from { opacity: 0; transform: translateY(calc(-0.06em + 1.5rem)); }
-    to   { opacity: 1; transform: translateY(-0.06em); }
+    from { opacity: 0; transform: translateY(calc(-0.18em + 1.5rem)); }
+    to   { opacity: 1; transform: translateY(-0.18em); }
   }
 
   @keyframes fade-in {
