@@ -1,10 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
 import DevNav from "../components/DevNav.astro";
-import ColorGrid from "../components/ColorGrid.astro";
-import LoremSection from "../components/LoremSection.astro";
-import ImageSection from "../components/ImageSection.astro";
-import Footer from "../components/Footer.astro";
 import LogoMark from "../components/LogoMark.astro";
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
@@ -24,8 +20,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
     <!-- Top: label row -->
     <div class="hero-top">
-      <span class="label">Specialkaffe</span>
-      <span class="label">Järna, Sverige</span>
+      <span class="label">Lorem ipsum</span>
+      <span class="label">Dolor, Amet</span>
     </div>
 
     <!-- Bottom: wordmark + tagline -->
@@ -34,53 +30,112 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <div class="accent-rule"></div>
         <LogoMark color="var(--jr-ocra)" width="clamp(14rem, 40vw, 36rem)" />
       </div>
-      <p class="tagline">Ekologiskt odlat<br/>KRAV-certifierat</p>
+      <p class="tagline">Lorem ipsum<br/>Dolor sit amet</p>
     </div>
 
   </section>
 
-  <ImageSection
-    image={`${base}/assets/images/allbags.png`}
-    bgSize="contain"
-    bg="var(--jr-franchese)"
-  />
+  <!-- ── SECTION 1: Product image ── -->
+  <section class="s-product">
+    <img src={`${base}/assets/images/allbags.png`} alt="Järna Rosteri kaffepaket" />
+  </section>
 
-  <ColorGrid
-    colors={[
-      "var(--jr-grande)",
-      "var(--jr-franchese)",
-      "var(--jr-poabs-esp)",
-      "var(--jr-poabs-bry)",
-      "var(--jr-mezzo)",
-      "var(--jr-brun)",
-    ]}
-    iconColors={[
-      "var(--jr-franchese)",
-      "var(--jr-grande)",
-      "var(--jr-ocra)",
-      "var(--jr-mezzo)",
-      "var(--jr-poabs-bry)",
-      "var(--jr-ocra)",
-    ]}
-    columns={3}
-    rows={2}
-  />
+  <!-- ── SECTION 2: Products ── -->
+  <section class="s-products">
+    <div class="s-products-grid">
 
-  <ImageSection
-    image={`${base}/assets/images/view.png`}
-    bgPosition="center 50%"
-    caption="Ekologiskt odlat & KRAV-certifierat. Våra kaffebönor odlas utan kemiska bekämpningsmedel och uppfyller Fairtrade-standarder för rättvis handel."
-    captionPosition="bottom-right"
-    captionColor="var(--jr-ocra)"
-  />
+      <article class="s-pcard">
+        <div class="s-pcard-blob">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="var(--jr-poabs-esp)" d="M44.5,30.5Q28,61,28,100Q28,139,55,158Q82,177,111,168Q140,159,158.5,136Q177,113,171,82Q165,51,140,38Q115,25,82,27Q49,29,44.5,30.5Z"/>
+          </svg>
+          <h3 class="s-pcard-name">Poabs<br/>Espresso</h3>
+        </div>
+        <div class="s-pcard-body">
+          <span class="s-pcard-origin">Honduras</span>
+          <p class="s-pcard-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit eiusmod tempor.</p>
+        </div>
+      </article>
 
-  <LoremSection bg="var(--jr-mezzo)" textColor="var(--jr-gold)" />
+      <article class="s-pcard">
+        <div class="s-pcard-blob">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="var(--jr-franchese)" d="M54,28Q26,56,28,100Q30,144,60,162Q90,180,124,166Q158,152,166,118Q174,84,160,54Q146,24,112,22Q78,20,54,28Z"/>
+          </svg>
+          <h3 class="s-pcard-name">Franchese</h3>
+        </div>
+        <div class="s-pcard-body">
+          <span class="s-pcard-origin">Etiopien</span>
+          <p class="s-pcard-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit eiusmod tempor.</p>
+        </div>
+      </article>
 
-  <Footer
-    bg="var(--jr-franchese)"
-    textColor="var(--jr-ocra)"
-    accentColor="var(--jr-grande)"
-  />
+      <article class="s-pcard">
+        <div class="s-pcard-blob">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="var(--jr-grande)" d="M40,62Q16,124,50,154Q84,184,118,170Q152,156,168,120Q184,84,164,52Q144,20,108,22Q72,24,40,62Z"/>
+          </svg>
+          <h3 class="s-pcard-name">Grande</h3>
+        </div>
+        <div class="s-pcard-body">
+          <span class="s-pcard-origin">Colombia</span>
+          <p class="s-pcard-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit eiusmod tempor.</p>
+        </div>
+      </article>
+
+      <article class="s-pcard">
+        <div class="s-pcard-blob">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="var(--jr-mezzo)" d="M56,26Q26,52,24,96Q22,140,56,162Q90,184,126,164Q162,144,168,108Q174,72,156,46Q138,20,104,20Q70,20,56,26Z"/>
+          </svg>
+          <h3 class="s-pcard-name">Mezzo</h3>
+        </div>
+        <div class="s-pcard-body">
+          <span class="s-pcard-origin">Kenya</span>
+          <p class="s-pcard-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit eiusmod tempor.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ── SECTION 3: Landscape image with large number ── -->
+  <section class="s-landscape">
+    <div class="s-landscape-img">
+      <img src={`${base}/assets/images/view.png`} alt="Kaffeodling" />
+    </div>
+    <div class="s-landscape-caption">
+      <span class="s-index">03</span>
+      <p>Direkt från odlare.<br />Rostade i Järna.</p>
+    </div>
+  </section>
+
+  <!-- ── SECTION 4: About ── -->
+  <section class="s-about">
+    <h2 class="s-about-headline">Hantverksmässigt<br/>rostat kaffe.</h2>
+    <div class="s-about-columns">
+      <p class="s-about-left">Järna.<br/>Sedan 2024.</p>
+      <p class="s-about-right">
+        Järna Rosteri grundades med övertygelsen att varje kopp
+        kaffe bär på ett löfte — om ursprung, om omsorg, om smak.
+        Vi rostar i små satser och arbetar nära de odlare
+        som delar vår passion för kvalitet.
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer-v7">
+    <div class="footer-v7-logo-wrap">
+      <div class="footer-v7-logo">
+        <LogoMark color="var(--jr-ocra)" width="clamp(20rem, 35vw, 40rem)" />
+      </div>
+    </div>
+    <div class="footer-v7-contact">
+      <p>info@jarnarosteri.se</p>
+      <p>070-840 13 65</p>
+      <p>Maskinvägen 5, 153 30 Järna</p>
+    </div>
+  </footer>
 </Base>
 
 <style>
@@ -194,6 +249,248 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     .hero-top,
     .wordmark-block,
     .tagline { animation: none; }
+  }
+
+  /* ── Shared section tokens ── */
+  .s-index {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-ocra);
+    letter-spacing: 0.2em;
+    opacity: 0.5;
+    display: block;
+  }
+
+  /* ── Section 1: Product ── */
+  .s-product {
+    background: var(--jr-gron);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-xl);
+  }
+
+  .s-product img {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* ── Section 2: Products ── */
+  .s-products {
+    background: var(--jr-gron);
+    padding: var(--space-xl);
+  }
+
+  .s-products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .s-pcard {
+    background: var(--jr-gron);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .s-pcard-blob {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .s-pcard-blob svg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+  }
+
+  .s-pcard-name {
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 2vw, 1.9rem);
+    color: var(--jr-svart);
+    letter-spacing: var(--letter-spacing-tight);
+    line-height: 1.0;
+    margin: 0;
+    text-align: center;
+  }
+
+  .s-pcard-body {
+    padding: var(--space-lg) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .s-pcard-origin {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-ocra);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  .s-pcard-desc {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-vit);
+    opacity: 0.4;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ── Section 3: Landscape ── */
+  .s-landscape {
+    position: relative;
+    height: 70vh;
+    min-height: 400px;
+    overflow: hidden;
+  }
+
+  .s-landscape-img {
+    position: absolute;
+    inset: 0;
+  }
+
+  .s-landscape-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 50%;
+    display: block;
+    filter: saturate(0.6) contrast(1.1);
+  }
+
+  .s-landscape-caption {
+    position: absolute;
+    bottom: var(--space-xl);
+    right: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--space-lg);
+  }
+
+  .s-landscape-caption p {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-vit);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    line-height: 1.7;
+    text-align: right;
+    opacity: 0.75;
+  }
+
+  /* ── Section 4: About ── */
+  .s-about {
+    background: var(--jr-gron);
+    padding: calc(var(--space-xl) * 2.5) var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--space-xl) * 2);
+  }
+
+  .s-about-headline {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 9vw, 9rem);
+    line-height: 0.95;
+    letter-spacing: var(--letter-spacing-tight);
+    color: var(--jr-vit);
+    margin: 0;
+    max-width: 14ch;
+  }
+
+  .s-about-columns {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-xl);
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: var(--space-xl);
+  }
+
+  .s-about-left {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2vw, 1.6rem);
+    line-height: 1.2;
+    letter-spacing: var(--letter-spacing-tight);
+    color: var(--jr-ocra);
+    margin: 0;
+  }
+
+  .s-about-right {
+    font-family: var(--font);
+    font-size: var(--text-body);
+    line-height: 1.8;
+    color: var(--jr-vit);
+    opacity: 0.6;
+    margin: 0;
+    max-width: 48ch;
+  }
+
+  @media (max-width: 640px) {
+    .s-about-columns {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 760px) {
+    .s-products-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+  }
+
+  /* ── Footer ── */
+  .footer-v7 {
+    background: var(--jr-gron);
+    width: 100%;
+    padding: var(--space-lg);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* The wrapper occupies the post-rotation footprint in normal flow:
+     60rem logo rotated 90° → ~30rem wide, 60rem tall (436:224 ≈ 1.94:1 ratio) */
+  .footer-v7-logo-wrap {
+    position: relative;
+    width: clamp(10.5rem, 18vw, 21rem);  /* logo height after rotation ÷ 1.94 */
+    height: clamp(20rem, 35vw, 40rem);
+    flex-shrink: 0;
+  }
+
+  /* Absolutely centered inside the wrapper, then rotated */
+  .footer-v7-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+  }
+
+  .footer-v7-contact {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    text-align: right;
+  }
+
+  .footer-v7-contact p {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    line-height: var(--line-height);
+    color: var(--jr-ocra);
+    text-transform: uppercase;
   }
 
   /* ── Mobile ── */

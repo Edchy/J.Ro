@@ -1,101 +1,194 @@
 ---
-// V2 — franchese (blue-teal) bg, two columns, bean icon top-right
+// V2 — dark colophon footer: full-width display wordmark, editorial contact column
+import LogoMark from './LogoMark.astro';
 ---
 
 <footer>
+  <div class="footer-rule-top"></div>
+
   <div class="footer-inner">
-    <div class="footer-top">
-      <span class="footer-logo">J.Ro</span>
-      <div class="footer-right">
+
+    <div class="footer-body">
+      <div class="footer-meta">
         <div class="footer-contact">
-          <p>info@jarnarosteri.se</p>
-          <p>070-840 13 65</p>
-          <p>Maskinvägen 5, 153 30 Järna</p>
+          <a href="mailto:info@jarnarosteri.se" class="footer-link">info@jarnarosteri.se</a>
+          <a href="tel:+46708401365" class="footer-link">070-840 13 65</a>
+          <span class="footer-address">Maskinvägen 5<br/>153 30 Järna</span>
+        </div>
+        <div class="footer-social">
+          <a href="#" class="footer-link footer-instagram">Instagram &nearr;</a>
+        </div>
+      </div>
+
+      <div class="footer-wordmark-wrap">
+        <div class="footer-wordmark-ghost">
+          <LogoMark color="var(--jr-vit)" width="28rem" />
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Järna Røsteri</span>
+
+    <div class="footer-rule-bottom"></div>
+
+    <div class="footer-colophon">
+      <span class="footer-copy">&copy; 2026 Järna R&#248;steri</span>
+      <span class="footer-tagline">Lorem ipsum dolor sit amet</span>
     </div>
+
   </div>
 </footer>
 
 <style>
   footer {
-    background: var(--jr-gron);
+    background: var(--jr-svart);
     color: var(--jr-vit);
     width: 100%;
-    padding: var(--space-lg);
+    overflow: hidden;
+  }
+
+  .footer-rule-top {
+    width: 100%;
+    height: 1px;
+    background: var(--jr-vit);
+    opacity: 0.15;
   }
 
   .footer-inner {
-    max-width: 1200px;
+    max-width: 1440px;
     margin: 0 auto;
-    padding: 12rem 0 6rem;
+    padding: var(--space-xl) var(--space-lg) var(--space-lg);
     display: flex;
     flex-direction: column;
-    gap: 5rem;
+    gap: var(--space-xl);
   }
 
-  .footer-top {
+  /* ── Body row: meta left, wordmark right ── */
+  .footer-body {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-
-  .footer-logo {
-    font-family: var(--font-display);
-    font-size: var(--text-display);
-    color: var(--jr-vit);
-    line-height: 1;
-  }
-
-  .footer-right {
-    display: flex;
-    flex-direction: column;
     align-items: flex-end;
+    justify-content: space-between;
     gap: var(--space-lg);
+  }
+
+  /* ── Contact + social column ── */
+  .footer-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    flex-shrink: 0;
   }
 
   .footer-contact {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
-    text-align: right;
+    gap: var(--space-sm);
   }
 
-  .footer-contact p {
+  .footer-link {
     font-family: var(--font);
     font-size: var(--text-ui);
-    line-height: var(--line-height);
     color: var(--jr-vit);
+    text-decoration: none;
     text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.55;
+    transition: opacity 0.2s ease;
   }
 
-  .footer-bottom {
-    text-align: center;
+  .footer-link:hover {
+    opacity: 1;
   }
 
-  .footer-bottom span {
+  .footer-address {
     font-family: var(--font);
-    font-size: 8px;
+    font-size: var(--text-ui);
     color: var(--jr-vit);
-    opacity: 0.4;
     text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.35;
+    line-height: var(--line-height);
   }
 
+  .footer-social {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .footer-instagram {
+    opacity: 0.75;
+  }
+
+  /* ── Oversized display wordmark ── */
+  .footer-wordmark-wrap {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    overflow: hidden;
+    /* Bleed slightly right for editorial tension */
+    margin-right: calc(var(--space-lg) * -1);
+  }
+
+  .footer-wordmark-ghost {
+    opacity: 0.08;
+    user-select: none;
+    flex-shrink: 0;
+  }
+
+  /* ── Divider ── */
+  .footer-rule-bottom {
+    width: 100%;
+    height: 1px;
+    background: var(--jr-vit);
+    opacity: 0.1;
+  }
+
+  /* ── Colophon row ── */
+  .footer-colophon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: var(--space-lg);
+  }
+
+  .footer-copy,
+  .footer-tagline {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--jr-vit);
+    opacity: 0.25;
+  }
+
+  /* ── Mobile ── */
   @media (max-width: 640px) {
-    .footer-top {
-      flex-direction: column;
+    .footer-inner {
       gap: var(--space-lg);
+      padding: var(--space-xl) var(--space-lg) var(--space-lg);
     }
 
-    .footer-right {
+    .footer-body {
+      flex-direction: column;
       align-items: flex-start;
+      gap: var(--space-xl);
     }
 
-    .footer-contact {
-      text-align: left;
+    .footer-wordmark-wrap {
+      justify-content: flex-start;
+      width: 100%;
+      margin-right: 0;
+      margin-left: calc(var(--space-lg) * -1);
+    }
+
+    .footer-wordmark-ghost {
+      opacity: 0.07;
+    }
+
+    .footer-colophon {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-sm);
     }
   }
 </style>

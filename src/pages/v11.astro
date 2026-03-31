@@ -15,7 +15,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   <!-- ── ABOUT ──────────────────────────────────────────────── -->
   <Section
-    label="Om oss"
+    label="Lorem"
     num="01"
     body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     bg="var(--jr-gron)"
@@ -26,18 +26,29 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <!-- ── LANDSCAPE ─────────────────────────────────────────── -->
   <section class="landscape">
     <div class="landscape-img" style={`background-image: url('${base}/assets/images/view.png')`}></div>
-    <div class="landscape-caption">
-      <p>
-        Ekologiskt odlat &amp; KRAV-certifierat.<br />Våra kaffebönor odlas utan
-        kemiska bekämpningsmedel och uppfyller<br />Fairtrade-standarder för
-        rättvis handel.
+
+    <!-- top bar -->
+    <div class="landscape-top-bar">
+      <span class="landscape-top-label">Lorem ipsum</span>
+      <span class="landscape-top-rule" aria-hidden="true"></span>
+      <svg class="landscape-bean" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 292 292" aria-hidden="true"><path transform="scale(0.285156 0.285156)" d="M624.271 203.204C627.463 203.055 630.658 202.981 633.853 202.982C694.493 202.628 746.716 225.446 789.751 267.559C826.571 303.667 852.591 350.102 860.498 401.073C875.61 498.501 813.021 585.751 748.253 651.956C677.405 724.377 586.869 785.355 490.797 818.775C465.377 827.617 433.86 835.858 406.799 835.909C405.647 838.136 404.037 837.433 401.625 837.446C337.201 837.442 289.054 819.638 240.747 777.398C199.463 741.723 172.15 692.576 163.656 638.677C154.333 578.452 170.472 529.815 201.131 478.698C216.022 454.093 233.11 430.888 252.188 409.366C331.758 319.638 456.486 232.497 575.934 208.156C594.417 204.39 605.784 204.318 624.271 203.204ZM331.517 721.766C337.325 724.282 343.838 727.677 349.641 729.651C373.35 735.951 386.432 737.486 410.965 733.975C459.015 727.101 502.105 705.263 543.629 681.17C574.242 662.064 606.365 641.03 633.305 616.71C682.747 572.079 738.523 518.529 759.865 453.831C764.427 440.001 764.034 389.393 751.298 381.864C746.954 386.318 740.381 391.381 735.427 395.374L711.768 414.384L639.928 472.395L410.17 657.584L362.055 695.942C356.532 700.341 334.604 716.99 331.517 721.766ZM269.944 656.694C279.333 650.074 288.432 641.817 297.523 634.641L599.075 390.88C629.419 366.297 660.681 341.811 690.735 316.987C672.173 309.27 659.291 303.535 638.475 303.958C635.534 304.017 635.22 302.638 631.25 303.054C631.063 303.125 630.878 303.199 630.69 303.266C623.145 305.971 614.456 304.539 606.621 305.801C602.536 306.46 598.496 307.873 594.466 308.831C581.837 311.833 569.786 314.599 557.574 319.165C465.628 353.545 367.297 426.372 307.644 504.112C295.075 520.492 283.461 537.42 274.408 556.022C261.957 581.608 257.104 607.894 263.664 635.823C265.331 642.92 268.314 649.645 269.944 656.694Z"/></svg>
+    </div>
+
+    <!-- vertical rule spine -->
+    <span class="landscape-rule-v" aria-hidden="true"></span>
+
+    <!-- bottom bar with caption -->
+    <div class="landscape-bottom-bar">
+      <p class="landscape-caption-text">
+        Lorem ipsum dolor &amp; consectetur adipiscing.<br />Sed do eiusmod tempor
+        incididunt ut labore et dolore magna<br />aliqua ut enim veniam quis.
       </p>
     </div>
   </section>
 
   <!-- ── PHILOSOPHY ─────────────────────────────────────────── -->
   <Section
-    label="Filosofi"
+    label="Ipsum"
     num="02"
     body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     bg="var(--jr-vit)"
@@ -48,7 +59,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   <!-- ── PRODUCTS ───────────────────────────────────────────── -->
   <Section
-    label="Vårt kaffe"
+    label="Lorem ipsum"
     bg="var(--jr-ocra)"
     color="var(--jr-vit)"
     image={`${base}/assets/images/coffee-packages.png`}
@@ -100,8 +111,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   .landscape {
     width: 100%;
     height: 100svh;
-    position: relative;
     overflow: hidden;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: var(--space-lg) 1fr;
+    position: relative;
   }
 
   .landscape-img {
@@ -111,32 +125,76 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     background-position: center center;
   }
 
-  .landscape-caption {
-    position: absolute;
-    bottom: var(--space-xl);
-    left: var(--space-lg);
+  .landscape-top-bar {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    position: relative;
     z-index: 2;
-    max-width: 400px;
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
 
-  .landscape-caption::before {
-    content: "";
-    display: block;
-    width: 2rem;
+  .landscape-top-label {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--jr-vit);
+    opacity: 0.35;
+    white-space: nowrap;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .landscape-top-rule {
+    flex: 1;
     height: 1px;
     background: var(--jr-vit);
-    opacity: 0.6;
-    margin-bottom: var(--space-sm);
+    opacity: 0.1;
   }
 
-  .landscape-caption p {
+  .landscape-bean {
+    width: 1.1rem;
+    height: 1.1rem;
+    fill: var(--jr-vit);
+    opacity: 0.35;
+    flex-shrink: 0;
+  }
+
+  .landscape-rule-v {
+    grid-column: 1;
+    grid-row: 2 / 4;
+    position: relative;
+    z-index: 2;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .landscape-bottom-bar {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    position: relative;
+    z-index: 2;
+    padding: var(--space-lg);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .landscape-caption-text {
     font-family: var(--font);
     font-size: var(--text-ui);
     line-height: 1.65;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: var(--jr-vit);
+    opacity: 0.7;
     text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  @media (max-width: 640px) {
+    .landscape-rule-v {
+      display: none;
+    }
   }
 
   /* ── FOOTER ──────────────────────────────────────────────── */

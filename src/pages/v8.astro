@@ -11,7 +11,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <!-- ─── HERO ─────────────────────────────────────────────────────────── -->
   <section class="hero">
     <div class="hero-meta">
-      <span class="meta-item">Lorem, Sverige</span>
+      <span class="meta-item">Lorem, Ipsum</span>
       <span class="meta-item">Est. —</span>
       <span class="meta-item">Ipsum Dolor</span>
     </div>
@@ -83,9 +83,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     </div>
 
     <div class="product-row">
-      <div class="product-image-col">
-        <div class="product-image" style={`background-image: url('${base}/assets/images/frontbag.png');`}></div>
-      </div>
       <div class="product-info">
         <div class="product-name-row">
           <span class="product-name">Lorem Ipsum</span>
@@ -100,12 +97,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <span class="tag">Dolor</span>
         </div>
       </div>
+      <div class="product-image-col">
+        <div class="product-image" style={`background-image: url('${base}/assets/images/frontbag.png');`}></div>
+      </div>
     </div>
 
     <div class="product-row product-row--reverse">
-      <div class="product-image-col">
-        <div class="product-image" style={`background-image: url('${base}/assets/images/coffee-packages.png'); background-size: 70%; background-color: var(--jr-mezzo);`}></div>
-      </div>
       <div class="product-info">
         <div class="product-name-row">
           <span class="product-name">Amet Consec</span>
@@ -120,12 +117,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <span class="tag">Sed Do</span>
         </div>
       </div>
+      <div class="product-image-col">
+        <div class="product-image" style={`background-image: url('${base}/assets/images/coffee-packages.png'); background-size: 70%; background-color: var(--jr-mezzo);`}></div>
+      </div>
     </div>
 
     <div class="product-row">
-      <div class="product-image-col">
-        <div class="product-image product-image--bags" style={`background-image: url('${base}/assets/images/allbags.png');`}></div>
-      </div>
       <div class="product-info">
         <div class="product-name-row">
           <span class="product-name">Tempor</span>
@@ -139,6 +136,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <span class="tag">Labore</span>
           <span class="tag">Magna</span>
         </div>
+      </div>
+      <div class="product-image-col">
+        <div class="product-image product-image--bags" style={`background-image: url('${base}/assets/images/allbags.png');`}></div>
       </div>
     </div>
   </section>
