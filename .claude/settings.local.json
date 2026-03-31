@@ -1,6 +1,9 @@
 {
+  "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "astro-docs"
   ],
-  "enableAllProjectMcpServers": true
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true
+  }
 }

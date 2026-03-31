@@ -2,14 +2,12 @@
 import Base from "../layouts/Base.astro";
 import DevNav from "../components/DevNav.astro";
 import LogoMark from "../components/LogoMark.astro";
-import LoremSection from "../components/LoremSection.astro";
-import ImageSection from "../components/ImageSection.astro";
-import Footer from "../components/Footer.astro";
 ---
 
 <Base title="Järna Rosteri — V10">
   <DevNav active="V10" />
 
+  <!-- ── HERO ─────────────────────────────────────────────── -->
   <section class="hero">
     <div class="hero-inner">
       <LogoMark color="var(--jr-ljusgul)" width="clamp(14rem, 40vw, 32rem)" />
@@ -23,102 +21,480 @@ import Footer from "../components/Footer.astro";
     </div>
   </section>
 
-  <style>
-    .hero {
-      width: 100%;
-      height: 100vh;
-      background-color: var(--jr-gron);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      /* Golden ratio: logo center sits at ~61.8% from top — padding-top shifts centroid up */
-      padding-top: 0;
+  <!-- ── IMAGE + CAPTION ───────────────────────────────────── -->
+  <section class="image-section">
+    <div class="image-fill"></div>
+    <div class="image-caption">
+      <span class="caption-rule"></span>
+      <p>
+        Från jord till kopp — odlat med omsorg,<br />
+        skördat i rätt tid, rostat i Järna.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── TEXT SECTION ──────────────────────────────────────── -->
+  <section class="text-section">
+    <div class="text-section-inner">
+      <div class="text-meta">
+        <span class="text-num">01</span>
+        <span class="text-label">Om oss</span>
+      </div>
+      <div class="text-prose">
+        <p>
+          Vi rostar kaffe med omsorg om ursprung, hantverk och hållbarhet.
+          Varje sats är ett samarbete med odlare som delar vår övertygelse —
+          att bra kaffe börjar långt innan det når koppen.
+        </p>
+        <p>
+          Järna Rosteri grundades med en enkel idé: servera kaffe vi själva
+          är stolta över. Ekologiskt odlat, KRAV-certifierat och inköpt
+          direkt från gårdar vi känner och litar på.
+        </p>
+        <span class="text-sig">— Järna, Sverige</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRODUCTS ──────────────────────────────────────────── -->
+  <section class="products-section">
+    <div class="products-header">
+      <span class="text-num">02</span>
+      <span class="text-label">Vårt kaffe</span>
+    </div>
+    <div class="products-img"></div>
+    <div class="products-names">
+      <div class="product-item">
+        <span class="product-name">Järna's Own</span>
+        <span class="product-origin">Blandning</span>
+        <span class="product-notes">Husets blandning. Mörk choklad, rostade nötter och en lång, varm avslutning.</span>
+      </div>
+      <div class="product-item">
+        <span class="product-name">Poabs Espresso</span>
+        <span class="product-origin">Honduras</span>
+        <span class="product-notes">Kraftfull och len. Karamell, mandel och en touch av mörk frukt under ytan.</span>
+      </div>
+      <div class="product-item">
+        <span class="product-name">Franchese</span>
+        <span class="product-origin">Etiopien</span>
+        <span class="product-notes">Blommig och komplex. Jasmin, persika och en lätt syra som dröjer sig kvar.</span>
+      </div>
+      <div class="product-item">
+        <span class="product-name">Mezzo</span>
+        <span class="product-origin">Colombia</span>
+        <span class="product-notes">Balanserad och fruktig. Röda bär, mjölkchoklad och en sammetslen kropp.</span>
+      </div>
+      <div class="product-item">
+        <span class="product-name">Grande</span>
+        <span class="product-origin">Kenya</span>
+        <span class="product-notes">Levande och ljus. Svarta vinbär, citrus och en distinkt, saftig syra.</span>
+      </div>
+      <div class="product-item">
+        <span class="product-name">Conejo</span>
+        <span class="product-origin">Guatemala</span>
+        <span class="product-notes">Mjuk och söt. Brunt socker, hasselnöt och en kryddig hint av kanel.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="footer-mark">
+      <LogoMark color="var(--jr-ljusgul)" width="clamp(12rem, 40vw, 32rem)" />
+    </div>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="mailto:info@jarnarosteri.se">info@jarnarosteri.se</a>
+        <a href="tel:+46708401365">070-840 13 65</a>
+        <p>Maskinvägen 5</p>
+        <p>153 30 Järna</p>
+      </div>
+      <div class="footer-col footer-col--last">
+        <a
+          href="https://www.instagram.com/jarnarosteri"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Instagram</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Järna Rosteri</span>
+      <span>Ekologiskt &amp; KRAV-certifierat</span>
+    </div>
+  </footer>
+</Base>
+
+<style is:global>
+  /* ── HERO ────────────────────────────────────────────────── */
+  .hero {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--jr-gron);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-top: 0;
+  }
+
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+    transform: translateY(-8vh);
+  }
+
+  .hero-rule {
+    width: clamp(14rem, 40vw, 32rem);
+    height: 1px;
+    background-color: var(--jr-ljusgul);
+    opacity: 0.4;
+  }
+
+  .hero-tagline {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-ljusgul);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: var(--space-xl);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-scroll-line {
+    display: block;
+    width: 1px;
+    height: 3rem;
+    background: var(--jr-ljusgul);
+    opacity: 0.35;
+    animation: scroll-pulse 2.4s ease-in-out infinite;
+  }
+
+  @keyframes scroll-pulse {
+    0%, 100% {
+      opacity: 0.35;
+      transform: scaleY(1);
+      transform-origin: top;
+    }
+    50% {
+      opacity: 0.7;
+      transform: scaleY(0.5);
+      transform-origin: top;
+    }
+  }
+
+  /* ── TEXT SECTION ────────────────────────────────────────── */
+  .text-section {
+    background: var(--jr-gron);
+    padding: clamp(5rem, 10vw, 9rem) var(--space-lg);
+    border-top: 1px solid rgba(239, 214, 120, 0.12);
+  }
+
+  .text-section-inner {
+    display: grid;
+    grid-template-columns: clamp(6rem, 12vw, 10rem) 1fr;
+    gap: var(--space-xl);
+    max-width: 860px;
+  }
+
+  .text-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding-top: 0.15em;
+  }
+
+  .text-num {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-ljusgul);
+    opacity: 0.3;
+    letter-spacing: 0.12em;
+  }
+
+  .text-label {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-ljusgul);
+    opacity: 0.55;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    margin-top: var(--space-sm);
+  }
+
+  .text-prose {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .text-prose p {
+    font-family: var(--font);
+    font-size: var(--text-body);
+    line-height: 1.8;
+    color: var(--jr-ljusgul);
+    opacity: 0.85;
+    max-width: 560px;
+  }
+
+  .text-sig {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-ljusgul);
+    opacity: 0.35;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: block;
+    padding-top: var(--space-sm);
+  }
+
+  /* ── IMAGE SECTION ───────────────────────────────────────── */
+  .image-section {
+    width: 100%;
+    height: 100svh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .image-fill {
+    position: absolute;
+    inset: 0;
+    background-image: url("/assets/images/view.png");
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .image-caption {
+    position: absolute;
+    bottom: var(--space-xl);
+    right: var(--space-lg);
+    z-index: 2;
+    max-width: 380px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .caption-rule {
+    display: block;
+    width: 1.75rem;
+    height: 1px;
+    background: var(--jr-vit);
+    opacity: 0.5;
+  }
+
+  .image-caption p {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    line-height: 1.7;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--jr-vit);
+    text-shadow: 0 1px 16px rgba(0, 0, 0, 0.55);
+  }
+
+  /* ── PRODUCTS ────────────────────────────────────────────── */
+  .products-section {
+    background: var(--jr-ocra);
+    padding: clamp(4rem, 8vw, 7rem) var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3rem, 6vw, 5rem);
+  }
+
+  .products-header {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-lg);
+  }
+
+  .products-header .text-num {
+    color: var(--jr-morkrost);
+    opacity: 0.45;
+  }
+
+  .products-header .text-label {
+    writing-mode: horizontal-tb;
+    transform: none;
+    margin-top: 0;
+    font-size: var(--text-ui);
+    color: var(--jr-morkrost);
+    opacity: 0.65;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-family: var(--font);
+  }
+
+  .products-img {
+    width: 100%;
+    height: clamp(16rem, 36vw, 30rem);
+    background-image: url("/assets/images/allbags.png");
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  .products-names {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid rgba(58, 40, 23, 0.2);
+    padding-top: var(--space-lg);
+    gap: var(--space-xl) var(--space-lg);
+  }
+
+  .product-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .product-name {
+    font-family: var(--font);
+    font-size: var(--text-body);
+    color: var(--jr-morkrost);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    display: block;
+  }
+
+  .product-origin {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-morkrost);
+    opacity: 0.45;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .product-notes {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-morkrost);
+    opacity: 0.65;
+    line-height: 1.65;
+    letter-spacing: 0.02em;
+    display: block;
+  }
+
+  /* ── FOOTER ──────────────────────────────────────────────── */
+  .site-footer {
+    background: var(--jr-svart);
+    color: var(--jr-ljusgul);
+    padding: 0 var(--space-lg);
+    padding-bottom: var(--space-lg);
+  }
+
+  .footer-mark {
+    padding-top: clamp(4rem, 10vw, 8rem);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid rgba(239, 214, 120, 0.12);
+  }
+
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid rgba(239, 214, 120, 0.12);
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: var(--space-xl) 0;
+    padding-right: var(--space-lg);
+  }
+
+  .footer-col + .footer-col {
+    border-left: 1px solid rgba(239, 214, 120, 0.12);
+    padding-left: var(--space-lg);
+    padding-right: 0;
+  }
+
+
+  .footer-col a,
+  .footer-col p {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    line-height: 1.7;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--jr-ljusgul);
+    text-decoration: none;
+    opacity: 0.75;
+  }
+
+  .footer-col a:hover {
+    opacity: 1;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-top: var(--space-lg);
+  }
+
+  .footer-bottom span {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--jr-ljusgul);
+    opacity: 0.2;
+  }
+
+  /* ── RESPONSIVE ──────────────────────────────────────────── */
+  @media (max-width: 680px) {
+    .text-section-inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
     }
 
-    .hero-inner {
-      display: flex;
-      flex-direction: column;
+    .text-label {
+      writing-mode: horizontal-tb;
+      transform: none;
+    }
+
+    .text-meta {
+      flex-direction: row;
       align-items: center;
       gap: var(--space-lg);
-      /* Offset upward slightly so visual center aligns with golden ratio point */
-      transform: translateY(-8vh);
     }
 
-    .hero-rule {
-      width: clamp(14rem, 40vw, 32rem);
-      height: 1px;
-      background-color: var(--jr-ljusgul);
-      opacity: 0.4;
+    .products-names {
+      grid-template-columns: 1fr;
     }
 
-    .hero-tagline {
-      font-family: var(--font);
-      font-size: var(--text-ui);
-      color: var(--jr-ljusgul);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      opacity: 0.7;
+    .footer-grid {
+      grid-template-columns: 1fr;
     }
 
-    .hero-scroll {
-      position: absolute;
-      bottom: var(--space-xl);
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .footer-col--last {
+      border-left: none;
+      border-top: 1px solid rgba(239, 214, 120, 0.12);
+      padding-left: 0;
     }
 
-    .hero-scroll-line {
-      display: block;
-      width: 1px;
-      height: 3rem;
-      background: var(--jr-ljusgul);
-      opacity: 0.35;
-      animation: scroll-pulse 2.4s ease-in-out infinite;
+    .footer-col + .footer-col {
+      border-left: none;
+      border-top: 1px solid rgba(239, 214, 120, 0.12);
+      padding-left: 0;
     }
-
-    @keyframes scroll-pulse {
-      0%,
-      100% {
-        opacity: 0.35;
-        transform: scaleY(1);
-        transform-origin: top;
-      }
-      50% {
-        opacity: 0.7;
-        transform: scaleY(0.5);
-        transform-origin: top;
-      }
-    }
-  </style>
-
-  <ImageSection
-    image="/assets/images/view.png"
-    bgSize="cover"
-    bg="var(--jr-svart)"
-    caption="Ekologiskt odlat & KRAV-certifierat. Våra kaffebönor odlas utan kemiska bekämpningsmedel och uppfyller Fairtrade-standarder för rättvis handel."
-    captionPosition="center"
-    captionColor="var(--jr-vit)"
-    captionShadow={true}
-  />
-
-  <LoremSection bg="var(--jr-brun)" textColor="var(--jr-ljusgul)" />
-
-  <ImageSection image="/assets/images/honduras.png" bgPosition="center 45%" />
-
-  <ImageSection
-    image="/assets/images/allbags.png"
-    bgSize="contain"
-    bg="var(--jr-ocra)"
-  />
-
-  <Footer
-    bg="var(--jr-gron)"
-    textColor="var(--jr-gold)"
-    accentColor="var(--jr-gold)"
-  />
-</Base>
+  }
+</style>
