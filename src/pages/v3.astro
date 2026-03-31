@@ -145,7 +145,7 @@ import LogoMark from "../components/LogoMark.astro";
   <footer class="footer">
     <div class="footer-top">
       <div class="footer-wordmark">
-        <span class="footer-logo-line">J.R&#248;</span>
+        <LogoMark color="var(--jr-vit)" width="clamp(8rem, 16vw, 14rem)" />
       </div>
       <div class="footer-info">
         <div class="footer-info-col">
@@ -413,13 +413,6 @@ import LogoMark from "../components/LogoMark.astro";
     line-height: 1;
   }
 
-  .footer-logo-line {
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 8vw, 7rem);
-    color: var(--jr-vit);
-    letter-spacing: var(--letter-spacing-tight);
-    opacity: 0.9;
-  }
 
   .footer-info {
     display: grid;

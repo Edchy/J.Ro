@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import DevNav from "../components/DevNav.astro";
 import LogoMark from "../components/LogoMark.astro";
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Base title="Järna Rosteri — V10">
@@ -23,7 +24,7 @@ import LogoMark from "../components/LogoMark.astro";
 
   <!-- ── IMAGE + CAPTION ───────────────────────────────────── -->
   <section class="image-section">
-    <div class="image-fill"></div>
+    <div class="image-fill" style={`background-image: url('${base}/assets/images/view.png')`}></div>
     <div class="image-caption">
       <span class="caption-rule"></span>
       <p>
@@ -62,7 +63,7 @@ import LogoMark from "../components/LogoMark.astro";
       <span class="text-num">02</span>
       <span class="text-label">Vårt kaffe</span>
     </div>
-    <div class="products-img"></div>
+    <div class="products-img" style={`background-image: url('${base}/assets/images/allbags.png')`}></div>
     <div class="products-names">
       <div class="product-item">
         <span class="product-name">Järna's Own</span>
@@ -272,7 +273,6 @@ import LogoMark from "../components/LogoMark.astro";
   .image-fill {
     position: absolute;
     inset: 0;
-    background-image: url("/assets/images/view.png");
     background-size: cover;
     background-position: center center;
   }
@@ -342,7 +342,6 @@ import LogoMark from "../components/LogoMark.astro";
   .products-img {
     width: 100%;
     height: clamp(16rem, 36vw, 30rem);
-    background-image: url("/assets/images/allbags.png");
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;

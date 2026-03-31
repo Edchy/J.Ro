@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import DevNav from "../components/DevNav.astro";
 import LogoMark from "../components/LogoMark.astro";
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Base title="Järna Rosteri">
@@ -9,7 +10,7 @@ import LogoMark from "../components/LogoMark.astro";
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-img"></div>
+    <div class="hero-img" style={`background-image: url('${base}/assets/images/hero-no-text.png')`}></div>
     <div class="hero-fade"></div>
     <span class="hero-eyebrow">Järna Rosteri</span>
     <span class="hero-year">Est. 2013</span>
@@ -34,7 +35,7 @@ import LogoMark from "../components/LogoMark.astro";
 
   <!-- LANDSCAPE IMAGE -->
   <section class="img-section">
-    <div class="img-section-fill img-section-fill--landscape"></div>
+    <div class="img-section-fill img-section-fill--landscape" style={`background-image: url('${base}/assets/images/view.png')`}></div>
   </section>
 
   <!-- CAPTION STRIP -->
@@ -61,7 +62,7 @@ import LogoMark from "../components/LogoMark.astro";
 
   <!-- PRODUCTS IMAGE -->
   <section class="img-section img-section--products">
-    <div class="img-section-fill img-section-fill--bags"></div>
+    <div class="img-section-fill img-section-fill--bags" style={`background-image: url('${base}/assets/images/coffee-packages.png')`}></div>
   </section>
 
   <!-- FOOTER -->
@@ -241,13 +242,11 @@ import LogoMark from "../components/LogoMark.astro";
   }
 
   .img-section-fill--landscape {
-    background-image: url("/assets/images/view.png");
     background-size: cover;
     background-position: center center;
   }
 
   .img-section-fill--bags {
-    background-image: url("/assets/images/coffee-packages.png");
     background-size: 35%;
     background-position: center center;
     background-repeat: no-repeat;

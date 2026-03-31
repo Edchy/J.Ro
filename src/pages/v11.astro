@@ -4,6 +4,7 @@ import DevNav from "../components/DevNav.astro";
 import Hero3 from "../components/Hero3.astro";
 import Section from "../components/Section.astro";
 import LogoMark from "../components/LogoMark.astro";
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Base title="Järna Rosteri">
@@ -24,7 +25,7 @@ import LogoMark from "../components/LogoMark.astro";
 
   <!-- ── LANDSCAPE ─────────────────────────────────────────── -->
   <section class="landscape">
-    <div class="landscape-img"></div>
+    <div class="landscape-img" style={`background-image: url('${base}/assets/images/view.png')`}></div>
     <div class="landscape-caption">
       <p>
         Ekologiskt odlat &amp; KRAV-certifierat.<br />Våra kaffebönor odlas utan
@@ -106,7 +107,6 @@ import LogoMark from "../components/LogoMark.astro";
   .landscape-img {
     position: absolute;
     inset: 0;
-    background-image: url("/assets/images/view.png");
     background-size: cover;
     background-position: center center;
   }

@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import DevNav from "../components/DevNav.astro";
 import FooterX from "../components/FooterX.astro";
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Base title="Järna Rosteri">
@@ -9,7 +10,7 @@ import FooterX from "../components/FooterX.astro";
 
   <!-- 01 · HERO -->
   <section class="hero">
-    <div class="hero-img"></div>
+    <div class="hero-img" style={`background-image: url('${base}/assets/images/view.png')`}></div>
     <div class="hero-vignette"></div>
     <span class="hero-eyebrow">Järna Rosteri</span>
     <span class="hero-year">Est. 2013</span>
@@ -37,7 +38,6 @@ import FooterX from "../components/FooterX.astro";
   .hero-img {
     position: absolute;
     inset: 0;
-    background-image: url("/assets/images/view.png");
     background-size: cover;
     background-position: center 30%;
   }

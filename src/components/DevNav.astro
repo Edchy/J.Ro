@@ -5,23 +5,21 @@ interface Props {
 
 const { active } = Astro.props;
 
-const b = import.meta.env.BASE_URL.replace(/\/$/, '');
-
 const links = [
-  { href: `${b}/`, label: 'IDX' },
-  { href: `${b}/v1`, label: 'V1' },
-  { href: `${b}/v2`, label: 'V2' },
-  { href: `${b}/v3`, label: 'V3' },
-  { href: `${b}/v4`, label: 'V4' },
-  { href: `${b}/v5`, label: 'V5' },
-  { href: `${b}/v6`, label: 'V6' },
-  { href: `${b}/v7`, label: 'V7' },
-  { href: `${b}/v8`, label: 'V8' },
-  { href: `${b}/v9`, label: 'V9' },
-  { href: `${b}/v10`, label: 'V10' },
-  { href: `${b}/v11`, label: 'V11' },
-  { href: `${b}/v12`, label: 'V12' },
-  { href: `${b}/v13`, label: 'V13' },
+  { href: '/', label: 'IDX' },
+  { href: '/v1', label: 'V1' },
+  { href: '/v2', label: 'V2' },
+  { href: '/v3', label: 'V3' },
+  { href: '/v4', label: 'V4' },
+  { href: '/v5', label: 'V5' },
+  { href: '/v6', label: 'V6' },
+  { href: '/v7', label: 'V7' },
+  { href: '/v8', label: 'V8' },
+  { href: '/v9', label: 'V9' },
+  { href: '/v10', label: 'V10' },
+  { href: '/v11', label: 'V11' },
+  { href: '/v12', label: 'V12' },
+  { href: '/v13', label: 'V13' },
 ];
 ---
 

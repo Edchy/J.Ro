@@ -6,6 +6,39 @@ interface Props {
 }
 
 const { title = "Järna Røsteri" } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const fonts = `
+  @font-face {
+    font-family: "Orator Std";
+    src: url("${base}/assets/fonts/orator-std-medium.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Maax Mono";
+    src: url("${base}/assets/fonts/MaaxMonoTrial-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Maax Mono";
+    src: url("${base}/assets/fonts/MaaxMonoTrial-Italic.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: "Maax Mono";
+    src: url("${base}/assets/fonts/MaaxMonoTrial-Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Maax Mono";
+    src: url("${base}/assets/fonts/MaaxMonoTrial-BoldItalic.otf") format("opentype");
+    font-weight: 700;
+    font-style: italic;
+  }
+`;
 ---
 
 <!doctype html>
@@ -14,6 +47,7 @@ const { title = "Järna Røsteri" } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
+    <style set:html={fonts}></style>
   </head>
   <body>
     <slot />
