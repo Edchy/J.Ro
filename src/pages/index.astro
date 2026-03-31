@@ -2,7 +2,7 @@
 import Base from "../layouts/Base.astro";
 import DevNav from "../components/DevNav.astro";
 import LogoMark from "../components/LogoMark.astro";
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <Base title="Järna Rosteri">
@@ -10,7 +10,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   <!-- ─── HERO ─────────────────────────────────────────────────── -->
   <section class="hero">
-    <div class="hero-photo" style={`background-image: url('${base}/assets/images/hero-no-text.png')`}></div>
+    <div
+      class="hero-photo"
+      style={`background-image: url('${base}/assets/images/hero-no-text.png')`}
+    >
+    </div>
     <div class="hero-veil"></div>
 
     <header class="hero-header">
@@ -26,7 +30,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <div class="hero-scroll-hint" aria-hidden="true">↓</div>
 
     <div class="hero-info">
-      <p>Tja Robin. Här kommer lite olike förslag och riktningar. Du kan bläddra igenom alla 14 olika varianter uppe i högra hörnet. Testa gärna på datorn då inget är mobilanpassat ännu. Som sagt detta är bara förslag på olika riktningar. Man kan sedan plocka och välja olika sektioner från olika sidor och sätta ihop något.</p>
+      <p>
+        Tja Robin. Här kommer lite olike förslag och riktningar. Du kan bläddra
+        igenom alla 14 olika varianter uppe i högra hörnet. Testa gärna på
+        datorn då inget är mobilanpassat ännu. Som sagt detta är bara utkast och
+        experimenterade med färger och formger. Man kan sedan plocka och välja
+        olika sektioner från olika sidor och sätta ihop något. Eller om du vill
+        ha någon helt annan riktning. Fundera gärna på vad det ska vara för
+        texter på sidan så att jag slipper använda AI/Lorem ipsum-texter :)
+      </p>
     </div>
   </section>
 
@@ -38,9 +50,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       </div>
       <div class="text-col-body">
         <p class="body-copy">
-          Vi grundades med en enkel övertygelse: att varje kopp kaffe bär på
-          ett ursprung värt att berätta om. Våra rostningar är långsamma,
-          varsamma och alltid spårbara — från odlarens hand till din mugg.
+          Vi grundades med en enkel övertygelse: att varje kopp kaffe bär på ett
+          ursprung värt att berätta om. Våra rostningar är långsamma, varsamma
+          och alltid spårbara — från odlarens hand till din mugg.
         </p>
         <p class="body-copy">
           Järna Rosteri arbetar uteslutande med ekologiskt odlat och
@@ -55,7 +67,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   <!-- ─── IMAGE + CAPTION ──────────────────────────────────────── -->
   <section class="image-block">
-    <div class="image-block-photo" style={`background-image: url('${base}/assets/images/view.png')`}></div>
+    <div
+      class="image-block-photo"
+      style={`background-image: url('${base}/assets/images/view.png')`}
+    >
+    </div>
     <div class="image-block-caption">
       <span class="eyebrow eyebrow--light">Ursprung</span>
       <p>
@@ -80,8 +96,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <span class="product-origin">Honduras</span>
           <h3 class="product-name">Franchese</h3>
           <p class="product-note">
-            Mjuk och balanserad med toner av mörk choklad och nötter.
-            Lämplig för espresso och bryggkaffe.
+            Mjuk och balanserad med toner av mörk choklad och nötter. Lämplig
+            för espresso och bryggkaffe.
           </p>
           <span class="product-cert">Fairtrade · Ekologisk</span>
         </div>
@@ -93,8 +109,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <span class="product-origin">Etiopien</span>
           <h3 class="product-name">Grande</h3>
           <p class="product-note">
-            Blommig och fruktig karaktär med citrusaccenter och lång
-            eftersmak. Idealisk för pour-over.
+            Blommig och fruktig karaktär med citrusaccenter och lång eftersmak.
+            Idealisk för pour-over.
           </p>
           <span class="product-cert">KRAV · Ekologisk</span>
         </div>
@@ -106,8 +122,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <span class="product-origin">Colombia</span>
           <h3 class="product-name">Mezzo</h3>
           <p class="product-note">
-            Röd frukt, karamell och en hint av körsbär. Fungerar lika bra
-            svart som med mjölk.
+            Röd frukt, karamell och en hint av körsbär. Fungerar lika bra svart
+            som med mjölk.
           </p>
           <span class="product-cert">Demeter · Biodynamisk</span>
         </div>
@@ -119,8 +135,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <span class="product-origin">Kenya</span>
           <h3 class="product-name">Poabs Esp</h3>
           <p class="product-note">
-            Intensiv och fruktig med tydlig syra och toner av vinbär.
-            Utmärkt som espresso och i mjölkdrycker.
+            Intensiv och fruktig med tydlig syra och toner av vinbär. Utmärkt
+            som espresso och i mjölkdrycker.
           </p>
           <span class="product-cert">Fairtrade · Ekologisk</span>
         </div>
@@ -132,8 +148,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <span class="product-origin">Guatemala</span>
           <h3 class="product-name">Poabs Bry</h3>
           <p class="product-note">
-            Fyllig kropp med inslag av mörka bär och varm krydda. Perfekt
-            för bryggkaffe och pour-over.
+            Fyllig kropp med inslag av mörka bär och varm krydda. Perfekt för
+            bryggkaffe och pour-over.
           </p>
           <span class="product-cert">KRAV · Ekologisk</span>
         </div>
@@ -145,8 +161,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <span class="product-origin">Peru</span>
           <h3 class="product-name">Conejo</h3>
           <p class="product-note">
-            Len och jordnära med lätt nötighet och subtil sötma. En
-            tillgänglig och välbalanserad blandning.
+            Len och jordnära med lätt nötighet och subtil sötma. En tillgänglig
+            och välbalanserad blandning.
           </p>
           <span class="product-cert">Demeter · Biodynamisk</span>
         </div>
@@ -154,7 +170,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     </div>
 
     <div class="products-bags">
-      <div class="bags-img" style={`background-image: url('${base}/assets/images/allbags.png')`}></div>
+      <div
+        class="bags-img"
+        style={`background-image: url('${base}/assets/images/allbags.png')`}
+      >
+      </div>
     </div>
   </section>
 
@@ -164,7 +184,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <LogoMark color="var(--jr-ljusgul)" width="80vw" />
     </div>
 
-    <span class="footer-copy-vert" aria-hidden="true">© 2026 Järna Rosteri</span>
+    <span class="footer-copy-vert" aria-hidden="true">© 2026 Järna Rosteri</span
+    >
 
     <div class="footer-inner">
       <div class="footer-rule-row">
@@ -175,7 +196,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <div class="footer-fields">
         <div class="footer-field">
           <span class="footer-field-label">Kontakt</span>
-          <a href="mailto:info@jarnarosteri.se" class="footer-link">info@jarnarosteri.se</a>
+          <a href="mailto:info@jarnarosteri.se" class="footer-link"
+            >info@jarnarosteri.se</a
+          >
           <a href="tel:+46708401365" class="footer-link">070-840 13 65</a>
         </div>
         <div class="footer-field">
@@ -189,7 +212,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             href="https://www.instagram.com/jarnarosteri"
             target="_blank"
             rel="noopener noreferrer"
-            class="footer-link">Instagram</a>
+            class="footer-link">Instagram</a
+          >
         </div>
       </div>
     </div>
