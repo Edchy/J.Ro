@@ -192,6 +192,11 @@ import LogoMark from "../components/LogoMark.astro";
 </Base>
 
 <style>
+  :root {
+    --page-inset: clamp(var(--space-lg), 5vw, 4rem);
+    --page-max: 1080px;
+  }
+
   /* ── HERO ─────────────────────────────────────────────────────── */
   .hero {
     position: relative;
@@ -226,9 +231,9 @@ import LogoMark from "../components/LogoMark.astro";
 
   .hero-header {
     position: absolute;
-    top: var(--space-lg);
-    left: var(--space-lg);
-    right: var(--space-lg);
+    top: var(--page-inset);
+    left: var(--page-inset);
+    right: var(--page-inset);
     display: flex;
     justify-content: space-between;
     z-index: 2;
@@ -246,7 +251,7 @@ import LogoMark from "../components/LogoMark.astro";
   .hero-body {
     position: relative;
     z-index: 2;
-    padding: var(--space-lg);
+    padding: var(--page-inset);
     padding-bottom: clamp(var(--space-xl), 5vw, 4rem);
   }
 
@@ -270,8 +275,8 @@ import LogoMark from "../components/LogoMark.astro";
 
   .hero-scroll-hint {
     position: absolute;
-    bottom: var(--space-lg);
-    right: var(--space-lg);
+    bottom: var(--page-inset);
+    right: var(--page-inset);
     z-index: 2;
     font-family: var(--font);
     font-size: var(--text-ui);
@@ -282,7 +287,7 @@ import LogoMark from "../components/LogoMark.astro";
   /* ── TEXT BLOCK ───────────────────────────────────────────────── */
   .text-block {
     width: 100%;
-    padding: clamp(5rem, 10vw, 9rem) var(--space-lg);
+    padding: clamp(5rem, 10vw, 9rem) 0;
   }
 
   .text-block--dark {
@@ -290,8 +295,9 @@ import LogoMark from "../components/LogoMark.astro";
   }
 
   .text-inner {
-    max-width: 1080px;
+    max-width: var(--page-max);
     margin: 0 auto;
+    padding-inline: var(--page-inset);
     display: grid;
     grid-template-columns: 1fr 1.618fr;
     gap: var(--space-xl);
@@ -369,7 +375,7 @@ import LogoMark from "../components/LogoMark.astro";
     bottom: 0;
     left: 0;
     right: 0;
-    padding: var(--space-xl) var(--space-lg);
+    padding: var(--space-xl) var(--page-inset);
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);
@@ -395,13 +401,14 @@ import LogoMark from "../components/LogoMark.astro";
   /* ── PRODUCTS ────────────────────────────────────────────────── */
   .products {
     background: var(--jr-ocra);
-    padding: clamp(4rem, 8vw, 7rem) var(--space-lg) clamp(3rem, 6vw, 5rem);
+    padding: clamp(4rem, 8vw, 7rem) 0 clamp(3rem, 6vw, 5rem);
     overflow: hidden;
   }
 
   .products-header {
-    max-width: 1080px;
+    max-width: var(--page-max);
     margin: 0 auto clamp(3rem, 5vw, 4.5rem);
+    padding-inline: var(--page-inset);
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);
@@ -421,8 +428,9 @@ import LogoMark from "../components/LogoMark.astro";
   }
 
   .products-grid {
-    max-width: 1080px;
+    max-width: var(--page-max);
     margin: 0 auto;
+    padding-inline: var(--page-inset);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-lg);
@@ -491,8 +499,6 @@ import LogoMark from "../components/LogoMark.astro";
 
   .products-bags {
     margin-top: clamp(3rem, 6vw, 5rem);
-    margin-left: calc(var(--space-lg) * -1);
-    margin-right: calc(var(--space-lg) * -1);
   }
 
   .bags-img {
@@ -524,8 +530,8 @@ import LogoMark from "../components/LogoMark.astro";
 
   .footer-copy-vert {
     position: absolute;
-    left: var(--space-lg);
-    bottom: var(--space-lg);
+    left: var(--page-inset);
+    bottom: var(--page-inset);
     font-family: var(--font);
     font-size: var(--text-ui);
     text-transform: uppercase;
@@ -539,10 +545,9 @@ import LogoMark from "../components/LogoMark.astro";
   .footer-inner {
     position: relative;
     z-index: 1;
-    max-width: 1080px;
+    max-width: var(--page-max);
     margin: 0 auto;
-    padding: clamp(5rem, 10vw, 8rem) var(--space-lg) clamp(3rem, 6vw, 5rem);
-    padding-left: clamp(3.5rem, 7vw, 6rem);
+    padding: clamp(5rem, 10vw, 8rem) var(--page-inset) clamp(3rem, 6vw, 5rem);
   }
 
   .footer-rule-row {
@@ -629,10 +634,6 @@ import LogoMark from "../components/LogoMark.astro";
 
     .footer-copy-vert {
       display: none;
-    }
-
-    .footer-inner {
-      padding-left: var(--space-lg);
     }
   }
 
