@@ -1,140 +1,375 @@
 ---
 import Base from "../layouts/Base.astro";
 import DevNav from "../components/DevNav.astro";
-import ColorGrid from "../components/ColorGrid.astro";
-import LoremSection from "../components/LoremSection.astro";
-import ImageSection from "../components/ImageSection.astro";
+import LogoMark from "../components/LogoMark.astro";
 import Footer from "../components/FooterV5.astro";
 ---
 
 <Base title="Järna Rosteri — V5">
   <DevNav active="V5" />
 
-  <!-- HERO V5 — Golden ratio split -->
-  <section class="hero-v5">
+  <!-- ─── HERO ─────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-rule-top"></div>
 
-    <!-- Upper field: green (61.8%) -->
-    <div class="field-upper">
-      <span class="word word-top">JÄRNA</span>
+    <div class="hero-logo">
+      <LogoMark color="var(--jr-vit)" width="clamp(18rem, 55vw, 52rem)" class="logo-svg" />
     </div>
 
-    <!-- Lower field: ocra (38.2%) -->
-    <div class="field-lower">
-      <span class="word word-bottom">ROSTERI</span>
-
-      <!-- Bottom-right metadata -->
-      <div class="meta">
-        <span>Järna, Sverige</span>
-        <span>Specialkaffe</span>
+    <div class="hero-foot">
+      <div class="hero-foot-left">
+        <span class="hero-label">Specialkaffe · Järna, Sverige</span>
+      </div>
+      <div class="hero-foot-right">
+        <span class="hero-label">59°06′N · 17°34′E</span>
+        <span class="hero-label">Est. 2019</span>
       </div>
     </div>
-
   </section>
 
-  <ColorGrid
-    colors={[
-      "var(--jr-gron)",
-      "var(--jr-ocra)",
-      "var(--jr-ocra)",
-      "var(--jr-gron)",
-    ]}
-    columns={2}
-    rows={2}
-    image="/assets/images/frontbag.png"
-  />
+  <!-- ─── IMAGE SECTION ────────────────────────────────────── -->
+  <section class="image-section">
+    <div class="image-wrap">
+      <img src="/assets/images/view.png" alt="Kaffeodling" class="image-full" />
+    </div>
+    <div class="image-caption-bar">
+      <span class="caption-label">Ekologiskt odlat</span>
+      <span class="caption-divider">—</span>
+      <span class="caption-label">KRAV-certifierat</span>
+      <span class="caption-divider">—</span>
+      <span class="caption-label">Fairtrade</span>
+    </div>
+  </section>
 
-  <LoremSection bg="var(--jr-ocra)" textColor="var(--jr-vit)" />
+  <!-- ─── TEXT SECTION ─────────────────────────────────────── -->
+  <section class="text-section">
+    <div class="text-grid">
+      <div class="text-body-col">
+        <p class="body-paragraph">
+          Vi rostar varje sats för hand i Järna, söder om Stockholm.
+          Bönorna väljs med omsorg från små, familjedrivna odlare
+          i Etiopien, Colombia och Indonesien.
+        </p>
+        <p class="body-paragraph">
+          Vår filosofi är enkel: respektera råvaran.
+          Låt ursprungets karaktär tala — fruktig syra, djup choklad,
+          blommiga noter. Ingen blandning utan syfte.
+        </p>
+        <div class="text-rule"></div>
+        <span class="body-footnote">Rostat i liten sats · Leverans inom 48h · Alltid färskt</span>
+      </div>
+    </div>
+  </section>
 
-  <ImageSection
-    image="/assets/images/view.png"
-    bgPosition="center 30%"
-    caption="Ekologiskt odlat & KRAV-certifierat. Våra kaffebönor odlas utan kemiska bekämpningsmedel och uppfyller Fairtrade-standarder för rättvis handel."
-    captionPosition="bottom-right"
-  />
+  <!-- ─── IMAGE SECTION 2 ──────────────────────────────────── -->
+  <section class="image-section image-section-2">
+    <div class="image-wrap">
+      <img src="/assets/images/hero-no-text.png" alt="Kaffeodling" class="image-full image-hero2" />
+    </div>
+  </section>
 
+  <!-- ─── PRODUCTS SECTION ─────────────────────────────────── -->
+  <section class="products-section">
+    <div class="products-header">
+      <span class="products-eyebrow">Sortiment</span>
+    </div>
+
+    <div class="products-layout">
+      <div class="products-list">
+
+        <div class="product-item">
+          <div class="product-info">
+            <h3 class="product-name">Franchese</h3>
+            <p class="product-origin">Etiopien · Yirgacheffe</p>
+            <p class="product-notes">Blåbär — Jasmin — Citrus</p>
+          </div>
+          <span class="product-roast">Ljus</span>
+        </div>
+
+        <div class="product-item">
+          <div class="product-info">
+            <h3 class="product-name">Grande</h3>
+            <p class="product-origin">Colombia · Huila</p>
+            <p class="product-notes">Karamell — Hasselnöt — Aprikos</p>
+          </div>
+          <span class="product-roast">Medel</span>
+        </div>
+
+        <div class="product-item">
+          <div class="product-info">
+            <h3 class="product-name">Mörkrost</h3>
+            <p class="product-origin">Indonesien · Sumatra</p>
+            <p class="product-notes">Choklad — Tobak — Jordnöt</p>
+          </div>
+          <span class="product-roast">Mörk</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ───────────────────────────────────────────── -->
   <Footer />
+
 </Base>
 
 <style>
-  .hero-v5 {
+
+  /* ── HERO ─────────────────────────────────────────────────── */
+  .hero {
     width: 100%;
-    height: 100svh;
-    min-height: 600px;
+    min-height: 100svh;
+    background: var(--jr-svart);
+    color: var(--jr-vit);
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-  }
-
-  .field-upper {
-    flex: 61.8;
-    background: var(--jr-gron);
+    justify-content: space-between;
+    padding: var(--space-lg);
     position: relative;
-    display: flex;
-    align-items: flex-end;
-    padding: 0 var(--space-lg) 0 var(--space-lg);
     overflow: hidden;
   }
 
-  .field-lower {
-    flex: 38.2;
+  .hero-rule-top {
+    width: 100%;
+    height: 1px;
     background: var(--jr-ocra);
-    position: relative;
+    opacity: 0.35;
+    margin-bottom: var(--space-lg);
+    animation: reveal-width 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+  }
+
+  .hero-logo {
+    flex: 1;
     display: flex;
-    align-items: flex-start;
-    padding: 0 var(--space-lg) var(--space-lg) var(--space-lg);
-    overflow: hidden;
+    align-items: center;
+    justify-content: flex-start;
+    animation: fade-in 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
   }
 
-  .word {
-    font-family: var(--font-display);
-    font-size: clamp(4.5rem, 13vw, 12rem);
-    line-height: 1;
-    letter-spacing: -0.025em;
-    white-space: nowrap;
-    display: block;
+  :global(.logo-svg path) {
+    fill: var(--jr-vit);
   }
 
-  .word-top {
-    color: var(--jr-ocra);
-    transform: translateY(0.18em);
-    animation: fade-up-top 1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+  .hero-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: var(--space-lg);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fade-in 0.8s ease 0.8s both;
   }
 
-  .word-bottom {
-    color: var(--jr-gron);
-    transform: translateY(-0.18em);
-    animation: fade-up-bottom 1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
-  }
-
-  .meta {
-    position: absolute;
-    bottom: var(--space-lg);
-    right: var(--space-lg);
+  .hero-foot-right {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 0.25rem;
-    animation: fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+    gap: 0.2rem;
   }
 
-  .meta span {
+  .hero-label {
     font-family: var(--font);
     font-size: var(--text-ui);
     text-transform: uppercase;
     letter-spacing: 0.14em;
+    color: var(--jr-vit);
+    opacity: var(--opacity);
+    line-height: 1;
+  }
+
+  /* ── IMAGE SECTIONS ──────────────────────────────────────── */
+  .image-section {
+    width: 100%;
+    height: 100svh;
+    background: var(--jr-svart);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image-wrap {
+    width: 100%;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .image-full {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+    filter: saturate(0.85) brightness(0.92);
+  }
+
+  .image-hero2 {
+    object-position: center center;
+  }
+
+  .image-caption-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+    background: var(--jr-ocra);
+    flex-shrink: 0;
+  }
+
+  .caption-label {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
     color: var(--jr-gron);
-    opacity: 0.55;
+    font-weight: var(--weight-bold);
+  }
+
+  .caption-divider {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-gron);
+    opacity: 0.4;
+  }
+
+  /* ── TEXT SECTION ────────────────────────────────────────── */
+  .text-section {
+    width: 100%;
+    height: 100svh;
+    background: var(--jr-morkrost);
+    display: flex;
+    align-items: center;
+    padding: var(--space-lg);
+  }
+
+  .text-grid {
+    max-width: 640px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .text-body-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .body-paragraph {
+    font-family: var(--font);
+    font-size: var(--text-body);
     line-height: var(--line-height);
+    color: var(--jr-vit);
+    opacity: 0.8;
   }
 
-  @keyframes fade-up-top {
-    from { opacity: 0; transform: translateY(calc(0.18em + 1.5rem)); }
-    to   { opacity: 1; transform: translateY(0.18em); }
+  .text-rule {
+    width: 2.5rem;
+    height: 1px;
+    background: var(--jr-ocra);
   }
 
-  @keyframes fade-up-bottom {
-    from { opacity: 0; transform: translateY(calc(-0.18em + 1.5rem)); }
-    to   { opacity: 1; transform: translateY(-0.18em); }
+  .body-footnote {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--jr-ocra);
+    opacity: 0.7;
+  }
+
+  /* ── PRODUCTS SECTION ────────────────────────────────────── */
+  .products-section {
+    width: 100%;
+    min-height: 100svh;
+    background: var(--jr-gron);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  .products-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    margin-bottom: var(--space-xl);
+  }
+
+  .products-eyebrow {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--jr-ljusgul);
+    opacity: 0.7;
+  }
+
+  .products-layout {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .products-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-lg);
+    padding: var(--space-lg) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .product-name {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    letter-spacing: -0.02em;
+    color: var(--jr-vit);
+    line-height: 1;
+  }
+
+  .product-origin {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-ocra);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+  }
+
+  .product-notes {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-vit);
+    opacity: 0.4;
+    font-style: italic;
+    margin-top: 0.15rem;
+  }
+
+  .product-roast {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--jr-vit);
+    opacity: 0.35;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ── ANIMATIONS ──────────────────────────────────────────── */
+  @keyframes reveal-width {
+    from { transform: scaleX(0); transform-origin: left; }
+    to   { transform: scaleX(1); transform-origin: left; }
   }
 
   @keyframes fade-in {
@@ -143,12 +378,24 @@ import Footer from "../components/FooterV5.astro";
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .word, .meta { animation: none; }
+    .hero-logo, .hero-foot, .hero-rule-top {
+      animation: none;
+    }
   }
 
-  @media (max-width: 640px) {
-    .word {
-      font-size: clamp(3rem, 16vw, 5rem);
+  /* ── RESPONSIVE ──────────────────────────────────────────── */
+  @media (max-width: 480px) {
+    .hero {
+      padding: var(--space-sm) var(--space-sm) var(--space-lg);
+    }
+
+    .image-caption-bar {
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .product-roast {
+      display: none;
     }
   }
 </style>

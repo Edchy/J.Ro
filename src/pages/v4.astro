@@ -1,44 +1,598 @@
 ---
 import Base from "../layouts/Base.astro";
 import DevNav from "../components/DevNav.astro";
-import Hero from "../components/Hero.astro";
-import ColorGrid from "../components/ColorGrid.astro";
-import LoremSection from "../components/LoremSection.astro";
-import ImageSection from "../components/ImageSection.astro";
-import Footer from "../components/FooterV4.astro";
+import LogoMark from "../components/LogoMark.astro";
 ---
 
 <Base title="Järna Rosteri — V4">
   <DevNav active="V4" />
 
-  <Hero
-    image="/assets/images/view.png"
-    title="Järna Rosteri"
-    titleColor="var(--jr-ocra)"
-    titleSize="var(--text-display)"
-    bgPosition="center 40%"
-  />
+  <!-- ─── HERO ─────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-image">
+      <img src="/assets/images/view.png" alt="Järna Rosteri plantation" />
+    </div>
+    <div class="hero-content">
+      <div class="hero-label">
+        <span>Järna, Sverige</span>
+        <span>Est. — 2024</span>
+      </div>
+      <LogoMark color="var(--jr-vit)" width="clamp(14rem, 40vw, 38rem)" />
+      <div class="hero-sub">
+        <span>Specialty Coffee</span>
+        <span>Small Batch Roasting</span>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>↓</span>
+    </div>
+  </section>
 
-  <ColorGrid
-    colors={[
-      "var(--jr-gron)",
-      "var(--jr-franchese)",
-      "var(--jr-grande)",
-      "var(--jr-orostat)",
-    ]}
-    columns={4}
-    rows={1}
-  />
+  <!-- ─── IMAGE SECTION ────────────────────────────────────────── -->
+  <section class="image-section">
+    <div class="image-section-inner">
+      <figure class="image-primary">
+        <img src="/assets/images/honduras.png" alt="Honduras coffee farm" />
+      </figure>
+      <aside class="image-aside">
+        <p class="aside-text">
+          Varje parti väljs ut direkt från källan — en dialog med odlaren,
+          inte en transaktion. Vi reser dit kaffet växer.
+        </p>
+        <div class="aside-rule"></div>
+        <span class="aside-label">Direkthandel / Ursprung</span>
+      </aside>
+    </div>
+  </section>
 
-  <ImageSection image="/assets/images/honduras.png" bgPosition="center 30%" />
+  <!-- ─── TEXT SECTION ─────────────────────────────────────────── -->
+  <section class="text-section">
+    <div class="text-section-inner">
+      <div class="text-body">
+        <span class="text-label">Om oss</span>
+        <h2 class="text-headline">
+          Rostning är<br />ett hantverk.
+        </h2>
+        <p class="text-para">
+          Vi rostar i liten skala, med precision och respekt för råvaran.
+          Varje sats är en avvägning — värme, tid, och närvaro.
+          Resultatet är kaffe med karaktär, inte bara smak.
+        </p>
+        <p class="text-para">
+          Järna Rosteri grundades i tron att det bästa kaffet
+          berättar en historia om platsen det kom från.
+        </p>
+      </div>
+    </div>
+  </section>
 
-  <ImageSection
-    image="/assets/images/allbags.png"
-    bg="var(--jr-ljusgul)"
-    bgSize="contain"
-  />
+  <!-- ─── PRODUCTS SECTION ──────────────────────────────────────── -->
+  <section class="products-section">
+    <div class="products-header">
+      <span class="products-label">Sortiment</span>
+      <h2 class="products-headline">Aktuellt</h2>
+    </div>
 
-  <LoremSection bg="var(--jr-vit)" textColor="var(--jr-gron)" />
+    <div class="products-grid">
+      <article class="product-card product-card--large">
+        <div class="product-image">
+          <img src="/assets/images/allbags.png" alt="Järna Rosteri kaffepaket" />
+        </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-origin">Honduras</span>
+            <span class="product-process">Washed</span>
+          </div>
+          <h3 class="product-name">Poabs Espresso</h3>
+          <p class="product-notes">Mörk choklad · Karamell · Nötig eftersmak</p>
+        </div>
+      </article>
 
-  <Footer />
+      <article class="product-card">
+        <div class="product-dot" style="background: var(--jr-franchese);"></div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-origin">Etiopien</span>
+            <span class="product-process">Natural</span>
+          </div>
+          <h3 class="product-name">Franchese</h3>
+          <p class="product-notes">Blåbär · Jasmin · Ljus syra</p>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-dot" style="background: var(--jr-grande);"></div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-origin">Colombia</span>
+            <span class="product-process">Honey</span>
+          </div>
+          <h3 class="product-name">Grande</h3>
+          <p class="product-notes">Persika · Honung · Lång finish</p>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-dot" style="background: var(--jr-mezzo);"></div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-origin">Guatemala</span>
+            <span class="product-process">Washed</span>
+          </div>
+          <h3 class="product-name">Mezzo</h3>
+          <p class="product-notes">Citrus · Grön äpple · Krispig</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer-top">
+      <LogoMark color="var(--jr-ocra)" width="12rem" />
+      <div class="footer-contact-row">
+        <a href="https://instagram.com" class="footer-link">Instagram</a>
+        <span class="footer-sep">—</span>
+        <a href="mailto:info@jarnarosteri.se" class="footer-link">info@jarnarosteri.se</a>
+        <span class="footer-sep">—</span>
+        <span class="footer-link">070-840 13 65</span>
+      </div>
+    </div>
+    <div class="footer-address-row">
+      <span class="footer-address">Maskinvägen 5, 153 30 Järna</span>
+      <span class="footer-copy">© 2026 Järna Rosteri</span>
+    </div>
+  </footer>
 </Base>
+
+<style>
+  /* ── HERO ─────────────────────────────────────────────── */
+  .hero {
+    width: 100%;
+    height: 100svh;
+    min-height: 600px;
+    background: var(--jr-svart);
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 1fr auto;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    opacity: 0.45;
+    display: block;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: var(--space-xl) var(--space-xl) calc(var(--space-xl) * 1.5);
+    gap: var(--space-lg);
+  }
+
+  .hero-label {
+    display: flex;
+    gap: var(--space-xl);
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-ocra);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .hero-wordmark {
+    font-family: var(--font-display);
+    font-size: clamp(4.5rem, 14vw, 13rem);
+    line-height: 0.9;
+    letter-spacing: var(--letter-spacing-tight);
+    color: var(--jr-vit);
+    margin: 0;
+  }
+
+  .hero-sub {
+    display: flex;
+    gap: var(--space-xl);
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-vit);
+    opacity: var(--opacity);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: var(--space-lg);
+    right: var(--space-xl);
+    z-index: 1;
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-ocra);
+    opacity: var(--opacity);
+    writing-mode: vertical-rl;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── IMAGE SECTION ────────────────────────────────────── */
+  .image-section {
+    background: var(--jr-morkrost);
+    width: 100%;
+    padding: calc(var(--space-xl) * 2) var(--space-xl);
+  }
+
+  .image-section-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: calc(var(--space-xl) * 1.5);
+    align-items: center;
+  }
+
+  .image-primary {
+    margin: 0;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+  }
+
+  .image-primary img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+    filter: contrast(1.05) saturate(0.85);
+  }
+
+  .image-aside {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    padding: var(--space-xl) 0;
+  }
+
+  .aside-index {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-ocra);
+    letter-spacing: 0.2em;
+    opacity: var(--opacity);
+  }
+
+  .aside-text {
+    font-family: var(--font);
+    font-size: clamp(1rem, 1.8vw, 1.35rem);
+    line-height: 1.65;
+    color: var(--jr-vit);
+    max-width: 28ch;
+  }
+
+  .aside-rule {
+    width: 3rem;
+    height: 1px;
+    background: var(--jr-ocra);
+    opacity: 0.4;
+  }
+
+  .aside-label {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-ocra);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  /* ── TEXT SECTION ─────────────────────────────────────── */
+  .text-section {
+    background: var(--jr-gron);
+    width: 100%;
+    padding: calc(var(--space-xl) * 2.5) var(--space-xl);
+  }
+
+  .text-section-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .text-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .text-label {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-ljusgul);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: var(--opacity);
+  }
+
+  .text-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1;
+    letter-spacing: var(--letter-spacing-tight);
+    color: var(--jr-vit);
+    margin: 0;
+  }
+
+  .text-para {
+    font-family: var(--font);
+    font-size: var(--text-body);
+    line-height: var(--line-height);
+    color: var(--jr-vit);
+    opacity: 0.75;
+    max-width: 50ch;
+  }
+
+  /* ── PRODUCTS SECTION ─────────────────────────────────── */
+  .products-section {
+    background: var(--jr-svart);
+    width: 100%;
+    padding: calc(var(--space-xl) * 2) var(--space-xl) calc(var(--space-xl) * 2.5);
+  }
+
+  .products-header {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: var(--space-lg);
+    margin-bottom: calc(var(--space-xl) * 1.5);
+  }
+
+  .products-label {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-ocra);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  .products-headline {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    color: var(--jr-vit);
+    letter-spacing: var(--letter-spacing-tight);
+    line-height: 1;
+    margin: 0;
+  }
+
+  .products-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: var(--space-lg);
+    align-items: start;
+  }
+
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: var(--space-lg);
+  }
+
+  .product-card--large {
+    grid-column: 1 / 3;
+  }
+
+  .product-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--jr-morkrost);
+  }
+
+  .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: contrast(1.05) saturate(0.8);
+  }
+
+  .product-dot {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    flex-shrink: 0;
+    opacity: 0.85;
+  }
+
+  .product-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .product-meta {
+    display: flex;
+    gap: var(--space-lg);
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-vit);
+    opacity: var(--opacity);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .product-name {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    color: var(--jr-vit);
+    letter-spacing: var(--letter-spacing-tight);
+    margin: 0;
+    line-height: 1.1;
+  }
+
+  .product-notes {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-ocra);
+    opacity: 0.8;
+    margin: 0;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── FOOTER ───────────────────────────────────────────── */
+  .footer {
+    background: var(--jr-franchese);
+    width: 100%;
+    padding: calc(var(--space-xl) * 2) var(--space-xl) var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--space-xl) * 1.5);
+  }
+
+  .footer-top {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-xl);
+    padding-bottom: calc(var(--space-xl) * 1.5);
+  }
+
+  .footer-contact-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+  }
+
+  .footer-link {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-ocra);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    transition: opacity 0.2s;
+  }
+
+  .footer-link:hover {
+    opacity: 1;
+  }
+
+  .footer-sep {
+    font-family: var(--font);
+    color: var(--jr-ocra);
+    opacity: 0.25;
+    font-size: var(--text-ui);
+  }
+
+  .footer-address-row {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-address,
+  .footer-copy {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    color: var(--jr-ocra);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.5;
+  }
+
+  /* ── RESPONSIVE ───────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .image-section-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .image-primary {
+      aspect-ratio: 16 / 9;
+    }
+
+    .products-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .product-card--large {
+      grid-column: 1 / 3;
+    }
+
+    .products-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-lg);
+    }
+
+    .footer-top {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .hero-content {
+      padding: var(--space-xl) var(--space-lg) calc(var(--space-xl) * 1.2);
+    }
+
+    .hero-label,
+    .hero-sub {
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .image-section,
+    .text-section,
+    .products-section,
+    .footer {
+      padding-left: var(--space-lg);
+      padding-right: var(--space-lg);
+    }
+
+    .products-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .product-card--large {
+      grid-column: 1;
+    }
+
+    .footer-address-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+
+    .footer-contact-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+
+    .footer-sep {
+      display: none;
+    }
+  }
+</style>

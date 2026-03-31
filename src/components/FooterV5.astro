@@ -1,10 +1,11 @@
 ---
 // V5 — morkrost bg, enormous logo left, contact tucked bottom-right, asymmetric
+import LogoMark from "./LogoMark.astro";
 ---
 
 <footer>
   <div class="footer-inner">
-    <span class="footer-logo">J.Ro</span>
+    <LogoMark color="var(--jr-vit)" width="clamp(6rem, 22vw, 18rem)" class="footer-logomark" />
     <div class="footer-meta">
       <div class="footer-contact">
         <p>info@jarnarosteri.se</p>
@@ -33,15 +34,7 @@
     align-items: center;
   }
 
-  .footer-logo {
-    font-family: var(--font-display);
-    font-size: clamp(6rem, 22vw, 18rem);
-    color: var(--jr-vit);
-    letter-spacing: var(--letter-spacing-tight);
-    line-height: 1;
-  }
-
-  .footer-meta {
+.footer-meta {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
