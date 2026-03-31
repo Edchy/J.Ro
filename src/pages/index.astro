@@ -23,6 +23,10 @@ import LogoMark from "../components/LogoMark.astro";
     </div>
 
     <div class="hero-scroll-hint" aria-hidden="true">↓</div>
+
+    <div class="hero-info">
+      <p>Tja Robin. Här kommer lite olike förslag och riktningar. Du kan bläddra igenom alla 14 olika varianter uppe i högra hörnet. Testa gärna på datorn då inget är mobilanpassat ännu. Som sagt detta är bara förslag på olika riktningar. Man kan sedan plocka och välja olika sektioner från olika sidor och sätta ihop något.</p>
+    </div>
   </section>
 
   <!-- ─── TEXT SECTION ─────────────────────────────────────────── -->
@@ -271,6 +275,24 @@ import LogoMark from "../components/LogoMark.astro";
     text-transform: uppercase;
     color: var(--jr-ljusgul);
     opacity: 0.6;
+  }
+
+  .hero-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.65);
+    color: var(--jr-vit);
+    font-family: var(--font);
+    font-size: var(--text-body);
+    line-height: 1.7;
+    padding: var(--space-lg);
+    max-width: 480px;
+    width: calc(100% - 4rem);
+    backdrop-filter: blur(4px);
+    text-align: center;
   }
 
   .hero-scroll-hint {
