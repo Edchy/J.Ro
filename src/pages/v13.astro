@@ -15,21 +15,24 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <span class="hero-eyebrow">Järna Rosteri</span>
     <span class="hero-year">Est. 2013</span>
     <div class="hero-text">
-      <h1>JÄRNA<br />ROSTERI</h1>
+      <LogoMark color="var(--jr-poabs-bry)" width="clamp(14rem, 40vw, 36rem)" />
       <p>Specialkaffe från källa till kopp</p>
     </div>
   </section>
 
   <!-- ABOUT -->
   <section class="text-section text-section--green">
-    <div class="prose">
-      <p class="prose-body">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
-      </p>
-      <span class="prose-sig">— Lorem Ipsum</span>
+    <div class="text-section-grid">
+      <div></div>
+      <div class="prose">
+        <p class="prose-body">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+          commodo consequat.
+        </p>
+        <span class="prose-sig">— Lorem Ipsum</span>
+      </div>
     </div>
   </section>
 
@@ -121,7 +124,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    background: var(--jr-gron);
+    background: var(--jr-franchese);
   }
 
   .hero-img {
@@ -140,7 +143,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     font-size: var(--text-ui);
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--jr-ljusgul);
+    color: var(--jr-poabs-bry);
   }
 
   .hero-eyebrow {
@@ -163,7 +166,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   .hero-text h1 {
     font-family: var(--font-display);
     font-size: clamp(3.5rem, 10vw, 9rem);
-    color: var(--jr-ljusgul);
+    color: var(--jr-poabs-bry);
     line-height: 0.9;
     letter-spacing: -0.02em;
     margin-bottom: clamp(0.75rem, 1.5vw, 1.25rem);
@@ -174,7 +177,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     font-size: var(--text-ui);
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--jr-ljusgul);
+    color: var(--jr-poabs-bry);
     opacity: 0.7;
     padding-left: 0;
   }
@@ -186,11 +189,17 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   }
 
   .text-section--green {
-    background: var(--jr-gron);
+    background: var(--jr-mezzo);
   }
 
   .text-section--white {
     background: var(--jr-vit);
+  }
+
+  .text-section-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
   }
 
   .prose {

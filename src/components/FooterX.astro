@@ -1,5 +1,6 @@
 ---
 import LogoMark from "./LogoMark.astro";
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 interface Props {
   bg?: string;
@@ -22,7 +23,7 @@ const { bg = "var(--jr-svart)", textColor = "var(--jr-ljusgul)" } = Astro.props;
         <LogoMark color="var(--jr-ocra)" />
       </div>
       <div
-        style="margin:0 clamp(1.5rem,3vw,3rem);flex:1;background-image:url('/assets/images/allbags.png');background-size:contain;background-position:center 30%;background-repeat:no-repeat;min-height:35vh;background-color:transparent;"
+        style={`margin:0 clamp(1.5rem,3vw,3rem);flex:1;background-image:url('${base}/assets/images/allbags.png');background-size:contain;background-position:center 30%;background-repeat:no-repeat;min-height:35vh;background-color:transparent;`}
       >
       </div>
     </div>

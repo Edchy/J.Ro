@@ -1,5 +1,6 @@
 ---
 import LogoMark from "./LogoMark.astro";
+const _base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 interface Props {
   image?: string;
@@ -10,7 +11,7 @@ interface Props {
 }
 
 const {
-  image = "/assets/images/hero-no-text.png",
+  image = `${_base}/assets/images/hero-no-text.png`,
   eyebrow = "Järna Rosteri",
   year = "Est. 2013",
   caption = "Something here?",

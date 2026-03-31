@@ -5,6 +5,7 @@ import ColorGrid from "../components/ColorGrid.astro";
 import LoremSection from "../components/LoremSection.astro";
 import ImageSection from "../components/ImageSection.astro";
 import Footer from "../components/FooterV2.astro";
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Base title="Järna Rosteri — V2">
@@ -74,7 +75,7 @@ import Footer from "../components/FooterV2.astro";
   </section>
 
   <ImageSection
-    image="/assets/images/coffee-packages.png"
+    image={`${base}/assets/images/coffee-packages.png`}
     bgSize="40%"
     bg="var(--jr-ljusgul)"
     caption="Ekologiskt odlat & KRAV-certifierat. Våra kaffebönor odlas utan kemiska bekämpningsmedel och uppfyller Fairtrade-standarder för rättvis handel."
@@ -85,13 +86,13 @@ import Footer from "../components/FooterV2.astro";
   <LoremSection bg="var(--jr-vit)" textColor="var(--jr-franchese)" />
 
   <ImageSection
-    image="/assets/images/view.png"
+    image={`${base}/assets/images/view.png`}
     bgPosition="center 40%"
     caption="Ekologiskt odlat & KRAV-certifierat. Våra kaffebönor odlas utan kemiska bekämpningsmedel och uppfyller Fairtrade-standarder för rättvis handel."
     captionPosition="bottom-right"
   />
   <ImageSection
-    image="/assets/images/allbags.png"
+    image={`${base}/assets/images/allbags.png`}
     bgSize="contain"
     bg="var(--jr-gron)"
   />

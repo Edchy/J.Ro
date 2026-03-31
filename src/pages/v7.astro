@@ -5,6 +5,8 @@ import ColorGrid from "../components/ColorGrid.astro";
 import LoremSection from "../components/LoremSection.astro";
 import ImageSection from "../components/ImageSection.astro";
 import Footer from "../components/Footer.astro";
+import LogoMark from "../components/LogoMark.astro";
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Base title="Järna Rosteri — V7">
@@ -30,7 +32,7 @@ import Footer from "../components/Footer.astro";
     <div class="hero-bottom">
       <div class="wordmark-block">
         <div class="accent-rule"></div>
-        <h1 class="wordmark">JÄRNA<br/>ROSTERI</h1>
+        <LogoMark color="var(--jr-ocra)" width="clamp(14rem, 40vw, 36rem)" />
       </div>
       <p class="tagline">Ekologiskt odlat<br/>KRAV-certifierat</p>
     </div>
@@ -38,7 +40,7 @@ import Footer from "../components/Footer.astro";
   </section>
 
   <ImageSection
-    image="/assets/images/allbags.png"
+    image={`${base}/assets/images/allbags.png`}
     bgSize="contain"
     bg="var(--jr-franchese)"
   />
@@ -65,7 +67,7 @@ import Footer from "../components/Footer.astro";
   />
 
   <ImageSection
-    image="/assets/images/view.png"
+    image={`${base}/assets/images/view.png`}
     bgPosition="center 50%"
     caption="Ekologiskt odlat & KRAV-certifierat. Våra kaffebönor odlas utan kemiska bekämpningsmedel och uppfyller Fairtrade-standarder för rättvis handel."
     captionPosition="bottom-right"

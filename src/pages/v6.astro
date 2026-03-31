@@ -4,7 +4,8 @@ import DevNav from "../components/DevNav.astro";
 import ColorGrid from "../components/ColorGrid.astro";
 import LoremSection from "../components/LoremSection.astro";
 import ImageSection from "../components/ImageSection.astro";
-import Footer from "../components/Footer.astro";
+import LogoMark from "../components/LogoMark.astro";
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Base title="Järna Rosteri — V6">
@@ -14,7 +15,7 @@ import Footer from "../components/Footer.astro";
   <section class="hero-v6">
 
     <!-- Photo layer -->
-    <div class="hero-photo" aria-hidden="true"></div>
+    <div class="hero-photo" style={`background-image: url('${base}/assets/images/view.png')`} aria-hidden="true"></div>
 
     <!-- Bottom vignette for legibility -->
     <div class="hero-vignette" aria-hidden="true"></div>
@@ -28,7 +29,7 @@ import Footer from "../components/Footer.astro";
     <!-- Bottom-left wordmark block -->
     <div class="hero-anchor">
       <div class="anchor-rule"></div>
-      <h1 class="wordmark">JÄRNA<br/>ROSTERI</h1>
+      <LogoMark color="var(--jr-vit)" width="clamp(20rem, 55vw, 52rem)" />
     </div>
 
   </section>
@@ -36,7 +37,7 @@ import Footer from "../components/Footer.astro";
   <LoremSection bg="var(--jr-gron)" textColor="var(--jr-ljusgul)" />
 
   <ImageSection
-    image="/assets/images/view.png"
+    image={`${base}/assets/images/view.png`}
     bgSize="cover"
     bg="var(--jr-brun)"
     caption="Ekologiskt odlat & KRAV-certifierat. Våra kaffebönor odlas utan kemiska bekämpningsmedel och uppfyller Fairtrade-standarder för rättvis handel."
@@ -46,16 +47,23 @@ import Footer from "../components/Footer.astro";
     overlay="var(--overlay-dark)"
   />
   <ImageSection
-    image="/assets/images/allbags.png"
+    image={`${base}/assets/images/allbags.png`}
     bg="var(--jr-ljusgul)"
     bgSize="contain"
   />
 
-  <Footer
-    bg="var(--jr-brun)"
-    textColor="var(--jr-ljusgul)"
-    accentColor="var(--jr-ljusgul)"
-  />
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <LogoMark color="var(--jr-ljusgul)" width="clamp(10rem, 28vw, 22rem)" />
+        <div class="footer-contact">
+          <p>info@jarnarosteri.se</p>
+          <p>070-840 13 65</p>
+          <p>Maskinvägen 5, 153 30 Järna</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 </Base>
 
 <style>
@@ -75,7 +83,6 @@ import Footer from "../components/Footer.astro";
   .hero-photo {
     position: absolute;
     inset: 0;
-    background-image: url('/assets/images/view.png');
     background-size: cover;
     background-position: center 25%;
     animation: photo-in 1.8s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -172,6 +179,52 @@ import Footer from "../components/Footer.astro";
     .wordmark {
       font-size: clamp(3rem, 14vw, 5rem);
       white-space: normal;
+    }
+  }
+
+  /* ── Footer ── */
+  .site-footer {
+    background: var(--jr-brun);
+    width: 100%;
+    padding: var(--space-lg);
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 12rem;
+    padding-bottom: 6rem;
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    text-align: right;
+  }
+
+  .footer-contact p {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    line-height: var(--line-height);
+    color: var(--jr-ljusgul);
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 640px) {
+    .footer-top {
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    .footer-contact {
+      text-align: left;
     }
   }
 </style>

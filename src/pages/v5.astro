@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import DevNav from "../components/DevNav.astro";
 import LogoMark from "../components/LogoMark.astro";
 import Footer from "../components/FooterV5.astro";
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Base title="Järna Rosteri — V5">
@@ -30,7 +31,7 @@ import Footer from "../components/FooterV5.astro";
   <!-- ─── IMAGE SECTION ────────────────────────────────────── -->
   <section class="image-section">
     <div class="image-wrap">
-      <img src="/assets/images/view.png" alt="Kaffeodling" class="image-full" />
+      <img src={`${base}/assets/images/view.png`} alt="Kaffeodling" class="image-full" />
     </div>
     <div class="image-caption-bar">
       <span class="caption-label">Ekologiskt odlat</span>
@@ -64,7 +65,7 @@ import Footer from "../components/FooterV5.astro";
   <!-- ─── IMAGE SECTION 2 ──────────────────────────────────── -->
   <section class="image-section image-section-2">
     <div class="image-wrap">
-      <img src="/assets/images/hero-no-text.png" alt="Kaffeodling" class="image-full image-hero2" />
+      <img src={`${base}/assets/images/hero-no-text.png`} alt="Kaffeodling" class="image-full image-hero2" />
     </div>
   </section>
 

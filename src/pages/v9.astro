@@ -5,6 +5,8 @@ import ColorGrid from "../components/ColorGrid.astro";
 import LoremSection from "../components/LoremSection.astro";
 import ImageSection from "../components/ImageSection.astro";
 import Footer from "../components/Footer.astro";
+import LogoMark from "../components/LogoMark.astro";
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Base title="Järna Rosteri — V9">
@@ -28,8 +30,7 @@ import Footer from "../components/Footer.astro";
     <div class="hero-body">
       <div class="hero-left">
         <div class="wordmark-stack">
-          <span class="wordmark-line">JÄRNA</span>
-          <span class="wordmark-line">ROSTERI</span>
+          <LogoMark color="var(--jr-brun)" width="clamp(14rem, 30vw, 28rem)" />
         </div>
         <div class="hero-sub">
           <div class="sub-rule"></div>
@@ -71,7 +72,7 @@ import Footer from "../components/Footer.astro";
   </section>
 
   <ImageSection
-    image="/assets/images/frontbag.png"
+    image={`${base}/assets/images/frontbag.png`}
     bgSize="20%"
     bg="var(--jr-ocra)"
   />
@@ -93,11 +94,11 @@ import Footer from "../components/Footer.astro";
     ]}
     columns={2}
     rows={2}
-    image="/assets/images/frontbag.png"
+    image={`${base}/assets/images/frontbag.png`}
   />
 
   <ImageSection
-    image="/assets/images/hero-no-text.png"
+    image={`${base}/assets/images/hero-no-text.png`}
     bgPosition="center 20%"
     caption="Ekologiskt odlat & KRAV-certifierat. Våra kaffebönor odlas utan kemiska bekämpningsmedel och uppfyller Fairtrade-standarder för rättvis handel."
     captionPosition="bottom-left"
@@ -116,7 +117,7 @@ import Footer from "../components/Footer.astro";
     width: 100%;
     height: 100svh;
     min-height: 600px;
-    background-color: var(--jr-gron);
+    background-color: var(--jr-morkrost);
     position: relative;
     display: grid;
     grid-template-rows: auto 1fr auto;
@@ -155,14 +156,14 @@ import Footer from "../components/Footer.astro";
   .meta-tag {
     font-family: var(--font);
     font-size: var(--text-ui);
-    color: var(--jr-ocra);
+    color: var(--jr-brun);
     text-transform: uppercase;
     letter-spacing: 0.15em;
     opacity: 0.7;
   }
 
   .meta-divider {
-    color: var(--jr-ocra);
+    color: var(--jr-brun);
     opacity: 0.3;
     font-family: var(--font);
     font-size: var(--text-ui);
@@ -196,7 +197,7 @@ import Footer from "../components/Footer.astro";
   .wordmark-line {
     font-family: var(--font-display);
     font-size: clamp(3.5rem, 10.5vw, 9.5rem);
-    color: var(--jr-ocra);
+    color: var(--jr-brun);
     letter-spacing: -0.02em;
     white-space: nowrap;
   }
@@ -210,7 +211,7 @@ import Footer from "../components/Footer.astro";
   .sub-rule {
     width: clamp(2rem, 6vw, 5rem);
     height: 1px;
-    background: var(--jr-ocra);
+    background: var(--jr-brun);
     opacity: 0.45;
     flex-shrink: 0;
   }
@@ -220,7 +221,7 @@ import Footer from "../components/Footer.astro";
     font-size: var(--text-ui);
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: var(--jr-ocra);
+    color: var(--jr-brun);
     opacity: 0.6;
     line-height: var(--line-height);
   }
@@ -229,7 +230,7 @@ import Footer from "../components/Footer.astro";
   .hero-rule-vert {
     width: 1px;
     align-self: stretch;
-    background: var(--jr-ocra);
+    background: var(--jr-brun);
     opacity: 0.15;
     flex-shrink: 0;
     animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -257,10 +258,10 @@ import Footer from "../components/Footer.astro";
     font-size: 0.6rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    color: var(--jr-ocra);
+    color: var(--jr-brun);
     opacity: 0.5;
     padding-bottom: 0.4rem;
-    border-bottom: 1px solid rgba(239, 214, 120, 0.15);
+    border-bottom: 1px solid rgba(107, 80, 45, 0.2);
   }
 
   .prov-list {
@@ -273,7 +274,7 @@ import Footer from "../components/Footer.astro";
   .prov-list li {
     font-family: var(--font);
     font-size: var(--text-ui);
-    color: var(--jr-ocra);
+    color: var(--jr-brun);
     opacity: 0.55;
     letter-spacing: 0.04em;
     line-height: var(--line-height);
@@ -293,7 +294,7 @@ import Footer from "../components/Footer.astro";
     display: block;
     width: 1px;
     height: 2.5rem;
-    background: var(--jr-ocra);
+    background: var(--jr-brun);
     opacity: 0.3;
     animation: scroll-pulse 2.5s ease-in-out infinite;
   }
@@ -303,7 +304,7 @@ import Footer from "../components/Footer.astro";
     font-size: 0.55rem;
     text-transform: uppercase;
     letter-spacing: 0.18em;
-    color: var(--jr-ocra);
+    color: var(--jr-brun);
     opacity: 0.35;
     writing-mode: vertical-lr;
     transform: rotate(180deg);
@@ -321,7 +322,7 @@ import Footer from "../components/Footer.astro";
   .foot-mark {
     font-family: var(--font-display);
     font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-    color: var(--jr-ocra);
+    color: var(--jr-brun);
     opacity: 0.4;
     letter-spacing: -0.03em;
   }
@@ -329,7 +330,7 @@ import Footer from "../components/Footer.astro";
   .foot-year {
     font-family: var(--font);
     font-size: var(--text-ui);
-    color: var(--jr-ocra);
+    color: var(--jr-brun);
     opacity: 0.25;
     letter-spacing: 0.15em;
   }

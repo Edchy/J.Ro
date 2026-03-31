@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import DevNav from "../components/DevNav.astro";
 import LogoMark from "../components/LogoMark.astro";
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Base title="Järna Røsteri — V8">
@@ -26,7 +27,7 @@ import LogoMark from "../components/LogoMark.astro";
 
   <!-- ─── IMAGE SECTION ────────────────────────────────────────────────── -->
   <section class="image-full">
-    <div class="image-full__inner" style="background-image: url('/assets/images/view.png');"></div>
+    <div class="image-full__inner" style={`background-image: url('${base}/assets/images/view.png');`}></div>
     <div class="image-full__caption">
       <span class="caption-index">01</span>
       <span class="caption-text">Lorem — Ipsum</span>
@@ -61,7 +62,7 @@ import LogoMark from "../components/LogoMark.astro";
   <section class="image-split">
     <div
       class="image-split__panel image-split__panel--left"
-      style="background-image: url('/assets/images/honduras.png'); background-position: center 35%;"
+      style={`background-image: url('${base}/assets/images/honduras.png'); background-position: center 35%;`}
     ></div>
     <div class="image-split__panel image-split__panel--right">
       <div class="split-text">
@@ -83,7 +84,7 @@ import LogoMark from "../components/LogoMark.astro";
 
     <div class="product-row">
       <div class="product-image-col">
-        <div class="product-image" style="background-image: url('/assets/images/frontbag.png');"></div>
+        <div class="product-image" style={`background-image: url('${base}/assets/images/frontbag.png');`}></div>
       </div>
       <div class="product-info">
         <div class="product-name-row">
@@ -103,7 +104,7 @@ import LogoMark from "../components/LogoMark.astro";
 
     <div class="product-row product-row--reverse">
       <div class="product-image-col">
-        <div class="product-image" style="background-image: url('/assets/images/coffee-packages.png'); background-size: 70%; background-color: var(--jr-mezzo);"></div>
+        <div class="product-image" style={`background-image: url('${base}/assets/images/coffee-packages.png'); background-size: 70%; background-color: var(--jr-mezzo);`}></div>
       </div>
       <div class="product-info">
         <div class="product-name-row">
@@ -123,7 +124,7 @@ import LogoMark from "../components/LogoMark.astro";
 
     <div class="product-row">
       <div class="product-image-col">
-        <div class="product-image product-image--bags" style="background-image: url('/assets/images/allbags.png');"></div>
+        <div class="product-image product-image--bags" style={`background-image: url('${base}/assets/images/allbags.png');`}></div>
       </div>
       <div class="product-info">
         <div class="product-name-row">

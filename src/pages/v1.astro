@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import DevNav from "../components/DevNav.astro";
 import LogoMark from "../components/LogoMark.astro";
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Base title="Järna Rosteri — V1">
@@ -22,7 +23,7 @@ import LogoMark from "../components/LogoMark.astro";
   <!-- ═══ IMAGE SECTION ═══ -->
   <section class="image-section">
     <div class="image-section-photo">
-      <img src="/assets/images/honduras.png" alt="Bergslandskap, Honduras" />
+      <img src={`${base}/assets/images/honduras.png`} alt="Bergslandskap, Honduras" />
     </div>
     <div class="image-section-text">
       <blockquote class="image-section-quote">
@@ -67,7 +68,7 @@ import LogoMark from "../components/LogoMark.astro";
 
   <!-- ═══ LANDSCAPE BREAK ═══ -->
   <div class="landscape-break">
-    <img src="/assets/images/view.png" alt="Utsikt över kaffeodling" />
+    <img src={`${base}/assets/images/view.png`} alt="Utsikt över kaffeodling" />
     <div class="landscape-caption">
       <span>Honduras — Santa Bárbara</span>
       <span>1 600 m ö.h.</span>

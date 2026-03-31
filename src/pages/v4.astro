@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import DevNav from "../components/DevNav.astro";
 import LogoMark from "../components/LogoMark.astro";
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Base title="Järna Rosteri — V4">
@@ -10,7 +11,7 @@ import LogoMark from "../components/LogoMark.astro";
   <!-- ─── HERO ─────────────────────────────────────────────────── -->
   <section class="hero">
     <div class="hero-image">
-      <img src="/assets/images/view.png" alt="Järna Rosteri plantation" />
+      <img src={`${base}/assets/images/view.png`} alt="Järna Rosteri plantation" />
     </div>
     <div class="hero-content">
       <div class="hero-label">
@@ -32,7 +33,7 @@ import LogoMark from "../components/LogoMark.astro";
   <section class="image-section">
     <div class="image-section-inner">
       <figure class="image-primary">
-        <img src="/assets/images/honduras.png" alt="Honduras coffee farm" />
+        <img src={`${base}/assets/images/honduras.png`} alt="Honduras coffee farm" />
       </figure>
       <aside class="image-aside">
         <p class="aside-text">
@@ -76,7 +77,7 @@ import LogoMark from "../components/LogoMark.astro";
     <div class="products-grid">
       <article class="product-card product-card--large">
         <div class="product-image">
-          <img src="/assets/images/allbags.png" alt="Järna Rosteri kaffepaket" />
+          <img src={`${base}/assets/images/allbags.png`} alt="Järna Rosteri kaffepaket" />
         </div>
         <div class="product-info">
           <div class="product-meta">
