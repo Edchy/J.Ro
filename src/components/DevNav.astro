@@ -35,25 +35,25 @@ const links = [
 <style>
   .dev-nav {
     position: fixed;
-    top: var(--space-sm);
+    top: calc(var(--space-sm) + 200px);
     right: var(--space-sm);
     z-index: 100;
     display: flex;
     align-items: center;
     gap: var(--space-sm);
-    background: var(--overlay-darker);
+    background: var(--jr-morkrost);
     padding: 0.4rem 0.75rem;
     font-family: var(--font);
     font-size: var(--text-nav);
   }
 
   .dev-nav-label {
-    color: rgba(255, 255, 255, 0.35);
+    color: var(--jr-ocra);
     margin-right: 0.25rem;
   }
 
   .dev-nav a {
-    color: rgba(255, 255, 255, var(--opacity));
+    color: var(--jr-vit);
     text-decoration: none;
   }
 
@@ -62,6 +62,6 @@ const links = [
   }
 
   .dev-nav a:hover {
-    color: var(--jr-vit);
+    color: var(--jr-ljusgul);
   }
 </style>

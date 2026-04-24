@@ -8,6 +8,13 @@ import LogoMark from "./LogoMark.astro";
     <LogoMark color="var(--jr-vit)" width="clamp(6rem, 22vw, 18rem)" class="footer-logomark" />
     <div class="footer-meta">
       <div class="footer-contact">
+        <a
+          href="https://www.instagram.com/jarnarosteri"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          instagram
+        </a>
         <p>info@jarnarosteri.se</p>
         <p>070-840 13 65</p>
         <p>Maskinvägen 5, 153 30 Järna</p>
@@ -26,18 +33,19 @@ import LogoMark from "./LogoMark.astro";
   }
 
   .footer-inner {
-    max-width: 1200px;
+    width: min(100%, var(--content-shell-max, 1400px));
     margin: 0 auto;
-    padding: 12rem 0 6rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-.footer-meta {
+    padding: 6rem var(--page-inset, 2rem);
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
+    gap: var(--space-xl);
+  }
+
+  .footer-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     gap: var(--space-lg);
     padding-bottom: 0.5rem;
   }
@@ -46,7 +54,7 @@ import LogoMark from "./LogoMark.astro";
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-    text-align: right;
+    text-align: left;
   }
 
   .footer-contact p {
@@ -54,7 +62,16 @@ import LogoMark from "./LogoMark.astro";
     font-size: var(--text-ui);
     line-height: var(--line-height);
     color: var(--jr-vit);
-    text-transform: uppercase;
+    text-transform: lowercase;
+  }
+
+  .footer-contact a {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    line-height: var(--line-height);
+    color: var(--jr-vit);
+    text-transform: lowercase;
+    text-decoration: none;
   }
 
   /*.footer-copy {
@@ -65,17 +82,7 @@ import LogoMark from "./LogoMark.astro";
 
   @media (max-width: 640px) {
     .footer-inner {
-      flex-direction: column;
-      align-items: flex-start;
       gap: var(--space-lg);
-    }
-
-    .footer-meta {
-      align-items: flex-start;
-    }
-
-    .footer-contact {
-      text-align: left;
     }
   }
 </style>

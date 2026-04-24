@@ -27,8 +27,10 @@
   --font-display: "Orator Std", "Maax Mono", monospace;
 
   --text-display: clamp(3rem, 11vw, 10rem);
+  --text-heading: clamp(1.5rem, 3.5vw, 2.75rem);
   --text-nav: 0.65rem;
   --text-body: clamp(0.85rem, 1.2vw, 1rem);
+  --text-sub: clamp(0.75rem, 1.8vw, 1rem);
   --text-ui: 0.75rem;
   --line-height: 1.5;
 
@@ -59,12 +61,16 @@
 
 html {
   height: 100%;
+  background: var(--jr-ocra);
+  scrollbar-gutter: stable;
 }
 
 body {
+  min-height: 100%;
   font-family: var(--font);
   background: var(--jr-gron);
   color: var(--jr-vit);
+  text-wrap: pretty;
 }
 
 /* Custom WebKit scrollbar styles */
@@ -81,15 +87,15 @@ body {
 ::-webkit-scrollbar-thumb {
   border-radius: 9999px;
   border: 0.125rem solid transparent;
-  background-color: var(--jr-gold);
+  background-color: var(--jr-morkrost);
   background-clip: padding-box;
   min-height: 2.5rem;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--jr-gold);
+  background-color: var(--jr-morkrost);
 }
 
 ::-webkit-scrollbar-track {
-  background-color: initial;
+  background-color: var(--jr-ocra);
 }

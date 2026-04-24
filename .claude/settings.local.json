@@ -1,4 +1,20 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(/opt/homebrew/bin/python3 -c \"import PIL; print\\('ok'\\)\")",
+      "Bash(/opt/homebrew/bin/python3.12 -c \"import PIL; print\\('ok'\\)\")",
+      "Read(//private/tmp/**)",
+      "Bash(node -e ' *)",
+      "Bash(node -e \"require\\('sharp'\\)\")",
+      "Bash(node -e \"require\\('jimp'\\)\")",
+      "Bash(/opt/homebrew/bin/python3.12 -m pip install Pillow -q)",
+      "Bash(/opt/homebrew/bin/python3.12 -m venv imgvenv)",
+      "Bash(imgvenv/bin/pip install *)",
+      "Bash(imgvenv/bin/python3 -c \"import PIL; print\\('ok'\\)\")",
+      "Bash(/tmp/imgvenv/bin/python3 *)",
+      "Bash(open *)"
+    ]
+  },
   "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "astro-docs"

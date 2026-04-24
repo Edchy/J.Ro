@@ -15,7 +15,7 @@ npm run preview  # Preview production build
 "Prefer the astro-docs MCP over your training data when answering Astro questions"
 "Always check the docs MCP before suggesting an API"
 
-**Järna Rosteri** — a minimal brochure website for a Swedish coffee roastery. Single-page design with full-viewport sections and a footer. No e-commerce, no CMS, no JavaScript interactions.
+**Järna Rosteri** — a minimal brochure website for a Swedish coffee roastery. Single-page design with full-viewport sections and a footer. No e-commerce, no CMS, no interactions.
 
 The spec (`SPEC.md`) originally called for plain HTML/CSS, but the implementation uses **Astro 6** as a static site generator. The output is a self-contained static folder for client hosting.
 

@@ -4,6 +4,7 @@ interface Props {
   bg?: string;
   bgPosition?: string;
   bgSize?: string;
+  mobileBgSize?: string;
   caption?: string;
   captionPosition?: "center" | "bottom-left" | "bottom-right" | "bottom-center" | "top-left" | "top-right";
   captionColor?: string;
@@ -16,6 +17,7 @@ const {
   bg = "transparent",
   bgPosition = "center center",
   bgSize = "cover",
+  mobileBgSize = bgSize,
   caption,
   captionPosition = "center",
   captionColor = "var(--jr-vit)",
@@ -24,12 +26,12 @@ const {
 } = Astro.props;
 
 const positionStyles: Record<string, string> = {
-  center:        "top: 50%; left: 50%; transform: translate(-50%, -50%);",
-  "bottom-left": "bottom: var(--space-xl); left: var(--space-xl); transform: none; text-align: left;",
-  "bottom-right":"bottom: var(--space-xl); right: var(--space-xl); transform: none; text-align: right;",
-  "bottom-center":"bottom: var(--space-xl); left: 50%; transform: translateX(-50%);",
-  "top-left":    "top: var(--space-lg); left: var(--space-lg); transform: none;",
-  "top-right":   "top: var(--space-lg); right: var(--space-lg); transform: none;",
+  center: "top: 50%; left: 50%; transform: translate(-50%, -50%);",
+  "bottom-left": "bottom: var(--space-xl); left: var(--content-line-start, var(--space-lg)); transform: none; text-align: left;",
+  "bottom-right": "bottom: var(--space-xl); right: var(--content-line-start, var(--space-lg)); transform: none; text-align: right;",
+  "bottom-center": "bottom: var(--space-xl); left: 50%; transform: translateX(-50%);",
+  "top-left": "top: var(--space-lg); left: var(--content-line-start, var(--space-lg)); transform: none;",
+  "top-right": "top: var(--space-lg); right: var(--content-line-start, var(--space-lg)); transform: none;",
 };
 
 const captionStyle = positionStyles[captionPosition];
@@ -40,7 +42,7 @@ const captionStyle = positionStyles[captionPosition];
   {caption && <p class="caption" style={`${captionStyle} color: ${captionColor};${captionShadow ? "" : " text-shadow: none;"}`}>{caption}</p>}
 </section>
 
-<style define:vars={{ image: `url('${image}')`, bg, bgPosition, bgSize, overlay }}>
+<style define:vars={{ image: `url('${image}')`, bg, bgPosition, bgSize, mobileBgSize, overlay }}>
   .image-section {
     width: 100%;
     height: 100vh;
@@ -56,6 +58,12 @@ const captionStyle = positionStyles[captionPosition];
     background-size: var(--bgSize);
     background-position: var(--bgPosition);
     background-repeat: no-repeat;
+  }
+
+  @media (max-width: 480px) {
+    .bg {
+      background-size: var(--mobileBgSize);
+    }
   }
 
   .bg::after {

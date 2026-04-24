@@ -2,6 +2,8 @@
 import Base from "../layouts/Base.astro";
 import DevNav from "../components/DevNav.astro";
 import LogoMark from "../components/LogoMark.astro";
+import ImageSection from "../components/ImageSection.astro";
+import FooterV5 from "../components/FooterV5.astro";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
@@ -10,394 +12,517 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
   <!-- ─── HERO ─────────────────────────────────────────────────── -->
   <section class="hero">
-    <div
-      class="hero-photo"
-      style={`background-image: url('${base}/assets/images/hero-no-text.png')`}
-    >
-    </div>
-    <div class="hero-veil"></div>
+    <div class="hero-inner">
+      <span class="hero-corner hero-corner--tl">
+        <svg
+          class="hero-wordmark"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1770 190"
+          aria-label="Järna Rosteri"
+          role="img"
+        >
+          <g
+            transform="translate(0,190) scale(0.1,-0.1)"
+            fill="currentColor"
+            stroke="none"
+          >
+            <path
+              d="M1755 1566 c-50 -50 -39 -157 18 -184 73 -35 140 62 104 151 -25 60 -80 75 -122 33z"
+            ></path>
+            <path
+              d="M2073 1575 c-28 -20 -46 -75 -38 -119 18 -95 120 -112 153 -24 37 96 -42 194 -115 143z"
+            ></path>
+            <path
+              d="M640 1138 c0 -282 -4 -447 -11 -473 -29 -107 -121 -160 -212 -121 -72 30 -96 81 -104 214 l-6 92 -55 0 -54 0 4 -112 c5 -132 23 -183 87 -246 113 -109 319 -88 408 42 56 83 57 84 60 579 l4 457 -60 0 -61 0 0 -432z"
+            ></path>
+            <path
+              d="M8410 1001 l0 -571 60 0 60 0 0 255 0 255 60 0 61 0 125 -257 c68 -141 126 -259 129 -261 5 -5 94 29 100 39 3 4 -47 114 -110 245 -112 231 -119 253 -82 254 21 0 107 96 128 143 20 43 23 69 24 157 0 120 -17 171 -77 232 -67 66 -92 73 -295 76 l-183 4 0 -571z m367 433 c42 -31 64 -77 70 -143 11 -119 -37 -219 -115 -241 -20 -5 -74 -10 -119 -10 l-83 0 0 211 0 211 109 -4 c93 -2 114 -6 138 -24z"
+            ></path>
+            <path
+              d="M10031 1329 c-166 -32 -253 -185 -254 -449 -1 -139 12 -207 53 -290 52 -102 127 -156 234 -167 213 -22 348 175 332 487 -6 127 -20 190 -59 266 -57 113 -184 177 -306 153z m-1 -454 c0 -317 -1 -335 -17 -326 -109 58 -154 323 -91 528 18 60 71 133 97 133 8 0 11 -92 11 -335z m158 310 c83 -70 116 -316 66 -495 -16 -58 -59 -121 -95 -140 -19 -10 -19 -3 -19 325 0 198 4 335 9 335 5 0 23 -11 39 -25z"
+            ></path>
+            <path
+              d="M11480 1329 c-64 -10 -92 -23 -135 -61 -50 -43 -75 -99 -75 -168 0 -107 43 -161 175 -221 39 -17 98 -44 132 -60 35 -15 74 -40 87 -54 59 -63 34 -179 -46 -215 -112 -51 -227 3 -262 121 -7 22 -14 41 -17 42 -15 5 -99 -28 -99 -39 0 -29 41 -121 69 -154 45 -55 122 -92 201 -98 177 -12 300 93 300 258 -1 129 -51 186 -236 265 -148 63 -184 94 -184 159 0 36 6 52 29 78 26 29 35 33 98 36 64 4 72 2 103 -24 18 -16 42 -48 52 -71 10 -24 22 -43 27 -43 4 0 29 7 55 16 40 14 46 19 40 38 -44 143 -166 219 -314 195z"
+            ></path>
+            <path
+              d="M1751 903 c-74 -230 -136 -425 -138 -434 -4 -13 8 -21 49 -35 29 -9 55 -17 58 -16 3 0 23 58 45 129 l41 128 149 3 c81 1 152 -1 156 -5 5 -5 25 -62 45 -128 20 -66 38 -123 40 -127 3 -5 102 27 112 37 2 2 -59 197 -135 434 l-138 431 -75 0 -75 0 -134 -417z m268 85 c29 -95 54 -181 57 -190 5 -16 -5 -18 -116 -18 -93 0 -121 3 -118 13 3 6 29 92 58 190 29 97 56 177 60 177 4 0 30 -78 59 -172z"
+            ></path>
+            <path
+              d="M3140 875 l0 -445 60 0 60 0 0 190 0 191 82 -3 81 -3 111 -197 112 -196 51 31 51 30 -109 179 c-108 178 -109 179 -84 188 37 14 104 79 128 124 31 58 30 174 0 232 -54 102 -118 124 -365 124 l-178 0 0 -445z m378 321 c45 -23 66 -60 66 -115 0 -64 -28 -110 -84 -138 -37 -19 -60 -23 -142 -23 l-98 0 0 143 c0 79 3 147 8 151 13 15 215 0 250 -18z"
+            ></path>
+            <path
+              d="M4540 875 l0 -445 61 0 61 0 -4 365 c-4 346 -3 364 13 333 9 -18 85 -183 169 -365 l153 -333 68 0 69 0 0 445 0 445 -56 0 -55 0 3 -365 c2 -200 0 -361 -3 -357 -3 4 -79 168 -169 365 l-164 357 -73 0 -73 0 0 -445z"
+            ></path>
+            <path
+              d="M6182 1258 c-11 -35 -72 -225 -136 -424 -110 -343 -122 -384 -111 -384 2 0 27 -9 54 -20 l50 -19 43 132 43 132 154 0 155 0 39 -131 40 -132 58 20 c33 11 59 21 59 21 0 1 -62 196 -138 432 l-139 430 -76 3 -76 3 -19 -63z m158 -285 l58 -188 -115 -3 c-64 -1 -118 -1 -120 2 -3 3 21 91 53 195 31 105 59 189 62 186 3 -2 31 -89 62 -192z"
+            ></path>
+            <path
+              d="M12660 1270 l0 -49 123 -3 122 -3 3 -393 2 -393 58 3 57 3 3 393 2 392 115 0 115 0 0 50 0 50 -300 0 -300 0 0 -50z"
+            ></path>
+            <path
+              d="M14160 875 l0 -445 275 0 275 0 0 55 0 55 -215 0 -215 0 0 155 0 155 181 0 180 0 -3 53 -3 52 -177 3 -178 2 0 130 0 130 215 0 215 0 0 50 0 50 -275 0 -275 0 0 -445z"
+            ></path>
+            <path
+              d="M15582 878 l3 -443 58 -3 57 -3 0 191 0 190 83 0 82 0 109 -195 c60 -107 113 -195 118 -195 15 0 98 51 94 58 -2 4 -49 82 -105 175 -55 92 -101 169 -101 171 0 2 20 16 45 30 74 44 125 135 125 225 0 98 -42 170 -124 214 -37 20 -59 22 -244 25 l-202 4 2 -444z m373 321 c47 -23 70 -64 70 -124 0 -58 -18 -91 -69 -129 -23 -18 -45 -22 -142 -24 l-114 -4 0 144 c0 80 3 148 8 152 12 13 216 0 247 -15z"
+            ></path>
+            <path
+              d="M17100 1270 l0 -49 58 -3 57 -3 3 -337 2 -338 -60 0 -60 0 0 -55 0 -55 180 0 180 0 0 55 0 55 -60 0 -60 0 2 338 3 337 58 3 57 3 0 49 0 50 -180 0 -180 0 0 -50z"
+            ></path>
+          </g>
+        </svg>
+      </span>
+      <button
+        class="hamburger hero-corner hero-corner--tr"
+        aria-label="Öppna meny"
+        aria-expanded="false"
+        aria-controls="site-menu"
+      >
+        <span class="hamburger-bar hamburger-bar--top"></span>
+        <span class="hamburger-bar hamburger-bar--bot"></span>
+      </button>
 
-    <header class="hero-header">
-      <span class="label">Lorem Ipsum</span>
-      <span class="label">Est. 2013</span>
-    </header>
-
-    <div class="hero-body">
-      <h1 class="hero-title">LOREM<br />IPSUM</h1>
-      <p class="hero-sub">Lorem ipsum dolor sit amet consectetur</p>
-    </div>
-
-    <div class="hero-scroll-hint" aria-hidden="true">↓</div>
-
-    <div class="hero-info">
-      <p>
-        Tja Robin. Här kommer lite olike förslag och riktningar. Du kan bläddra
-        igenom alla 14 olika varianter uppe i högra hörnet. Testa gärna på
-        datorn då inget är mobilanpassat ännu. Som sagt detta är bara utkast och
-        experimenterade med färger och former. Inget finlir ännu. Vill mest
-        testa olika art directions. Man kan sedan plocka och välja olika
-        sektioner från olika sidor och sätta ihop något. Eller om du vill ha
-        någon helt annan riktning. Fundera över om det är något du
-        gillar/ogillar så jag vet vart jag ska lägga min energi, samt om vi vill
-        köra den gröna färgen som bakgrund med någon av de gula nyanserna som
-        text på t.ex startsektionen (i enlighet med slide 5 i grafisk profil
-        pdfen). Fundera även gärna på vad det ska vara för texter på sidan så
-        att jag slipper använda Lorem ipsum-texter :)
-      </p>
+      <dialog id="site-menu" class="menu-dialog">
+        <nav class="menu-nav">
+          <a href="mailto:info@jarnarosteri.se" class="menu-link"
+            >info@jarnarosteri.se</a
+          >
+          <a href="tel:+46708401365" class="menu-link">070-840 13 65</a>
+          <a
+            href="https://www.instagram.com/jarnarosteri"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="menu-link">Instagram</a
+          >
+        </nav>
+      </dialog>
+      <div class="hero-logo-wrap">
+        <LogoMark
+          color="var(--jr-morkrost)"
+          width="clamp(18rem, 80vw, 42rem)"
+        />
+      </div>
+      <span class="hero-corner hero-corner--bl"
+        >Ekologiskt · Biodynamiskt · Kaffe</span
+      >
     </div>
   </section>
 
-  <!-- ─── TEXT SECTION ─────────────────────────────────────────── -->
-  <section class="text-block text-block--dark">
-    <div class="text-inner">
-      <div class="text-col-label">
-        <span class="eyebrow">Lorem</span>
-      </div>
-      <div class="text-col-body">
-        <p class="body-copy">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam quis nostrud exercitation ullamco laboris nisi aliquip.
-        </p>
-        <p class="body-copy">
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim laborum.
-        </p>
-        <span class="sig">— Lorem Ipsum, Consectetur</span>
-      </div>
-    </div>
+  <!-- ─── COLLAGE ──────────────────────────────────────────────── -->
+  <section
+    class="collage-section"
+    style={`background-image: url('${base}/assets/images/collage.avif')`}
+    aria-label="Kollage från Järna Rosteri"
+  >
   </section>
+
+  <!-- ─── ABOUT ────────────────────────────────────────────────── -->
+  <ImageSection
+    image={`${base}/assets/images/coffee-packages.png`}
+    bgSize="40%"
+    mobileBgSize="80%"
+    bg="var(--jr-ljusgul)"
+    caption="POAB'S ESP. En av våra espresso sorter. Indisk arabica och robusta."
+    captionPosition="bottom-left"
+    captionColor="var(--jr-morkrost)"
+    captionShadow={false}
+  />
 
   <!-- ─── IMAGE + CAPTION ──────────────────────────────────────── -->
   <section class="image-block">
     <div
       class="image-block-photo"
-      style={`background-image: url('${base}/assets/images/view.png')`}
+      style={`background-image: url('${base}/assets/images/hero-no-text.avif')`}
     >
     </div>
     <div class="image-block-caption">
-      <span class="eyebrow eyebrow--light">Lorem</span>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-        tempor incididunt ut labore et dolore magna. Ut enim ad minim veniam
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex commodo.
-      </p>
+      <div class="image-block-caption-inner">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna. Ut enim ad minim
+          veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+          commodo.
+        </p>
+      </div>
     </div>
     <div class="image-block-scrim"></div>
   </section>
 
+  <!-- ─── ABOUT ─────────────────────────────────────────────────── -->
+  <section id="about" class="about">
+    <div class="about-inner">
+      <div class="about-body">
+        <p class="about-text">
+          Hos oss handlar kaffe om mer än bara rostning – det är ett hantverk
+          grundat i relationer, hållbarhet och passion. Vi samarbetar direkt med
+          Demeter-certifierade kaffegårdar, där varje böna odlas i samklang med
+          naturen och bär på en berättelse om balans, respekt och mänskliga
+          möten. Vårt personliga engagemang genomsyrar hela processen, från
+          ursprung till kopp. Vi levererar färskrostat kaffe till kaféer,
+          butiker, restauranger och arbetsplatser över hela Sverige.
+        </p>
+        <p class="about-text">
+          För grossistförfrågningar, prislista eller provpåsar — hör av er.
+        </p>
+        <a
+          id="contact"
+          href="mailto:info@jarnarosteri.se"
+          class="about-contact"
+        >
+          info@jarnarosteri.se
+        </a>
+        <a href="tel:+46708401365" class="about-contact"> 070-840 13 65 </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ─── PRODUCTS ─────────────────────────────────────────────── -->
   <section class="products">
-    <div class="products-header">
-      <span class="eyebrow eyebrow--ochre">Lorem ipsum</span>
+    <div class="product-row">
+      <div class="product-info">
+        <div class="product-name-row">
+          <span class="product-name">POAB´S ESP</span>
+        </div>
+        <p class="product-desc">
+          Demeter-certifierad espresso med indisk arabica och robusta. Fyllig,
+          kryddig och chokladig med låg syra och lång eftersmak.
+        </p>
+        <div class="product-tags">
+          <span class="tag">Honduras</span>
+          <span class="tag">Hela bönor</span>
+          <span class="tag">450 gram</span>
+        </div>
+      </div>
+      <div class="product-image-col">
+        <div
+          class="product-image"
+          style={`background-image: url('${base}/assets/images/frontbag.png');`}
+        >
+        </div>
+      </div>
     </div>
 
-    <div class="products-grid">
-      <article class="product-card">
-        <div class="product-card-body">
-          <span class="product-num">01</span>
-          <span class="product-origin">Lorem</span>
-          <h3 class="product-name">Franchese</h3>
-          <p class="product-note">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua enim.
-          </p>
-          <span class="product-cert">Lorem · Ipsum</span>
+    <div class="product-row product-row--reverse">
+      <div class="product-info">
+        <div class="product-name-row">
+          <span class="product-name">POAB´S ESP</span>
         </div>
-      </article>
-
-      <article class="product-card">
-        <div class="product-card-body">
-          <span class="product-num">02</span>
-          <span class="product-origin">Ipsum</span>
-          <h3 class="product-name">Grande</h3>
-          <p class="product-note">
-            Duis aute irure dolor in reprehenderit voluptate velit esse cillum
-            dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat.
-          </p>
-          <span class="product-cert">Dolor · Amet</span>
+        <p class="product-desc">
+          Demeter-certifierad espresso med indisk arabica och robusta. Fyllig,
+          kryddig och chokladig med låg syra och lång eftersmak.
+        </p>
+        <div class="product-tags">
+          <span class="tag">Honduras</span>
+          <span class="tag">Hela bönor</span>
+          <span class="tag">450 gram</span>
         </div>
-      </article>
-
-      <article class="product-card">
-        <div class="product-card-body">
-          <span class="product-num">03</span>
-          <span class="product-origin">Dolor</span>
-          <h3 class="product-name">Mezzo</h3>
-          <p class="product-note">
-            Consectetur adipiscing elit sed do eiusmod tempor incididunt labore
-            et dolore magna aliqua ut enim ad minim veniam exercitation nisi.
-          </p>
-          <span class="product-cert">Sed · Eiusmod</span>
+      </div>
+      <div class="product-image-col">
+        <div
+          class="product-image"
+          style={`background-image: url('${base}/assets/images/frontbag.png');`}
+        >
         </div>
-      </article>
-
-      <article class="product-card">
-        <div class="product-card-body">
-          <span class="product-num">04</span>
-          <span class="product-origin">Amet</span>
-          <h3 class="product-name">Poabs Esp</h3>
-          <p class="product-note">
-            Ut enim ad minim veniam quis nostrud exercitation ullamco laboris
-            nisi aliquip ex ea commodo consequat duis aute irure dolor amet.
-          </p>
-          <span class="product-cert">Tempor · Labore</span>
-        </div>
-      </article>
-
-      <article class="product-card">
-        <div class="product-card-body">
-          <span class="product-num">05</span>
-          <span class="product-origin">Consectetur</span>
-          <h3 class="product-name">Poabs Bry</h3>
-          <p class="product-note">
-            Excepteur sint occaecat cupidatat non proident sunt in culpa qui
-            officia deserunt mollit anim id est laborum lorem ipsum dolor sit.
-          </p>
-          <span class="product-cert">Magna · Aliqua</span>
-        </div>
-      </article>
-
-      <article class="product-card">
-        <div class="product-card-body">
-          <span class="product-num">06</span>
-          <span class="product-origin">Adipiscing</span>
-          <h3 class="product-name">Conejo</h3>
-          <p class="product-note">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium totam rem aperiam eaque ipsa.
-          </p>
-          <span class="product-cert">Veniam · Quis</span>
-        </div>
-      </article>
+      </div>
     </div>
 
-    <div class="products-bags">
-      <div
-        class="bags-img"
-        style={`background-image: url('${base}/assets/images/allbags.png')`}
-      >
+    <div class="product-row">
+      <div class="product-info">
+        <div class="product-name-row">
+          <span class="product-name">Mezzo</span>
+        </div>
+        <p class="product-desc">
+          Consectetur adipiscing elit sed do eiusmod tempor incididunt labore et
+          dolore magna aliqua ut enim ad minim veniam exercitation nisi.
+        </p>
+        <div class="product-tags">
+          <span class="tag">Sed</span>
+          <span class="tag">Eiusmod</span>
+          <span class="tag">Mezzo</span>
+        </div>
+      </div>
+      <div class="product-image-col">
+        <div
+          class="product-image product-image--bags"
+          style={`background-image: url('${base}/assets/images/allbags.png');`}
+        >
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ─── FOOTER ───────────────────────────────────────────────── -->
-  <footer class="footer">
-    <div class="footer-watermark" aria-hidden="true">
-      <LogoMark color="var(--jr-ljusgul)" width="80vw" />
-    </div>
-
-    <span class="footer-copy-vert" aria-hidden="true">© 2026 Järna Rosteri</span
-    >
-
-    <div class="footer-inner">
-      <div class="footer-rule-row">
-        <span class="footer-rule"></span>
-        <span class="footer-est">Est. 2013</span>
-      </div>
-
-      <div class="footer-fields">
-        <div class="footer-field">
-          <span class="footer-field-label">Kontakt</span>
-          <a href="mailto:info@jarnarosteri.se" class="footer-link"
-            >info@jarnarosteri.se</a
-          >
-          <a href="tel:+46708401365" class="footer-link">070-840 13 65</a>
-        </div>
-        <div class="footer-field">
-          <span class="footer-field-label">Adress</span>
-          <span class="footer-link footer-link--muted">Maskinvägen 5</span>
-          <span class="footer-link footer-link--muted">153 30 Järna</span>
-        </div>
-        <div class="footer-field">
-          <span class="footer-field-label">Socialt</span>
-          <a
-            href="https://www.instagram.com/jarnarosteri"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="footer-link">Instagram</a
-          >
-        </div>
-      </div>
-    </div>
-  </footer>
+  <FooterV5 />
 </Base>
 
 <style>
   :root {
-    --page-inset: clamp(var(--space-lg), 5vw, 4rem);
+    --page-inset: var(--space-lg);
     --page-max: 1080px;
+    --content-shell-max: 1400px;
+    --content-line-start: max(
+      var(--page-inset),
+      calc((100vw - var(--content-shell-max)) / 2 + var(--page-inset))
+    );
+    --header-height: 4.5rem;
+    --hamburger-size: 2.35rem;
+  }
+
+  :global(body.menu-open) {
+    overflow: hidden;
+    touch-action: none;
   }
 
   /* ── HERO ─────────────────────────────────────────────────────── */
   .hero {
     position: relative;
-    width: 100%;
-    height: 100svh;
-    min-height: 600px;
-    overflow: hidden;
+    min-height: 100svh;
+    background: var(--jr-ocra);
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    background: var(--jr-gron);
+    align-items: center;
+    justify-content: center;
   }
 
-  .hero-photo {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center 30%;
-  }
-
-  .hero-veil {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      transparent 30%,
-      rgba(0, 0, 0, 0.25) 60%,
-      rgba(0, 0, 0, 0.55) 100%
-    );
-  }
-
-  .hero-header {
-    position: absolute;
-    top: var(--page-inset);
-    left: var(--page-inset);
-    right: var(--page-inset);
-    display: flex;
-    justify-content: space-between;
-    z-index: 2;
-  }
-
-  .label {
-    font-family: var(--font);
-    font-size: var(--text-ui);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--jr-ljusgul);
-    opacity: 0.75;
-  }
-
-  .hero-body {
+  .hero-inner {
     position: relative;
-    z-index: 2;
-    padding: var(--page-inset);
-    padding-bottom: clamp(var(--space-xl), 5vw, 4rem);
-  }
-
-  .hero-title {
-    font-family: var(--font-display);
-    font-size: clamp(3.5rem, 10vw, 9rem);
-    color: var(--jr-ljusgul);
-    line-height: 0.88;
-    letter-spacing: -0.02em;
-    margin-bottom: clamp(0.75rem, 1.5vw, 1.25rem);
-  }
-
-  .hero-sub {
-    font-family: var(--font);
-    font-size: var(--text-ui);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--jr-ljusgul);
-    opacity: 0.6;
-  }
-
-  .hero-info {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    background: rgba(0, 0, 0, 0.65);
-    color: var(--jr-vit);
-    font-family: var(--font);
-    font-size: var(--text-body);
-    line-height: 1.7;
-    padding: var(--space-lg);
-    max-width: 480px;
-    width: calc(100% - 4rem);
-    backdrop-filter: blur(4px);
-    text-align: center;
-  }
-
-  .hero-scroll-hint {
-    position: absolute;
-    bottom: var(--page-inset);
-    right: var(--page-inset);
-    z-index: 2;
-    font-family: var(--font);
-    font-size: var(--text-ui);
-    color: var(--jr-ljusgul);
-    opacity: 0.4;
-  }
-
-  /* ── TEXT BLOCK ───────────────────────────────────────────────── */
-  .text-block {
     width: 100%;
-    padding: clamp(5rem, 10vw, 9rem) 0;
-  }
-
-  .text-block--dark {
-    background: var(--jr-gron);
-  }
-
-  .text-inner {
-    max-width: var(--page-max);
+    max-width: var(--content-shell-max);
+    height: 100svh;
     margin: 0 auto;
-    padding-inline: var(--page-inset);
-    display: grid;
-    grid-template-columns: 1fr 1.618fr;
-    gap: var(--space-xl);
-    align-items: start;
+    padding: var(--space-lg);
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding-bottom: 8svh;
   }
 
-  .text-col-label {
-    padding-top: 0.2em;
-  }
-
-  .eyebrow {
+  .hero-corner {
+    position: absolute;
     font-family: var(--font);
     font-size: var(--text-ui);
-    letter-spacing: 0.18em;
     text-transform: uppercase;
-    display: block;
+    letter-spacing: 0.45em;
+    color: var(--jr-morkrost);
+    opacity: 0.5;
+    line-height: 1;
   }
 
-  .text-block--dark .eyebrow {
-    color: var(--jr-ljusgul);
+  .hero-corner--tl {
+    top: var(--space-lg);
+    left: var(--space-lg);
+    pointer-events: none;
+  }
+  .hero-corner--tr {
+    position: fixed;
+    z-index: 60;
+    top: calc(
+      var(--space-lg) - ((var(--hamburger-size) - (var(--text-ui) * 1.5)) / 2) -
+        (var(--text-ui) * 0.375)
+    );
+    right: max(var(--space-lg), calc(50vw - 700px + var(--space-lg)));
+  }
+  .hero-corner--bl {
+    bottom: var(--space-lg);
+    left: var(--space-lg);
+  }
+  .hero-corner--br {
+    bottom: var(--space-lg);
+    right: var(--space-lg);
+  }
+
+  /* ── HAMBURGER ───────────────────────────────────────────────── */
+  .hamburger {
+    position: fixed;
+    z-index: 60;
+    background: var(--jr-ljusgul);
+    border: none;
+    border-radius: 999px;
+    box-shadow: 0 0.2rem 0.7rem
+      color-mix(in srgb, var(--jr-morkrost) 18%, transparent);
+    cursor: pointer;
+    padding: 0;
+    width: var(--hamburger-size);
+    height: var(--hamburger-size);
+    color: var(--jr-morkrost);
+    transition:
+      opacity 0.25s ease,
+      background-color 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .hamburger:hover {
+    opacity: 0.8;
+  }
+
+  .hamburger-bar {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 18px;
+    height: 1.5px;
+    background: currentColor;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+  }
+
+  .hamburger-bar--top {
+    transform: translate(-50%, calc(-50% - 2.5px));
+  }
+  .hamburger-bar--bot {
+    transform: translate(-50%, calc(-50% + 2.5px));
+  }
+
+  .hamburger.is-open .hamburger-bar--top {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  .hamburger.is-open .hamburger-bar--bot {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  .hamburger.is-open {
     opacity: 0.5;
   }
 
-  .text-col-body {
+  .hamburger.is-open:hover {
+    opacity: 0.8;
+  }
+
+  /* ── MENU DIALOG ─────────────────────────────────────────────── */
+  .menu-dialog {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: var(--jr-ocra);
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.42)),
+      url("/assets/images/view.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--jr-vit);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(0.25rem);
+    transition:
+      opacity 0.08s linear,
+      transform 0.12s cubic-bezier(0.2, 0.8, 0.2, 1),
+      visibility 0s linear 0.12s;
+  }
+
+  .menu-dialog[open] {
+    visibility: visible;
+  }
+
+  .menu-dialog::backdrop {
+    background: transparent;
+  }
+
+  .menu-dialog.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition:
+      opacity 0.08s linear,
+      transform 0.1s cubic-bezier(0.2, 0.8, 0.2, 1),
+      visibility 0s linear 0s;
+  }
+
+  .menu-nav {
     display: flex;
     flex-direction: column;
-    gap: var(--space-lg);
+    align-items: center;
+    gap: var(--space-xl);
+    opacity: 0;
+    transform: translateY(0.25rem);
+    transition:
+      opacity 0.08s linear,
+      transform 0.12s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
-  .body-copy {
-    font-family: var(--font);
-    font-size: var(--text-body);
-    line-height: 1.8;
-    color: var(--jr-ljusgul);
+  .menu-dialog.is-visible .menu-nav {
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  .sig {
+  .menu-link {
     font-family: var(--font);
-    font-size: var(--text-ui);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--jr-ljusgul);
-    opacity: 0.4;
+    font-size: clamp(1.15rem, 3vw, 2rem);
+    text-transform: none;
+    letter-spacing: 0.08em;
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.8;
+    line-height: 1.1;
+  }
+
+  .menu-link:hover {
+    opacity: 1;
+  }
+
+  .hero-wordmark {
+    height: calc(var(--text-ui) * 1.5);
+    width: auto;
+    display: block;
+    color: var(--jr-morkrost);
+    transform: translateY(-25%);
+  }
+
+  .hero-logo-wrap {
+    display: flex;
+  }
+
+  @media (max-width: 480px) {
+    .hero-logo-wrap {
+      margin-left: calc(-1 * var(--space-lg));
+    }
+
+    .hero-corner--bl {
+      letter-spacing: 0.18em;
+    }
+
+    .hero-corner--tl,
+    .hero-corner--tr {
+      font-size: calc(var(--text-ui) * 0.75);
+    }
+
+    .hero-wordmark {
+      height: calc(var(--text-ui) * 1.5 * 0.75);
+    }
+  }
+
+  /* ── COLLAGE ─────────────────────────────────────────────────── */
+  .collage-section {
+    width: 100%;
+    min-height: 100svh;
+    background-color: var(--jr-vit);
+    background-size: min(72vw, 56rem);
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  @media (max-width: 480px) {
+    .collage-section {
+      background-size: min(86vw, 28rem);
+    }
   }
 
   /* ── IMAGE BLOCK ─────────────────────────────────────────────── */
   .image-block {
     position: relative;
     width: 100%;
-    height: 100svh;
+    height: min(100svh, 75vh);
     overflow: hidden;
   }
 
@@ -405,7 +530,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     position: absolute;
     inset: 0;
     background-size: cover;
-    background-position: center center;
+    background-position: center bottom;
   }
 
   .image-block-scrim {
@@ -422,246 +547,193 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   .image-block-caption {
     position: absolute;
     bottom: 0;
-    left: 0;
-    right: 0;
-    padding: var(--space-xl) var(--page-inset);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-    max-width: 640px;
+    inset-inline: 0;
     z-index: 1;
   }
 
-  .eyebrow--light {
-    color: var(--jr-ljusgul);
-    opacity: 0.6;
+  .image-block-caption-inner {
+    width: min(100%, var(--content-shell-max));
+    margin: 0 auto;
+    padding: var(--space-xl) var(--page-inset);
   }
 
   .image-block-caption p {
     font-family: var(--font);
-    font-size: var(--text-ui);
-    line-height: var(--line-height);
-    text-transform: uppercase;
-    max-width: 50ch;
+    font-size: var(--text-body);
+    line-height: 1.75;
+    max-width: 64ch;
     color: var(--jr-vit);
     opacity: 0.85;
   }
 
-  /* ── PRODUCTS ────────────────────────────────────────────────── */
-  .products {
-    background: var(--jr-ocra);
-    padding: clamp(4rem, 8vw, 7rem) 0 clamp(3rem, 6vw, 5rem);
-    overflow: hidden;
-  }
-
-  .products-header {
-    max-width: var(--page-max);
-    margin: 0 auto clamp(3rem, 5vw, 4.5rem);
-    padding-inline: var(--page-inset);
+  /* ── ABOUT ───────────────────────────────────────────────────── */
+  .about {
+    background: var(--jr-vit);
+    min-height: 100svh;
     display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
+    align-items: center;
   }
 
-  .eyebrow--ochre {
-    color: var(--jr-morkrost);
-    opacity: 0.6;
-  }
-
-  .products-title {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    color: var(--jr-morkrost);
-    letter-spacing: -0.02em;
-    line-height: 1;
-  }
-
-  .products-grid {
-    max-width: var(--page-max);
+  .about-inner {
+    max-width: var(--content-shell-max);
+    width: 100%;
     margin: 0 auto;
-    padding-inline: var(--page-inset);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    padding: clamp(5rem, 10vw, 8rem) var(--page-inset);
+  }
+
+  .about-body {
+    display: flex;
+    flex-direction: column;
     gap: var(--space-lg);
-    align-items: start;
+    max-width: 64ch;
+    margin: 0 auto;
+    align-items: center;
+    text-align: center;
   }
 
-  .product-card {
-    display: flex;
-    flex-direction: column;
-    border-top: 1px solid rgba(58, 40, 23, 0.2);
-    padding-top: var(--space-lg);
-  }
-
-  .product-card-body {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    padding-bottom: clamp(2rem, 4vw, 3rem);
-  }
-
-  .product-num {
-    font-family: var(--font);
-    font-size: var(--text-ui);
-    letter-spacing: 0.1em;
-    color: var(--jr-morkrost);
-    opacity: 0.3;
-    margin-bottom: var(--space-sm);
-    display: block;
-  }
-
-  .product-origin {
-    font-family: var(--font);
-    font-size: var(--text-ui);
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--jr-morkrost);
-    opacity: 0.5;
-  }
-
-  .product-name {
-    font-family: var(--font-display);
-    font-size: clamp(1.2rem, 2.2vw, 1.75rem);
-    color: var(--jr-morkrost);
-    letter-spacing: -0.01em;
-    line-height: 1;
-    margin-bottom: 0.5rem;
-  }
-
-  .product-note {
+  .about-text {
     font-family: var(--font);
     font-size: var(--text-body);
-    line-height: 1.7;
-    color: var(--jr-morkrost);
+    line-height: 1.75;
+    color: var(--jr-svart);
     opacity: 0.75;
   }
 
-  .product-cert {
+  .about-contact {
     font-family: var(--font);
-    font-size: var(--text-ui);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--jr-morkrost);
-    opacity: 0.4;
-    margin-top: 0.5rem;
+    font-size: var(--text-body);
+    color: var(--jr-svart);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    padding-bottom: 0.1rem;
+    width: fit-content;
+    transition:
+      opacity 0.15s ease,
+      border-color 0.15s ease;
+    opacity: 0.75;
+    text-align: center;
   }
 
-  .products-bags {
-    margin-top: clamp(3rem, 6vw, 5rem);
+  .about-contact:hover {
+    opacity: 1;
+    border-color: rgba(0, 0, 0, 0.6);
   }
 
-  .bags-img {
-    width: 100%;
-    aspect-ratio: 3 / 2;
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
+  /* ── PRODUCTS ────────────────────────────────────────────────── */
+  .products {
+    background: var(--jr-vit);
   }
 
-  /* ── FOOTER ──────────────────────────────────────────────────── */
-  .footer {
-    background: var(--jr-gron);
-    color: var(--jr-ljusgul);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .footer-watermark {
-    position: absolute;
-    inset: 0;
+  .products__header {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-    opacity: 0.05;
+    justify-content: space-between;
+    align-items: baseline;
+    max-width: var(--content-shell-max);
+    margin: 0 auto calc(var(--space-xl) * 1.5);
   }
 
-  .footer-copy-vert {
-    position: absolute;
-    left: var(--page-inset);
-    bottom: var(--page-inset);
-    font-family: var(--font);
-    font-size: var(--text-ui);
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--jr-ljusgul);
-    opacity: 0.25;
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-  }
-
-  .footer-inner {
-    position: relative;
-    z-index: 1;
-    max-width: var(--page-max);
-    margin: 0 auto;
-    padding: clamp(5rem, 10vw, 8rem) var(--page-inset) clamp(3rem, 6vw, 5rem);
-  }
-
-  .footer-rule-row {
-    display: flex;
-    align-items: center;
-    gap: var(--space-lg);
-    margin-bottom: clamp(3rem, 7vw, 6rem);
-  }
-
-  .footer-rule {
-    flex: 1;
-    height: 1px;
-    background: rgba(239, 214, 120, 0.18);
-    display: block;
-  }
-
-  .footer-est {
+  .products-label {
     font-family: var(--font);
     font-size: var(--text-ui);
     text-transform: uppercase;
     letter-spacing: 0.18em;
-    color: var(--jr-ljusgul);
-    opacity: 0.35;
-    white-space: nowrap;
+    opacity: 0.4;
   }
 
-  .footer-fields {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-xl);
-    align-items: start;
-  }
-
-  .footer-field {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-
-  .footer-field-label {
+  .products-count {
     font-family: var(--font);
     font-size: var(--text-ui);
     text-transform: uppercase;
-    letter-spacing: 0.16em;
-    color: var(--jr-ljusgul);
-    opacity: 0.4;
-    margin-bottom: 0.6rem;
+    letter-spacing: 0.12em;
+    opacity: 0.25;
   }
 
-  .footer-link {
+  .product-row {
+    display: grid;
+    grid-template-columns: minmax(0, 32rem) minmax(0, 32rem);
+    justify-content: center;
+    align-items: center;
+    column-gap: clamp(2rem, 6vw, 5rem);
+    max-width: var(--content-shell-max);
+    margin: 0 auto calc(var(--space-xl) * 2);
+    overflow: hidden;
+  }
+
+  .product-row--reverse {
+    direction: rtl;
+  }
+
+  .product-row--reverse > * {
+    direction: ltr;
+  }
+
+  .product-image-col {
+    overflow: hidden;
+  }
+
+  .product-image {
+    width: 100%;
+    height: 44vh;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .product-row:hover .product-image {
+    transform: scale(1.03);
+  }
+
+  .product-image--bags {
+    background-size: cover;
+    background-position: center;
+  }
+
+  .product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-lg);
+  }
+
+  .product-name-row {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-lg);
+  }
+
+  .product-name {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3.5vw, 3rem);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--jr-svart);
+  }
+
+  .product-desc {
     font-family: var(--font);
     font-size: var(--text-body);
-    color: var(--jr-ljusgul);
-    text-decoration: none;
-    opacity: 0.7;
-    line-height: 1.7;
-    transition: opacity 0.15s ease;
+    line-height: 1.65;
+    color: var(--jr-svart);
+    opacity: 0.65;
+    max-width: 42ch;
   }
 
-  a.footer-link:hover {
-    opacity: 1;
+  .product-tags {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
   }
 
-  .footer-link--muted {
-    opacity: 0.35;
+  .tag {
+    font-family: var(--font);
     font-size: var(--text-ui);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    color: var(--jr-svart);
+    opacity: 0.6;
   }
 
   /* ── RESPONSIVE ──────────────────────────────────────────────── */
@@ -671,27 +743,65 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       gap: var(--space-lg);
     }
 
-    .products-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .footer-fields {
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-lg);
-    }
-
-    .footer-copy-vert {
-      display: none;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .footer-fields {
+    .product-row,
+    .product-row--reverse {
       grid-template-columns: 1fr;
+      direction: ltr;
     }
 
-    .products-grid {
-      grid-template-columns: 1fr;
+    .product-info {
     }
   }
 </style>
+
+<script>
+  const hamburger = document.querySelector(".hamburger") as HTMLButtonElement;
+  const dialog = document.getElementById("site-menu") as HTMLDialogElement;
+  const menuTransitionMs = 120;
+  let closeTimer: number | undefined;
+
+  function syncMenuState(isOpen: boolean) {
+    document.body.classList.toggle("menu-open", isOpen);
+    hamburger.setAttribute("aria-expanded", String(isOpen));
+    hamburger.classList.toggle("is-open", isOpen);
+  }
+
+  function openMenu() {
+    window.clearTimeout(closeTimer);
+    if (!dialog.open) dialog.show();
+    void dialog.offsetWidth;
+    dialog.classList.add("is-visible");
+    syncMenuState(true);
+  }
+
+  function closeMenu() {
+    if (!dialog.open) {
+      syncMenuState(false);
+      return;
+    }
+
+    dialog.classList.remove("is-visible");
+    syncMenuState(false);
+    closeTimer = window.setTimeout(() => {
+      if (dialog.open) dialog.close();
+    }, menuTransitionMs);
+  }
+
+  hamburger.addEventListener("click", () => {
+    dialog.open ? closeMenu() : openMenu();
+  });
+
+  dialog.addEventListener("close", () => {
+    window.clearTimeout(closeTimer);
+    dialog.classList.remove("is-visible");
+    syncMenuState(false);
+  });
+
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) closeMenu();
+  });
+
+  dialog.querySelectorAll(".menu-link").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+</script>
