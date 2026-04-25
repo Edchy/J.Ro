@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-04-24T00:00:00Z",
+  "title": "Design System: Järna Rosteri",
+  "extensions": {
+    "colorMeta": {
+      "ocra":       { "role": "primary",   "displayName": "Amber Loam",    "canonical": "color(display-p3 0.737 0.584 0.282)", "tonalRamp": ["#2a1f08","#4a370f","#6b5020","#8c6a30","#a67e3a","#bc9548","#cead6a","#e0c98e","#f0e2bc","#faf5e8"] },
+      "gron":       { "role": "primary",   "displayName": "Forest Floor",  "canonical": "color(display-p3 0.247 0.271 0.173)", "tonalRamp": ["#0d0f09","#1a1e10","#252b18","#2f3620","#3f452c","#515a3a","#667348","#7d8c5a","#a8b88a","#d4ddc0"] },
+      "morkrost":   { "role": "primary",   "displayName": "Dark Roast",    "canonical": "color(display-p3 0.227 0.157 0.09)",  "tonalRamp": ["#0d0804","#1a100a","#26170e","#3a2817","#4f3822","#664a2e","#7f5f3c","#9e7a54","#c4a880","#e6d4b8"] },
+      "ljusgul":    { "role": "secondary", "displayName": "Pale Straw",    "canonical": "color(display-p3 0.937 0.839 0.471)", "tonalRamp": ["#2e2800","#574d00","#7a6e00","#9e9010","#bfac30","#d9c85a","#efd678","#f5e49c","#faf0c4","#fdf9e8"] },
+      "brun":       { "role": "secondary", "displayName": "Roastery Brown","canonical": "color(display-p3 0.42 0.314 0.176)",  "tonalRamp": ["#1a0f04","#2e1c0a","#432812","#59361c","#6b502d","#7e6640","#987d58","#b49a78","#d0bca0","#ecddd0"] },
+      "orostat":    { "role": "tertiary",  "displayName": "Unroasted",     "canonical": "color(display-p3 0.514 0.588 0.471)", "tonalRamp": ["#0f1409","#1e2614","#2d3b20","#3c4e2c","#506040","#687858","#839678","#9aaa92","#bbc4b4","#dde2d8"] },
+      "franchese":  { "role": "tertiary",  "displayName": "Teal Depth",    "canonical": "#2b4b58",                              "tonalRamp": ["#060d11","#0e1f27","#18313e","#214454","#2b4b58","#3a606e","#507884","#6e959e","#9bbbc4","#cddde2"] },
+      "svart":      { "role": "neutral",   "displayName": "Full Black",    "canonical": "#000000",                              "tonalRamp": ["#000000","#111111","#222222","#333333","#555555","#777777","#999999","#bbbbbb","#dddddd","#f5f5f5"] },
+      "vit":        { "role": "neutral",   "displayName": "Full White",    "canonical": "#ffffff",                              "tonalRamp": ["#f0f0f0","#f5f5f5","#f8f8f8","#fafafa","#fcfcfc","#fdfdfd","#fefefe","#ffffff","#ffffff","#ffffff"] },
+      "footer-warm":{ "role": "neutral",   "displayName": "Unbleached",    "canonical": "#f3efe7",                              "tonalRamp": ["#c4bdb0","#cec7ba","#d8d0c4","#e2dace","#ece4d8","#f3efe7","#f7f4ee","#faf8f4","#fcfbf9","#fefefe"] },
+      "grande":     { "role": "tertiary",  "displayName": "Rosteri Teal",  "canonical": "#3aaf9c",                              "tonalRamp": ["#071f1b","#103c35","#1a5a50","#247a6c","#2e9988","#3aaf9c","#5ec0b0","#85d0c4","#b2e2da","#def3f0"] },
+      "poabs-esp":  { "role": "tertiary",  "displayName": "Bright Canary", "canonical": "#ffe012",                              "tonalRamp": ["#2e2800","#574d00","#7a6e00","#9e9000","#c0b000","#e0cc00","#ffe012","#ffea60","#fff2a0","#fff9d8"] },
+      "poabs-bry":  { "role": "tertiary",  "displayName": "Tomato",        "canonical": "#e95956",                              "tonalRamp": ["#260606","#4a1010","#6e1c1c","#8e2c2c","#b03a3a","#d04848","#e95956","#f07a78","#f7a8a4","#fad4d4"] },
+      "mezzo":      { "role": "tertiary",  "displayName": "Meadow",        "canonical": "#319152",                              "tonalRamp": ["#071409","#112614","#1c3c20","#265430","#319152","#48a86a","#68bf86","#90d4a8","#bce6cc","#e2f5eb"] },
+      "conejo":     { "role": "tertiary",  "displayName": "Sage",          "canonical": "#7e9775",                              "tonalRamp": ["#111810","#1e2b1c","#2c3e28","#3d5237","#516748","#657d5c","#7e9775","#9aaf92","#bcc8b8","#dde4db"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display",  "purpose": "Wordmark and hero section titles only. Orator Std. Never for body, labels, or navigation." },
+      "heading":  { "displayName": "Heading",  "purpose": "Section headings, the Instagram CTA. Maax Mono. Uppercase. Tight tracking." },
+      "body":     { "displayName": "Body",     "purpose": "Running copy. 42–65ch max-width. Generous line-height offsets monospace texture." },
+      "label":    { "displayName": "Label",    "purpose": "Kickers, field labels, captions. All-caps, wide tracking. Smallest readable unit." },
+      "nav":      { "displayName": "Nav",      "purpose": "Corner annotations. Directional metadata, not content. Half opacity." }
+    },
+    "shadows": [
+      { "name": "ambient-button",  "value": "0 0.2rem 0.7rem color-mix(in srgb, #3a2817 18%, transparent)", "purpose": "Hamburger button only." },
+      { "name": "panel-lift",      "value": "0 1.25rem 3rem rgba(58,40,23,0.08)",                           "purpose": "Contact panel card. Low-opacity, large-radius warm shadow." },
+      { "name": "link-hover",      "value": "0 0.75rem 1.5rem rgba(58,40,23,0.08)",                         "purpose": "Contact link cards on hover, appears as card lifts 2px." }
+    ],
+    "motion": [
+      { "name": "ease-standard",   "value": "cubic-bezier(0.4, 0, 0.2, 1)",      "purpose": "Default state transitions (hover, border, background)." },
+      { "name": "ease-menu-open",  "value": "cubic-bezier(0.2, 0.8, 0.2, 1)",    "purpose": "Menu overlay entrance." },
+      { "name": "ease-product",    "value": "cubic-bezier(0.22, 1, 0.36, 1)",     "purpose": "Product image scale on hover — slightly springy but not bouncy." },
+      { "name": "dur-fast",        "value": "80ms",                               "purpose": "Opacity transitions." },
+      { "name": "dur-standard",    "value": "150ms",                              "purpose": "Hover state changes." },
+      { "name": "dur-menu",        "value": "120ms",                              "purpose": "Menu open/close." },
+      { "name": "dur-product",     "value": "700ms",                              "purpose": "Product image scale." }
+    ],
+    "breakpoints": [
+      { "name": "mobile",  "value": "480px",  "purpose": "Typography scale reduction, layout simplification." },
+      { "name": "tablet",  "value": "800px",  "purpose": "Product row collapses to single column." },
+      { "name": "contact", "value": "820px",  "purpose": "Contact section grid collapses to single column." },
+      { "name": "footer",  "value": "720px",  "purpose": "Footer grid collapses to single column." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Hamburger Button",
+      "kind": "button",
+      "refersTo": "hamburger",
+      "description": "Fixed top-right nav toggle. Pill shape in Pale Straw. The only persistent interactive element on the page.",
+      "html": "<button class=\"ds-hamburger\" aria-label=\"Öppna meny\" aria-expanded=\"false\"><span class=\"ds-hamburger-bar ds-hamburger-bar--top\"></span><span class=\"ds-hamburger-bar ds-hamburger-bar--bot\"></span></button>",
+      "css": ".ds-hamburger { position: relative; background: #efd678; border: none; border-radius: 9999px; box-shadow: 0 0.2rem 0.7rem color-mix(in srgb, #3a2817 18%, transparent); cursor: pointer; width: 2.35rem; height: 2.35rem; color: #3a2817; transition: opacity 0.15s ease, background-color 0.15s ease; } .ds-hamburger:hover { opacity: 0.8; } .ds-hamburger-bar { display: block; position: absolute; left: 50%; top: 50%; width: 18px; height: 1.5px; background: currentColor; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); transform-origin: center; } .ds-hamburger-bar--top { transform: translate(-50%, calc(-50% - 2.5px)); } .ds-hamburger-bar--bot { transform: translate(-50%, calc(-50% + 2.5px)); } .ds-hamburger[aria-expanded='true'] .ds-hamburger-bar--top { transform: translate(-50%, -50%) rotate(45deg); } .ds-hamburger[aria-expanded='true'] .ds-hamburger-bar--bot { transform: translate(-50%, -50%) rotate(-45deg); } .ds-hamburger[aria-expanded='true'] { opacity: 0.5; }"
+    },
+    {
+      "name": "Product Tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Flat, no-fill label for product attributes (origin, format, weight). Informational only — no hover, no click.",
+      "html": "<span class=\"ds-tag\">Hela bönor</span>",
+      "css": ".ds-tag { display: inline-block; font-family: 'Maax Mono', 'Courier New', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.35rem 0.7rem; border: 1px solid rgba(0,0,0,0.18); color: #000; opacity: 0.6; background: transparent; border-radius: 0; }"
+    },
+    {
+      "name": "Contact Link",
+      "kind": "button",
+      "refersTo": "contact-link",
+      "description": "Clickable block for email or phone in the contact section. Lifts on hover.",
+      "html": "<a href=\"mailto:info@jarnarosteri.se\" class=\"ds-contact-link\"><span class=\"ds-contact-link-label\">E-post</span><span class=\"ds-contact-link-value\">info@jarnarosteri.se</span></a>",
+      "css": ".ds-contact-link { display: grid; gap: 0.25rem; padding: 1.05rem 1.15rem 1rem; border-radius: 1rem; background: color-mix(in srgb, #ffffff 86%, #efd678); color: #3a2817; text-decoration: none; border: 1px solid rgba(58,40,23,0.1); transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease; } .ds-contact-link:hover { transform: translateY(-2px); border-color: rgba(58,40,23,0.22); background: #ffffff; box-shadow: 0 0.75rem 1.5rem rgba(58,40,23,0.08); } .ds-contact-link-label { font-family: 'Maax Mono', 'Courier New', monospace; font-size: 0.75rem; line-height: 1; text-transform: uppercase; letter-spacing: 0.22em; opacity: 0.5; } .ds-contact-link-value { font-family: 'Maax Mono', 'Courier New', monospace; font-size: 1rem; line-height: 1.25; color: inherit; }"
+    },
+    {
+      "name": "Contact Panel",
+      "kind": "card",
+      "refersTo": "contact-panel",
+      "description": "The one card in the system. Frosted warm-white surface used exclusively in the contact section.",
+      "html": "<div class=\"ds-contact-panel\"><div class=\"ds-contact-panel-inner\"><!-- Contact links go here --></div></div>",
+      "css": ".ds-contact-panel { display: grid; gap: 1rem; padding: 1.25rem; border: 1px solid rgba(58,40,23,0.12); border-radius: 1.5rem; background: rgba(255,255,255,0.72); backdrop-filter: blur(12px); box-shadow: 0 1.25rem 3rem rgba(58,40,23,0.08); } .ds-contact-panel-inner { display: grid; gap: 0.75rem; }"
+    },
+    {
+      "name": "Section Label",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "All-caps kicker label used above section headings. Wide tracking, reduced opacity.",
+      "html": "<p class=\"ds-section-label\">Kontakt</p>",
+      "css": ".ds-section-label { font-family: 'Maax Mono', 'Courier New', monospace; font-size: 0.75rem; line-height: 1; text-transform: uppercase; letter-spacing: 0.32em; opacity: 0.55; margin: 0 0 0.9rem; }"
+    },
+    {
+      "name": "Menu Link",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Navigation links inside the full-screen menu dialog. Centered, large, no decoration.",
+      "html": "<a href=\"mailto:info@jarnarosteri.se\" class=\"ds-menu-link\">info@jarnarosteri.se</a>",
+      "css": ".ds-menu-link { font-family: 'Maax Mono', 'Courier New', monospace; font-size: clamp(1.15rem, 3vw, 2rem); letter-spacing: 0.08em; color: #ffffff; text-decoration: none; opacity: 0.8; line-height: 1.1; transition: opacity 0.15s ease; } .ds-menu-link:hover { opacity: 1; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Soil Record",
+    "overview": "This is a design system built from the ground up, not layered on top. Like a field ledger or a seed log, every element earns its place by being useful, specific, and true. The system doesn't perform warmth — it inherits it from the materials: a palette drawn from dried clay, dark roast, and unbleached parchment; a typeface that reads like a typewriter pressed into quality paper.\n\nThe register is brand, but the brand behaves like infrastructure. Nothing announces itself. The wordmark sits in a corner. The typography is monospace and matter-of-fact. Sections breathe. Images carry weight without commentary. The site's job is to make the visitor feel that they've already met the people who run this place — competent, quiet, specific.\n\nThis system explicitly rejects the aesthetics of contemporary specialty coffee: branded mascots, illustrated characters, subscription-upsell layouts, dark-mode + gold-type \"premium\" clichés, and the over-designed Shopify brochure that performs craft rather than demonstrating it.",
+    "keyCharacteristics": [
+      "Monospace throughout — precision without coldness",
+      "Full-viewport sections — no pagination, no cards, no grids",
+      "Ochre as dominant surface — warm but never sweet",
+      "Typography as primary design element — layout serves type, not the reverse",
+      "Restraint that reads as confidence, not blankness"
+    ],
+    "rules": [
+      { "name": "The Named-Coffee Rule",   "body": "The extended palette (Franchese, Poabs Esp, Poabs Bry, Mezzo, Grande) is reserved exclusively for named product contexts. Never use these on structural UI surfaces — they belong to the beans, not the roastery.", "section": "colors" },
+      { "name": "The One Font Rule",       "body": "Maax Mono is the voice of the roastery. Orator Std is the name only. Never use Orator Std for labels, captions, navigation, or any text that isn't the literal wordmark 'JÄRNA ROSTERI' or the short mark 'J.Rø'.", "section": "typography" },
+      { "name": "The Tracking Rule",       "body": "Letter-spacing increases as size decreases — display text has negative tracking, label text has wide tracking. Never apply wide tracking to large type; never apply tight tracking to small type.", "section": "typography" },
+      { "name": "The Warm Shadow Rule",    "body": "If a shadow is needed, derive it from Dark Roast (#3a2817) at low opacity — never from neutral black or grey. Warm shadows disappear naturally against warm backgrounds; grey shadows look like errors.", "section": "elevation" },
+      { "name": "The Flat-By-Default Rule","body": "Surfaces are flat at rest. Shadows appear only as a response to state (hover) or as structural separation (the contact panel). Never add shadows to sections, hero containers, or typographic elements.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use Orator Std exclusively for 'JÄRNA ROSTERI' and 'J.Rø' — the wordmark is the only context.",
+      "Do derive shadow colors from Dark Roast (#3a2817) at low opacity — never from neutral grey or black.",
+      "Do let sections carry their own background color rather than nesting content in cards or panels.",
+      "Do use wide letter-spacing (0.22em–0.45em) on all-caps label and nav text at small sizes.",
+      "Do use negative tracking (−0.03em to −0.05em) on heading-scale and display text.",
+      "Do keep body copy to 42–65ch max-width.",
+      "Do use color(display-p3 ...) values for the brand greens and ochres where supported.",
+      "Do reserve the extended product palette (Franchese, Poabs colors, Mezzo) for named-coffee contexts only."
+    ],
+    "donts": [
+      "Don't use Orator Std for labels, navigation, captions, or any text that isn't the literal wordmark.",
+      "Don't build card grids. Layout is rows or full-viewport sections — never a repeating card grid.",
+      "Don't add drop shadows to section containers, hero areas, or typographic elements. Flat at rest.",
+      "Don't use neutral-grey shadows — they read as errors against the warm palette.",
+      "Don't use gradient text (background-clip: text). Single color only.",
+      "Don't use border-left or border-right as a colored stripe accent on any element.",
+      "Don't import the generic specialty-coffee Shopify aesthetic: product grids, aggressive CTAs, subscription upsells, illustrated characters.",
+      "Don't use the dark-mode + gold-type treatment.",
+      "Don't use lifestyle photography of people drinking coffee in loft apartments or third-wave café visual clichés.",
+      "Don't add decorative flourishes to soften the layout — warmth lives in the palette.",
+      "Don't make the site look like it's trying. If an element looks effortful, simplify it."
+    ]
+  }
+}
