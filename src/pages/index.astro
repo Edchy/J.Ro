@@ -9,7 +9,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   <DevNav active="IDX" />
 
   <!-- ─── HERO ─────────────────────────────────────────────────── -->
-  <section class="hero" data-reveal="hero">
+  <section
+    class="hero"
+    data-reveal="hero"
+    style={`--hero-bg-image: url('${base}/assets/images/bwview-trans.png')`}
+  >
     <div class="hero-inner">
       <span class="hero-corner hero-corner--tl">
         <svg
@@ -95,7 +99,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       </dialog>
       <div class="hero-logo-wrap">
         <LogoMark
-          color="var(--jr-morkrost)"
+          color="var(--jr-brun)"
           width="clamp(18rem, 80vw, 42rem)"
         />
       </div>
@@ -108,41 +112,44 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   </section>
   <!-- ─── PACKAGES ─────────────────────────────────────────────── -->
   <section class="packages-section" data-reveal>
-    <img
-      src={`${base}/assets/images/coffee-packages.png`}
-      alt="Kaffepåsar från Järna Rosteri"
-      class="packages-section-image"
-    />
-    <p class="packages-section-caption">
-      <span class="section-kicker section-kicker--warm">Aktuell påse</span>
-      POAB'S ESP. En av våra espresso sorter. Indisk arabica och robusta.
-    </p>
+    <div class="packages-section-inner">
+      <img
+        src={`${base}/assets/images/coffee-packages.png`}
+        alt="Kaffepåsar från Järna Rosteri"
+        class="packages-section-image"
+      />
+      <p class="packages-section-caption">
+        <span class="section-kicker section-kicker--warm">Aktuell påse</span>
+        POAB'S ESP. En av våra espresso sorter. Indisk arabica och robusta.
+      </p>
+    </div>
   </section>
 
   <!-- ─── ABOUT ────────────────────────────────────────────────── -->
   <section
     id="about"
     class="about-section"
-    style={`background-image: url('${base}/assets/images/collage.avif')`}
     aria-label="Kollage från Järna Rosteri"
     data-reveal
   >
-    <div class="about-section-copy">
-      <p class="section-kicker">Om rosteriet</p>
-      <p>
-        Hos oss handlar kaffe om mer än bara rostning – det är ett hantverk
-        grundat i relationer, hållbarhet och passion. Vi samarbetar direkt med
-        Demeter-certifierade kaffegårdar, där varje böna odlas i samklang med
-        naturen och bär på en berättelse om balans, respekt och mänskliga möten.
-        Vårt personliga engagemang genomsyrar hela processen, från ursprung till
-        kopp.
-      </p>
-    </div>
-    <div
-      class="about-section-image"
-      style={`background-image: url('${base}/assets/images/collage.avif')`}
-      aria-hidden="true"
-    >
+    <div class="about-section-inner">
+      <div class="about-section-copy">
+        <p class="section-kicker">Om rosteriet</p>
+        <p>
+          Hos oss handlar kaffe om mer än bara rostning – det är ett hantverk
+          grundat i relationer, hållbarhet och passion. Vi samarbetar direkt med
+          Demeter-certifierade kaffegårdar, där varje böna odlas i samklang med
+          naturen och bär på en berättelse om balans, respekt och mänskliga möten.
+          Vårt personliga engagemang genomsyrar hela processen, från ursprung till
+          kopp.
+        </p>
+      </div>
+      <div
+        class="about-section-image"
+        style={`background-image: url('${base}/assets/images/collage.avif')`}
+        aria-hidden="true"
+      >
+      </div>
     </div>
   </section>
 
@@ -159,11 +166,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
       <div class="contact-section-links" aria-label="Kontaktvägar">
         <a href="mailto:info@jarnarosteri.se" class="contact-section-link">
-          <span class="contact-section-link-label">E-post</span>
           <span class="contact-section-link-value">info@jarnarosteri.se</span>
         </a>
         <a href="tel:+46708401365" class="contact-section-link">
-          <span class="contact-section-link-label">Telefon</span>
           <span class="contact-section-link-value">070-840 13 65</span>
         </a>
         <a
@@ -172,7 +177,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
           rel="noopener noreferrer"
           class="contact-section-link"
         >
-          <span class="contact-section-link-label">Instagram</span>
           <span class="contact-section-link-value">@jarnarosteri ↗</span>
         </a>
         <p class="contact-section-address">Maskinvägen 5, 153 30 Järna</p>
@@ -275,7 +279,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   :root {
     --page-inset: var(--space-lg);
     --page-max: 1080px;
-    --content-shell-max: 1400px;
+    --content-shell-max: 1200px;
     --content-line-start: max(
       var(--page-inset),
       calc((100vw - var(--content-shell-max)) / 2 + var(--page-inset))
@@ -288,7 +292,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     background: var(--jr-vit);
   }
 
-  :global(html.menu-open),
+  :global(html.menu-open) {
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+  }
+
   :global(body.menu-open) {
     overflow: hidden;
   }
@@ -304,7 +312,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   .hero {
     position: relative;
     min-height: 100svh;
-    background: var(--jr-ocra);
+    background-color: var(--jr-ocra);
+    background-image: var(--hero-bg-image);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -323,34 +336,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     padding-bottom: 8svh;
   }
 
-
-  .hero::after {
-    content: "";
-    position: absolute;
-    inset: auto 0 0;
-    height: clamp(8rem, 18vw, 14rem);
-    background:
-      radial-gradient(
-        ellipse at 18% 110%,
-        color-mix(in srgb, var(--jr-ljusgul) 44%, transparent) 0%,
-        transparent 68%
-      ),
-      linear-gradient(
-        180deg,
-        transparent 0%,
-        color-mix(in srgb, var(--jr-morkrost) 10%, transparent) 100%
-      );
-    opacity: 0.65;
-    pointer-events: none;
-  }
-
   .hero-corner {
     position: absolute;
     font-family: var(--font);
     font-size: var(--text-body);
     text-transform: uppercase;
     letter-spacing: 0.45em;
-    color: var(--jr-morkrost);
+    color: var(--jr-vit);
     opacity: 0.5;
     line-height: 1;
   }
@@ -367,11 +359,19 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       var(--space-lg) - ((var(--hamburger-size) - (var(--text-ui) * 1.5)) / 2) -
         (var(--text-ui) * 0.375)
     );
-    right: max(1rem, calc(50vw - 700px + 1rem));
+    right: max(
+      1rem,
+      calc(50vw - 700px + 1rem)
+    );
   }
   .hero-corner--bl {
     bottom: var(--space-lg);
     left: 1rem;
+    padding: 0.6rem 0.8rem;
+    color: var(--jr-vit);
+    background: color-mix(in srgb, var(--jr-brun) 82%, transparent);
+    border: 1px solid color-mix(in srgb, var(--jr-vit) 14%, transparent);
+    backdrop-filter: blur(6px);
   }
   .hero-corner--br {
     bottom: var(--space-lg);
@@ -390,7 +390,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     padding: 0;
     width: var(--hamburger-size);
     height: var(--hamburger-size);
-    color: var(--jr-morkrost);
+    color: var(--jr-vit);
     transition:
       opacity 0.25s ease,
       background-color 0.25s ease,
@@ -399,7 +399,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
   :global(body.is-scrolled) .hamburger,
   :global(body.menu-open) .hamburger {
-    background: var(--jr-ljusgul);
+    background: var(--jr-brun);
     box-shadow: 0 0.2rem 0.7rem
       color-mix(in srgb, var(--jr-morkrost) 18%, transparent);
   }
@@ -524,7 +524,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     height: calc(var(--text-ui) * 1.5);
     width: auto;
     display: block;
-    color: var(--jr-morkrost);
+    color: var(--jr-vit);
     transform: translateY(-25%);
   }
 
@@ -581,59 +581,81 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
   .section-kicker--warm {
     display: block;
-    color: var(--jr-morkrost);
-    opacity: 0.5;
-  }
-
-  .section-kicker--contact {
-    color: inherit;
-    opacity: 0.5;
   }
 
   /* ── ABOUT SECTION ──────────────────────────────────────────── */
   .about-section {
     width: 100%;
-    min-height: 100svh;
-    padding: clamp(4rem, 10vw, 7rem) var(--page-inset) clamp(2rem, 6vw, 4rem);
+    margin-top: clamp(4rem, 10vw, 8rem);
+    padding: clamp(3rem, 8vw, 6rem) var(--page-inset);
     background-color: var(--jr-vit);
-    background-size: min(68vw, 52rem);
-    background-origin: content-box;
-    background-position: top right;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
+  }
+
+  .about-section-inner {
+    width: min(100%, var(--content-shell-max));
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 34rem) minmax(0, 1fr);
+    align-items: center;
+    column-gap: clamp(2rem, 6vw, 6rem);
+    row-gap: clamp(1.5rem, 4vw, 3rem);
+    min-height: clamp(30rem, 72svh, 44rem);
   }
 
   .about-section-copy {
-    width: min(100%, 64ch);
+    width: 100%;
+    max-width: 34rem;
+    grid-column: 2;
+    grid-row: 1;
   }
 
   .about-section-image {
-    display: none;
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    grid-column: 1;
+    grid-row: 1;
   }
 
-  .about-section-copy p {
+  @media (max-width: 1200px) {
+    .about-section {
+      padding: clamp(3rem, 8vw, 4.5rem) var(--page-inset);
+    }
+
+    .about-section-inner {
+      grid-template-columns: 1fr;
+      min-height: auto;
+      row-gap: clamp(1.5rem, 5vw, 2.5rem);
+    }
+
+    .about-section-copy {
+      width: 100%;
+      max-width: 64ch;
+      grid-column: auto;
+      grid-row: auto;
+      margin-left: auto;
+    }
+
+    .about-section-image {
+      width: 75%;
+      grid-column: auto;
+      grid-row: auto;
+      aspect-ratio: 1 / 1;
+      justify-self: center;
+    }
+  }
+
+  .about-section-copy p:not(.section-kicker) {
     font-family: var(--font);
     font-size: var(--text-body);
     line-height: 1.75;
     color: var(--jr-svart);
     opacity: 0.9;
     text-align: left;
-  }
-
-  .about-section-copy p:not(.section-kicker) {
-    padding-bottom: var(--space-xl);
-  }
-
-  @media (min-width: 1000px) {
-    .about-section {
-      padding-top: clamp(2rem, 5vw, 3.5rem);
-    }
-
-    .about-section-copy {
-      padding-top: 1rem;
-    }
+    margin: 0;
   }
 
   .about-section-copy > p:last-child::selection {
@@ -641,59 +663,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     color: var(--jr-morkrost);
   }
 
-  @media (min-width: 551px) and (max-width: 900px) {
-    .about-section {
-      background-image: none !important;
-      display: grid;
-      grid-template-columns: 1fr;
-      align-items: start;
-      justify-items: start;
-      position: relative;
-      padding-bottom: 0;
-    }
-
-    .about-section-copy {
-      width: 100%;
-      position: relative;
-      z-index: 1;
-    }
-
-    .about-section-image {
-      display: block;
-      width: calc(100% + var(--page-inset));
-      margin-left: calc(-1 * var(--page-inset));
-      aspect-ratio: 16 / 9;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      margin-top: calc(-1 * var(--space-xl));
-    }
-  }
-
   @media (max-width: 550px) {
-    .about-section {
-      min-height: auto;
-      padding: clamp(3rem, 8vw, 4.5rem) var(--page-inset) 0;
-      background-image: none !important;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
-      gap: 0;
-    }
-
-    .about-section-copy {
-      width: 100%;
+    .about-section-inner {
+      row-gap: 1.5rem;
     }
 
     .about-section-image {
-      display: block;
-      width: 92%;
+      width: 100%;
       aspect-ratio: 1 / 1;
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
-      align-self: center;
     }
   }
 
@@ -704,7 +681,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     width: 100%;
     min-height: 100svh;
     padding: clamp(2rem, 6vw, 4rem) var(--packages-side-pad);
-    background: var(--jr-ljusgul);
+    background: var(--jr-vit);
+    align-items: center;
+  }
+
+  .packages-section-inner {
+    width: min(100%, var(--content-shell-max));
+    min-height: calc(100svh - (clamp(2rem, 6vw, 4rem) * 2));
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr auto;
@@ -713,7 +697,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
   .packages-section-image {
     display: block;
-    width: min(32rem, calc(100vw - (2 * var(--packages-side-pad))));
+    width: min(32rem, 100%);
     max-width: 100%;
     height: auto;
     object-fit: contain;
@@ -730,9 +714,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     line-height: var(--line-height);
     color: var(--jr-morkrost);
     grid-row: 2 / 3;
-    justify-self: end;
+    justify-self: start;
     align-self: end;
-    text-align: right;
+    text-align: left;
   }
 
   @media (max-width: 800px) {
@@ -742,8 +726,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   }
 
   @media (max-width: 550px) {
+    .packages-section-inner {
+      min-height: calc(100svh - (clamp(2rem, 6vw, 4rem) * 2));
+    }
+
     .packages-section-image {
-      width: min(28rem, calc(100vw - (2 * var(--packages-side-pad))));
+      width: min(28rem, 100%);
     }
   }
 
@@ -752,6 +740,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     position: relative;
     width: 100%;
     height: min(100svh, 75vh);
+    background: var(--jr-vit);
     overflow: hidden;
   }
 
@@ -860,7 +849,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
   /* ── CONTACT SECTION ────────────────────────────────────────── */
   .contact-section {
-    background: #f3efe7;
+    background: var(--jr-vit);
     color: var(--jr-morkrost);
     min-height: min(100svh, 72vh);
     display: flex;
@@ -1216,6 +1205,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     .product-row,
     .product-row--reverse {
       padding: 0 1rem;
+    }
+  }
+
+  @media (max-width: 374px) {
+    .hero-corner--bl {
+      font-size: calc(var(--text-body) * 0.82);
+      letter-spacing: 0.14em;
     }
   }
 </style>
