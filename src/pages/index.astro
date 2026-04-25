@@ -596,7 +596,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     min-height: 100svh;
     padding: clamp(4rem, 10vw, 7rem) var(--page-inset) clamp(2rem, 6vw, 4rem);
     background-color: var(--jr-vit);
-    background-size: min(72vw, 56rem);
+    background-size: min(68vw, 52rem);
     background-origin: content-box;
     background-position: top right;
     background-repeat: no-repeat;
@@ -660,7 +660,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
     .about-section-image {
       display: block;
-      width: calc(100% + var(--page-inset) * 2);
+      width: calc(100% + var(--page-inset));
       margin-left: calc(-1 * var(--page-inset));
       aspect-ratio: 16 / 9;
       background-size: cover;
@@ -688,11 +688,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
     .about-section-image {
       display: block;
-      width: 100%;
+      width: 92%;
       aspect-ratio: 1 / 1;
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
+      align-self: center;
     }
   }
 
