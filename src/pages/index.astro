@@ -3,17 +3,69 @@ import Base from "../layouts/Base.astro";
 import DevNav from "../components/DevNav.astro";
 import LogoMark from "../components/LogoMark.astro";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const blends = [
+  {
+    name: "POAB´S ESP",
+    desc: "Demeter-certifierad espresso med indisk arabica och robusta. Fyllig, kryddig och chokladig med låg syra och lång eftersmak.",
+    tags: ["Espresso", "Hela bönor", "450 gram"],
+    image: "frontbag.png",
+    cardBg: "var(--jr-gron)",
+    cardText: "var(--jr-ljusgul)",
+  },
+  {
+    name: "POAB´S BRY",
+    desc: "Bryggkaffe med rund kropp, mjuk fruktighet och ren rostprofil för vardagliga koppar.",
+    tags: ["Brygg", "Hela bönor", "450 gram"],
+    image: "coffee-packages.png",
+    cardBg: "var(--jr-poabs-bry)",
+    cardText: "var(--jr-ljusgul)",
+  },
+  {
+    name: "MEZZO",
+    desc: "Mellanrostad blandning med balanserad sötma, mild syra och lång eftersmak.",
+    tags: ["Mellanrost", "Hela bönor", "450 gram"],
+    image: "bags.png",
+    cardBg: "var(--jr-mezzo)",
+    cardText: "var(--jr-ljusgul)",
+  },
+  {
+    name: "FRANCHESE",
+    desc: "Mörkare rost med stadig kropp, låg syra och tydlig rostad ton.",
+    tags: ["Mörkrost", "Hela bönor", "450 gram"],
+    image: "allbags.png",
+    cardBg: "var(--jr-franchese)",
+    cardText: "var(--jr-ljusgul)",
+  },
+  {
+    name: "GRANDE",
+    desc: "Generös blandning för espresso och mjölk, med fyllig kropp och nötiga toner.",
+    tags: ["Espresso", "Hela bönor", "450 gram"],
+    image: "honduras.png",
+    cardBg: "var(--jr-grande)",
+    cardText: "var(--jr-morkrost)",
+  },
+  {
+    name: "CONEJO",
+    desc: "Ren och mjuk kopp med ljusare uttryck, låg bitterhet och stillsam sötma.",
+    tags: ["Brygg", "Hela bönor", "450 gram"],
+    image: "jarna_.png",
+    cardBg: "var(--jr-conejo)",
+    cardText: "var(--jr-morkrost)",
+  },
+];
 ---
 
 <Base title="Järna Rosteri">
   <DevNav active="IDX" />
 
   <!-- ─── HERO ─────────────────────────────────────────────────── -->
-  <section
-    class="hero"
-    data-reveal="hero"
-    style={`--hero-bg-image: url('${base}/assets/images/bwview-trans.png')`}
-  >
+  <section class="hero" data-reveal="hero">
+    <div
+      class="hero-parallax-bg"
+      aria-hidden="true"
+      style={`--hero-bg-image: url('${base}/assets/images/bwview-trans.png')`}
+    >
+    </div>
     <div class="hero-inner">
       <span class="hero-corner hero-corner--tl">
         <svg
@@ -84,24 +136,34 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       </button>
 
       <dialog id="site-menu" class="menu-dialog">
-        <nav class="menu-nav">
-          <a href="mailto:info@jarnarosteri.se" class="menu-link"
-            >info@jarnarosteri.se</a
-          >
-          <a href="tel:+46708401365" class="menu-link">070-840 13 65</a>
-          <a
-            href="https://www.instagram.com/jarnarosteri"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="menu-link">INSTAGRAM ↗</a
-          >
-        </nav>
+        <div class="menu-inner">
+          <nav class="menu-nav">
+            <a href="#about" class="menu-link">Om oss</a>
+            <a href="#contact" class="menu-link">Kontakt</a>
+          </nav>
+          <div class="menu-footer">
+            <svg
+              class="menu-logomark"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="6 0 430 224"
+              aria-label="J.Rø"
+              role="img"
+            >
+              <path
+                d="M 388.88 201.12 C381.85,203.30 369.00,203.52 362.00,201.57 C342.56,196.15 329.55,179.67 324.29,153.81 C322.13,143.19 321.89,113.86 323.88,103.00 C329.28,73.41 344.92,55.36 368.11,51.94 C382.10,49.88 396.79,54.79 406.91,64.91 C417.91,75.91 424.12,92.46 426.09,116.00 C428.62,146.21 421.84,173.95 408.22,189.10 C402.97,194.94 397.20,198.53 388.88,201.12 ZM 302.14 207.79 C301.60,207.97 297.53,209.87 293.10,212.01 L 285.05 215.90 L 276.96 199.20 C272.52,190.02 261.86,167.99 253.28,150.25 L 237.67 118.00 L 218.02 118.00 L 217.50 200.50 L 198.00 201.07 L 198.00 13.00 L 224.79 13.00 C254.02,13.00 259.43,13.72 268.00,18.74 C273.97,22.24 281.52,30.11 284.41,35.85 C288.68,44.35 290.25,51.75 290.29,63.50 C290.35,87.09 281.64,104.05 264.86,112.99 L 259.12 116.06 L 262.94 124.28 C265.04,128.80 274.95,149.37 284.95,169.98 C294.95,190.59 302.69,207.60 302.14,207.79 ZM 65.50 201.64 C58.01,203.64 45.60,203.31 38.67,200.93 C31.00,198.29 26.51,195.35 20.84,189.28 C11.52,179.28 8.29,169.24 7.35,147.26 L 6.69 132.00 L 27.00 132.00 L 27.02 141.75 C27.06,161.30 29.79,170.78 37.38,177.78 C42.28,182.30 46.96,183.99 54.63,183.99 C69.24,184.01 78.04,173.37 79.99,153.34 C80.52,147.93 80.96,114.14 80.97,78.25 L 81.00 13.00 L 101.13 13.00 L 100.76 87.25 C100.35,169.05 100.58,165.97 93.93,179.13 C88.40,190.09 78.05,198.28 65.50,201.64 ZM 218.00 30.79 L 218.00 100.23 L 234.25 99.82 C252.58,99.34 255.51,98.50 261.36,92.03 C267.26,85.50 269.36,78.34 269.43,64.50 C269.47,57.03 269.01,51.12 268.20,48.83 C265.83,42.15 261.27,37.01 255.18,34.18 C249.95,31.75 248.24,31.51 233.75,31.17 ZM 366.00 72.00 C353.30,72.00 343.00,96.60 343.00,127.00 C343.00,157.40 353.30,182.00 366.00,182.00 L 366.00 72.00 Z M 384.00 72.00 L 384.00 182.00 C396.70,182.00 407.00,157.40 407.00,127.00 C407.00,96.60 396.70,72.00 384.00,72.00 ZM 154.77 183.25 L 154.50 200.50 L 135.00 201.07 L 135.00 166.00 L 155.05 166.00 Z"
+                fill="currentColor"></path>
+            </svg>
+            <p class="menu-address">Det enda biodynamiska rosteriet i Norden</p>
+            <img
+              src={`${base}/assets/images/Demeter_RGB.svg`}
+              alt="Demeter-certifierat"
+              class="menu-demeter"
+            />
+          </div>
+        </div>
       </dialog>
       <div class="hero-logo-wrap">
-        <LogoMark
-          color="var(--jr-brun)"
-          width="clamp(18rem, 80vw, 42rem)"
-        />
+        <LogoMark color="var(--jr-gold)" width="clamp(18rem, 80vw, 42rem)" />
       </div>
       <span class="hero-corner hero-corner--bl"
         >Ekologiskt <span class="hero-dot">·</span> Biodynamiskt <span
@@ -110,19 +172,38 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       >
     </div>
   </section>
-  <!-- ─── PACKAGES ─────────────────────────────────────────────── -->
-  <section class="packages-section" data-reveal>
-    <div class="packages-section-inner">
-      <img
-        src={`${base}/assets/images/coffee-packages.png`}
-        alt="Kaffepåsar från Järna Rosteri"
-        class="packages-section-image"
-      />
-      <p class="packages-section-caption">
-        <span class="section-kicker section-kicker--warm">Aktuell påse</span>
-        POAB'S ESP. En av våra espresso sorter. Indisk arabica och robusta.
-      </p>
-    </div>
+  <!-- ─── PRODUCTS ─────────────────────────────────────────────── -->
+  <section class="products products-stack" data-card-stack>
+    {
+      blends.map((blend, index) => (
+        <article
+          class="product-row product-row--reverse product-card"
+          data-stack-card
+          style={`--card-index: ${index}; --card-bg: ${blend.cardBg}; --card-text: ${blend.cardText};`}
+        >
+          <div class="product-info">
+            <div class="product-name-row">
+              <span class="product-index">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 class="product-name">{blend.name}</h3>
+            </div>
+            <p class="product-desc">{blend.desc}</p>
+            <div class="product-tags">
+              {blend.tags.map((tag) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+          </div>
+          <div class="product-image-col">
+            <div
+              class="product-image"
+              style={`background-image: url('${base}/assets/images/${blend.image}');`}
+            />
+          </div>
+        </article>
+      ))
+    }
   </section>
 
   <!-- ─── ABOUT ────────────────────────────────────────────────── -->
@@ -139,9 +220,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
           Hos oss handlar kaffe om mer än bara rostning – det är ett hantverk
           grundat i relationer, hållbarhet och passion. Vi samarbetar direkt med
           Demeter-certifierade kaffegårdar, där varje böna odlas i samklang med
-          naturen och bär på en berättelse om balans, respekt och mänskliga möten.
-          Vårt personliga engagemang genomsyrar hela processen, från ursprung till
-          kopp.
+          naturen och bär på en berättelse om balans, respekt och mänskliga
+          möten. Vårt personliga engagemang genomsyrar hela processen, från
+          ursprung till kopp.
         </p>
       </div>
       <div
@@ -177,61 +258,25 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
           rel="noopener noreferrer"
           class="contact-section-link"
         >
-          <span class="contact-section-link-value">@jarnarosteri ↗</span>
+          <span class="contact-section-link-value">instagram</span>
         </a>
         <p class="contact-section-address">Maskinvägen 5, 153 30 Järna</p>
       </div>
     </div>
   </section>
 
-  <!-- ─── PRODUCTS ─────────────────────────────────────────────── -->
-  <section class="products" data-reveal>
-    <!-- <div class="product-row">
-      <div class="product-info">
-        <div class="product-name-row">
-          <h3 class="product-name">POAB´S ESP</h3>
-        </div>
-        <p class="product-desc">
-          Demeter-certifierad espresso med indisk arabica och robusta. Fyllig,
-          kryddig och chokladig med låg syra och lång eftersmak.
-        </p>
-        <div class="product-tags">
-          <span class="tag">Honduras</span>
-          <span class="tag">Hela bönor</span>
-          <span class="tag">450 gram</span>
-        </div>
-      </div>
-      <div class="product-image-col">
-        <div
-          class="product-image"
-          style={`background-image: url('${base}/assets/images/frontbag.png');`}
-        >
-        </div>
-      </div>
-    </div> -->
-
-    <div class="product-row product-row--reverse">
-      <div class="product-info">
-        <div class="product-name-row">
-          <h3 class="product-name">POAB´S ESP</h3>
-        </div>
-        <p class="product-desc">
-          Demeter-certifierad espresso med indisk arabica och robusta. Fyllig,
-          kryddig och chokladig med låg syra och lång eftersmak.
-        </p>
-        <div class="product-tags">
-          <span class="tag">Honduras</span>
-          <span class="tag">Hela bönor</span>
-          <span class="tag">450 gram</span>
-        </div>
-      </div>
-      <div class="product-image-col">
-        <div
-          class="product-image"
-          style={`background-image: url('${base}/assets/images/frontbag.png');`}
-        >
-        </div>
-      </div>
+  <!-- ─── PACKAGES ─────────────────────────────────────────────── -->
+  <section class="packages-section" data-reveal>
+    <div class="packages-section-inner">
+      <img
+        src={`${base}/assets/images/coffee-packages.png`}
+        alt="Kaffepåsar från Järna Rosteri"
+        class="packages-section-image"
+      />
+      <p class="packages-section-caption">
+        <span class="section-kicker section-kicker--warm">Aktuell påse</span>
+        POAB'S ESP. En av våra espresso sorter. Indisk arabica och robusta.
+      </p>
     </div>
   </section>
 
@@ -251,8 +296,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
           rel="noopener noreferrer"
           class="image-block-instagram"
         >
-          <span>INSTAGRAM</span>
-          <span class="image-block-instagram-arrow" aria-hidden="true">↗</span>
+          <span>instagram</span>
         </a>
       </div>
     </div>
@@ -262,15 +306,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   <!-- ─── FOOTER ───────────────────────────────────────────────── -->
   <footer class="index-footer">
     <div class="index-footer-inner">
-      <img
-        src={`${base}/assets/images/jarna-rosteri-wordmark.svg`}
-        alt="Järna Rosteri"
+      <span
         class="index-footer-wordmark"
-      />
+        style={`--wordmark-mask: url('${base}/assets/images/jarna-rosteri-wordmark.svg')`}
+        role="img"
+        aria-label="Järna Rosteri"></span>
       <nav class="index-footer-nav">
         <a href="#contact" class="index-footer-link">Kontakt</a>
         <a href="#about" class="index-footer-link">Om oss</a>
       </nav>
+      <p class="index-footer-copyright">© Järna Rosteri AB</p>
     </div>
   </footer>
 </Base>
@@ -289,7 +334,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   }
 
   :global(body) {
-    background: var(--jr-vit);
+    background: var(--jr-gron);
   }
 
   :global(html.menu-open) {
@@ -312,24 +357,52 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   .hero {
     position: relative;
     min-height: 100svh;
-    background-color: var(--jr-ocra);
-    background-image: var(--hero-bg-image);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    background-color: var(--jr-gron);
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    inset-inline: 0;
+    height: 40rem;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      color-mix(in srgb, var(--jr-gron) 10%, transparent) 25%,
+      color-mix(in srgb, var(--jr-gron) 35%, transparent) 48%,
+      color-mix(in srgb, var(--jr-gron) 68%, transparent) 68%,
+      color-mix(in srgb, var(--jr-gron) 88%, transparent) 82%,
+      var(--jr-gron) 100%
+    );
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .hero-parallax-bg {
+    position: absolute;
+    inset: -30% 0;
+    z-index: 0;
+    background-color: var(--jr-gron);
+    background-image: var(--hero-bg-image);
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+    pointer-events: none;
   }
 
   .hero-inner {
     position: relative;
+    z-index: 3;
     width: 100%;
     max-width: var(--content-shell-max);
     height: 100svh;
     margin: 0 auto;
-    padding: 1rem;
+    padding: 2rem;
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
@@ -342,14 +415,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     font-size: var(--text-body);
     text-transform: uppercase;
     letter-spacing: 0.45em;
-    color: var(--jr-vit);
+    color: var(--jr-ljusgul);
     opacity: 0.5;
     line-height: 1;
   }
 
   .hero-corner--tl {
     top: var(--space-lg);
-    left: 1rem;
+    left: 2rem;
     pointer-events: none;
   }
   .hero-corner--tr {
@@ -359,19 +432,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       var(--space-lg) - ((var(--hamburger-size) - (var(--text-ui) * 1.5)) / 2) -
         (var(--text-ui) * 0.375)
     );
-    right: max(
-      1rem,
-      calc(50vw - 700px + 1rem)
-    );
+    right: max(2rem, calc(50vw - 700px + 2rem));
   }
   .hero-corner--bl {
     bottom: var(--space-lg);
-    left: 1rem;
-    padding: 0.6rem 0.8rem;
-    color: var(--jr-vit);
-    background: color-mix(in srgb, var(--jr-brun) 82%, transparent);
-    border: 1px solid color-mix(in srgb, var(--jr-vit) 14%, transparent);
-    backdrop-filter: blur(6px);
+    left: 2rem;
+    padding: 0;
+    color: var(--jr-gold);
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
   }
   .hero-corner--br {
     bottom: var(--space-lg);
@@ -383,23 +453,24 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     position: fixed;
     z-index: 60;
     background: transparent;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     border: none;
-    border-radius: 0;
+    border-radius: 50%;
     box-shadow: none;
     cursor: pointer;
     padding: 0;
     width: var(--hamburger-size);
     height: var(--hamburger-size);
-    color: var(--jr-vit);
+    color: var(--jr-ljusgul);
     transition:
       opacity 0.25s ease,
-      background-color 0.25s ease,
+      border-color 0.25s ease,
       box-shadow 0.25s ease;
   }
 
-  :global(body.is-scrolled) .hamburger,
   :global(body.menu-open) .hamburger {
-    background: var(--jr-ocra);
+    background: color-mix(in srgb, var(--jr-svart) 20%, transparent);
     box-shadow: none;
   }
 
@@ -457,8 +528,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     margin: 0;
     padding: 0;
     border: none;
-    background-color: var(--jr-ocra);
-    color: var(--jr-vit);
+    background-color: var(--jr-gron);
+    color: var(--jr-ljusgul);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -487,11 +558,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       visibility 0s linear 0s;
   }
 
-  .menu-nav {
+  .menu-inner {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: var(--space-xl);
+    width: 100%;
+    height: 100%;
+    padding: var(--space-xl) var(--page-inset)
+      max(var(--space-xl), env(safe-area-inset-bottom));
     opacity: 0;
     transform: translateY(0.25rem);
     transition:
@@ -499,31 +575,87 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       transform 0.12s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
-  .menu-dialog.is-visible .menu-nav {
+  .menu-dialog.is-visible .menu-inner {
     opacity: 1;
     transform: translateY(0);
   }
 
+  .menu-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+  }
+
   .menu-link {
     font-family: var(--font);
-    font-size: clamp(1.15rem, 3vw, 2rem);
-    text-transform: none;
-    letter-spacing: 0.08em;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
     color: inherit;
     text-decoration: none;
-    opacity: 0.8;
-    line-height: 1.1;
+    opacity: 0.9;
+    line-height: 1;
   }
 
   .menu-link:hover {
     opacity: 1;
   }
 
+  .menu-tagline {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: inherit;
+    opacity: 0.38;
+    text-align: center;
+    margin: 0;
+  }
+
+  .menu-footer {
+    position: absolute;
+    bottom: 0;
+    inset-inline: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-lg) var(--page-inset)
+      max(var(--space-lg), env(safe-area-inset-bottom));
+    border-top: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+  }
+
+  .menu-logomark {
+    height: 1.4rem;
+    width: auto;
+    display: block;
+    color: inherit;
+    opacity: 0.45;
+  }
+
+  .menu-address {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: inherit;
+    opacity: 0.35;
+    margin: 0;
+    text-align: center;
+  }
+
+  .menu-demeter {
+    height: 1.6rem;
+    width: auto;
+    display: block;
+    opacity: 0.55;
+  }
+
   .hero-wordmark {
     height: calc(var(--text-ui) * 1.5);
     width: auto;
     display: block;
-    color: var(--jr-vit);
+    color: var(--jr-ljusgul);
     transform: translateY(-25%);
   }
 
@@ -574,12 +706,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     font-size: var(--text-body);
     text-transform: uppercase;
     letter-spacing: 0.28em;
-    color: var(--jr-brun);
+    color: var(--jr-ocra);
   }
 
   .section-kicker--warm {
     display: block;
-    color: var(--jr-brun);
+    color: var(--jr-ocra);
   }
 
   /* ── ABOUT SECTION ──────────────────────────────────────────── */
@@ -651,7 +783,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     font-family: var(--font);
     font-size: var(--text-body);
     line-height: 1.75;
-    color: var(--jr-svart);
+    color: var(--jr-morkrost);
     opacity: 0.9;
     text-align: left;
     margin: 0;
@@ -679,8 +811,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     position: relative;
     width: 100%;
     min-height: 100svh;
-    padding: clamp(2rem, 6vw, 4rem) var(--packages-side-pad);
-    background: var(--jr-ocra);
+    padding: clamp(5rem, 10vw, 8rem) var(--packages-side-pad)
+      clamp(2rem, 6vw, 4rem);
+    background: var(--jr-gron);
     align-items: center;
   }
 
@@ -711,7 +844,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     font-family: var(--font-mono);
     font-size: var(--text-body);
     line-height: var(--line-height);
-    color: var(--jr-vit);
+    color: var(--jr-ljusgul);
     grid-row: 2 / 3;
     justify-self: start;
     align-self: end;
@@ -722,6 +855,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   @media (max-width: 800px) {
     .packages-section {
       --packages-side-pad: 1rem;
+      padding: clamp(2rem, 6vw, 4rem) var(--packages-side-pad);
     }
   }
 
@@ -756,7 +890,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     inset: 0;
     background:
       radial-gradient(
-        circle at bottom right,
+        circle at center bottom,
         rgba(0, 0, 0, 0.82) 0%,
         rgba(0, 0, 0, 0.58) 30%,
         rgba(0, 0, 0, 0.2) 58%,
@@ -781,35 +915,31 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   .image-block-caption-inner {
     width: min(100%, var(--content-shell-max));
     margin: 0 auto;
-    padding: var(--space-xl) var(--page-inset);
+    padding: clamp(1.25rem, 4vw, var(--space-xl)) var(--page-inset)
+      clamp(1.25rem, 4vw, var(--space-xl));
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    gap: 0.75rem;
+    align-items: center;
+    gap: 0.35rem;
+    text-align: center;
   }
 
   .image-block-caption p {
-    width: min(24rem, 100%);
     font-family: var(--font);
     font-size: var(--text-body);
     line-height: 1.3;
-    color: var(--jr-ocra);
+    color: var(--jr-ljusgul);
     opacity: 0.85;
-    text-align: left;
   }
 
   .image-block-instagram {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 0.45rem;
-    width: min(24rem, 100%);
+    display: inline-block;
     font-family: var(--font);
     font-size: var(--text-heading);
     line-height: 0.95;
-    color: var(--jr-ocra);
+    color: var(--jr-ljusgul);
     text-decoration: none;
     letter-spacing: -0.03em;
-    text-align: left;
   }
 
   .image-block-instagram-arrow {
@@ -832,7 +962,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     .image-block-scrim {
       background:
         radial-gradient(
-          circle at bottom left,
+          circle at center bottom,
           rgba(0, 0, 0, 0.58) 0%,
           rgba(0, 0, 0, 0.42) 38%,
           rgba(0, 0, 0, 0.12) 72%,
@@ -845,12 +975,29 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
           transparent 100%
         );
     }
+
+    .image-block {
+      height: 76svh;
+    }
+
+    .image-block-caption-inner {
+      width: 100%;
+      gap: 0.35rem;
+    }
+
+    .image-block-caption p {
+      line-height: 1.4;
+    }
+
+    .image-block-instagram {
+      font-size: clamp(1.15rem, 7vw, 1.5rem);
+    }
   }
 
   /* ── CONTACT SECTION ────────────────────────────────────────── */
   .contact-section {
-    background: var(--jr-ocra);
-    color: var(--jr-vit);
+    background: var(--jr-gron);
+    color: var(--jr-ljusgul);
     min-height: min(100svh, 72vh);
     display: flex;
     align-items: center;
@@ -873,7 +1020,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   }
 
   .section-kicker--contact {
-    color: var(--jr-brun);
+    color: var(--jr-ocra);
   }
 
   .contact-section-text {
@@ -881,7 +1028,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     font-family: var(--font);
     font-size: var(--text-body);
     line-height: 1.7;
-    color: inherit;
+    color: var(--jr-ljusgul);
     opacity: 0.82;
   }
 
@@ -891,7 +1038,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     line-height: 1.6;
     text-transform: uppercase;
     letter-spacing: 0.18em;
-    opacity: 0.44;
+    color: var(--jr-ocra);
+    opacity: 0.74;
     padding-top: 0.35rem;
   }
 
@@ -907,7 +1055,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     flex-direction: column;
     gap: 0.3rem;
     text-decoration: none;
-    color: inherit;
+    color: var(--jr-ljusgul);
     transition:
       opacity 0.24s cubic-bezier(0.22, 1, 0.36, 1),
       transform 0.24s cubic-bezier(0.22, 1, 0.36, 1);
@@ -918,14 +1066,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     font-size: var(--text-ui);
     text-transform: uppercase;
     letter-spacing: 0.22em;
-    opacity: 0.42;
+    color: var(--jr-ocra);
+    opacity: 0.76;
   }
 
   .contact-section-link-value {
     font-family: var(--font);
-    font-size: var(--text-heading);
-    letter-spacing: -0.03em;
-    line-height: 1;
+    font-size: clamp(1.15rem, 2.4vw, 2rem);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
   }
 
   .contact-section-link:hover {
@@ -935,9 +1084,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
   /* ── INDEX FOOTER ───────────────────────────────────────────── */
   .index-footer {
-    background: var(--jr-ocra);
-    color: var(--jr-vit);
-    border-top: 1px solid color-mix(in srgb, var(--jr-vit) 16%, transparent);
+    background: var(--jr-gron);
+    color: var(--jr-ljusgul);
+    border-top: 1px solid color-mix(in srgb, var(--jr-ocra) 32%, transparent);
   }
 
   .index-footer-inner {
@@ -952,10 +1101,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
   .index-footer-wordmark {
     height: clamp(1rem, 2.5vw, 1.4rem);
+    aspect-ratio: 1770 / 190;
     width: auto;
     display: block;
-    opacity: 0.75;
-    filter: brightness(0) invert(1);
+    flex: 0 0 auto;
+    color: var(--jr-ljusgul);
+    background: currentColor;
+    -webkit-mask: var(--wordmark-mask) center / contain no-repeat;
+    mask: var(--wordmark-mask) center / contain no-repeat;
+    opacity: 0.55;
   }
 
   .index-footer-nav {
@@ -963,15 +1117,20 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     gap: var(--space-xl);
   }
 
+  .index-footer-copyright,
   .index-footer-link {
     font-family: var(--font);
     font-size: var(--text-ui);
-    color: var(--jr-vit);
+    color: var(--jr-ljusgul);
     text-decoration: none;
     opacity: 0.55;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     transition: opacity 0.2s ease;
+  }
+
+  .index-footer-copyright {
+    white-space: nowrap;
   }
 
   .index-footer-link:hover {
@@ -980,35 +1139,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
   /* ── PRODUCTS ────────────────────────────────────────────────── */
   .products {
-    background: var(--jr-vit);
-    min-height: 100svh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    background: var(--jr-gron);
+    color: var(--jr-ljusgul);
+    padding: clamp(4rem, 8vw, 7rem) var(--page-inset);
   }
 
-  .products__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    max-width: var(--content-shell-max);
-    margin: 0 auto calc(var(--space-xl) * 1.5);
-  }
-
-  .products-label {
-    font-family: var(--font);
-    font-size: var(--text-ui);
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    opacity: 0.4;
-  }
-
-  .products-count {
-    font-family: var(--font);
-    font-size: var(--text-ui);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    opacity: 0.25;
+  .products-stack {
+    display: block;
   }
 
   .product-row {
@@ -1018,13 +1155,32 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     align-items: center;
     column-gap: clamp(2rem, 6vw, 5rem);
     max-width: var(--content-shell-max);
-    margin: 0 auto calc(var(--space-xl) * 2);
+    margin: 0 auto;
     padding: 0 2rem;
     overflow: hidden;
   }
 
-  .product-row:last-child {
-    margin-bottom: 0;
+  .product-card {
+    position: sticky;
+    top: 5svh;
+    min-height: 86svh;
+    margin-top: 2rem;
+    background: var(--card-bg, var(--jr-gron));
+    color: var(--card-text, var(--jr-ljusgul));
+    border: 1px solid color-mix(in srgb, var(--jr-ocra) 32%, transparent);
+    transform-origin: center top;
+    transition:
+      opacity 0.18s linear,
+      transform 0.18s linear;
+    will-change: opacity, transform;
+  }
+
+  .product-card:first-child {
+    margin-top: 0;
+  }
+
+  .product-card.is-past {
+    opacity: 0.86;
   }
 
   .product-row--reverse {
@@ -1045,7 +1201,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .product-row:hover .product-image {
@@ -1067,7 +1223,19 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   .product-name-row {
     display: flex;
     align-items: baseline;
-    gap: var(--space-lg);
+    gap: clamp(0.75rem, 2vw, var(--space-lg));
+  }
+
+  .product-index {
+    font-family: var(--font);
+    font-size: var(--text-ui);
+    letter-spacing: 0.12em;
+    color: color-mix(
+      in srgb,
+      var(--card-text, var(--jr-ljusgul)) 72%,
+      var(--jr-ocra)
+    );
+    opacity: 0.78;
   }
 
   .product-name {
@@ -1077,15 +1245,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     font-weight: 400;
     letter-spacing: -0.03em;
     line-height: 1;
-    color: var(--jr-brun);
+    color: var(--card-text, var(--jr-ljusgul));
   }
 
   .product-desc {
     font-family: var(--font);
     font-size: var(--text-body);
     line-height: 1.65;
-    color: var(--jr-svart);
-    opacity: 0.65;
+    color: var(--card-text, var(--jr-ljusgul));
+    opacity: 0.78;
     max-width: 42ch;
   }
 
@@ -1101,9 +1269,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     text-transform: uppercase;
     letter-spacing: 0.1em;
     padding: 0.35rem 0.7rem;
-    border: 1px solid rgba(0, 0, 0, 0.18);
-    color: var(--jr-svart);
-    opacity: 0.6;
+    border: 1px solid
+      color-mix(in srgb, var(--card-text, var(--jr-ljusgul)) 26%, transparent);
+    color: var(--card-text, var(--jr-ljusgul));
+    opacity: 0.72;
   }
 
   [data-reveal] {
@@ -1160,6 +1329,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     .image-block-instagram-arrow,
     .contact-section-link,
     [data-reveal],
+    .product-image,
     .hero-logo-wrap,
     .hero-corner--tl,
     .hero-corner--bl,
@@ -1178,6 +1348,27 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       gap: var(--space-lg);
     }
 
+    .packages-section-caption,
+    .about-section-copy,
+    .about-section-copy p:not(.section-kicker),
+    .section-kicker,
+    .image-block-caption-inner,
+    .image-block-caption p,
+    .image-block-instagram,
+    .contact-section-copy,
+    .contact-section-text,
+    .contact-section-links,
+    .contact-section-link,
+    .contact-section-address,
+    .product-info,
+    .product-desc,
+    .product-tags,
+    .index-footer-inner,
+    .index-footer-nav,
+    .index-footer-copyright {
+      text-align: center;
+    }
+
     .product-row,
     .product-row--reverse {
       grid-template-columns: 1fr;
@@ -1185,7 +1376,36 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       row-gap: 2.25rem;
     }
 
+    .products {
+      padding: clamp(3.5rem, 12vw, 5rem) 0;
+    }
+
+    .about-section-inner,
+    .packages-section,
+    .image-block,
+    .contact-section,
+    .product-card {
+      min-height: 100svh;
+    }
+
+    .product-card {
+      position: relative;
+      top: auto;
+      margin-top: 1rem;
+      border: none;
+      transform: none !important;
+    }
+
+    .product-card:not(:first-child) {
+      display: none;
+    }
+
+    .product-index {
+      display: none;
+    }
+
     .product-info {
+      align-items: center;
     }
 
     .product-tags {
@@ -1195,11 +1415,41 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     .contact-section-inner {
       grid-template-columns: 1fr;
       row-gap: 2.75rem;
-      align-items: start;
+      align-items: center;
     }
 
     .contact-section-text {
       max-width: 32rem;
+    }
+
+    .index-footer-inner {
+      align-items: center;
+      flex-direction: column;
+      gap: 1.25rem;
+      padding: 1.5rem 1rem max(1.75rem, env(safe-area-inset-bottom));
+      text-align: center;
+    }
+
+    .index-footer-wordmark {
+      height: 1.15rem;
+      opacity: 0.78;
+    }
+
+    .index-footer-nav {
+      justify-content: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .index-footer-link,
+    .index-footer-copyright {
+      opacity: 0.7;
+    }
+
+    .index-footer-copyright {
+      width: 100%;
+      padding-top: 0.75rem;
+      border-top: 1px solid color-mix(in srgb, var(--jr-ocra) 22%, transparent);
     }
   }
 
@@ -1211,6 +1461,21 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     .product-row,
     .product-row--reverse {
       padding: 0 1rem;
+    }
+
+    .image-block {
+      height: auto;
+    }
+
+    .packages-section-caption,
+    .image-block-caption p,
+    .image-block-instagram {
+      margin-inline: auto;
+    }
+
+    .image-block-instagram {
+      width: fit-content;
+      gap: 0.2rem;
     }
   }
 
@@ -1240,6 +1505,53 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
   syncScrolledState();
   window.addEventListener("scroll", syncScrolledState, { passive: true });
+
+  const heroBg = document.querySelector(
+    ".hero-parallax-bg",
+  ) as HTMLElement | null;
+  function syncParallax() {
+    if (!heroBg) return;
+    heroBg.style.transform = `translateY(${window.scrollY * 0.4}px)`;
+  }
+  syncParallax();
+  window.addEventListener("scroll", syncParallax, { passive: true });
+
+  const productCards = Array.from(
+    document.querySelectorAll("[data-stack-card]"),
+  ) as HTMLElement[];
+  const compactProducts = window.matchMedia("(max-width: 800px)");
+
+  function syncProductCards() {
+    if (reduceMotion.matches || compactProducts.matches) {
+      productCards.forEach((card, index) => {
+        card.style.transform = "";
+        card.style.zIndex = String(index + 1);
+        card.classList.remove("is-past");
+      });
+      return;
+    }
+
+    productCards.forEach((card, index) => {
+      const rect = card.getBoundingClientRect();
+      const progress = Math.min(
+        1,
+        Math.max(
+          0,
+          (window.innerHeight * 0.12 - rect.top) / window.innerHeight,
+        ),
+      );
+      const scale = 1 - progress * 0.11;
+      const y = progress * -14;
+      card.style.transform = `translateY(${y}px) scale(${scale})`;
+      card.style.zIndex = String(index + 1);
+      card.classList.toggle("is-past", progress > 0.08);
+    });
+  }
+
+  syncProductCards();
+  window.addEventListener("scroll", syncProductCards, { passive: true });
+  window.addEventListener("resize", syncProductCards);
+  compactProducts.addEventListener("change", syncProductCards);
 
   function syncMenuState(isOpen: boolean) {
     document.documentElement.classList.toggle("menu-open", isOpen);
@@ -1291,7 +1603,23 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   });
 
   dialog.querySelectorAll(".menu-link").forEach((link) => {
-    link.addEventListener("click", closeMenu);
+    link.addEventListener("click", (e) => {
+      const href = (link as HTMLAnchorElement).getAttribute("href");
+      if (href && href.startsWith("#")) {
+        e.preventDefault();
+        const target = document.querySelector(href) as HTMLElement | null;
+        if (target) {
+          scrollLockY = target.offsetTop;
+        }
+        dialog.classList.remove("is-visible");
+        syncMenuState(false);
+        closeTimer = window.setTimeout(() => {
+          if (dialog.open) dialog.close();
+        }, menuTransitionMs);
+      } else {
+        closeMenu();
+      }
+    });
   });
 
   if (!reduceMotion.matches) {
@@ -1315,5 +1643,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     document.querySelectorAll("[data-reveal]").forEach((section) => {
       section.classList.add("is-visible");
     });
+    setActiveBag(0);
   }
 </script>

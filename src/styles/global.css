@@ -61,7 +61,7 @@
 
 html {
   height: 100%;
-  background: var(--jr-ocra);
+  background: var(--jr-gron);
   overflow-y: scroll;
   scrollbar-gutter: stable;
   scroll-behavior: smooth;
@@ -89,15 +89,15 @@ body {
 ::-webkit-scrollbar-thumb {
   border-radius: 9999px;
   border: 0.125rem solid transparent;
-  background-color: var(--jr-vit);
+  background-color: var(--jr-ljusgul);
   background-clip: padding-box;
   min-height: 2.5rem;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--jr-vit);
+  background-color: var(--jr-ljusgul);
 }
 
 ::-webkit-scrollbar-track {
-  background-color: var(--jr-ocra);
+  background-color: var(--jr-gron);
 }
