@@ -64,6 +64,7 @@ html {
   background: var(--jr-ocra);
   overflow-y: scroll;
   scrollbar-gutter: stable;
+  scroll-behavior: smooth;
 }
 
 body {
