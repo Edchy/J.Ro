@@ -163,7 +163,7 @@ const blends = [
         </div>
       </dialog>
       <div class="hero-logo-wrap">
-        <LogoMark color="var(--jr-gold)" width="clamp(18rem, 80vw, 42rem)" />
+        <LogoMark color="var(--jr-gold)" width="clamp(21rem, 96vw, 96vw)" />
       </div>
       <span class="hero-corner hero-corner--bl"
         >Ekologiskt <span class="hero-dot">·</span> Biodynamiskt <span
@@ -194,34 +194,6 @@ const blends = [
     </div>
   </div>
 
-  <!-- ─── ABOUT ────────────────────────────────────────────────── -->
-  <section
-    id="about"
-    class="about-section"
-    aria-label="Kollage från Järna Rosteri"
-    data-reveal
-  >
-    <div class="about-section-inner">
-      <div class="about-section-copy">
-        <p class="section-kicker">Om rosteriet</p>
-        <p>
-          Hos oss handlar kaffe om mer än bara rostning – det är ett hantverk
-          grundat i relationer, hållbarhet och passion. Vi samarbetar direkt med
-          Demeter-certifierade kaffegårdar, där varje böna odlas i samklang med
-          naturen och bär på en berättelse om balans, respekt och mänskliga
-          möten. Vårt personliga engagemang genomsyrar hela processen, från
-          ursprung till kopp.
-        </p>
-      </div>
-      <div
-        class="about-section-image"
-        style={`background-image: url('${base}/assets/images/collage.avif')`}
-        aria-hidden="true"
-      >
-      </div>
-    </div>
-  </section>
-
   <!-- ─── CONTACT ──────────────────────────────────────────────── -->
   <section id="contact" class="contact-section" data-reveal>
     <div class="contact-section-inner">
@@ -249,6 +221,34 @@ const blends = [
           <span class="contact-section-link-value">instagram</span>
         </a>
         <p class="contact-section-address">Maskinvägen 5, 153 30 Järna</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ────────────────────────────────────────────────── -->
+  <section
+    id="about"
+    class="about-section"
+    aria-label="Kollage från Järna Rosteri"
+    data-reveal
+  >
+    <div class="about-section-inner">
+      <div class="about-section-copy">
+        <p class="section-kicker">Om rosteriet</p>
+        <p>
+          Hos oss handlar kaffe om mer än bara rostning – det är ett hantverk
+          grundat i relationer, hållbarhet och passion. Vi samarbetar direkt med
+          Demeter-certifierade kaffegårdar, där varje böna odlas i samklang med
+          naturen och bär på en berättelse om balans, respekt och mänskliga
+          möten. Vårt personliga engagemang genomsyrar hela processen, från
+          ursprung till kopp.
+        </p>
+      </div>
+      <div
+        class="about-section-image"
+        style={`background-image: url('${base}/assets/images/collage.avif')`}
+        aria-hidden="true"
+      >
       </div>
     </div>
   </section>
@@ -372,15 +372,7 @@ const blends = [
   }
 
   .hero-parallax-bg {
-    position: absolute;
-    inset: -30% 0;
-    z-index: 0;
-    background-color: var(--jr-gron);
-    background-image: var(--hero-bg-image);
-    background-size: cover;
-    background-position: center;
-    will-change: transform;
-    pointer-events: none;
+    display: none;
   }
 
   .hero-inner {
@@ -640,7 +632,7 @@ const blends = [
   }
 
   .hero-wordmark {
-    height: calc(var(--text-ui) * 1.5);
+    height: clamp(1rem, 2.5vw, 1.4rem);
     width: auto;
     display: block;
     color: var(--jr-ljusgul);
@@ -683,7 +675,7 @@ const blends = [
     }
 
     .hero-wordmark {
-      height: calc(var(--text-ui) * 1.5 * 0.75);
+      height: 1rem;
     }
   }
 
@@ -1419,7 +1411,9 @@ const blends = [
 
   function computeBlendLayout() {
     if (!blendScroller) return;
-    const stageEl = blendScroller.querySelector("[data-blend-stage]") as HTMLElement;
+    const stageEl = blendScroller.querySelector(
+      "[data-blend-stage]",
+    ) as HTMLElement;
     blendStageW = stageEl.offsetWidth;
     const stageH = window.innerHeight * 0.8;
     const stripWByLayout = (blendStageW * 0.95) / ((N - 1) * (1 - OVERLAP) + 1);
@@ -1432,7 +1426,8 @@ const blends = [
       strip.style.width = `${blendStripW}px`;
       strip.style.zIndex = String(i + 1);
       blendFinalLefts[i] = blendShelfOffset + i * blendSlotStep;
-      blendStartLefts[i] = i === 0 ? (blendStageW - blendStripW) / 2 : blendStageW + blendStripW;
+      blendStartLefts[i] =
+        i === 0 ? (blendStageW - blendStripW) / 2 : blendStageW + blendStripW;
     });
   }
 
@@ -1457,11 +1452,15 @@ const blends = [
     const phase2P = Math.min(1, Math.max(0, (g - PHASE1) / (1 - PHASE1)));
 
     blendStrips.forEach((strip, i) => {
-      const stepStart = i * (1 - OVERLAP2) / N * PHASE1;
+      const stepStart = ((i * (1 - OVERLAP2)) / N) * PHASE1;
       const stepEnd = stepStart + (1 / N) * PHASE1;
-      const p = Math.min(1, Math.max(0, (g - stepStart) / (stepEnd - stepStart)));
+      const p = Math.min(
+        1,
+        Math.max(0, (g - stepStart) / (stepEnd - stepStart)),
+      );
 
-      const tiltedLeft = blendStartLefts[i] + p * (blendFinalLefts[i] - blendStartLefts[i]);
+      const tiltedLeft =
+        blendStartLefts[i] + p * (blendFinalLefts[i] - blendStartLefts[i]);
       const flushLeft = blendFlushLeft(i);
       const flushStripW = blendStageW / N;
 
@@ -1480,7 +1479,10 @@ const blends = [
   computeBlendLayout();
   applyBlendStrips();
   window.addEventListener("scroll", onBlendScroll, { passive: true });
-  window.addEventListener("resize", () => { computeBlendLayout(); applyBlendStrips(); });
+  window.addEventListener("resize", () => {
+    computeBlendLayout();
+    applyBlendStrips();
+  });
 
   function syncMenuState(isOpen: boolean) {
     document.documentElement.classList.toggle("menu-open", isOpen);
