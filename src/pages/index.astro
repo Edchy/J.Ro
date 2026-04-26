@@ -10,7 +10,7 @@ const blends = [
     tags: ["Espresso", "Hela bönor", "450 gram"],
     image: "blends/poabs-esp.webp",
     cardBg: "var(--jr-poabs-esp)",
-    cardText: "var(--jr-brun)",
+    cardText: "var(--jr-gron)",
   },
   {
     name: "POAB´S BRY",
@@ -18,7 +18,7 @@ const blends = [
     tags: ["Brygg", "Malda bönor", "450 gram"],
     image: "blends/poabs-bry.webp",
     cardBg: "var(--jr-poabs-bry)",
-    cardText: "var(--jr-ljusgul)",
+    cardText: "var(--jr-vit)",
   },
   {
     name: "MEZZO",
@@ -26,7 +26,7 @@ const blends = [
     tags: ["Mellanrost", "Malda bönor", "450 gram"],
     image: "blends/mezzo.webp",
     cardBg: "var(--jr-mezzo)",
-    cardText: "var(--jr-ljusgul)",
+    cardText: "var(--jr-vit)",
   },
   {
     name: "FRANCHESE",
@@ -34,7 +34,7 @@ const blends = [
     tags: ["Mörkrost", "Malda bönor", "450 gram"],
     image: "blends/franchese.webp",
     cardBg: "var(--jr-franchese)",
-    cardText: "var(--jr-ljusgul)",
+    cardText: "var(--jr-vit)",
   },
   {
     name: "GRANDE",
@@ -42,7 +42,7 @@ const blends = [
     tags: ["Espresso", "Hela bönor", "450 gram"],
     image: "blends/grande.webp",
     cardBg: "var(--jr-grande)",
-    cardText: "var(--jr-ljusgul)",
+    cardText: "var(--jr-vit)",
   },
   {
     name: "18 CONEJO",
@@ -163,7 +163,7 @@ const blends = [
         </div>
       </dialog>
       <div class="hero-logo-wrap">
-        <LogoMark color="var(--jr-gold)" width="clamp(21rem, 96vw, 1400px)" />
+        <LogoMark color="var(--jr-gron)" width="clamp(21rem, 96vw, 1400px)" />
       </div>
       <span class="hero-corner hero-corner--bl" data-hero-scroll-text
         >Ekologiskt <span class="hero-dot">·</span> Biodynamiskt <span
@@ -312,7 +312,7 @@ const blends = [
     }
 
     :global(body) {
-      background: var(--jr-gron);
+      background: var(--jr-vit);
     }
 
     :global(html.menu-open) {
@@ -335,7 +335,7 @@ const blends = [
     .hero {
       position: relative;
       min-height: 100svh;
-      background-color: var(--jr-gron);
+      background-color: var(--jr-vit);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -351,11 +351,11 @@ const blends = [
       background: linear-gradient(
         to bottom,
         transparent 0%,
-        color-mix(in srgb, var(--jr-gron) 10%, transparent) 25%,
-        color-mix(in srgb, var(--jr-gron) 35%, transparent) 48%,
-        color-mix(in srgb, var(--jr-gron) 68%, transparent) 68%,
-        color-mix(in srgb, var(--jr-gron) 88%, transparent) 82%,
-        var(--jr-gron) 100%
+        color-mix(in srgb, var(--jr-vit) 10%, transparent) 25%,
+        color-mix(in srgb, var(--jr-vit) 35%, transparent) 48%,
+        color-mix(in srgb, var(--jr-vit) 68%, transparent) 68%,
+        color-mix(in srgb, var(--jr-vit) 88%, transparent) 82%,
+        var(--jr-vit) 100%
       );
       pointer-events: none;
       z-index: 2;
@@ -381,11 +381,11 @@ const blends = [
 
     .hero-corner {
       position: absolute;
-      font-family: var(--font);
+      font-family: var(--font-display);
       font-size: var(--text-body);
       text-transform: uppercase;
       letter-spacing: 0.45em;
-      color: var(--jr-ljusgul);
+      color: var(--jr-gron);
       opacity: 0.5;
       line-height: 1;
     }
@@ -409,7 +409,7 @@ const blends = [
       bottom: var(--space-lg);
       left: 2rem;
       padding: 0;
-      color: var(--jr-gold);
+      color: var(--jr-morkrost);
       background: transparent;
       border: none;
       backdrop-filter: none;
@@ -433,7 +433,7 @@ const blends = [
       padding: 0;
       width: var(--hamburger-size);
       height: var(--hamburger-size);
-      color: var(--jr-ljusgul);
+      color: var(--jr-gron);
       transition:
         opacity 0.25s ease,
         border-color 0.25s ease,
@@ -441,7 +441,7 @@ const blends = [
     }
 
     :global(body.menu-open) .hamburger {
-      background: color-mix(in srgb, var(--jr-svart) 20%, transparent);
+      background: color-mix(in srgb, var(--jr-vit) 72%, transparent);
       box-shadow: none;
     }
 
@@ -499,8 +499,8 @@ const blends = [
       margin: 0;
       padding: 0;
       border: none;
-      background-color: var(--jr-gron);
-      color: var(--jr-ljusgul);
+      background-color: var(--jr-vit);
+      color: var(--jr-gron);
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
@@ -626,7 +626,7 @@ const blends = [
       height: clamp(1rem, 2.5vw, 1.4rem);
       width: auto;
       display: block;
-      color: var(--jr-ljusgul);
+      color: var(--jr-gron);
       transform: translateY(-25%);
     }
 
@@ -673,7 +673,7 @@ const blends = [
     .section-kicker {
       display: inline-block;
       margin-bottom: 1rem;
-      font-family: var(--font);
+      font-family: var(--font-display);
       font-size: var(--text-body);
       text-transform: uppercase;
       letter-spacing: 0.28em;
@@ -784,7 +784,7 @@ const blends = [
       min-height: 100svh;
       padding: clamp(5rem, 10vw, 8rem) var(--packages-side-pad)
         clamp(2rem, 6vw, 4rem);
-      background: var(--jr-gron);
+      background: var(--jr-vit);
       align-items: center;
     }
 
@@ -815,7 +815,7 @@ const blends = [
       font-family: var(--font-mono);
       font-size: var(--text-body);
       line-height: var(--line-height);
-      color: var(--jr-ljusgul);
+      color: var(--jr-morkrost);
       grid-row: 2 / 3;
       justify-self: start;
       align-self: end;
@@ -846,7 +846,7 @@ const blends = [
       width: 100%;
       height: clamp(52vh, 72vw, 82vh);
       overflow: hidden;
-      background: var(--jr-gron);
+      background: var(--jr-vit);
     }
 
     .image-block-photo {
@@ -941,8 +941,8 @@ const blends = [
 
     /* ── CONTACT SECTION ────────────────────────────────────────── */
     .contact-section {
-      background: var(--jr-gron);
-      color: var(--jr-ljusgul);
+      background: var(--jr-vit);
+      color: var(--jr-gron);
       padding: clamp(5rem, 12vw, 9rem) var(--page-inset) clamp(4rem, 8vw, 7rem);
     }
 
@@ -951,7 +951,7 @@ const blends = [
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: clamp(2.5rem, 6vw, 4rem);
+      gap: 0;
     }
 
     .contact-items {
@@ -965,7 +965,7 @@ const blends = [
       font-size: clamp(1.4rem, 3vw, 2.5rem);
       line-height: 1;
       letter-spacing: -0.03em;
-      color: var(--jr-ljusgul);
+      color: var(--jr-gron);
       text-decoration: none;
       transition: opacity 0.2s cubic-bezier(0.22, 1, 0.36, 1);
       display: block;
@@ -980,14 +980,15 @@ const blends = [
       font-size: var(--text-ui);
       text-transform: uppercase;
       letter-spacing: 0.2em;
-      color: var(--jr-ocra);
-      opacity: 0.45;
+      color: var(--jr-brun);
+      opacity: 0.72;
+      margin-top: clamp(2.5rem, 6vw, 4rem);
     }
 
     /* ── INDEX FOOTER ───────────────────────────────────────────── */
     .index-footer {
-      background: var(--jr-gron);
-      color: var(--jr-ljusgul);
+      background: var(--jr-vit);
+      color: var(--jr-gron);
     }
 
     .index-footer-inner {
@@ -1006,7 +1007,7 @@ const blends = [
       width: auto;
       display: block;
       flex: 0 0 auto;
-      color: var(--jr-ljusgul);
+      color: var(--jr-gron);
       background: currentColor;
       -webkit-mask: var(--wordmark-mask) center / contain no-repeat;
       mask: var(--wordmark-mask) center / contain no-repeat;
@@ -1022,7 +1023,7 @@ const blends = [
     .index-footer-link {
       font-family: var(--font);
       font-size: var(--text-ui);
-      color: var(--jr-ljusgul);
+      color: var(--jr-gron);
       text-decoration: none;
       opacity: 0.55;
       letter-spacing: 0.08em;
@@ -1062,7 +1063,7 @@ const blends = [
       right: var(--page-inset);
       z-index: 2;
       margin: 0;
-      color: var(--jr-ljusgul);
+      color: var(--jr-morkrost);
       text-align: right;
       will-change: opacity, transform;
     }
@@ -1366,6 +1367,20 @@ const blends = [
         gap: 0.5rem;
       }
 
+      .image-block-caption {
+        display: none;
+      }
+
+      .contact-section {
+        min-height: 100svh;
+        display: flex;
+        align-items: center;
+      }
+
+      .image-block {
+        height: 100svh;
+      }
+
       .packages-section-caption {
         margin-inline: auto;
       }
@@ -1421,11 +1436,11 @@ const blends = [
         const pull = y * 1.8;
         if (heroLogoWrap) {
           heroLogoWrap.style.transition = "none";
-          heroLogoWrap.style.transform = `translateY(-${pull}px)`;
+          heroLogoWrap.style.transform = `translateX(${pull}px)`;
         }
         if (heroTagline) {
           heroTagline.style.transition = "none";
-          heroTagline.style.transform = `translateY(-${pull}px)`;
+          heroTagline.style.transform = `translateX(-${pull}px)`;
         }
       }
     }
