@@ -11,6 +11,7 @@ const blends = [
     image: "blends/poabs-esp.webp",
     cardBg: "var(--jr-poabs-esp)",
     cardText: "var(--jr-gron)",
+    crop: "20% 15%",
   },
   {
     name: "POAB´S BRY",
@@ -19,6 +20,7 @@ const blends = [
     image: "blends/poabs-bry.webp",
     cardBg: "var(--jr-poabs-bry)",
     cardText: "var(--jr-vit)",
+    crop: "80% 10%",
   },
   {
     name: "MEZZO",
@@ -27,6 +29,7 @@ const blends = [
     image: "blends/mezzo.webp",
     cardBg: "var(--jr-mezzo)",
     cardText: "var(--jr-vit)",
+    crop: "15% 80%",
   },
   {
     name: "FRANCHESE",
@@ -35,6 +38,7 @@ const blends = [
     image: "blends/franchese.webp",
     cardBg: "var(--jr-franchese)",
     cardText: "var(--jr-vit)",
+    crop: "85% 75%",
   },
   {
     name: "GRANDE",
@@ -43,6 +47,7 @@ const blends = [
     image: "blends/grande.webp",
     cardBg: "var(--jr-grande)",
     cardText: "var(--jr-vit)",
+    crop: "50% 20%",
   },
   {
     name: "18 CONEJO",
@@ -51,6 +56,7 @@ const blends = [
     image: "blends/conejo.webp",
     cardBg: "var(--jr-conejo)",
     cardText: "var(--jr-morkrost)",
+    crop: "70% 85%",
   },
 ];
 ---
@@ -180,18 +186,22 @@ const blends = [
       </p>
       {
         blends.map((blend, index) => (
-          <div
+          <button
+            type="button"
             class="blend-strip"
             data-blend-strip
             data-index={index}
-            style={`--strip-index: ${index};`}
+            aria-label={`Expandera ${blend.name}`}
+            aria-expanded="false"
+            style={`--strip-index: ${index}; --card-bg: ${blend.cardBg};`}
           >
             <img
               class="blend-strip-image"
               src={`${base}/assets/images/${blend.image}`}
               alt={blend.name}
+              style={`--crop: ${blend.crop};`}
             />
-          </div>
+          </button>
         ))
       }
     </div>
@@ -1074,6 +1084,13 @@ const blends = [
       translate: 0 -50%;
       height: 80svh;
       will-change: transform;
+      display: block;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      cursor: pointer;
+      appearance: none;
     }
 
     .blend-strip-image {
@@ -1081,6 +1098,11 @@ const blends = [
       width: 100%;
       height: 100%;
       object-fit: contain;
+    }
+
+    .blend-strip:focus-visible {
+      outline: 2px solid var(--jr-morkrost);
+      outline-offset: -2px;
     }
 
     /* ── PRODUCTS: REDUCED-MOTION (desktop static fan) ──────────── */
@@ -1176,13 +1198,21 @@ const blends = [
         transform: none !important;
         will-change: auto;
         overflow: hidden;
+        z-index: 0;
+        transform-origin: top center;
+        transition: height 0.55s cubic-bezier(0.22, 1, 0.36, 1);
       }
 
       .blend-strip-image {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: center;
+        object-position: top center;
+      }
+
+      .blend-strip.is-expanded {
+        height: calc(200% + 2px);
+        z-index: 3;
       }
     }
 
@@ -1454,6 +1484,20 @@ const blends = [
     const blendStrips = Array.from(
       document.querySelectorAll("[data-blend-strip]"),
     ) as HTMLElement[];
+    blendStrips.forEach((strip) => {
+      strip.addEventListener("click", () => {
+        if (window.innerWidth > MOBILE_BREAKPOINT) return;
+        const shouldExpand = !strip.classList.contains("is-expanded");
+        blendStrips.forEach((otherStrip) => {
+          otherStrip.classList.remove("is-expanded");
+          otherStrip.setAttribute("aria-expanded", "false");
+        });
+        if (shouldExpand) {
+          strip.classList.add("is-expanded");
+          strip.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
     const N = blendStrips.length;
     const OVERLAP = 0.6;
     const OVERLAP2 = 0.4;
@@ -1572,6 +1616,10 @@ const blends = [
       if (isStaticProducts()) {
         teardownScrollProducts();
       } else {
+        blendStrips.forEach((strip) => {
+          strip.classList.remove("is-expanded");
+          strip.setAttribute("aria-expanded", "false");
+        });
         computeBlendLayout();
         applyBlendStrips();
       }
