@@ -1,6 +1,5 @@
 ---
 import Base from "../layouts/Base.astro";
-import DevNav from "../components/DevNav.astro";
 import LogoMark from "../components/LogoMark.astro";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const blends = [
@@ -62,8 +61,6 @@ const blends = [
 ---
 
 <Base title="Järna Rosteri">
-  <DevNav active="IDX" />
-
   <!-- ─── HERO ─────────────────────────────────────────────────── -->
   <section class="hero hero-v9" data-reveal="hero">
     <header class="hero-meta">
@@ -235,21 +232,6 @@ const blends = [
       </div>
     </div>
   </section>
-
-  <!-- ─── PACKAGES ─────────────────────────────────────────────── -->
-  <!-- <section class="packages-section" data-reveal>
-    <div class="packages-section-inner">
-      <img
-        src={`${base}/assets/images/coffee-packages.png`}
-        alt="Kaffepåsar från Järna Rosteri"
-        class="packages-section-image"
-      />
-      <p class="packages-section-caption">
-        <span class="section-kicker section-kicker--warm">Aktuell påse</span>
-        POAB'S ESP. En av våra espresso sorter. Indisk arabica och robusta.
-      </p>
-    </div>
-  </section> -->
 
   <!-- ─── IMAGE + CAPTION ──────────────────────────────────────── -->
   <section class="image-block">
