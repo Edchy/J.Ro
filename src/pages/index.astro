@@ -1148,15 +1148,13 @@ const blends = [
     translate: 0 -50%;
     height: 80svh;
     will-change: transform;
-    box-shadow: -6px 16px 40px
-      color-mix(in srgb, var(--jr-svart) 36%, transparent);
   }
 
   .blend-strip-image {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   [data-reveal] {
@@ -1574,6 +1572,5 @@ const blends = [
     document.querySelectorAll("[data-reveal]").forEach((section) => {
       section.classList.add("is-visible");
     });
-    setActiveBag(0);
   }
 </script>
