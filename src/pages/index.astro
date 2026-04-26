@@ -8,47 +8,47 @@ const blends = [
     name: "POAB´S ESP",
     desc: "Demeter-certifierad espresso med indisk arabica och robusta. Fyllig, kryddig och chokladig med låg syra och lång eftersmak.",
     tags: ["Espresso", "Hela bönor", "450 gram"],
-    image: "frontbag.png",
-    cardBg: "var(--jr-gron)",
-    cardText: "var(--jr-ljusgul)",
+    image: "blends/poabs-esp.webp",
+    cardBg: "var(--jr-poabs-esp)",
+    cardText: "var(--jr-brun)",
   },
   {
     name: "POAB´S BRY",
-    desc: "Bryggkaffe med rund kropp, mjuk fruktighet och ren rostprofil för vardagliga koppar.",
-    tags: ["Brygg", "Hela bönor", "450 gram"],
-    image: "coffee-packages.png",
+    desc: "Demeter-certifierat bryggkaffe med indiskt ursprung. Mjukt och balanserat med låg syra, toner av kakao, torkad frukt och kryddor.",
+    tags: ["Brygg", "Malda bönor", "450 gram"],
+    image: "blends/poabs-bry.webp",
     cardBg: "var(--jr-poabs-bry)",
     cardText: "var(--jr-ljusgul)",
   },
   {
     name: "MEZZO",
-    desc: "Mellanrostad blandning med balanserad sötma, mild syra och lång eftersmak.",
-    tags: ["Mellanrost", "Hela bönor", "450 gram"],
-    image: "bags.png",
+    desc: "Vår mest mångsidiga blandning. En mjuk balanserad mellanrost med florala toner från Etiopien, fyllighet och balans från Sydamerika.",
+    tags: ["Mellanrost", "Malda bönor", "450 gram"],
+    image: "blends/mezzo.webp",
     cardBg: "var(--jr-mezzo)",
     cardText: "var(--jr-ljusgul)",
   },
   {
     name: "FRANCHESE",
-    desc: "Mörkare rost med stadig kropp, låg syra och tydlig rostad ton.",
-    tags: ["Mörkrost", "Hela bönor", "450 gram"],
-    image: "allbags.png",
+    desc: "Vår Franchese är en hyllning till den klassiska franskrosten. Intensiv & kryddig. Mörkrost för dig som gillar ett klassiskt och kraftfullt kaffe.",
+    tags: ["Mörkrost", "Malda bönor", "450 gram"],
+    image: "blends/franchese.webp",
     cardBg: "var(--jr-franchese)",
     cardText: "var(--jr-ljusgul)",
   },
   {
     name: "GRANDE",
-    desc: "Generös blandning för espresso och mjölk, med fyllig kropp och nötiga toner.",
+    desc: "Vår klassiska italienska espresso med kraft och balans. Rund, nötig och chokladig i tonen. Perfekt med skummad mjölk eller som en elegant espresso.",
     tags: ["Espresso", "Hela bönor", "450 gram"],
-    image: "honduras.png",
+    image: "blends/grande.webp",
     cardBg: "var(--jr-grande)",
-    cardText: "var(--jr-morkrost)",
+    cardText: "var(--jr-ljusgul)",
   },
   {
-    name: "CONEJO",
-    desc: "Ren och mjuk kopp med ljusare uttryck, låg bitterhet och stillsam sötma.",
-    tags: ["Brygg", "Hela bönor", "450 gram"],
-    image: "jarna_.png",
+    name: "18 CONEJO",
+    desc: "Uppkallad efter gården i Honduras där kaffet odlas, 1250–1700 möh. Den biodynamiska blandningen av Catuai, Bourbon och Parainema ger fruktiga och florala toner.",
+    tags: ["Brygg", "Malda bönor", "450 gram"],
+    image: "blends/conejo.webp",
     cardBg: "var(--jr-conejo)",
     cardText: "var(--jr-morkrost)",
   },
@@ -173,38 +173,26 @@ const blends = [
     </div>
   </section>
   <!-- ─── PRODUCTS ─────────────────────────────────────────────── -->
-  <section class="products products-stack" data-card-stack>
-    {
-      blends.map((blend, index) => (
-        <article
-          class="product-row product-row--reverse product-card"
-          data-stack-card
-          style={`--card-index: ${index}; --card-bg: ${blend.cardBg}; --card-text: ${blend.cardText};`}
-        >
-          <div class="product-info">
-            <div class="product-name-row">
-              <span class="product-index">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <h3 class="product-name">{blend.name}</h3>
-            </div>
-            <p class="product-desc">{blend.desc}</p>
-            <div class="product-tags">
-              {blend.tags.map((tag) => (
-                <span class="tag">{tag}</span>
-              ))}
-            </div>
-          </div>
-          <div class="product-image-col">
-            <div
-              class="product-image"
-              style={`background-image: url('${base}/assets/images/${blend.image}');`}
+  <div class="products-scroller" data-blend-scroller>
+    <div class="products-stage" data-blend-stage>
+      {
+        blends.map((blend, index) => (
+          <div
+            class="blend-strip"
+            data-blend-strip
+            data-index={index}
+            style={`--strip-index: ${index};`}
+          >
+            <img
+              class="blend-strip-image"
+              src={`${base}/assets/images/${blend.image}`}
+              alt={blend.name}
             />
           </div>
-        </article>
-      ))
-    }
-  </section>
+        ))
+      }
+    </div>
+  </div>
 
   <!-- ─── ABOUT ────────────────────────────────────────────────── -->
   <section
@@ -266,7 +254,7 @@ const blends = [
   </section>
 
   <!-- ─── PACKAGES ─────────────────────────────────────────────── -->
-  <section class="packages-section" data-reveal>
+  <!-- <section class="packages-section" data-reveal>
     <div class="packages-section-inner">
       <img
         src={`${base}/assets/images/coffee-packages.png`}
@@ -278,7 +266,7 @@ const blends = [
         POAB'S ESP. En av våra espresso sorter. Indisk arabica och robusta.
       </p>
     </div>
-  </section>
+  </section> -->
 
   <!-- ─── IMAGE + CAPTION ──────────────────────────────────────── -->
   <section class="image-block" data-reveal>
@@ -432,7 +420,7 @@ const blends = [
       var(--space-lg) - ((var(--hamburger-size) - (var(--text-ui) * 1.5)) / 2) -
         (var(--text-ui) * 0.375)
     );
-    right: max(2rem, calc(50vw - 700px + 2rem));
+    right: max(2rem, calc(50vw - 600px + 2rem));
   }
   .hero-corner--bl {
     bottom: var(--space-lg);
@@ -1086,7 +1074,6 @@ const blends = [
   .index-footer {
     background: var(--jr-gron);
     color: var(--jr-ljusgul);
-    border-top: 1px solid color-mix(in srgb, var(--jr-ocra) 32%, transparent);
   }
 
   .index-footer-inner {
@@ -1138,141 +1125,38 @@ const blends = [
   }
 
   /* ── PRODUCTS ────────────────────────────────────────────────── */
-  .products {
-    background: var(--jr-gron);
-    color: var(--jr-ljusgul);
-    padding: clamp(4rem, 8vw, 7rem) var(--page-inset);
+  /* ── BLEND STRIP SCROLLER ───────────────────────────────────── */
+  .products-scroller {
+    position: relative;
+    height: 300svh;
   }
 
-  .products-stack {
-    display: block;
-  }
-
-  .product-row {
-    display: grid;
-    grid-template-columns: minmax(0, 32rem) minmax(0, 32rem);
-    justify-content: center;
-    align-items: center;
-    column-gap: clamp(2rem, 6vw, 5rem);
+  .products-stage {
+    position: sticky;
+    top: 0;
+    height: 100svh;
     max-width: var(--content-shell-max);
     margin: 0 auto;
-    padding: 0 2rem;
+    perspective: 1200px;
+    perspective-origin: 0% 50%;
     overflow: hidden;
   }
 
-  .product-card {
-    position: sticky;
-    top: 5svh;
-    min-height: 86svh;
-    margin-top: 2rem;
-    background: var(--card-bg, var(--jr-gron));
-    color: var(--card-text, var(--jr-ljusgul));
-    border: 1px solid color-mix(in srgb, var(--jr-ocra) 32%, transparent);
-    transform-origin: center top;
-    transition:
-      opacity 0.18s linear,
-      transform 0.18s linear;
-    will-change: opacity, transform;
+  .blend-strip {
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    height: 80svh;
+    will-change: transform;
+    box-shadow: -6px 16px 40px
+      color-mix(in srgb, var(--jr-svart) 36%, transparent);
   }
 
-  .product-card:first-child {
-    margin-top: 0;
-  }
-
-  .product-card.is-past {
-    opacity: 0.86;
-  }
-
-  .product-row--reverse {
-    direction: rtl;
-  }
-
-  .product-row--reverse > * {
-    direction: ltr;
-  }
-
-  .product-image-col {
-    overflow: hidden;
-  }
-
-  .product-image {
+  .blend-strip-image {
+    display: block;
     width: 100%;
-    height: 44vh;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .product-row:hover .product-image {
-    transform: scale(1.03);
-  }
-
-  .product-image--bags {
-    background-size: cover;
-    background-position: center;
-  }
-
-  .product-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: var(--space-lg);
-  }
-
-  .product-name-row {
-    display: flex;
-    align-items: baseline;
-    gap: clamp(0.75rem, 2vw, var(--space-lg));
-  }
-
-  .product-index {
-    font-family: var(--font);
-    font-size: var(--text-ui);
-    letter-spacing: 0.12em;
-    color: color-mix(
-      in srgb,
-      var(--card-text, var(--jr-ljusgul)) 72%,
-      var(--jr-ocra)
-    );
-    opacity: 0.78;
-  }
-
-  .product-name {
-    margin: 0;
-    font-family: var(--font);
-    font-size: var(--text-heading);
-    font-weight: 400;
-    letter-spacing: -0.03em;
-    line-height: 1;
-    color: var(--card-text, var(--jr-ljusgul));
-  }
-
-  .product-desc {
-    font-family: var(--font);
-    font-size: var(--text-body);
-    line-height: 1.65;
-    color: var(--card-text, var(--jr-ljusgul));
-    opacity: 0.78;
-    max-width: 42ch;
-  }
-
-  .product-tags {
-    display: flex;
-    gap: var(--space-sm);
-    flex-wrap: wrap;
-  }
-
-  .tag {
-    font-family: var(--font);
-    font-size: var(--text-ui);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 0.35rem 0.7rem;
-    border: 1px solid
-      color-mix(in srgb, var(--card-text, var(--jr-ljusgul)) 26%, transparent);
-    color: var(--card-text, var(--jr-ljusgul));
-    opacity: 0.72;
+    height: 100%;
+    object-fit: cover;
   }
 
   [data-reveal] {
@@ -1516,42 +1400,89 @@ const blends = [
   syncParallax();
   window.addEventListener("scroll", syncParallax, { passive: true });
 
-  const productCards = Array.from(
-    document.querySelectorAll("[data-stack-card]"),
+  // ── BLEND STRIP SCROLLER ─────────────────────────────────────
+  const blendScroller = document.querySelector(
+    "[data-blend-scroller]",
+  ) as HTMLElement | null;
+  const blendStrips = Array.from(
+    document.querySelectorAll("[data-blend-strip]"),
   ) as HTMLElement[];
-  const compactProducts = window.matchMedia("(max-width: 800px)");
+  const N = blendStrips.length;
+  const OVERLAP = 0.6;
+  const OVERLAP2 = 0.4;
+  const FINAL_TILT = 18;
+  let blendStageW = 0;
+  let blendStripW = 0;
+  let blendSlotStep = 0;
+  let blendShelfOffset = 0;
+  let blendStartLefts: number[] = [];
+  let blendFinalLefts: number[] = [];
+  let blendRafPending = false;
 
-  function syncProductCards() {
-    if (reduceMotion.matches || compactProducts.matches) {
-      productCards.forEach((card, index) => {
-        card.style.transform = "";
-        card.style.zIndex = String(index + 1);
-        card.classList.remove("is-past");
-      });
-      return;
-    }
-
-    productCards.forEach((card, index) => {
-      const rect = card.getBoundingClientRect();
-      const progress = Math.min(
-        1,
-        Math.max(
-          0,
-          (window.innerHeight * 0.12 - rect.top) / window.innerHeight,
-        ),
-      );
-      const scale = 1 - progress * 0.11;
-      const y = progress * -14;
-      card.style.transform = `translateY(${y}px) scale(${scale})`;
-      card.style.zIndex = String(index + 1);
-      card.classList.toggle("is-past", progress > 0.08);
+  function computeBlendLayout() {
+    if (!blendScroller) return;
+    const stageEl = blendScroller.querySelector("[data-blend-stage]") as HTMLElement;
+    blendStageW = stageEl.offsetWidth;
+    const stageH = window.innerHeight * 0.8;
+    const stripWByLayout = (blendStageW * 0.95) / ((N - 1) * (1 - OVERLAP) + 1);
+    const stripWByRatio = stageH * (846 / 1450);
+    blendStripW = Math.min(stripWByLayout, stripWByRatio);
+    blendSlotStep = blendStripW * (1 - OVERLAP);
+    const shelfW = (N - 1) * blendSlotStep + blendStripW;
+    blendShelfOffset = (blendStageW - shelfW) / 2;
+    blendStrips.forEach((strip, i) => {
+      strip.style.width = `${blendStripW}px`;
+      strip.style.zIndex = String(i + 1);
+      blendFinalLefts[i] = blendShelfOffset + i * blendSlotStep;
+      blendStartLefts[i] = i === 0 ? (blendStageW - blendStripW) / 2 : blendStageW + blendStripW;
     });
   }
 
-  syncProductCards();
-  window.addEventListener("scroll", syncProductCards, { passive: true });
-  window.addEventListener("resize", syncProductCards);
-  compactProducts.addEventListener("change", syncProductCards);
+  // Flush: N strips side by side with no gap, centered in stage
+  // Strip width in flush state = stageW / N (may differ from blendStripW)
+  function blendFlushLeft(i: number): number {
+    const flushStripW = blendStageW / N;
+    return i * flushStripW;
+  }
+
+  function applyBlendStrips() {
+    blendRafPending = false;
+    if (!blendScroller) return;
+    const rect = blendScroller.getBoundingClientRect();
+    const scrolled = -rect.top;
+    const total = blendScroller.offsetHeight - window.innerHeight;
+    const g = Math.min(1, Math.max(0, scrolled / total));
+
+    // Phase 1 (g 0→0.65): reveal strips one by one with tilt
+    // Phase 2 (g 0.65→1): all straighten and spread to flush
+    const PHASE1 = 0.65;
+    const phase2P = Math.min(1, Math.max(0, (g - PHASE1) / (1 - PHASE1)));
+
+    blendStrips.forEach((strip, i) => {
+      const stepStart = i * (1 - OVERLAP2) / N * PHASE1;
+      const stepEnd = stepStart + (1 / N) * PHASE1;
+      const p = Math.min(1, Math.max(0, (g - stepStart) / (stepEnd - stepStart)));
+
+      const tiltedLeft = blendStartLefts[i] + p * (blendFinalLefts[i] - blendStartLefts[i]);
+      const flushLeft = blendFlushLeft(i);
+      const flushStripW = blendStageW / N;
+
+      strip.style.left = `${tiltedLeft + phase2P * (flushLeft - tiltedLeft)}px`;
+      strip.style.width = `${blendStripW + phase2P * (flushStripW - blendStripW)}px`;
+      strip.style.transform = `rotateY(${(1 - phase2P) * p * FINAL_TILT}deg)`;
+    });
+  }
+
+  function onBlendScroll() {
+    if (blendRafPending) return;
+    blendRafPending = true;
+    requestAnimationFrame(applyBlendStrips);
+  }
+
+  computeBlendLayout();
+  applyBlendStrips();
+  window.addEventListener("scroll", onBlendScroll, { passive: true });
+  window.addEventListener("resize", () => { computeBlendLayout(); applyBlendStrips(); });
 
   function syncMenuState(isOpen: boolean) {
     document.documentElement.classList.toggle("menu-open", isOpen);
