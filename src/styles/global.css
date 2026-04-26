@@ -64,7 +64,7 @@ html {
   background: var(--jr-gron);
   overflow-y: scroll;
   scrollbar-gutter: stable;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 body {
