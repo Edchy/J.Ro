@@ -89,13 +89,13 @@ body {
 ::-webkit-scrollbar-thumb {
   border-radius: 9999px;
   border: 0.125rem solid transparent;
-  background-color: var(--jr-ocra);
+  background-color: var(--jr-gron);
   background-clip: padding-box;
   min-height: 2.5rem;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--jr-brun);
+  background-color: var(--jr-gron);
 }
 
 ::-webkit-scrollbar-track {
