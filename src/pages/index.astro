@@ -345,7 +345,7 @@ const blends = [
       display: grid;
       grid-template-rows: auto 1fr auto;
       padding: var(--space-lg);
-      overflow: hidden;
+      overflow: clip;
       background-color: var(--jr-vit);
     }
 
@@ -362,7 +362,7 @@ const blends = [
       display: flex;
       align-items: center;
       gap: var(--space-sm);
-      padding-right: calc(var(--hamburger-size) + var(--space-lg));
+      padding-right: 0;
       animation: fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
       animation-delay: 0.1s;
     }
@@ -525,8 +525,12 @@ const blends = [
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
-      animation: fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
-      animation-delay: 0.6s;
+      opacity: 0;
+      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.6s;
+    }
+
+    :global(body.is-loaded) .hero-foot {
+      opacity: 1;
     }
 
     .foot-mark {
@@ -569,7 +573,7 @@ const blends = [
           ((var(--hamburger-size) - (var(--text-ui) * 1.5)) / 2) -
           (var(--text-ui) * 0.375)
       );
-      right: max(var(--space-lg), calc(50vw - 600px + var(--space-lg)));
+      right: max(var(--space-lg), calc((100vw - var(--content-shell-max)) / 2 + var(--space-lg)));
     }
 
     .hamburger {
@@ -670,7 +674,7 @@ const blends = [
           ((var(--hamburger-size) - (var(--text-ui) * 1.5)) / 2) -
           (var(--text-ui) * 0.375)
       );
-      right: max(var(--space-lg), calc(50vw - 600px + var(--space-lg)));
+      right: max(var(--space-lg), calc((100vw - var(--content-shell-max)) / 2 + var(--space-lg)));
       opacity: 1;
       background: color-mix(in srgb, var(--jr-vit) 72%, transparent);
     }
@@ -1522,7 +1526,6 @@ const blends = [
       .hero-rule-vert,
       .hero-rule-horiz,
       .hero-right,
-      .hero-foot,
       .hamburger,
       .section-kicker[data-kicker-reveal] {
         animation: none;
@@ -1530,6 +1533,12 @@ const blends = [
         transform: none;
         opacity: 1;
         filter: none;
+      }
+
+      .hero-foot {
+        transition: none;
+        transform: none;
+        opacity: 1;
       }
 
       .scroll-line {
@@ -1703,13 +1712,19 @@ const blends = [
         ".hero-intro-graf, .scroll-indicator, .foot-wordmark, .hero-rule-horiz",
       ),
     ) as HTMLElement[];
+    const mobileDriftLeft = Array.from(
+      document.querySelectorAll(".hero-left-grafs"),
+    ) as HTMLElement[];
+    const mobileDriftRight = Array.from(
+      document.querySelectorAll(".hero-foot"),
+    ) as HTMLElement[];
 
     const heroSection = document.querySelector(
       ".hero-v9",
     ) as HTMLElement | null;
     const heroDriftFade = Array.from(
       document.querySelectorAll(
-        ".meta-wordmark, .hero-intro-graf, .scroll-indicator, .foot-mark, .foot-wordmark, .wordmark-tagline, .hero-left-grafs, .hamburger, .hero-rule-horiz",
+        ".meta-wordmark, .hero-intro-graf, .scroll-indicator, .foot-mark, .foot-wordmark, .wordmark-tagline, .hero-left-grafs, .hero-rule-horiz",
       ),
     ) as HTMLElement[];
 
@@ -1739,8 +1754,21 @@ const blends = [
           vertRule.style.opacity = String(Math.max(0, 1 - fadeProgress * 1.15));
           vertRule.style.transform = `scaleY(1) translateY(-${fadeProgress * 60}px)`;
         }
+        mobileDriftLeft.forEach((el) => el.style.removeProperty("transform"));
+        mobileDriftRight.forEach((el) => el.style.removeProperty("transform"));
+      } else if (!reduceMotion.matches && isMobile) {
+        const pull = y * 1.8;
+        mobileDriftLeft.forEach((el) => {
+          el.style.transform = `translateX(-${pull}px)`;
+        });
+        mobileDriftRight.forEach((el) => {
+          el.style.transform = `translateX(${pull}px)`;
+        });
+        [...heroDriftRight, ...heroDriftLeft].forEach((el) => el.style.removeProperty("transform"));
+        heroDriftFade.forEach((el) => el.style.removeProperty("opacity"));
+        if (vertRule) { vertRule.style.removeProperty("opacity"); vertRule.style.removeProperty("transform"); }
       } else {
-        [...heroDriftRight, ...heroDriftLeft].forEach((element) => {
+        [...heroDriftRight, ...heroDriftLeft, ...mobileDriftLeft, ...mobileDriftRight].forEach((element) => {
           element.style.removeProperty("transform");
         });
         heroDriftFade.forEach((element) => {
