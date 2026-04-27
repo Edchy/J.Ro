@@ -330,12 +330,6 @@ const blends = [
 
     :global(body.menu-open) {
       overflow: hidden;
-    }
-
-    :global(body.menu-open) {
-      position: fixed;
-      inset: 0;
-      width: 100%;
       touch-action: none;
     }
 
@@ -682,11 +676,9 @@ const blends = [
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
-      transform: translateY(0.25rem);
       transition:
-        opacity 0.08s linear,
-        transform 0.12s cubic-bezier(0.2, 0.8, 0.2, 1),
-        visibility 0s linear 0.12s;
+        opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0s linear 0.28s;
     }
 
     .menu-close {
@@ -724,10 +716,8 @@ const blends = [
     .menu-dialog.is-visible {
       opacity: 1;
       pointer-events: auto;
-      transform: translateY(0);
       transition:
-        opacity 0.08s linear,
-        transform 0.1s cubic-bezier(0.2, 0.8, 0.2, 1),
+        opacity 0.12s cubic-bezier(0.22, 1, 0.36, 1),
         visibility 0s linear 0s;
     }
 
@@ -742,15 +732,12 @@ const blends = [
       padding: var(--space-xl) var(--page-inset)
         max(var(--space-xl), env(safe-area-inset-bottom));
       opacity: 0;
-      transform: translateY(0.25rem);
-      transition:
-        opacity 0.08s linear,
-        transform 0.12s cubic-bezier(0.2, 0.8, 0.2, 1);
+      transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .menu-dialog.is-visible .menu-inner {
       opacity: 1;
-      transform: translateY(0);
+      transition: opacity 0.12s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .menu-nav {
@@ -1752,7 +1739,7 @@ const blends = [
   <script>
     const hamburger = document.querySelector(".hamburger") as HTMLButtonElement;
     const dialog = document.getElementById("site-menu") as HTMLDialogElement;
-    const menuTransitionMs = 120;
+    const menuTransitionMs = 350;
     let closeTimer: number | undefined;
     let scrollLockY = 0;
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -2046,10 +2033,6 @@ const blends = [
       document.body.classList.toggle("menu-open", isOpen);
       if (isOpen) {
         scrollLockY = window.scrollY;
-        document.body.style.top = `-${scrollLockY}px`;
-      } else {
-        document.body.style.top = "";
-        window.scrollTo(0, scrollLockY);
       }
       hamburger.setAttribute("aria-expanded", String(isOpen));
       hamburger.classList.toggle("is-open", isOpen);
@@ -2114,12 +2097,12 @@ const blends = [
         if (href && href.startsWith("#")) {
           e.preventDefault();
           const target = document.querySelector(href) as HTMLElement | null;
-          if (target) {
-            scrollLockY = target.offsetTop;
-          }
+          const targetY = target ? target.getBoundingClientRect().top + window.scrollY : 0;
           dialog.classList.remove("is-visible");
+          syncMenuState(false);
           closeTimer = window.setTimeout(() => {
             if (dialog.open) dialog.close();
+            window.scrollTo({ top: targetY });
           }, menuTransitionMs);
         } else {
           closeMenu();
