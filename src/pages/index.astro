@@ -127,6 +127,14 @@ const blends = [
   </section>
 
   <dialog id="site-menu" class="menu-dialog">
+    <button
+      type="button"
+      class="hamburger menu-close"
+      aria-label="Stäng meny"
+    >
+      <span class="hamburger-bar hamburger-bar--top"></span>
+      <span class="hamburger-bar hamburger-bar--bot"></span>
+    </button>
     <div class="menu-inner">
       <nav class="menu-nav">
         <a href="#about" class="menu-link">Om oss</a>
@@ -178,6 +186,8 @@ const blends = [
               class="blend-strip-image"
               src={`${base}/assets/images/${blend.image}`}
               alt={blend.name}
+              loading="lazy"
+              decoding="async"
               style={`--crop: ${blend.crop};`}
             />
           </button>
@@ -195,12 +205,12 @@ const blends = [
           >info@jarnarosteri.se</a
         >
         <a href="tel:+46708401365" class="contact-item">070-840 13 65</a>
-        <!-- <a
+        <a
           href="https://www.instagram.com/jarnarosteri"
           target="_blank"
           rel="noopener noreferrer"
-          class="contact-item"
-        >Instagram</a> -->
+          class="contact-item">instagram ↗</a
+        >
       </nav>
       <p class="contact-address">Maskinvägen 5 · 153 30 Järna</p>
     </div>
@@ -233,47 +243,49 @@ const blends = [
     </div>
   </section>
 
-  <!-- ─── IMAGE + CAPTION ──────────────────────────────────────── -->
-  <section class="image-block">
-    <div
-      class="image-block-photo"
-      style={`background-image: url('${base}/assets/images/hero-no-text.avif')`}
-      aria-hidden="true"
-    >
-    </div>
-    <p class="section-kicker image-block-top" data-kicker-reveal>Följ oss</p>
-    <div class="image-block-bottom">
-      <p class="image-block-caption">
-        För mer från våra resor, rosteriet & vardagen
-      </p>
-      <a
-        href="https://www.instagram.com/jarnarosteri"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="image-block-cta"
+  <div class="image-footer-stack">
+    <!-- ─── IMAGE + CAPTION ──────────────────────────────────────── -->
+    <section class="image-block">
+      <div
+        class="image-block-photo"
+        style={`background-image: url('${base}/assets/images/hero-no-text.avif')`}
+        aria-hidden="true"
       >
-        <span class="image-block-cta-label">Instagram</span>
-        <span class="image-block-cta-handle">@jarnarosteri</span>
-      </a>
-    </div>
-    <div class="image-block-scrim" aria-hidden="true"></div>
-  </section>
+      </div>
+      <p class="section-kicker image-block-top" data-kicker-reveal>Följ oss</p>
+      <div class="image-block-bottom">
+        <p class="image-block-caption">
+          För mer från våra resor, rosteriet & vardagen
+        </p>
+        <a
+          href="https://www.instagram.com/jarnarosteri"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="image-block-cta"
+        >
+          <!-- <span class="image-block-cta-label">se vår</span> -->
+          <span class="image-block-cta-handle">instagram ↗</span>
+        </a>
+      </div>
+      <div class="image-block-scrim" aria-hidden="true"></div>
+    </section>
 
-  <!-- ─── FOOTER ───────────────────────────────────────────────── -->
-  <footer class="index-footer">
-    <div class="index-footer-inner">
-      <span
-        class="index-footer-wordmark"
-        style={`--wordmark-mask: url('${base}/assets/images/jarna-rosteri-wordmark.svg')`}
-        role="img"
-        aria-label="Järna Rosteri"></span>
-      <nav class="index-footer-nav">
-        <a href="#contact" class="index-footer-link">Kontakt</a>
-        <a href="#about" class="index-footer-link">Om oss</a>
-      </nav>
-      <p class="index-footer-copyright">© Järna Rosteri AB</p>
-    </div>
-  </footer>
+    <!-- ─── FOOTER ───────────────────────────────────────────────── -->
+    <footer class="index-footer">
+      <div class="index-footer-inner">
+        <span
+          class="index-footer-wordmark"
+          style={`--wordmark-mask: url('${base}/assets/images/jarna-rosteri-wordmark.svg')`}
+          role="img"
+          aria-label="Järna Rosteri"></span>
+        <nav class="index-footer-nav">
+          <a href="#contact" class="index-footer-link">Kontakt</a>
+          <a href="#about" class="index-footer-link">Om oss</a>
+        </nav>
+        <p class="index-footer-copyright">© Järna Rosteri AB</p>
+      </div>
+    </footer>
+  </div>
 
   <style>
     :root {
@@ -285,7 +297,7 @@ const blends = [
         calc((100vw - var(--content-shell-max)) / 2 + var(--page-inset))
       );
       --header-height: 4.5rem;
-      --hamburger-size: 2.35rem;
+      --hamburger-size: 2.75rem;
     }
 
     :global(body) {
@@ -293,8 +305,7 @@ const blends = [
     }
 
     :global(html.menu-open) {
-      overflow-y: scroll;
-      scrollbar-gutter: stable;
+      overflow: hidden;
     }
 
     :global(body.menu-open) {
@@ -319,6 +330,13 @@ const blends = [
       padding: var(--space-lg);
       overflow: hidden;
       background-color: var(--jr-vit);
+    }
+
+    .hero-meta,
+    .hero-body,
+    .hero-foot {
+      width: min(100%, var(--content-shell-max));
+      margin-inline: auto;
     }
 
     .hero-meta {
@@ -611,6 +629,7 @@ const blends = [
       margin: 0;
       padding: 0;
       border: none;
+      overflow: hidden;
       background-color: var(--jr-vit);
       color: var(--jr-gron);
       opacity: 0;
@@ -621,6 +640,27 @@ const blends = [
         opacity 0.08s linear,
         transform 0.12s cubic-bezier(0.2, 0.8, 0.2, 1),
         visibility 0s linear 0.12s;
+    }
+
+    .menu-close {
+      position: fixed;
+      z-index: 60;
+      top: calc(
+        var(--space-lg) -
+          ((var(--hamburger-size) - (var(--text-ui) * 1.5)) / 2) -
+          (var(--text-ui) * 0.375)
+      );
+      right: max(var(--space-lg), calc(50vw - 600px + var(--space-lg)));
+      opacity: 1;
+      background: color-mix(in srgb, var(--jr-vit) 72%, transparent);
+    }
+
+    .menu-close .hamburger-bar--top {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .menu-close .hamburger-bar--bot {
+      transform: translate(-50%, -50%) rotate(-45deg);
     }
 
     .menu-dialog[open] {
@@ -705,7 +745,8 @@ const blends = [
       justify-content: space-between;
       padding: var(--space-lg) var(--page-inset)
         max(var(--space-lg), env(safe-area-inset-bottom));
-      border-top: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+      max-width: var(--content-shell-max);
+      margin-inline: auto;
     }
 
     .menu-logomark {
@@ -713,7 +754,6 @@ const blends = [
       width: auto;
       display: block;
       color: inherit;
-      opacity: 0.45;
     }
 
     .menu-address {
@@ -722,7 +762,6 @@ const blends = [
       text-transform: uppercase;
       letter-spacing: 0.14em;
       color: inherit;
-      opacity: 0.35;
       margin: 0;
       text-align: center;
     }
@@ -731,7 +770,6 @@ const blends = [
       height: 1.6rem;
       width: auto;
       display: block;
-      opacity: 0.55;
     }
 
     @keyframes fade-up {
@@ -810,7 +848,7 @@ const blends = [
     /* ── ABOUT SECTION ──────────────────────────────────────────── */
     .about-section {
       width: 100%;
-      margin-top: clamp(4rem, 10vw, 8rem);
+      /*margin-top: clamp(4rem, 10vw, 8rem);*/
       padding: clamp(3rem, 8vw, 6rem) var(--page-inset);
       background-color: var(--jr-vit);
     }
@@ -963,10 +1001,19 @@ const blends = [
     }
 
     /* ── IMAGE BLOCK ─────────────────────────────────────────────── */
+    .image-footer-stack {
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      min-height: 100svh;
+      background: var(--jr-vit);
+    }
+
     .image-block {
       position: relative;
-      width: 100%;
-      height: clamp(52vh, 72vw, 82vh);
+      width: min(100%, var(--content-shell-max));
+      margin-inline: auto;
+      height: 100%;
+      min-height: 0;
       overflow: hidden;
       background: var(--jr-vit);
     }
@@ -999,9 +1046,11 @@ const blends = [
     .image-block-top {
       position: absolute;
       top: var(--page-inset);
-      left: var(--content-line-start);
+      inset-inline: 0;
+      width: min(100%, var(--content-shell-max));
+      margin: 0 auto;
+      padding-inline: 2rem;
       z-index: 1;
-      margin: 0;
       color: var(--jr-vit);
     }
 
@@ -1012,7 +1061,8 @@ const blends = [
       z-index: 1;
       width: min(100%, var(--content-shell-max));
       margin: 0 auto;
-      padding: var(--page-inset) var(--page-inset) clamp(1.5rem, 4vw, 2.5rem);
+      padding-inline: 2rem;
+      padding-block: var(--page-inset) clamp(1.5rem, 4vw, 2.5rem);
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
@@ -1065,7 +1115,12 @@ const blends = [
     .contact-section {
       background: var(--jr-vit);
       color: var(--jr-gron);
-      padding: clamp(5rem, 12vw, 9rem) var(--page-inset) clamp(4rem, 8vw, 7rem);
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-inline: var(--page-inset);
+      box-sizing: border-box;
     }
 
     .contact-section-inner {
@@ -1073,13 +1128,16 @@ const blends = [
       margin: 0 auto;
       display: flex;
       flex-direction: column;
+      align-items: center;
       gap: 0;
+      text-align: center;
     }
 
     .contact-items {
       display: flex;
       flex-direction: column;
-      gap: 0;
+      align-items: center;
+      gap: 0.75rem;
     }
 
     .contact-item {
@@ -1095,6 +1153,15 @@ const blends = [
 
     .contact-item:hover {
       opacity: 0.55;
+    }
+
+    @media (max-width: 800px) {
+      .contact-item,
+      .index-footer-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+      }
     }
 
     .contact-address {
@@ -1116,7 +1183,8 @@ const blends = [
     .index-footer-inner {
       width: min(100%, var(--content-shell-max));
       margin: 0 auto;
-      padding: 2rem 1rem max(2rem, env(safe-area-inset-bottom));
+      padding-inline: 2rem;
+      padding-block: 2rem max(2rem, env(safe-area-inset-bottom));
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -1304,7 +1372,7 @@ const blends = [
         perspective: none;
         overflow: visible;
         padding: 0;
-        gap: 2px;
+        gap: 0;
       }
 
       .products-kicker {
@@ -1327,24 +1395,55 @@ const blends = [
         translate: none;
         width: 100% !important;
         height: 100%;
+        margin-top: 0;
         transform: none !important;
         will-change: auto;
-        overflow: hidden;
+        overflow: visible;
         z-index: 0;
-        transform-origin: top center;
-        transition: height 0.55s cubic-bezier(0.22, 1, 0.36, 1);
-      }
-
-      .blend-strip-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top center;
       }
 
       .blend-strip.is-expanded {
-        height: calc(200% + 2px);
-        z-index: 3;
+        z-index: 1;
+      }
+
+      /* All images: top-anchored, 200% tall */
+      .blend-strip .blend-strip-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 200%;
+        object-fit: cover;
+        object-position: top center;
+        transition: clip-path 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      /* Rows 1–2: clip bottom half, expand downward */
+      .blend-strip:nth-child(2) .blend-strip-image,
+      .blend-strip:nth-child(3) .blend-strip-image,
+      .blend-strip:nth-child(4) .blend-strip-image,
+      .blend-strip:nth-child(5) .blend-strip-image {
+        clip-path: inset(0 0 50% 0);
+      }
+
+      .blend-strip:nth-child(2).is-expanded .blend-strip-image,
+      .blend-strip:nth-child(3).is-expanded .blend-strip-image,
+      .blend-strip:nth-child(4).is-expanded .blend-strip-image,
+      .blend-strip:nth-child(5).is-expanded .blend-strip-image {
+        clip-path: inset(0 0 0% 0);
+      }
+
+      /* Row 3: anchored bottom, expand upward */
+      .blend-strip:nth-child(6) .blend-strip-image,
+      .blend-strip:nth-child(7) .blend-strip-image {
+        top: auto;
+        bottom: 0;
+        clip-path: inset(50% 0 0 0);
+      }
+
+      .blend-strip:nth-child(6).is-expanded .blend-strip-image,
+      .blend-strip:nth-child(7).is-expanded .blend-strip-image {
+        clip-path: inset(0 0 0 0);
       }
     }
 
@@ -1473,7 +1572,8 @@ const blends = [
         align-items: center;
         flex-direction: column;
         gap: 1.25rem;
-        padding: 1.5rem 1rem max(1.75rem, env(safe-area-inset-bottom));
+        padding-inline: 2rem;
+        padding-block: 1.5rem max(1.75rem, env(safe-area-inset-bottom));
         text-align: center;
       }
 
@@ -1496,6 +1596,7 @@ const blends = [
       .index-footer-copyright {
         width: 100%;
         padding-top: 0.75rem;
+        font-size: calc(var(--text-ui) * 0.82);
         border-top: 1px solid
           color-mix(in srgb, var(--jr-ocra) 22%, transparent);
       }
@@ -1521,14 +1622,8 @@ const blends = [
         display: none;
       }
 
-      .contact-section {
-        min-height: 100svh;
-        display: flex;
-        align-items: center;
-      }
-
       .image-block {
-        height: 100svh;
+        height: 100%;
       }
 
       .packages-section-caption {
@@ -1601,23 +1696,37 @@ const blends = [
     window.addEventListener("scroll", syncParallax, { passive: true });
 
     // ── BLEND STRIP SCROLLER ─────────────────────────────────────
+    const MOBILE_BREAKPOINT = 900;
+
     const blendScroller = document.querySelector(
       "[data-blend-scroller]",
     ) as HTMLElement | null;
     const blendStrips = Array.from(
       document.querySelectorAll("[data-blend-strip]"),
     ) as HTMLElement[];
+    const EXPAND_DURATION = 450;
     blendStrips.forEach((strip) => {
       strip.addEventListener("click", () => {
         if (window.innerWidth > MOBILE_BREAKPOINT) return;
         const shouldExpand = !strip.classList.contains("is-expanded");
         blendStrips.forEach((otherStrip) => {
-          otherStrip.classList.remove("is-expanded");
-          otherStrip.setAttribute("aria-expanded", "false");
+          if (otherStrip === strip) return;
+          if (otherStrip.classList.contains("is-expanded")) {
+            otherStrip.classList.remove("is-expanded");
+            otherStrip.setAttribute("aria-expanded", "false");
+            // keep z-index elevated until image has finished shrinking
+            otherStrip.style.zIndex = "2";
+            setTimeout(() => {
+              otherStrip.style.removeProperty("z-index");
+            }, EXPAND_DURATION);
+          }
         });
         if (shouldExpand) {
           strip.classList.add("is-expanded");
           strip.setAttribute("aria-expanded", "true");
+        } else {
+          strip.classList.remove("is-expanded");
+          strip.setAttribute("aria-expanded", "false");
         }
       });
     });
@@ -1704,8 +1813,6 @@ const blends = [
       requestAnimationFrame(applyBlendStrips);
     }
 
-    const MOBILE_BREAKPOINT = 900;
-
     function isStaticProducts(): boolean {
       return reduceMotion.matches || window.innerWidth <= MOBILE_BREAKPOINT;
     }
@@ -1778,10 +1885,19 @@ const blends = [
 
     function openMenu() {
       window.clearTimeout(closeTimer);
-      if (!dialog.open) dialog.show();
+      if (!dialog.open) {
+        if (typeof dialog.showModal === "function") {
+          dialog.showModal();
+        } else {
+          dialog.show();
+        }
+      }
       void dialog.offsetWidth;
       dialog.classList.add("is-visible");
       syncMenuState(true);
+      requestAnimationFrame(() => {
+        (dialog.querySelector(".menu-close") as HTMLButtonElement | null)?.focus();
+      });
     }
 
     function closeMenu() {
@@ -1804,12 +1920,19 @@ const blends = [
     dialog.addEventListener("close", () => {
       window.clearTimeout(closeTimer);
       dialog.classList.remove("is-visible");
-      syncMenuState(false);
+      hamburger.focus();
+    });
+
+    dialog.addEventListener("cancel", (event) => {
+      event.preventDefault();
+      closeMenu();
     });
 
     dialog.addEventListener("click", (event) => {
       if (event.target === dialog) closeMenu();
     });
+
+    dialog.querySelector(".menu-close")?.addEventListener("click", closeMenu);
 
     dialog.querySelectorAll(".menu-link").forEach((link) => {
       link.addEventListener("click", (e) => {
@@ -1821,7 +1944,6 @@ const blends = [
             scrollLockY = target.offsetTop;
           }
           dialog.classList.remove("is-visible");
-          syncMenuState(false);
           closeTimer = window.setTimeout(() => {
             if (dialog.open) dialog.close();
           }, menuTransitionMs);
