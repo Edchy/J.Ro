@@ -84,7 +84,7 @@ const blends = [
     <div class="hero-body">
       <div class="hero-left">
         <div class="wordmark-stack">
-          <LogoMark color="var(--jr-gron)" width="clamp(14rem, 30vw, 28rem)" />
+          <LogoMark color="var(--jr-ocra)" width="clamp(14rem, 30vw, 28rem)" />
           <p class="wordmark-tagline">Kaffekultur, Hantverk &amp; hållbarhet</p>
         </div>
         <div class="hero-rule-horiz"></div>
@@ -161,11 +161,13 @@ const blends = [
             fill="currentColor"></path>
         </svg>
         <p class="menu-address">Kaffekultur, Hantverk & hållbarhet</p>
-        <img
-          src={`${base}/assets/images/Demeter_RGB.svg`}
-          alt="Demeter-certifierat"
-          class="menu-demeter"
-        />
+        <a href="https://demeter.se/" target="_blank" rel="noopener noreferrer">
+          <img
+            src={`${base}/assets/images/test/demeter-logo-png-transparent.png`}
+            alt="Demeter-certifierat"
+            class="menu-demeter"
+          />
+        </a>
       </div>
     </div>
   </dialog>
@@ -220,7 +222,7 @@ const blends = [
           class="contact-item">instagram ↗</a
         >
       </nav>
-      <p class="contact-address">Maskinvägen 5 · 153 30 Järna</p>
+      <p class="contact-address">Maskinvägen 5<br /> 153 30, Järna</p>
     </div>
   </section>
 
@@ -346,7 +348,7 @@ const blends = [
       grid-template-rows: auto 1fr auto;
       padding: var(--space-lg);
       overflow: clip;
-      background-color: var(--jr-vit);
+      background-color: var(--jr-gron);
     }
 
     .hero-meta,
@@ -373,7 +375,7 @@ const blends = [
       width: auto;
       display: block;
       flex: 0 0 auto;
-      background: var(--jr-gron);
+      background: var(--jr-ocra);
       -webkit-mask: var(--wordmark-mask) center / contain no-repeat;
       mask: var(--wordmark-mask) center / contain no-repeat;
       opacity: 0.55;
@@ -412,14 +414,14 @@ const blends = [
       line-height: 1.25;
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      color: var(--jr-gron);
+      color: var(--jr-ocra);
       opacity: 0.45;
     }
 
     .hero-rule-horiz {
       width: 100%;
       height: 1px;
-      background: color-mix(in srgb, var(--jr-gron) 25%, transparent);
+      background: color-mix(in srgb, var(--jr-ljusgul) 25%, transparent);
       margin-top: clamp(1.5rem, 3vh, 2.5rem);
       transform-origin: left center;
       transform: scaleX(0);
@@ -444,7 +446,7 @@ const blends = [
     .hero-rule-vert {
       width: 1px;
       align-self: stretch;
-      background: color-mix(in srgb, var(--jr-gron) 25%, transparent);
+      background: color-mix(in srgb, var(--jr-ljusgul) 25%, transparent);
       flex-shrink: 0;
       transform-origin: top center;
       transform: scaleY(0);
@@ -473,7 +475,7 @@ const blends = [
       font-family: var(--font);
       font-size: var(--text-ui);
       line-height: 1.65;
-      color: var(--jr-gron);
+      color: var(--jr-ljusgul);
       opacity: 0.6;
       letter-spacing: 0.02em;
     }
@@ -498,7 +500,7 @@ const blends = [
       display: block;
       width: 1px;
       height: 2.5rem;
-      background: var(--jr-gron);
+      background: var(--jr-ljusgul);
       opacity: 0.3;
       animation: scroll-pulse 2.5s ease-in-out infinite;
     }
@@ -508,7 +510,7 @@ const blends = [
       font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      color: var(--jr-gron);
+      color: var(--jr-ljusgul);
       opacity: 0.35;
       writing-mode: vertical-lr;
       transform: rotate(180deg);
@@ -537,7 +539,7 @@ const blends = [
       display: inline-block;
       font-family: var(--font-display);
       font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-      color: var(--jr-gron);
+      color: var(--jr-ljusgul);
       opacity: 0.4;
       letter-spacing: -0.03em;
     }
@@ -548,7 +550,7 @@ const blends = [
       width: auto;
       display: block;
       flex: 0 0 auto;
-      background: var(--jr-gron);
+      background: var(--jr-ocra);
       -webkit-mask: var(--wordmark-mask) center / contain no-repeat;
       mask: var(--wordmark-mask) center / contain no-repeat;
       opacity: 0.55;
@@ -573,13 +575,16 @@ const blends = [
           ((var(--hamburger-size) - (var(--text-ui) * 1.5)) / 2) -
           (var(--text-ui) * 0.375)
       );
-      right: max(var(--space-lg), calc((100vw - var(--content-shell-max)) / 2 + var(--space-lg)));
+      right: max(
+        var(--space-lg),
+        calc((100vw - var(--content-shell-max)) / 2 + var(--space-lg))
+      );
     }
 
     .hamburger {
       background: transparent;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
       border: none;
       border-radius: 50%;
       box-shadow: none;
@@ -587,15 +592,24 @@ const blends = [
       padding: 0;
       width: var(--hamburger-size);
       height: var(--hamburger-size);
-      color: var(--jr-gron);
+      color: var(--jr-ljusgul);
       transition:
         opacity 0.25s ease,
         border-color 0.25s ease,
         box-shadow 0.25s ease;
     }
 
+    .hamburger:focus {
+      outline: none;
+    }
+
+    .hamburger:focus-visible {
+      outline: 2px solid var(--jr-ljusgul);
+      outline-offset: 2px;
+    }
+
     :global(body.menu-open) .hamburger {
-      background: color-mix(in srgb, var(--jr-vit) 72%, transparent);
+      background: transparent;
       box-shadow: none;
     }
 
@@ -654,8 +668,8 @@ const blends = [
       padding: 0;
       border: none;
       overflow: hidden;
-      background-color: var(--jr-vit);
-      color: var(--jr-gron);
+      background-color: var(--jr-gron);
+      color: var(--jr-ljusgul);
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
@@ -674,9 +688,12 @@ const blends = [
           ((var(--hamburger-size) - (var(--text-ui) * 1.5)) / 2) -
           (var(--text-ui) * 0.375)
       );
-      right: max(var(--space-lg), calc((100vw - var(--content-shell-max)) / 2 + var(--space-lg)));
+      right: max(
+        var(--space-lg),
+        calc((100vw - var(--content-shell-max)) / 2 + var(--space-lg))
+      );
       opacity: 1;
-      background: color-mix(in srgb, var(--jr-vit) 72%, transparent);
+      background: transparent;
     }
 
     .menu-close .hamburger-bar--top {
@@ -761,6 +778,7 @@ const blends = [
     }
 
     .menu-footer {
+      color: var(--jr-vit);
       position: absolute;
       bottom: 0;
       inset-inline: 0;
@@ -781,8 +799,8 @@ const blends = [
     }
 
     .menu-address {
-      font-family: var(--font);
-      font-size: var(--text-ui);
+      font-family: var(--font-wordmark);
+      font-size: var(--text-nav);
       text-transform: uppercase;
       letter-spacing: 0.14em;
       color: inherit;
@@ -790,10 +808,24 @@ const blends = [
       text-align: center;
     }
 
+    @media (min-width: 640px) {
+      .menu-address {
+        font-size: var(--text-ui);
+      }
+    }
+
     .menu-demeter {
-      height: 1.6rem;
+      height: 3.5rem;
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
       width: auto;
       display: block;
+    }
+
+    .menu-demeter:hover {
+      opacity: 0.7;
+      transform: scale(1.05);
     }
 
     @keyframes fade-up {
@@ -1130,8 +1162,8 @@ const blends = [
 
     /* ── CONTACT SECTION ────────────────────────────────────────── */
     .contact-section {
-      background: var(--jr-vit);
-      color: var(--jr-gron);
+      background: var(--jr-gron);
+      color: var(--jr-ljusgul);
       min-height: 100svh;
       display: flex;
       align-items: center;
@@ -1162,7 +1194,7 @@ const blends = [
       font-size: clamp(1.4rem, 3vw, 2.5rem);
       line-height: 1;
       letter-spacing: -0.03em;
-      color: var(--jr-gron);
+      color: var(--jr-ljusgul);
       text-decoration: none;
       transition: opacity 0.2s cubic-bezier(0.22, 1, 0.36, 1);
       display: block;
@@ -1186,7 +1218,7 @@ const blends = [
       font-size: var(--text-ui);
       text-transform: uppercase;
       letter-spacing: 0.2em;
-      color: var(--jr-brun);
+      color: var(--jr-ocra);
       opacity: 0.72;
       margin-top: clamp(2.5rem, 6vw, 4rem);
     }
@@ -1201,7 +1233,7 @@ const blends = [
       width: min(100%, var(--content-shell-max));
       margin: 0 auto;
       padding-inline: 2rem;
-      padding-block: 2rem max(2rem, env(safe-area-inset-bottom));
+      padding-block: 4rem max(4rem, env(safe-area-inset-bottom));
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -1251,6 +1283,7 @@ const blends = [
     .products-scroller {
       position: relative;
       height: 300svh;
+      background: var(--jr-gron);
     }
 
     .products-stage {
@@ -1270,7 +1303,7 @@ const blends = [
       right: var(--page-inset);
       z-index: 2;
       margin: 0;
-      color: var(--jr-morkrost);
+      color: var(--jr-ocra);
       text-align: right;
       will-change: opacity, transform;
     }
@@ -1301,7 +1334,7 @@ const blends = [
       content: "";
       position: absolute;
       inset: 0;
-      box-shadow: inset 0 0 0 5px white;
+      box-shadow: inset 0 0 0 5px var(--jr-gron);
       pointer-events: none;
       z-index: 2;
     }
@@ -1764,11 +1797,21 @@ const blends = [
         mobileDriftRight.forEach((el) => {
           el.style.transform = `translateX(${pull}px)`;
         });
-        [...heroDriftRight, ...heroDriftLeft].forEach((el) => el.style.removeProperty("transform"));
+        [...heroDriftRight, ...heroDriftLeft].forEach((el) =>
+          el.style.removeProperty("transform"),
+        );
         heroDriftFade.forEach((el) => el.style.removeProperty("opacity"));
-        if (vertRule) { vertRule.style.removeProperty("opacity"); vertRule.style.removeProperty("transform"); }
+        if (vertRule) {
+          vertRule.style.removeProperty("opacity");
+          vertRule.style.removeProperty("transform");
+        }
       } else {
-        [...heroDriftRight, ...heroDriftLeft, ...mobileDriftLeft, ...mobileDriftRight].forEach((element) => {
+        [
+          ...heroDriftRight,
+          ...heroDriftLeft,
+          ...mobileDriftLeft,
+          ...mobileDriftRight,
+        ].forEach((element) => {
           element.style.removeProperty("transform");
         });
         heroDriftFade.forEach((element) => {
