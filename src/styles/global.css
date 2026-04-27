@@ -70,8 +70,8 @@ html {
 body {
   min-height: 100%;
   font-family: var(--font);
-  background: var(--jr-vit);
-  color: var(--jr-gron);
+  background: var(--jr-gron);
+  color: var(--jr-vit);
   text-wrap: pretty;
 }
 

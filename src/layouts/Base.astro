@@ -3,9 +3,17 @@ import "../styles/global.css";
 
 interface Props {
   title?: string;
+  description?: string;
+  canonicalURL?: string;
+  ogImage?: string;
 }
 
-const { title = "Järna Røsteri" } = Astro.props;
+const {
+  title = "Järna Rosteri",
+  description = "Järna Rosteri — det enda biodynamiska, Demeter-certifierade rosteriet i Norden. Ekologiskt handrostat kaffe sedan 2013, strax söder om Stockholm.",
+  canonicalURL = "https://jarnarosteri.se/",
+  ogImage = "https://jarnarosteri.se/assets/images/og-image.svg",
+} = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const fonts = `
   @font-face {
@@ -52,6 +60,54 @@ const fonts = `
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:site_name" content="Järna Rosteri" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Järna Rosteri",
+      "description": description,
+      "url": "https://jarnarosteri.se/",
+      "telephone": "+46708401365",
+      "email": "info@jarnarosteri.se",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Maskinvägen 5",
+        "postalCode": "153 30",
+        "addressLocality": "Järna",
+        "addressCountry": "SE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 59.0972,
+        "longitude": 17.5614
+      },
+      "sameAs": [
+        "https://www.instagram.com/jarnarosteri"
+      ],
+      "openingHoursSpecification": [],
+      "image": ogImage
+    })}></script>
+
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon3.svg`} />
     <style set:html={fonts}></style>
   </head>

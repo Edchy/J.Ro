@@ -62,7 +62,7 @@ const blends = [
 
 <Base title="Järna Rosteri">
   <!-- ─── HERO ─────────────────────────────────────────────────── -->
-  <section class="hero hero-v9" data-reveal="hero">
+  <section id="hero" class="hero hero-v9" data-reveal="hero">
     <header class="hero-meta">
       <span
         class="meta-wordmark"
@@ -95,8 +95,8 @@ const blends = [
           </p>
           <p class="hero-intro-graf">
             Det enda biodynamiska rosteriet i Norden. Hundra procent ekologiska
-            bönor, direktköpta från kretsloppsgårdar vi litar på. Rostat
-            småskaligt så att varje böna kommer till sin rätt.
+            bönor, direkt från kretsloppsgårdar vi litar på. Rostat småskaligt
+            så att varje böna kommer till sin rätt.
           </p>
         </div>
       </div>
@@ -282,7 +282,6 @@ const blends = [
           rel="noopener noreferrer"
           class="image-block-cta"
         >
-          <!-- <span class="image-block-cta-label">se vår</span> -->
           <span class="image-block-cta-handle">instagram ↗</span>
         </a>
       </div>
@@ -292,11 +291,13 @@ const blends = [
     <!-- ─── FOOTER ───────────────────────────────────────────────── -->
     <footer class="index-footer">
       <div class="index-footer-inner">
-        <span
-          class="index-footer-wordmark"
-          style={`--wordmark-mask: url('${base}/assets/images/jarna-rosteri-wordmark.svg')`}
-          role="img"
-          aria-label="Järna Rosteri"></span>
+        <a href="#hero" class="index-footer-wordmark-link" aria-label="Tillbaka till toppen">
+          <span
+            class="index-footer-wordmark"
+            style={`--wordmark-mask: url('${base}/assets/images/jarna-rosteri-wordmark.svg')`}
+            role="img"
+            aria-label="Järna Rosteri"></span>
+        </a>
         <nav class="index-footer-nav">
           <a href="#contact" class="index-footer-link">Kontakt</a>
           <a href="#about" class="index-footer-link">Ursprung</a>
@@ -441,6 +442,7 @@ const blends = [
       flex-direction: column;
       gap: 0.75rem;
       padding-top: clamp(1rem, 2vh, 1.75rem);
+      max-width: 50ch;
     }
 
     .hero-rule-vert {
@@ -507,11 +509,12 @@ const blends = [
 
     .scroll-label {
       font-family: var(--font);
-      font-size: 0.72rem;
+      font-size: var(--text-nav);
       text-transform: uppercase;
       letter-spacing: 0.18em;
       color: var(--jr-ljusgul);
       opacity: 0.35;
+      text-decoration: none;
       writing-mode: vertical-lr;
       transform: rotate(180deg);
       transition: opacity 0.2s ease;
@@ -519,6 +522,12 @@ const blends = [
 
     .scroll-label:hover {
       opacity: 0.7;
+    }
+
+    .scroll-label:focus-visible {
+      outline: 1px solid var(--jr-ljusgul);
+      outline-offset: 3px;
+      opacity: 0.9;
     }
 
     .hero-foot {
@@ -766,6 +775,12 @@ const blends = [
       opacity: 1;
     }
 
+    .menu-link:focus-visible {
+      outline: 1px solid var(--jr-ljusgul);
+      outline-offset: 4px;
+      opacity: 1;
+    }
+
     .menu-tagline {
       font-family: var(--font);
       font-size: var(--text-ui);
@@ -799,7 +814,7 @@ const blends = [
     }
 
     .menu-address {
-      font-family: var(--font-wordmark);
+      font-family: var(--font-display);
       font-size: var(--text-nav);
       text-transform: uppercase;
       letter-spacing: 0.14em;
@@ -893,7 +908,6 @@ const blends = [
     /* ── ABOUT SECTION ──────────────────────────────────────────── */
     .about-section {
       width: 100%;
-      /*margin-top: clamp(4rem, 10vw, 8rem);*/
       padding: clamp(3rem, 8vw, 6rem) var(--page-inset) clamp(6rem, 16vw, 12rem);
       background-color: var(--jr-vit);
     }
@@ -1021,7 +1035,7 @@ const blends = [
     .packages-section-caption {
       margin: 0;
       max-width: 24rem;
-      font-family: var(--font-mono);
+      font-family: var(--font);
       font-size: var(--text-body);
       line-height: var(--line-height);
       color: var(--jr-morkrost);
@@ -1143,6 +1157,12 @@ const blends = [
       opacity: 0.55;
     }
 
+    .image-block-cta:focus-visible {
+      outline: 1px solid var(--jr-vit);
+      outline-offset: 4px;
+      opacity: 1;
+    }
+
     .image-block-cta-label {
       font-family: var(--font);
       font-size: var(--text-ui);
@@ -1162,7 +1182,7 @@ const blends = [
 
     /* ── CONTACT SECTION ────────────────────────────────────────── */
     .contact-section {
-      background: var(--jr-gron);
+      background: var(--jr-brun);
       color: var(--jr-ljusgul);
       min-height: 100svh;
       display: flex;
@@ -1202,6 +1222,12 @@ const blends = [
 
     .contact-item:hover {
       opacity: 0.55;
+    }
+
+    .contact-item:focus-visible {
+      outline: 1px solid var(--jr-ljusgul);
+      outline-offset: 4px;
+      opacity: 1;
     }
 
     @media (max-width: 800px) {
@@ -1253,6 +1279,12 @@ const blends = [
       opacity: 0.55;
     }
 
+    .index-footer-wordmark-link {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
     .index-footer-nav {
       display: flex;
       gap: var(--space-xl);
@@ -1275,6 +1307,12 @@ const blends = [
     }
 
     .index-footer-link:hover {
+      opacity: 1;
+    }
+
+    .index-footer-link:focus-visible {
+      outline: 1px solid var(--jr-gron);
+      outline-offset: 3px;
       opacity: 1;
     }
 
