@@ -68,8 +68,7 @@ const blends = [
         class="meta-wordmark"
         style={`--wordmark-mask: url('${base}/assets/images/jarna-rosteri-wordmark.svg')`}
         role="img"
-        aria-label="Järna Rosteri"
-      ></span>
+        aria-label="Järna Rosteri"></span>
     </header>
 
     <button
@@ -88,6 +87,7 @@ const blends = [
           <LogoMark color="var(--jr-gron)" width="clamp(14rem, 30vw, 28rem)" />
           <p class="wordmark-tagline">Kaffekultur, Hantverk &amp; hållbarhet</p>
         </div>
+        <div class="hero-rule-horiz"></div>
         <div class="hero-left-grafs">
           <p class="hero-intro-graf">
             Här på Järna Rosteri, strax söder om Stockholm, rostar vi ekologiskt
@@ -160,7 +160,7 @@ const blends = [
             d="M 388.88 201.12 C381.85,203.30 369.00,203.52 362.00,201.57 C342.56,196.15 329.55,179.67 324.29,153.81 C322.13,143.19 321.89,113.86 323.88,103.00 C329.28,73.41 344.92,55.36 368.11,51.94 C382.10,49.88 396.79,54.79 406.91,64.91 C417.91,75.91 424.12,92.46 426.09,116.00 C428.62,146.21 421.84,173.95 408.22,189.10 C402.97,194.94 397.20,198.53 388.88,201.12 ZM 302.14 207.79 C301.60,207.97 297.53,209.87 293.10,212.01 L 285.05 215.90 L 276.96 199.20 C272.52,190.02 261.86,167.99 253.28,150.25 L 237.67 118.00 L 218.02 118.00 L 217.50 200.50 L 198.00 201.07 L 198.00 13.00 L 224.79 13.00 C254.02,13.00 259.43,13.72 268.00,18.74 C273.97,22.24 281.52,30.11 284.41,35.85 C288.68,44.35 290.25,51.75 290.29,63.50 C290.35,87.09 281.64,104.05 264.86,112.99 L 259.12 116.06 L 262.94 124.28 C265.04,128.80 274.95,149.37 284.95,169.98 C294.95,190.59 302.69,207.60 302.14,207.79 ZM 65.50 201.64 C58.01,203.64 45.60,203.31 38.67,200.93 C31.00,198.29 26.51,195.35 20.84,189.28 C11.52,179.28 8.29,169.24 7.35,147.26 L 6.69 132.00 L 27.00 132.00 L 27.02 141.75 C27.06,161.30 29.79,170.78 37.38,177.78 C42.28,182.30 46.96,183.99 54.63,183.99 C69.24,184.01 78.04,173.37 79.99,153.34 C80.52,147.93 80.96,114.14 80.97,78.25 L 81.00 13.00 L 101.13 13.00 L 100.76 87.25 C100.35,169.05 100.58,165.97 93.93,179.13 C88.40,190.09 78.05,198.28 65.50,201.64 ZM 218.00 30.79 L 218.00 100.23 L 234.25 99.82 C252.58,99.34 255.51,98.50 261.36,92.03 C267.26,85.50 269.36,78.34 269.43,64.50 C269.47,57.03 269.01,51.12 268.20,48.83 C265.83,42.15 261.27,37.01 255.18,34.18 C249.95,31.75 248.24,31.51 233.75,31.17 ZM 366.00 72.00 C353.30,72.00 343.00,96.60 343.00,127.00 C343.00,157.40 353.30,182.00 366.00,182.00 L 366.00 72.00 Z M 384.00 72.00 L 384.00 182.00 C396.70,182.00 407.00,157.40 407.00,127.00 C407.00,96.60 396.70,72.00 384.00,72.00 ZM 154.77 183.25 L 154.50 200.50 L 135.00 201.07 L 135.00 166.00 L 155.05 166.00 Z"
             fill="currentColor"></path>
         </svg>
-        <p class="menu-address">Det enda biodynamiska rosteriet i Norden</p>
+        <p class="menu-address">Kaffekultur, Hantverk & hållbarhet</p>
         <img
           src={`${base}/assets/images/Demeter_RGB.svg`}
           alt="Demeter-certifierat"
@@ -416,13 +416,29 @@ const blends = [
       opacity: 0.45;
     }
 
+    .hero-rule-horiz {
+      width: 100%;
+      height: 1px;
+      background: color-mix(in srgb, var(--jr-gron) 25%, transparent);
+      margin-top: clamp(1.5rem, 3vh, 2.5rem);
+      transform-origin: left center;
+      transform: scaleX(0);
+      opacity: 0;
+      transition:
+        transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s,
+        opacity 0.6s ease 0.5s;
+    }
+
+    :global(body.is-loaded) .hero-rule-horiz {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+
     .hero-left-grafs {
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
-      margin-top: clamp(1.5rem, 3vh, 2.5rem);
       padding-top: clamp(1rem, 2vh, 1.75rem);
-      border-top: 1px solid color-mix(in srgb, var(--jr-gron) 25%, transparent);
     }
 
     .hero-rule-vert {
@@ -430,8 +446,17 @@ const blends = [
       align-self: stretch;
       background: color-mix(in srgb, var(--jr-gron) 25%, transparent);
       flex-shrink: 0;
-      animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) both;
-      animation-delay: 0.35s;
+      transform-origin: top center;
+      transform: scaleY(0);
+      opacity: 0;
+      transition:
+        transform 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s,
+        opacity 0.5s ease 0.4s;
+    }
+
+    :global(body.is-loaded) .hero-rule-vert {
+      transform: scaleY(1);
+      opacity: 1;
     }
 
     .hero-right {
@@ -530,7 +555,9 @@ const blends = [
     .hero-intro-graf,
     .scroll-indicator,
     .foot-mark,
-    .foot-wordmark {
+    .foot-wordmark,
+    .hero-rule-horiz,
+    .hero-rule-vert {
       will-change: transform;
     }
 
@@ -1493,6 +1520,7 @@ const blends = [
       .hero-left,
       .hero-left-grafs,
       .hero-rule-vert,
+      .hero-rule-horiz,
       .hero-right,
       .hero-foot,
       .hamburger,
@@ -1668,30 +1696,60 @@ const blends = [
     window.addEventListener("scroll", syncScrolledState, { passive: true });
 
     const heroDriftRight = Array.from(
-      document.querySelectorAll(
-        ".meta-wordmark, .wordmark-stack, .foot-mark",
-      ),
+      document.querySelectorAll(".meta-wordmark, .wordmark-stack, .foot-mark"),
     ) as HTMLElement[];
     const heroDriftLeft = Array.from(
       document.querySelectorAll(
-        ".hero-intro-graf, .scroll-indicator, .foot-wordmark",
+        ".hero-intro-graf, .scroll-indicator, .foot-wordmark, .hero-rule-horiz",
       ),
     ) as HTMLElement[];
 
+    const heroSection = document.querySelector(
+      ".hero-v9",
+    ) as HTMLElement | null;
+    const heroDriftFade = Array.from(
+      document.querySelectorAll(
+        ".meta-wordmark, .hero-intro-graf, .scroll-indicator, .foot-mark, .foot-wordmark, .wordmark-tagline, .hero-left-grafs, .hamburger, .hero-rule-horiz",
+      ),
+    ) as HTMLElement[];
+
+    const vertRule = document.querySelector(
+      ".hero-rule-vert",
+    ) as HTMLElement | null;
+    const PARALLAX_MOBILE_BREAKPOINT = 640;
+
     function syncParallax() {
       const y = window.scrollY;
-      if (!reduceMotion.matches) {
+      const heroH = heroSection ? heroSection.offsetHeight : window.innerHeight;
+      const isMobile = window.innerWidth <= PARALLAX_MOBILE_BREAKPOINT;
+
+      if (!reduceMotion.matches && !isMobile) {
         const pull = y * 1.8;
+        const fadeProgress = Math.min(1, y / (heroH * 0.28));
         heroDriftRight.forEach((element) => {
           element.style.transform = `translateX(${pull}px)`;
         });
         heroDriftLeft.forEach((element) => {
           element.style.transform = `translateX(-${pull}px)`;
         });
+        heroDriftFade.forEach((element) => {
+          element.style.opacity = String(Math.max(0, 1 - fadeProgress * 1.15));
+        });
+        if (vertRule) {
+          vertRule.style.opacity = String(Math.max(0, 1 - fadeProgress * 1.15));
+          vertRule.style.transform = `scaleY(1) translateY(-${fadeProgress * 60}px)`;
+        }
       } else {
         [...heroDriftRight, ...heroDriftLeft].forEach((element) => {
           element.style.removeProperty("transform");
         });
+        heroDriftFade.forEach((element) => {
+          element.style.removeProperty("opacity");
+        });
+        if (vertRule) {
+          vertRule.style.removeProperty("opacity");
+          vertRule.style.removeProperty("transform");
+        }
       }
     }
     syncParallax();
