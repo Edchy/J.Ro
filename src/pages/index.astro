@@ -64,13 +64,12 @@ const blends = [
   <!-- ─── HERO ─────────────────────────────────────────────────── -->
   <section class="hero hero-v9" data-reveal="hero">
     <header class="hero-meta">
-      <span class="meta-tag">Järna Rosteri</span>
-      <span class="meta-divider">/</span>
-      <span class="meta-tag">Stockholm</span>
-      <span class="meta-divider">/</span>
-      <span class="meta-tag">Södermanland</span>
-      <span class="meta-divider">/</span>
-      <span class="meta-tag">Sverige</span>
+      <span
+        class="meta-wordmark"
+        style={`--wordmark-mask: url('${base}/assets/images/jarna-rosteri-wordmark.svg')`}
+        role="img"
+        aria-label="Järna Rosteri"
+      ></span>
     </header>
 
     <button
@@ -87,57 +86,66 @@ const blends = [
       <div class="hero-left">
         <div class="wordmark-stack">
           <LogoMark color="var(--jr-gron)" width="clamp(14rem, 30vw, 28rem)" />
+          <p class="wordmark-tagline">Kaffekultur, Hantverk &amp; hållbarhet</p>
         </div>
-        <div class="hero-sub">
-          <div class="sub-rule"></div>
-          <p class="sub-text">Ekologiskt<br />Biodynamiskt</p>
+        <div class="hero-left-grafs">
+          <p class="hero-intro-graf">
+            Här på Järna Rosteri, strax söder om Stockholm, rostar vi ekologiskt
+            kaffe. För hand, varje vecka, sedan 2013.
+          </p>
+          <p class="hero-intro-graf">
+            Det enda biodynamiska rosteriet i Norden. Hundra procent ekologiska
+            bönor, direktköpta från kretsloppsgårdar vi litar på. Rostat
+            småskaligt så att varje böna kommer till sin rätt.
+          </p>
         </div>
       </div>
 
       <div class="hero-rule-vert"></div>
 
       <div class="hero-right">
-        <div class="provenance-block">
-          <span class="prov-label">Rosteri</span>
-          <ul class="prov-list">
-            <li>Järna / Södermanland</li>
-            <li>Demeter / Certifierat</li>
-            <li>Småskalig / Produktion</li>
-          </ul>
-        </div>
-        <div class="provenance-block">
-          <span class="prov-label">Kaffe</span>
-          <ul class="prov-list">
-            <li>Hela bönor</li>
-            <li>Malet kaffe</li>
-            <li>Espresso &amp; brygg</li>
-          </ul>
-        </div>
+        <p class="hero-intro-graf">
+          Hos oss handlar kaffe om mer än bara rostning. Det är ett hantverk
+          grundat i relationer, hållbarhet och passion. Det handlar om kaffe i
+          balans med människa och natur.
+        </p>
+        <p class="hero-intro-graf">
+          Vi samarbetar direkt med Demeter-certifierade kaffegårdar, där varje
+          böna odlas i samklang med naturen och bär på en berättelse om balans,
+          respekt och mänskliga möten.
+        </p>
+        <p class="hero-intro-graf">
+          Vårt personliga engagemang genomsyrar hela processen, från ursprung
+          till kopp.
+        </p>
         <div class="scroll-indicator">
-          <span class="scroll-line"></span>
-          <span class="scroll-label">Blandningar</span>
+          <div class="scroll-labels">
+            <a href="#products" class="scroll-label">Blandningar</a>
+            <a href="#about" class="scroll-label">Ursprung</a>
+            <a href="#contact" class="scroll-label">Kontakt</a>
+          </div>
         </div>
       </div>
     </div>
 
     <footer class="hero-foot">
       <span class="foot-mark"></span>
-      <span class="foot-year">est. 2013</span>
+      <span
+        class="foot-wordmark"
+        style={`--wordmark-mask: url('${base}/assets/images/jarna-rosteri-wordmark.svg')`}
+        role="img"
+        aria-label="Järna Rosteri"></span>
     </footer>
   </section>
 
   <dialog id="site-menu" class="menu-dialog">
-    <button
-      type="button"
-      class="hamburger menu-close"
-      aria-label="Stäng meny"
-    >
+    <button type="button" class="hamburger menu-close" aria-label="Stäng meny">
       <span class="hamburger-bar hamburger-bar--top"></span>
       <span class="hamburger-bar hamburger-bar--bot"></span>
     </button>
     <div class="menu-inner">
       <nav class="menu-nav">
-        <a href="#about" class="menu-link">Om oss</a>
+        <a href="#about" class="menu-link">Ursprung</a>
         <a href="#contact" class="menu-link">Kontakt</a>
       </nav>
       <div class="menu-footer">
@@ -162,7 +170,7 @@ const blends = [
     </div>
   </dialog>
   <!-- ─── PRODUCTS ─────────────────────────────────────────────── -->
-  <div class="products-scroller" data-blend-scroller>
+  <div id="products" class="products-scroller" data-blend-scroller>
     <div class="products-stage" data-blend-stage>
       <p
         class="section-kicker products-kicker"
@@ -226,12 +234,21 @@ const blends = [
       <div class="about-section-copy">
         <p class="section-kicker" data-kicker-reveal>Om rosteriet</p>
         <p>
-          Hos oss handlar kaffe om mer än bara rostning – det är ett hantverk
-          grundat i relationer, hållbarhet och passion. Vi samarbetar direkt med
-          Demeter-certifierade kaffegårdar, där varje böna odlas i samklang med
-          naturen och bär på en berättelse om balans, respekt och mänskliga
-          möten. Vårt personliga engagemang genomsyrar hela processen, från
-          ursprung till kopp.
+          Vi startade Järna Rosteri för att det saknades något. Det fanns inget
+          biodynamiskt, Demeter-certifierat kaffe i Sverige, och vi ville testa
+          om det gick att göra rätt från början.
+        </p>
+        <p>
+          Det biodynamiska handlar inte om tro. Det handlar om cirkularitet och
+          balans, ett system där allt hänger ihop. Vi märkte att odlarna som
+          jobbade så här brydde sig mer — om marken, om kvaliteten, om
+          hållbarheten på lång sikt.
+        </p>
+        <p>
+          Vi köper råkaffe direkt från mindre kretsloppsgårdar där kaffet har
+          fått växa långsamt. Varje parti rostas för hand, varje vecka. Allt
+          handlar om en bra råvara som vi utvecklar genom rostning — och om att
+          göra något vi själva blir glada över.
         </p>
       </div>
       <div
@@ -280,7 +297,7 @@ const blends = [
           aria-label="Järna Rosteri"></span>
         <nav class="index-footer-nav">
           <a href="#contact" class="index-footer-link">Kontakt</a>
-          <a href="#about" class="index-footer-link">Om oss</a>
+          <a href="#about" class="index-footer-link">Ursprung</a>
         </nav>
         <p class="index-footer-copyright">© Järna Rosteri AB</p>
       </div>
@@ -350,22 +367,16 @@ const blends = [
       animation-delay: 0.1s;
     }
 
-    .meta-tag,
-    .meta-divider {
-      display: inline-block;
-      font-family: var(--font);
-      font-size: var(--text-ui);
-      color: var(--jr-gron);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-    }
-
-    .meta-tag {
-      opacity: 0.7;
-    }
-
-    .meta-divider {
-      opacity: 0.3;
+    .meta-wordmark {
+      height: clamp(0.75rem, 1.4vw, 1rem);
+      aspect-ratio: 1770 / 190;
+      width: auto;
+      display: block;
+      flex: 0 0 auto;
+      background: var(--jr-gron);
+      -webkit-mask: var(--wordmark-mask) center / contain no-repeat;
+      mask: var(--wordmark-mask) center / contain no-repeat;
+      opacity: 0.55;
     }
 
     .hero-body {
@@ -390,39 +401,34 @@ const blends = [
     .wordmark-stack {
       display: flex;
       flex-direction: column;
+      gap: 0.75rem;
       line-height: 0.88;
     }
 
-    .hero-sub {
-      display: flex;
-      align-items: center;
-      gap: var(--space-lg);
-    }
-
-    .sub-rule {
-      width: clamp(2rem, 6vw, 5rem);
-      height: 1px;
-      background: var(--jr-gron);
-      opacity: 0.45;
-      flex-shrink: 0;
-    }
-
-    .sub-text {
+    .wordmark-tagline {
       margin: 0;
-      font-family: var(--font);
+      font-family: var(--font-display);
       font-size: var(--text-ui);
+      line-height: 1.25;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.18em;
       color: var(--jr-gron);
-      opacity: 0.6;
-      line-height: var(--line-height);
+      opacity: 0.45;
+    }
+
+    .hero-left-grafs {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: clamp(1.5rem, 3vh, 2.5rem);
+      padding-top: clamp(1rem, 2vh, 1.75rem);
+      border-top: 1px solid color-mix(in srgb, var(--jr-gron) 25%, transparent);
     }
 
     .hero-rule-vert {
       width: 1px;
       align-self: stretch;
-      background: var(--jr-gron);
-      opacity: 0.15;
+      background: color-mix(in srgb, var(--jr-gron) 25%, transparent);
       flex-shrink: 0;
       animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) both;
       animation-delay: 0.35s;
@@ -437,40 +443,14 @@ const blends = [
       animation-delay: 0.45s;
     }
 
-    .provenance-block {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .prov-label {
-      padding-bottom: 0.4rem;
-      border-bottom: 1px solid
-        color-mix(in srgb, var(--jr-gron) 20%, transparent);
-      font-family: var(--font);
-      font-size: 0.6rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--jr-gron);
-      opacity: 0.5;
-    }
-
-    .prov-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
+    .hero-intro-graf {
       margin: 0;
-      padding: 0;
-    }
-
-    .prov-list li {
       font-family: var(--font);
       font-size: var(--text-ui);
+      line-height: 1.65;
       color: var(--jr-gron);
-      opacity: 0.55;
-      letter-spacing: 0.04em;
-      line-height: var(--line-height);
+      opacity: 0.6;
+      letter-spacing: 0.02em;
     }
 
     .scroll-indicator {
@@ -480,6 +460,13 @@ const blends = [
       gap: 0.5rem;
       margin-top: auto;
       padding-top: 1rem;
+    }
+
+    .scroll-labels {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 1.1rem;
     }
 
     .scroll-line {
@@ -493,13 +480,18 @@ const blends = [
 
     .scroll-label {
       font-family: var(--font);
-      font-size: 0.55rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
       color: var(--jr-gron);
       opacity: 0.35;
       writing-mode: vertical-lr;
       transform: rotate(180deg);
+      transition: opacity 0.2s ease;
+    }
+
+    .scroll-label:hover {
+      opacity: 0.7;
     }
 
     .hero-foot {
@@ -521,23 +513,24 @@ const blends = [
       letter-spacing: -0.03em;
     }
 
-    .foot-year {
-      display: inline-block;
-      font-family: var(--font);
-      font-size: var(--text-ui);
-      color: var(--jr-gron);
-      opacity: 0.25;
-      letter-spacing: 0.15em;
+    .foot-wordmark {
+      height: clamp(0.75rem, 1.4vw, 1rem);
+      aspect-ratio: 1770 / 190;
+      width: auto;
+      display: block;
+      flex: 0 0 auto;
+      background: var(--jr-gron);
+      -webkit-mask: var(--wordmark-mask) center / contain no-repeat;
+      mask: var(--wordmark-mask) center / contain no-repeat;
+      opacity: 0.55;
     }
 
-    .meta-tag,
-    .meta-divider,
+    .meta-wordmark,
     .wordmark-stack,
-    .hero-sub,
-    .provenance-block,
+    .hero-intro-graf,
     .scroll-indicator,
     .foot-mark,
-    .foot-year {
+    .foot-wordmark {
       will-change: transform;
     }
 
@@ -849,7 +842,7 @@ const blends = [
     .about-section {
       width: 100%;
       /*margin-top: clamp(4rem, 10vw, 8rem);*/
-      padding: clamp(3rem, 8vw, 6rem) var(--page-inset);
+      padding: clamp(3rem, 8vw, 6rem) var(--page-inset) clamp(6rem, 16vw, 12rem);
       background-color: var(--jr-vit);
     }
 
@@ -912,12 +905,16 @@ const blends = [
 
     .about-section-copy p:not(.section-kicker) {
       font-family: var(--font);
-      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      font-size: clamp(0.875rem, 1.2vw, 1rem);
       line-height: 1.75;
       color: var(--jr-morkrost);
       opacity: 0.9;
       text-align: left;
       margin: 0;
+    }
+
+    .about-section-copy p:not(.section-kicker) + p:not(.section-kicker) {
+      margin-top: 1.25em;
     }
 
     .about-section-copy > p:last-child::selection {
@@ -1490,6 +1487,7 @@ const blends = [
       .product-image,
       .hero-meta,
       .hero-left,
+      .hero-left-grafs,
       .hero-rule-vert,
       .hero-right,
       .hero-foot,
@@ -1667,12 +1665,12 @@ const blends = [
 
     const heroDriftRight = Array.from(
       document.querySelectorAll(
-        ".hero-meta .meta-tag, .hero-meta .meta-divider, .wordmark-stack, .foot-mark",
+        ".meta-wordmark, .wordmark-stack, .foot-mark",
       ),
     ) as HTMLElement[];
     const heroDriftLeft = Array.from(
       document.querySelectorAll(
-        ".hero-sub, .provenance-block, .scroll-indicator, .foot-year",
+        ".hero-intro-graf, .scroll-indicator, .foot-wordmark",
       ),
     ) as HTMLElement[];
 
@@ -1896,7 +1894,9 @@ const blends = [
       dialog.classList.add("is-visible");
       syncMenuState(true);
       requestAnimationFrame(() => {
-        (dialog.querySelector(".menu-close") as HTMLButtonElement | null)?.focus();
+        (
+          dialog.querySelector(".menu-close") as HTMLButtonElement | null
+        )?.focus();
       });
     }
 
