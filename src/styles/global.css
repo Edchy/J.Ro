@@ -22,13 +22,12 @@
   --jr-poabs-bry: rgb(233, 89, 86);
   --jr-mezzo: rgb(49, 145, 82);
   --jr-gold: #f6d957;
-  --hr: #ffdd3d;
   --font: "Maax Mono", "Courier New", monospace;
   --font-display: "Orator Std", "Maax Mono", monospace;
 
   --text-display: clamp(3rem, 11vw, 10rem);
   --text-heading: clamp(1.5rem, 3.5vw, 2.75rem);
-  --text-nav: 0.65rem;
+  --text-nav: 0.7rem;
   --text-body: clamp(0.85rem, 1.2vw, 1rem);
   --text-sub: clamp(0.75rem, 1.8vw, 1rem);
   --text-ui: 0.75rem;

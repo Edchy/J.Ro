@@ -63,7 +63,7 @@ const blends = [
 
 <Base title="Järna Rosteri">
   <!-- ─── HERO ─────────────────────────────────────────────────── -->
-  <section id="hero" class="hero hero-v9" data-reveal="hero">
+  <section id="hero" class="hero hero-v9">
     <header class="hero-meta">
       <span
         class="meta-wordmark"
@@ -151,6 +151,7 @@ const blends = [
         <a href="#about" class="menu-link">Ursprung</a>
         <a href="#contact" class="menu-link">Kontakt</a>
       </nav>
+      <ThemePicker />
       <div class="menu-footer">
         <svg
           class="menu-logomark"
@@ -222,7 +223,7 @@ const blends = [
           href="https://www.instagram.com/jarnarosteri"
           target="_blank"
           rel="noopener noreferrer"
-          class="contact-item">Instagram ↗</a
+          class="contact-item contact-item--secondary">Instagram ↗</a
         >
       </nav>
       <p class="contact-address">Maskinvägen 5<br /> 153 30, Järna</p>
@@ -1244,19 +1245,30 @@ const blends = [
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.75rem;
+      gap: clamp(0.75rem, 2vw, 1.25rem);
     }
 
     .contact-item {
       font-family: var(--font);
-      font-size: clamp(1.4rem, 3vw, 2.5rem);
+      font-size: clamp(1.1rem, 2.2vw, 1.9rem);
       line-height: 1;
       letter-spacing: 0.06em;
-      text-transform: uppercase;
+      text-transform: lowercase;
       color: var(--t-contact-text, var(--jr-ljusgul));
       text-decoration: none;
       transition: opacity 0.2s cubic-bezier(0.22, 1, 0.36, 1);
       display: block;
+    }
+
+    .contact-item--secondary {
+      font-size: clamp(0.75rem, 1.2vw, 1rem);
+      opacity: 0.45;
+      letter-spacing: 0.12em;
+      margin-top: 0.5rem;
+    }
+
+    .contact-item--secondary:hover {
+      opacity: 0.7;
     }
 
     .contact-item:hover {
@@ -1812,8 +1824,6 @@ const blends = [
     }
   </style>
 
-  <ThemePicker />
-
   <script>
     const hamburger = document.querySelector(".hamburger") as HTMLButtonElement;
     const dialog = document.getElementById("site-menu") as HTMLDialogElement;
@@ -1930,34 +1940,84 @@ const blends = [
       document.querySelectorAll("[data-blend-strip]"),
     ) as HTMLElement[];
     const EXPAND_DURATION = 450;
+    function blendName(strip: HTMLElement): string {
+      const label = strip.getAttribute("aria-label") ?? "";
+      return label.replace(/^(Expandera|Stäng)\s+/i, "");
+    }
+    function setBlendLabel(strip: HTMLElement, expanded: boolean) {
+      const name = blendName(strip);
+      strip.setAttribute("aria-label", `${expanded ? "Stäng" : "Expandera"} ${name}`);
+    }
+    let autoCycleTimer: number | undefined;
+    let autoCycleStopped = false;
+    let lastAutoCycleIndex = -1;
+
+    function expandStrip(strip: HTMLElement) {
+      blendStrips.forEach((otherStrip) => {
+        if (otherStrip === strip) return;
+        if (otherStrip.classList.contains("is-expanded")) {
+          otherStrip.classList.remove("is-expanded");
+          otherStrip.setAttribute("aria-expanded", "false");
+          setBlendLabel(otherStrip, false);
+          otherStrip.style.zIndex = "1";
+          setTimeout(() => {
+            otherStrip.style.removeProperty("z-index");
+          }, EXPAND_DURATION);
+        }
+      });
+      strip.style.zIndex = "3";
+      strip.classList.add("is-expanded");
+      strip.setAttribute("aria-expanded", "true");
+      setBlendLabel(strip, true);
+      setTimeout(() => {
+        strip.style.removeProperty("z-index");
+      }, EXPAND_DURATION);
+    }
+
+    function collapseStrip(strip: HTMLElement) {
+      strip.classList.remove("is-expanded");
+      strip.setAttribute("aria-expanded", "false");
+      setBlendLabel(strip, false);
+    }
+
+    function autoCycleNext() {
+      if (autoCycleStopped || window.innerWidth > MOBILE_BREAKPOINT) return;
+      let nextIndex: number;
+      do {
+        nextIndex = Math.floor(Math.random() * blendStrips.length);
+      } while (nextIndex === lastAutoCycleIndex && blendStrips.length > 1);
+      lastAutoCycleIndex = nextIndex;
+      const strip = blendStrips[nextIndex];
+      if (strip.classList.contains("is-expanded")) {
+        collapseStrip(strip);
+      } else {
+        expandStrip(strip);
+      }
+      autoCycleTimer = window.setTimeout(autoCycleNext, 1500);
+    }
+
+    function stopAutoCycle() {
+      autoCycleStopped = true;
+      window.clearTimeout(autoCycleTimer);
+    }
+
     blendStrips.forEach((strip) => {
       strip.addEventListener("click", () => {
         if (window.innerWidth > MOBILE_BREAKPOINT) return;
+        stopAutoCycle();
         const shouldExpand = !strip.classList.contains("is-expanded");
-        blendStrips.forEach((otherStrip) => {
-          if (otherStrip === strip) return;
-          if (otherStrip.classList.contains("is-expanded")) {
-            otherStrip.classList.remove("is-expanded");
-            otherStrip.setAttribute("aria-expanded", "false");
-            otherStrip.style.zIndex = "1";
-            setTimeout(() => {
-              otherStrip.style.removeProperty("z-index");
-            }, EXPAND_DURATION);
-          }
-        });
         if (shouldExpand) {
-          strip.style.zIndex = "3";
-          strip.classList.add("is-expanded");
-          strip.setAttribute("aria-expanded", "true");
-          setTimeout(() => {
-            strip.style.removeProperty("z-index");
-          }, EXPAND_DURATION);
+          expandStrip(strip);
         } else {
-          strip.classList.remove("is-expanded");
-          strip.setAttribute("aria-expanded", "false");
+          collapseStrip(strip);
         }
       });
     });
+
+    // Start auto-cycle after a short delay so the layout settles
+    if (window.innerWidth <= MOBILE_BREAKPOINT && !reduceMotion.matches) {
+      autoCycleTimer = window.setTimeout(autoCycleNext, 800);
+    }
     const N = blendStrips.length;
     const OVERLAP = 0.6;
     const OVERLAP2 = 0.4;
@@ -2083,7 +2143,9 @@ const blends = [
         blendStrips.forEach((strip) => {
           strip.classList.remove("is-expanded");
           strip.setAttribute("aria-expanded", "false");
+          setBlendLabel(strip, false);
         });
+        stopAutoCycle();
         computeBlendLayout();
         applyBlendStrips();
       }
