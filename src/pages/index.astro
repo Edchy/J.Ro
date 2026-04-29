@@ -1,10 +1,11 @@
 ---
 import Base from "../layouts/Base.astro";
 import LogoMark from "../components/LogoMark.astro";
+import ThemePicker from "../components/ThemePicker.astro";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const blends = [
   {
-    name: "POAB´S ESP",
+    name: "Poab´s Esp",
     desc: "Demeter-certifierad espresso med indisk arabica och robusta. Fyllig, kryddig och chokladig med låg syra och lång eftersmak.",
     tags: ["Espresso", "Hela bönor", "450 gram"],
     image: "blends/poabs-esp.webp",
@@ -13,7 +14,7 @@ const blends = [
     crop: "20% 15%",
   },
   {
-    name: "POAB´S BRY",
+    name: "Poab´s Bry",
     desc: "Demeter-certifierat bryggkaffe med indiskt ursprung. Mjukt och balanserat med låg syra, toner av kakao, torkad frukt och kryddor.",
     tags: ["Brygg", "Malda bönor", "450 gram"],
     image: "blends/poabs-bry.webp",
@@ -22,7 +23,7 @@ const blends = [
     crop: "80% 10%",
   },
   {
-    name: "MEZZO",
+    name: "Mezzo",
     desc: "Vår mest mångsidiga blandning. En mjuk balanserad mellanrost med florala toner från Etiopien, fyllighet och balans från Sydamerika.",
     tags: ["Mellanrost", "Malda bönor", "450 gram"],
     image: "blends/mezzo.webp",
@@ -31,7 +32,7 @@ const blends = [
     crop: "15% 80%",
   },
   {
-    name: "FRANCHESE",
+    name: "Franchese",
     desc: "Vår Franchese är en hyllning till den klassiska franskrosten. Intensiv & kryddig. Mörkrost för dig som gillar ett klassiskt och kraftfullt kaffe.",
     tags: ["Mörkrost", "Malda bönor", "450 gram"],
     image: "blends/franchese.webp",
@@ -40,7 +41,7 @@ const blends = [
     crop: "85% 75%",
   },
   {
-    name: "GRANDE",
+    name: "Grande",
     desc: "Vår klassiska italienska espresso med kraft och balans. Rund, nötig och chokladig i tonen. Perfekt med skummad mjölk eller som en elegant espresso.",
     tags: ["Espresso", "Hela bönor", "450 gram"],
     image: "blends/grande.webp",
@@ -49,7 +50,7 @@ const blends = [
     crop: "50% 20%",
   },
   {
-    name: "18 CONEJO",
+    name: "18 Conejo",
     desc: "Uppkallad efter gården i Honduras där kaffet odlas, 1250–1700 möh. Den biodynamiska blandningen av Catuai, Bourbon och Parainema ger fruktiga och florala toner.",
     tags: ["Brygg", "Malda bönor", "450 gram"],
     image: "blends/conejo.webp",
@@ -84,13 +85,15 @@ const blends = [
     <div class="hero-body">
       <div class="hero-left">
         <div class="wordmark-stack">
-          <LogoMark color="var(--jr-ocra)" width="clamp(14rem, 30vw, 28rem)" />
-          <p class="wordmark-tagline">Kaffekultur, Hantverk &amp; hållbarhet</p>
+          <LogoMark color="currentColor" width="clamp(14rem, 30vw, 28rem)" />
+          <p class="wordmark-tagline">
+            Kaffekultur, Hantverk<br class="tagline-break" /> &amp; hållbarhet
+          </p>
         </div>
         <div class="hero-rule-horiz"></div>
         <div class="hero-left-grafs">
           <p class="hero-intro-graf">
-            Här på Järna Rosteri, strax söder om Stockholm, rostar vi ekologiskt
+            På Järna Rosteri, strax söder om Stockholm, rostar vi ekologiskt
             kaffe. För hand, varje vecka, sedan 2013.
           </p>
           <p class="hero-intro-graf">
@@ -219,7 +222,7 @@ const blends = [
           href="https://www.instagram.com/jarnarosteri"
           target="_blank"
           rel="noopener noreferrer"
-          class="contact-item">instagram ↗</a
+          class="contact-item">Instagram ↗</a
         >
       </nav>
       <p class="contact-address">Maskinvägen 5<br /> 153 30, Järna</p>
@@ -282,7 +285,7 @@ const blends = [
           rel="noopener noreferrer"
           class="image-block-cta"
         >
-          <span class="image-block-cta-handle">instagram ↗</span>
+          <span class="image-block-cta-handle">Instagram ↗</span>
         </a>
       </div>
       <div class="image-block-scrim" aria-hidden="true"></div>
@@ -291,17 +294,23 @@ const blends = [
     <!-- ─── FOOTER ───────────────────────────────────────────────── -->
     <footer class="index-footer">
       <div class="index-footer-inner">
-        <a href="#hero" class="index-footer-wordmark-link" aria-label="Tillbaka till toppen">
-          <span
-            class="index-footer-wordmark"
-            style={`--wordmark-mask: url('${base}/assets/images/jarna-rosteri-wordmark.svg')`}
-            role="img"
-            aria-label="Järna Rosteri"></span>
-        </a>
-        <nav class="index-footer-nav">
-          <a href="#contact" class="index-footer-link">Kontakt</a>
-          <a href="#about" class="index-footer-link">Ursprung</a>
-        </nav>
+        <div class="index-footer-top">
+          <a
+            href="#hero"
+            class="index-footer-wordmark-link"
+            aria-label="Tillbaka till toppen"
+          >
+            <span
+              class="index-footer-wordmark"
+              style={`--wordmark-mask: url('${base}/assets/images/jarna-rosteri-wordmark.svg')`}
+              role="img"
+              aria-label="Järna Rosteri"></span>
+          </a>
+          <nav class="index-footer-nav">
+            <a href="#contact" class="index-footer-link">Kontakt</a>
+            <a href="#about" class="index-footer-link">Ursprung</a>
+          </nav>
+        </div>
         <p class="index-footer-copyright">© Järna Rosteri AB</p>
       </div>
     </footer>
@@ -343,7 +352,8 @@ const blends = [
       grid-template-rows: auto 1fr auto;
       padding: var(--space-lg);
       overflow: clip;
-      background-color: var(--jr-gron);
+      background-color: var(--t-hero-bg, var(--jr-gron));
+      transition: background-color 0.4s ease;
     }
 
     .hero-meta,
@@ -370,10 +380,11 @@ const blends = [
       width: auto;
       display: block;
       flex: 0 0 auto;
-      background: var(--jr-ocra);
+      background: var(--t-hero-bar-wordmark, var(--jr-ocra));
       -webkit-mask: var(--wordmark-mask) center / contain no-repeat;
       mask: var(--wordmark-mask) center / contain no-repeat;
       opacity: 0.55;
+      transition: background 0.4s ease;
     }
 
     .hero-body {
@@ -400,23 +411,39 @@ const blends = [
       flex-direction: column;
       gap: 0.75rem;
       line-height: 0.88;
+      color: var(--t-hero-wordmark, var(--jr-ocra));
+      transition: color 0.4s ease;
     }
 
     .wordmark-tagline {
       margin: 0;
       font-family: var(--font-display);
-      font-size: var(--text-ui);
+      font-size: var(--text-sub);
       line-height: 1.25;
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      color: var(--jr-ocra);
-      opacity: 0.45;
+      color: var(--t-hero-accent, var(--jr-ocra));
+      opacity: 0.85;
+      transition: color 0.4s ease;
+    }
+
+    .tagline-break {
+      display: none;
+    }
+
+    @media (max-width: 640px) {
+      .tagline-break {
+        display: block;
+      }
     }
 
     .hero-rule-horiz {
       width: 100%;
       height: 1px;
-      background: color-mix(in srgb, var(--jr-ljusgul) 25%, transparent);
+      background: var(
+        --t-hero-rule,
+        color-mix(in srgb, var(--jr-ljusgul) 25%, transparent)
+      );
       margin-top: clamp(1.5rem, 3vh, 2.5rem);
       transform-origin: left center;
       transform: scaleX(0);
@@ -442,7 +469,10 @@ const blends = [
     .hero-rule-vert {
       width: 1px;
       align-self: stretch;
-      background: color-mix(in srgb, var(--jr-ljusgul) 25%, transparent);
+      background: var(
+        --t-hero-rule,
+        color-mix(in srgb, var(--jr-ljusgul) 25%, transparent)
+      );
       flex-shrink: 0;
       transform-origin: top center;
       transform: scaleY(0);
@@ -471,9 +501,10 @@ const blends = [
       font-family: var(--font);
       font-size: var(--text-ui);
       line-height: 1.65;
-      color: var(--jr-ljusgul);
-      opacity: 0.6;
+      color: var(--t-hero-text, var(--jr-ljusgul));
+      opacity: var(--t-hero-text-opacity, 0.6);
       letter-spacing: 0.02em;
+      transition: color 0.4s ease;
     }
 
     .scroll-indicator {
@@ -506,7 +537,7 @@ const blends = [
       font-size: var(--text-nav);
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      color: var(--jr-ljusgul);
+      color: var(--t-hero-text, var(--jr-ljusgul));
       opacity: 0.35;
       text-decoration: none;
       writing-mode: vertical-lr;
@@ -519,7 +550,7 @@ const blends = [
     }
 
     .scroll-label:focus-visible {
-      outline: 1px solid var(--jr-ljusgul);
+      outline: 1px solid var(--t-hero-text, var(--jr-ljusgul));
       outline-offset: 3px;
       opacity: 0.9;
     }
@@ -542,9 +573,10 @@ const blends = [
       display: inline-block;
       font-family: var(--font-display);
       font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-      color: var(--jr-ljusgul);
+      color: var(--t-hero-text, var(--jr-ljusgul));
       opacity: 0.4;
       letter-spacing: -0.03em;
+      transition: color 0.4s ease;
     }
 
     .foot-wordmark {
@@ -553,10 +585,11 @@ const blends = [
       width: auto;
       display: block;
       flex: 0 0 auto;
-      background: var(--jr-ocra);
+      background: var(--t-hero-bar-wordmark, var(--jr-ocra));
       -webkit-mask: var(--wordmark-mask) center / contain no-repeat;
       mask: var(--wordmark-mask) center / contain no-repeat;
       opacity: 0.55;
+      transition: background 0.4s ease;
     }
 
     .meta-wordmark,
@@ -595,7 +628,8 @@ const blends = [
       padding: 0;
       width: var(--hamburger-size);
       height: var(--hamburger-size);
-      color: var(--jr-ljusgul);
+      color: var(--t-hamburger, var(--jr-ljusgul));
+      transition: color 0.4s ease;
       transition:
         opacity 0.25s ease,
         border-color 0.25s ease,
@@ -607,7 +641,7 @@ const blends = [
     }
 
     .hamburger:focus-visible {
-      outline: 2px solid var(--jr-ljusgul);
+      outline: 2px solid var(--t-hamburger, var(--jr-ljusgul));
       outline-offset: 2px;
     }
 
@@ -671,8 +705,8 @@ const blends = [
       padding: 0;
       border: none;
       overflow: hidden;
-      background-color: var(--jr-gron);
-      color: var(--jr-ljusgul);
+      background-color: var(--t-menu-bg, var(--jr-gron));
+      color: var(--t-menu-text, var(--jr-ljusgul));
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
@@ -763,7 +797,7 @@ const blends = [
     }
 
     .menu-link:focus-visible {
-      outline: 1px solid var(--jr-ljusgul);
+      outline: 1px solid var(--t-menu-text, var(--jr-ljusgul));
       outline-offset: 4px;
       opacity: 1;
     }
@@ -780,7 +814,7 @@ const blends = [
     }
 
     .menu-footer {
-      color: var(--jr-vit);
+      color: var(--t-menu-footer, var(--jr-vit));
       position: absolute;
       bottom: 0;
       inset-inline: 0;
@@ -884,19 +918,30 @@ const blends = [
       font-size: var(--text-body);
       text-transform: uppercase;
       letter-spacing: 0.28em;
-      color: var(--jr-ocra);
+      color: var(--t-hero-accent, var(--jr-ocra));
+      transition: color 0.4s ease;
+    }
+
+    .about-section .section-kicker {
+      color: var(--t-about-kicker, var(--jr-ocra));
+    }
+
+    .contact-section .section-kicker {
+      color: var(--t-contact-kicker, var(--t-contact-text, var(--jr-ljusgul)));
+      opacity: 0.7;
     }
 
     .section-kicker--warm {
       display: block;
-      color: var(--jr-ocra);
+      color: var(--t-hero-accent, var(--jr-ocra));
     }
 
     /* ── ABOUT SECTION ──────────────────────────────────────────── */
     .about-section {
       width: 100%;
       padding: clamp(3rem, 8vw, 6rem) var(--page-inset) clamp(6rem, 16vw, 12rem);
-      background-color: var(--jr-vit);
+      background-color: var(--t-about-bg, var(--jr-vit));
+      transition: background-color 0.4s ease;
     }
 
     .about-section-inner {
@@ -960,8 +1005,9 @@ const blends = [
       font-family: var(--font);
       font-size: clamp(0.875rem, 1.2vw, 1rem);
       line-height: 1.75;
-      color: var(--jr-morkrost);
+      color: var(--t-about-text, var(--jr-morkrost));
       opacity: 0.9;
+      transition: color 0.4s ease;
       text-align: left;
       margin: 0;
     }
@@ -1055,7 +1101,8 @@ const blends = [
       display: grid;
       grid-template-rows: minmax(0, 1fr) auto;
       min-height: 100svh;
-      background: var(--jr-vit);
+      background: var(--t-footer-bg, var(--jr-vit));
+      transition: background 0.4s ease;
     }
 
     .image-block {
@@ -1065,7 +1112,7 @@ const blends = [
       height: 100%;
       min-height: 0;
       overflow: hidden;
-      background: var(--jr-vit);
+      background: var(--t-footer-bg, var(--jr-vit));
     }
 
     .image-block-photo {
@@ -1165,12 +1212,16 @@ const blends = [
       font-size: clamp(1.4rem, 3vw, 2.5rem);
       letter-spacing: -0.03em;
       line-height: 1;
+      text-transform: uppercase;
     }
 
     /* ── CONTACT SECTION ────────────────────────────────────────── */
     .contact-section {
-      background: var(--jr-brun);
-      color: var(--jr-ljusgul);
+      background: var(--t-contact-bg, var(--jr-brun));
+      color: var(--t-contact-text, var(--jr-ljusgul));
+      transition:
+        background 0.4s ease,
+        color 0.4s ease;
       min-height: 100svh;
       display: flex;
       align-items: center;
@@ -1200,8 +1251,9 @@ const blends = [
       font-family: var(--font);
       font-size: clamp(1.4rem, 3vw, 2.5rem);
       line-height: 1;
-      letter-spacing: -0.03em;
-      color: var(--jr-ljusgul);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--t-contact-text, var(--jr-ljusgul));
       text-decoration: none;
       transition: opacity 0.2s cubic-bezier(0.22, 1, 0.36, 1);
       display: block;
@@ -1212,14 +1264,13 @@ const blends = [
     }
 
     .contact-item:focus-visible {
-      outline: 1px solid var(--jr-ljusgul);
+      outline: 1px solid var(--t-contact-text, var(--jr-ljusgul));
       outline-offset: 4px;
       opacity: 1;
     }
 
     @media (max-width: 800px) {
-      .contact-item,
-      .index-footer-link {
+      .contact-item {
         display: inline-flex;
         align-items: center;
         min-height: 44px;
@@ -1231,35 +1282,48 @@ const blends = [
       font-size: var(--text-ui);
       text-transform: uppercase;
       letter-spacing: 0.2em;
-      color: var(--jr-ocra);
+      color: var(--t-contact-address, var(--jr-ocra));
       opacity: 0.72;
       margin-top: clamp(2.5rem, 6vw, 4rem);
     }
 
     /* ── INDEX FOOTER ───────────────────────────────────────────── */
     .index-footer {
-      background: var(--jr-vit);
-      color: var(--jr-gron);
+      background: var(--t-footer-bg, var(--jr-vit));
+      color: var(--t-footer-text, var(--jr-gron));
+      transition:
+        background 0.4s ease,
+        color 0.4s ease;
     }
 
     .index-footer-inner {
       width: min(100%, var(--content-shell-max));
       margin: 0 auto;
       padding-inline: 2rem;
-      padding-block: 4rem max(4rem, env(safe-area-inset-bottom));
+      padding-block: 4rem max(1.25rem, env(safe-area-inset-bottom));
+      min-height: clamp(12rem, 20vw, 16rem);
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      align-items: stretch;
       justify-content: space-between;
       gap: var(--space-lg);
     }
 
+    .index-footer-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: var(--space-lg);
+    }
+
     .index-footer-wordmark {
-      height: clamp(1rem, 2.5vw, 1.4rem);
+      height: clamp(1.25rem, 3vw, 1.75rem);
       aspect-ratio: 1770 / 190;
       width: auto;
       display: block;
       flex: 0 0 auto;
-      color: var(--jr-gron);
+      color: var(--t-footer-text, var(--jr-gron));
       background: currentColor;
       -webkit-mask: var(--wordmark-mask) center / contain no-repeat;
       mask: var(--wordmark-mask) center / contain no-repeat;
@@ -1281,7 +1345,8 @@ const blends = [
     .index-footer-link {
       font-family: var(--font);
       font-size: var(--text-ui);
-      color: var(--jr-gron);
+      line-height: 1;
+      color: var(--t-footer-text, var(--jr-gron));
       text-decoration: none;
       opacity: 0.55;
       letter-spacing: 0.08em;
@@ -1290,7 +1355,10 @@ const blends = [
     }
 
     .index-footer-copyright {
+      opacity: 0.35;
       white-space: nowrap;
+      width: 100%;
+      text-align: center;
     }
 
     .index-footer-link:hover {
@@ -1298,7 +1366,7 @@ const blends = [
     }
 
     .index-footer-link:focus-visible {
-      outline: 1px solid var(--jr-gron);
+      outline: 1px solid var(--t-footer-text, var(--jr-gron));
       outline-offset: 3px;
       opacity: 1;
     }
@@ -1308,7 +1376,8 @@ const blends = [
     .products-scroller {
       position: relative;
       height: 300svh;
-      background: var(--jr-gron);
+      background: var(--t-products-bg, var(--jr-gron));
+      transition: background 0.4s ease;
     }
 
     .products-stage {
@@ -1328,7 +1397,7 @@ const blends = [
       right: var(--page-inset);
       z-index: 2;
       margin: 0;
-      color: var(--jr-ocra);
+      color: var(--t-hero-accent, var(--jr-ocra));
       text-align: right;
       will-change: opacity, transform;
     }
@@ -1359,7 +1428,7 @@ const blends = [
       content: "";
       position: absolute;
       inset: 0;
-      box-shadow: inset 0 0 0 5px var(--jr-gron);
+      box-shadow: inset 0 0 0 5px var(--t-products-strip-shadow, var(--jr-gron));
       pointer-events: none;
       z-index: 2;
     }
@@ -1619,8 +1688,11 @@ const blends = [
       .product-desc,
       .product-tags,
       .index-footer-inner,
-      .index-footer-nav,
       .index-footer-copyright {
+        text-align: center;
+      }
+
+      .index-footer-nav {
         text-align: center;
       }
 
@@ -1666,36 +1738,40 @@ const blends = [
       }
 
       .index-footer-inner {
-        align-items: center;
-        flex-direction: column;
         gap: 1.25rem;
         padding-inline: 2rem;
-        padding-block: 1.5rem max(1.75rem, env(safe-area-inset-bottom));
-        text-align: center;
+        padding-block: 2rem max(1.25rem, env(safe-area-inset-bottom));
       }
 
       .index-footer-wordmark {
-        height: 1.15rem;
+        height: 1.5rem;
         opacity: 0.78;
       }
 
       .index-footer-nav {
-        justify-content: center;
-        gap: 1.25rem;
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
       }
 
-      .index-footer-link,
-      .index-footer-copyright {
-        opacity: 0.7;
+      .index-footer-nav .index-footer-link {
+        padding-block: 0.6rem;
+        display: block;
+      }
+
+      .index-footer-link {
+        opacity: 0.55;
+      }
+
+      .index-footer-top {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
       }
 
       .index-footer-copyright {
-        width: 100%;
-        padding-top: 0.75rem;
-        font-size: calc(var(--text-ui) * 0.82);
-        border-top: 1px solid
-          color-mix(in srgb, var(--jr-ocra) 22%, transparent);
+        text-align: center;
+        font-size: calc(var(--text-ui) * 0.78);
       }
     }
 
@@ -1735,6 +1811,8 @@ const blends = [
       }
     }
   </style>
+
+  <ThemePicker />
 
   <script>
     const hamburger = document.querySelector(".hamburger") as HTMLButtonElement;
@@ -1814,31 +1892,22 @@ const blends = [
         }
         mobileDriftLeft.forEach((el) => el.style.removeProperty("transform"));
         mobileDriftRight.forEach((el) => el.style.removeProperty("transform"));
-      } else if (!reduceMotion.matches && isMobile) {
-        const pull = y * 1.8;
-        mobileDriftLeft.forEach((el) => {
-          el.style.transform = `translateX(-${pull}px)`;
-        });
-        mobileDriftRight.forEach((el) => {
-          el.style.transform = `translateX(${pull}px)`;
-        });
-        [...heroDriftRight, ...heroDriftLeft].forEach((el) =>
-          el.style.removeProperty("transform"),
-        );
-        heroDriftFade.forEach((el) => el.style.removeProperty("opacity"));
-        if (vertRule) {
-          vertRule.style.removeProperty("opacity");
-          vertRule.style.removeProperty("transform");
-        }
       } else {
-        [
-          ...heroDriftRight,
-          ...heroDriftLeft,
-          ...mobileDriftLeft,
-          ...mobileDriftRight,
-        ].forEach((element) => {
-          element.style.removeProperty("transform");
-        });
+        if (isMobile && !reduceMotion.matches) {
+          const pull = y * 1.8;
+          mobileDriftRight.forEach((el) => {
+            el.style.transform = `translateX(${pull}px)`;
+          });
+        } else {
+          mobileDriftRight.forEach((el) =>
+            el.style.removeProperty("transform"),
+          );
+        }
+        [...heroDriftRight, ...heroDriftLeft, ...mobileDriftLeft].forEach(
+          (element) => {
+            element.style.removeProperty("transform");
+          },
+        );
         heroDriftFade.forEach((element) => {
           element.style.removeProperty("opacity");
         });
@@ -2097,12 +2166,14 @@ const blends = [
         if (href && href.startsWith("#")) {
           e.preventDefault();
           const target = document.querySelector(href) as HTMLElement | null;
-          const targetY = target ? target.getBoundingClientRect().top + window.scrollY : 0;
+          const targetY = target
+            ? target.getBoundingClientRect().top + window.scrollY
+            : 0;
+          window.scrollTo({ top: targetY, behavior: "instant" });
           dialog.classList.remove("is-visible");
           syncMenuState(false);
           closeTimer = window.setTimeout(() => {
             if (dialog.open) dialog.close();
-            window.scrollTo({ top: targetY });
           }, menuTransitionMs);
         } else {
           closeMenu();
